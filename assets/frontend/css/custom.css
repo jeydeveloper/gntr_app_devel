@@ -1,0 +1,37 @@
+.main{
+	border-bottom: 0;
+}
+
+.login-actions {
+	margin-bottom: 0;
+}
+
+.bg-success {
+    background-color: #dff0d8;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.pad-10 {
+    padding: 15px;
+}
+
+.bg-danger {
+    background-color: #f2dede;
+}
+
+.bg-warning {
+    background-color: #fcf8e3;
+}
+
+.widget-content {padding: 10px;}
+
+.shortcuts .shortcut{margin-bottom: 5px;}
+
+@media (min-width: 1200px) {
+	.span6.dashboard {
+	    width: 470px;
+	}
+}

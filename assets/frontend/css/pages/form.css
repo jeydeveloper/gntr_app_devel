@@ -1,0 +1,85 @@
+.form-fields {
+	
+}
+
+.form-fields .field {
+	margin-bottom: 1.25em;
+}
+
+.form-fields input, .form-fields textarea {
+	font-family: 'Open Sans';
+	font-size: 13px;
+	color: #8e8d8d;
+	background-color: #fdfdfd;
+	display: block;
+	margin: 0;
+	box-shadow: inset 2px 2px 4px #f1f1f1;
+	padding: 10px 0 10px 5px;
+    width: 99%;
+}
+
+span.form-checkbox {
+	float: left;
+	margin-top: 31px;
+}
+
+span.form-checkbox > input[type='checkbox'] {
+    opacity: 0;
+    float: left;
+    width: 15px;
+}
+
+span.form-checkbox > input[type='checkbox'] + label {    
+    clear: none;
+    
+	height: 15px; 
+	display: block;
+    padding: 0 0 0 22px;
+    margin: 0;
+    
+    font-size: 12px;
+    line-height: 1.2em;
+    
+    background: url(../../img/signin/check.png) no-repeat 0 0;
+    
+    cursor: pointer;
+}
+
+span.form-checkbox > input[type='checkbox']:checked + label {	
+	background-position: 0 -15px;
+}
+
+/** Text Under Box**/
+.form-extra {
+	display: block; 
+	width: 300px; 
+	margin: 1.5em auto;
+	 
+	text-align: left;
+	line-height: 19px; 
+	
+	text-shadow: 1px 1px 0px #fff; 	
+}
+
+
+.account-container h1 {
+	margin-bottom: .4em;
+	
+	color: #525252;
+}
+.button {-webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; display: inline-block;}
+
+.form-actions {
+	border-top: 0;
+	margin-bottom: 0;
+}
+
+form{
+	margin: 0;
+}
+
+.form-fields input[type="checkbox"]{width: auto;}
+
+@media (max-width: 480px) {
+	
+}
