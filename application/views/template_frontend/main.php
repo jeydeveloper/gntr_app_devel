@@ -43,7 +43,7 @@
                 <li class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-credit-card"></i><span>Kas Bank</span> <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><a href="<?php echo site_url('kas-bank-penerimaan'); ?>">Penerimaan</a></li>
-                        <li><a href="<?php echo site_url('kas-bank-pembayaran'); ?>.html">Pembayaran</a></li>
+                        <li><a href="<?php echo site_url('kas-bank-pembayaran'); ?>">Pembayaran</a></li>
                         <li><a href="<?php echo site_url('grafik-bank-bca'); ?>">Buku Bank</a></li>
                     </ul>
                 </li>

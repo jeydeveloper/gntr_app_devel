@@ -20,5 +20,7 @@
     <!--[if lt IE 9]>
           <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
+
+    <script type="text/javascript" src="<?php echo $assets; ?>/js/jquery-1.7.2.min.js"></script>
     </head>
 <body>
