@@ -40,11 +40,25 @@
 
 /* Routing untuk Backstage */
 $route['default_controller'] = "frontend_home/home";
+
+//route pengguna
 $route['pengguna'] = "frontend_user/user";
+$route['pengguna/add'] = "frontend_user/user/add";
+
 $route['wajib-pajak'] = "frontend_wajibpajak/wajibpajak";
+
+//route user level
 $route['user-level'] = "frontend_userlevel/userlevel";
+$route['user-level/add'] = "frontend_userlevel/userlevel/add";
+
+//route departemen
 $route['departemen'] = "frontend_departemen/departemen";
+$route['departemen/add'] = "frontend_departemen/departemen/add";
+
+//route daftar aktiva tetap
 $route['daftar-aktiva-tetap'] = "frontend_daftaraktivatetap/daftaraktivatetap";
+$route['daftar-aktiva-tetap/add'] = "frontend_daftaraktivatetap/daftaraktivatetap/add";
+
 $route['kas-bank-penerimaan'] = "frontend_kasbankpenerimaan/kasbankpenerimaan";
 $route['kas-bank-pembayaran'] = "frontend_kasbankpembayaran/kasbankpembayaran";
 $route['grafik-bank-bca'] = "frontend_grafikbankbca/grafikbankbca";
