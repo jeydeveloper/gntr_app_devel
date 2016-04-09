@@ -50,6 +50,8 @@ $route['wajib-pajak'] = "frontend_wajibpajak/wajibpajak";
 //route user level
 $route['user-level'] = "frontend_userlevel/userlevel";
 $route['user-level/add'] = "frontend_userlevel/userlevel/add";
+$route['user-level/edit/(:any)'] = "frontend_userlevel/userlevel/edit/$1";
+$route['user-level/delete/(:any)'] = "frontend_userlevel/userlevel/delete/$1";
 
 //route departemen
 $route['departemen'] = "frontend_departemen/departemen";

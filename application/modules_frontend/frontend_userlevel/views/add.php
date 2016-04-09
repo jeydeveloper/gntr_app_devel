@@ -13,18 +13,13 @@
             </div>
             <!-- /widget-header -->
             <div class="widget-content">
-              <form action="vendor_list_submit_edit.html" method="post">
+              <form action="" method="post">
                 
                 <div class="form-fields">
                   
                   <div class="field">
-                    <label for="name">No.</label>
-                    <input id="name" name="name" value="No." placeholder="No" />
-                  </div> <!-- /field -->
-                  
-                  <div class="field">
-                    <label for="cp">Level</label>
-                    <input id="cp" name="cp" value="level" placeholder="Level"/>
+                    <label for="aulv_name">Level</label>
+                    <input id="aulv_name" name="aulv_name" placeholder="Level" required />
                   </div> <!-- /field -->
                                 
                 </div> <!-- /form-fields -->
@@ -32,7 +27,7 @@
                 <div class="form-actions">
                   <div class="pull-right">
                     <button type="reset" class="button btn btn-default btn-large">Reset</button>
-                    <button class="button btn btn-primary btn-large">Submit</button>
+                    <button type="submit" class="button btn btn-primary btn-large">Submit</button>
                   </div>
                 </div> <!-- .actions -->
                 

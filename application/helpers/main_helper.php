@@ -297,3 +297,8 @@ function excel_datetime($datetime, $delimiter='-') {
 	$date = $day . '/' . $month . '/' . $year;
 	return $date;
 }
+
+function show_error_page() {
+	show_404(); 
+	exit();
+}
