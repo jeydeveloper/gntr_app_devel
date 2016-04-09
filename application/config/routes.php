@@ -50,13 +50,29 @@ $route['kas-bank-pembayaran'] = "frontend_kasbankpembayaran/kasbankpembayaran";
 $route['grafik-bank-bca'] = "frontend_grafikbankbca/grafikbankbca";
 $route['daftar-akun'] = "frontend_daftarakun/daftarakun";
 $route['mata-uang'] = "frontend_matauang/matauang";
-$route['pembelian'] = "frontend_pembelian/pembelian";
-$route['penjualan'] = "frontend_penjualan/penjualan";
 $route['proyek-dashboard'] = "frontend_proyekdashboard/proyekdashboard";
 $route['lain-lain'] = "frontend_lainlain/lainlain";
 $route['bpu'] = "frontend_bpu/bpu";
 $route['laporan'] = "frontend_laporan/laporan";
 $route['karyawan'] = "frontend_karyawan/karyawan";
+
+//route module pembelian
+$route['pembelian'] = "frontend_pembelian/pembelian";
+$route['pembelian/permintaan'] = "frontend_pembelian/pembelian/permintaan";
+$route['pembelian/kwitansi'] = "frontend_pembelian/pembelian/kwitansi";
+$route['pembelian/surat-jalan'] = "frontend_pembelian/pembelian/suratJalan";
+$route['pembelian/invoice'] = "frontend_pembelian/pembelian/invoice";
+$route['pembelian/tanda-terima'] = "frontend_pembelian/pembelian/tandaTerima";
+$route['pembelian/bukti-pembayaran'] = "frontend_pembelian/pembelian/buktiPembayaran";
+
+$route['penjualan'] = "frontend_penjualan/penjualan";
+$route['penjualan/penawaran'] = "frontend_penjualan/penjualan/penawaran";
+$route['penjualan/permintaan'] = "frontend_penjualan/penjualan/permintaan";
+$route['penjualan/invoice'] = "frontend_penjualan/penjualan/invoice";
+$route['penjualan/kwitansi'] = "frontend_penjualan/penjualan/kwitansi";
+$route['penjualan/berita-acara'] = "frontend_penjualan/penjualan/beritaAcara";
+$route['penjualan/tanda-terima'] = "frontend_penjualan/penjualan/tandaTerima";
+$route['penjualan/bukti-pembayaran'] = "frontend_penjualan/penjualan/buktiPembayaran";
 
 $route['404_override'] = '';
 

@@ -6,7 +6,7 @@
           <div class="widget">
             <div class="widget-content">
               <div class="shortcuts"> 
-                <a href="permintaan_pembelian.html" class="shortcut" style="width: 100%;">
+                <a href="<?php echo site_url('pembelian/permintaan'); ?>" class="shortcut" style="width: 100%;">
                   <i class="shortcut-icon icon-shopping-cart"></i>
                   <span class="shortcut-label">Permintaan Pembelian</span> 
                 </a>
@@ -37,7 +37,7 @@
           <div class="widget">
             <div class="widget-content">
               <div class="shortcuts"> 
-                <a href="kwitansi.html" class="shortcut" style="width: 100%;">
+                <a href="<?php echo site_url('pembelian/kwitansi'); ?>" class="shortcut" style="width: 100%;">
                   <i class="shortcut-icon icon-file"></i>
                   <span class="shortcut-label">Kwitansi</span> 
                 </a>
@@ -68,7 +68,7 @@
           <div class="widget">
             <div class="widget-content">
               <div class="shortcuts"> 
-                <a href="surat_jalan.html" class="shortcut" style="width: 100%;">
+                <a href="<?php echo site_url('pembelian/surat-jalan'); ?>" class="shortcut" style="width: 100%;">
                   <i class="shortcut-icon icon-truck"></i>
                   <span class="shortcut-label">Surat Jalan</span> 
                 </a>
@@ -106,7 +106,7 @@
           <div class="widget">
             <div class="widget-content">
               <div class="shortcuts"> 
-                <a href="bukti_pembayaran.html" class="shortcut" style="width: 100%;">
+                <a href="<?php echo site_url('pembelian/bukti-pembayaran'); ?>" class="shortcut" style="width: 100%;">
                   <i class="shortcut-icon icon-list-alt"></i>
                   <span class="shortcut-label">Bukti Pembayaran</span> 
                 </a>
@@ -137,7 +137,7 @@
           <div class="widget">
             <div class="widget-content">
               <div class="shortcuts"> 
-                <a href="tanda_terima_pembelian_list.html" class="shortcut" style="width: 100%;">
+                <a href="<?php echo site_url('pembelian/tanda-terima'); ?>" class="shortcut" style="width: 100%;">
                   <i class="shortcut-icon icon-copy"></i>
                   <span class="shortcut-label">Tanda Terima</span> 
                 </a>
@@ -168,7 +168,7 @@
           <div class="widget">
             <div class="widget-content">
               <div class="shortcuts"> 
-                <a href="invoice.html" class="shortcut" style="width: 100%;">
+                <a href="<?php echo site_url('pembelian/invoice'); ?>" class="shortcut" style="width: 100%;">
                   <i class="shortcut-icon icon-file-text-alt"></i>
                   <span class="shortcut-label">Invoice</span> 
                 </a>

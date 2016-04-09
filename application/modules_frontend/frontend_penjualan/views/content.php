@@ -6,7 +6,7 @@
           <div class="widget">
             <div class="widget-content">
               <div class="shortcuts"> 
-                <a href="penawaran_penjualan_list.html" class="shortcut" style="width: 100%;">
+                <a href="<?php echo site_url('penjualan/penawaran'); ?>" class="shortcut" style="width: 100%;">
                   <i class="shortcut-icon icon-upload-alt"></i>
                   <span class="shortcut-label">Penawaran Penjualan</span> 
                 </a>
@@ -37,7 +37,7 @@
           <div class="widget">
             <div class="widget-content">
               <div class="shortcuts"> 
-                <a href="permintaan_penjualan_list.html" class="shortcut" style="width: 100%;">
+                <a href="<?php echo site_url('penjualan/permintaan'); ?>" class="shortcut" style="width: 100%;">
                   <i class="shortcut-icon icon-tags"></i>
                   <span class="shortcut-label">Permintaan Penjualan</span> 
                 </a>
@@ -68,7 +68,7 @@
           <div class="widget">
             <div class="widget-content">
               <div class="shortcuts"> 
-                <a href="invoice_penjualan_list.html" class="shortcut" style="width: 100%;">
+                <a href="<?php echo site_url('penjualan/invoice'); ?>" class="shortcut" style="width: 100%;">
                   <i class="shortcut-icon icon-file"></i>
                   <span class="shortcut-label">Invoice</span> 
                 </a>
@@ -106,7 +106,7 @@
           <div class="widget">
             <div class="widget-content">
               <div class="shortcuts"> 
-                <a href="tanda_terima_penjualan_list.html" class="shortcut" style="width: 100%;">
+                <a href="<?php echo site_url('penjualan/tanda-terima'); ?>" class="shortcut" style="width: 100%;">
                   <i class="shortcut-icon icon-copy"></i>
                   <span class="shortcut-label">Tanda Terima</span> 
                 </a>
@@ -137,7 +137,7 @@
           <div class="widget">
             <div class="widget-content">
               <div class="shortcuts"> 
-                <a href="berita_acara_list.html" class="shortcut" style="width: 100%;">
+                <a href="<?php echo site_url('penjualan/berita-acara'); ?>" class="shortcut" style="width: 100%;">
                   <i class="shortcut-icon icon-list-ol"></i>
                   <span class="shortcut-label">Berita Acara/Absensi</span> 
                 </a>
@@ -168,7 +168,7 @@
           <div class="widget">
             <div class="widget-content">
               <div class="shortcuts"> 
-                <a href="kwitansi_penjualan_list.html" class="shortcut" style="width: 100%;">
+                <a href="<?php echo site_url('penjualan/kwitansi'); ?>" class="shortcut" style="width: 100%;">
                   <i class="shortcut-icon icon-paste"></i>
                   <span class="shortcut-label">Kwitansi</span> 
                 </a>
@@ -203,7 +203,7 @@
           <div class="widget">
             <div class="widget-content">
               <div class="shortcuts"> 
-                <a href="bukti_pembayaran_penjualan_list.html" class="shortcut" style="width: 100%;">
+                <a href="<?php echo site_url('penjualan/bukti-pembayaran'); ?>" class="shortcut" style="width: 100%;">
                   <i class="shortcut-icon icon-list-alt"></i>
                   <span class="shortcut-label">Bukti Pembayaran</span> 
                 </a>
