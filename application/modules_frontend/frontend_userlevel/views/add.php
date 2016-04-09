@@ -9,7 +9,7 @@
         <div class="span10">
           <div class="widget">
             <div class="widget-header"> <i class="icon-th-list"></i>
-              <h3>Form Edit</h3>
+              <h3>Form Add</h3>
             </div>
             <!-- /widget-header -->
             <div class="widget-content">

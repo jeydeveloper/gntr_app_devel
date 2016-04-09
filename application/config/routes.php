@@ -44,6 +44,8 @@ $route['default_controller'] = "frontend_home/home";
 //route pengguna
 $route['pengguna'] = "frontend_user/user";
 $route['pengguna/add'] = "frontend_user/user/add";
+$route['pengguna/edit/(:any)'] = "frontend_user/user/edit/$1";
+$route['pengguna/delete/(:any)'] = "frontend_user/user/delete/$1";
 
 $route['wajib-pajak'] = "frontend_wajibpajak/wajibpajak";
 

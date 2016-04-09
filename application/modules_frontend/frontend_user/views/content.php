@@ -17,54 +17,28 @@
                 <thead>
                   <tr>
                     <th width="30"> No. </th>
-                    <th> Nama Depan </th>
-                    <th> Nama Belakang </th>
                     <th> Username </th>
-                    <th> Password </th>
+                    <th> Level </th>
+                    <th> Status </th>
                     <th class="td-actions"> </th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td> 1 </td>
-                    <td> Paolo </td>
-                    <td> Maldini </td>
-                    <td> paolo </td>
-                    <td> abcde111 </td>
-                    <td class="td-actions"><a href="pengguna_edit.html" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a><a href="pengguna_delete.html" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>
-                  </tr>
-                  <tr>
-                    <td> 2 </td>
-                    <td> Paolo </td>
-                    <td> Maldini </td>
-                    <td> paolo </td>
-                    <td> abcde111 </td>
-                    <td class="td-actions"><a href="pengguna_edit.html" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a><a href="pengguna_delete.html" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>
-                  </tr>
-                  <tr>
-                    <td> 3 </td>
-                    <td> Paolo </td>
-                    <td> Maldini </td>
-                    <td> paolo </td>
-                    <td> abcde111 </td>
-                    <td class="td-actions"><a href="pengguna_edit.html" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a><a href="pengguna_delete.html" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>
-                  </tr>
-                  <tr>
-                    <td> 4 </td>
-                    <td> Paolo </td>
-                    <td> Maldini </td>
-                    <td> paolo </td>
-                    <td> abcde111 </td>
-                    <td class="td-actions"><a href="pengguna_edit.html" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a><a href="pengguna_delete.html" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>
-                  </tr>
-                  <tr>
-                    <td> 5 </td>
-                    <td> Paolo </td>
-                    <td> Maldini </td>
-                    <td> paolo </td>
-                    <td> abcde111 </td>
-                    <td class="td-actions"><a href="pengguna_edit.html" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a><a href="pengguna_edit.html" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>
-                  </tr>
+                  <?php if(!empty($result)): ?>
+                    <?php foreach($result as $key => $value): ?>
+                    <tr>
+                      <td><?php echo ($key+1); ?></td>
+                      <td><?php echo $value['admusr_username']; ?></td>
+                      <td><?php echo $value['aulv_name']; ?></td>
+                      <td><?php echo $label_status[$value['admusr_user_status']]; ?></td>
+                      <td class="td-actions"><a href="<?php echo ($module_base_url.'/edit/'.$value['admusr_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a> <a href="<?php echo ($module_base_url.'/delete/'.$value['admusr_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>
+                    </tr>
+                    <?php endforeach; ?>
+                  <?php else: ?>
+                    <tr>
+                      <td colspan="5" style="background: red;color: white;">Module ini belum terisi!</td>
+                    </tr>
+                  <?php endif; ?>
                 </tbody>
               </table>
             </div>

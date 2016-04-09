@@ -71,7 +71,7 @@ class Userlevel extends MY_Frontend {
 			$this->_data['detail'] = $this->crud->where('aulv_id = "'.$id.'"')->get_row();
 		}
 
-		$this->template->set('title', 'Tambah Level Pengguna | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
+		$this->template->set('title', 'Edit Level Pengguna | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
 		$this->template->load('template_frontend/main', 'edit', $this->_data);
 	}

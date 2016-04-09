@@ -1,6 +1,6 @@
 <?php
 
-class Crud extends CI_Model {
+class Crud_user extends CI_Model {
 	//--------base---------------
 	function where($where = '') {
 		if($where != '') $this->db->where($where);
@@ -45,43 +45,22 @@ class Crud extends CI_Model {
 	//--------------end---------------
 
 	function get_row(){
-		return $this->db->get('adminuserlevels')->row_array();
+		return $this->db->get('adminusers')->row_array();
 	}
 
 	function get_all(){
-		return $this->db->get('adminuserlevels')->result_array();
+		return $this->db->join('adminuserlevels', 'admusr_aulv_id = aulv_id', 'left')->get('adminusers')->result_array();
 	}
 
 	function posts($data){
-		return $this->db->insert('adminuserlevels', $data);
+		return $this->db->insert('adminusers', $data);
 	}
 
 	function puts($data){
-		return $this->db->update('adminuserlevels', $data);
+		return $this->db->update('adminusers', $data);
 	}
 
 	function delete($data){
-		return $this->db->delete('adminuserlevels', $data);
-	}
-
-	function get_option() {
-		$res = $this->where('aulv_void = 0')->get_all();
-		$data = array();
-		foreach ($res as $key => $value) {
-			$data[] = array(
-				'name' 	=> $value['aulv_name'],
-				'value' => $value['aulv_id'],
-			); 
-		}
-		return $data;
-	}
-
-	function get_option_info() {
-		$res = $this->get_all();
-		$data = array();
-		foreach ($res as $key => $value) {
-			$data[$value['aulv_id']] = $value['aulv_name']; 
-		}
-		return $data;
+		return $this->db->delete('adminusers', $data);
 	}
 }  

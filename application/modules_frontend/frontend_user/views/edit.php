@@ -13,23 +13,24 @@
             </div>
             <!-- /widget-header -->
             <div class="widget-content">
-              <form action="" method="post">
+              <form action="<?php echo ($module_base_url . '/edit/' . $detail['admusr_id']); ?>" method="post">
+                <input type="hidden" name="admusr_id" value="<?php echo $detail['admusr_id']; ?>" />
                 
                 <div class="form-fields">
 
                   <div class="field">
                     <label for="admusr_username">Username</label>
-                    <input id="admusr_username" name="admusr_username" placeholder="Username" required />
+                    <input id="admusr_username" name="admusr_username" placeholder="Username" value="<?php echo $detail['admusr_username']; ?>" disabled />
                   </div> <!-- /field -->
                   
                   <div class="field">
                     <label for="admusr_userpasswd">Password</label>
-                    <input type="password" id="admusr_userpasswd" name="admusr_userpasswd" placeholder="Password" required />
+                    <input type="password" id="admusr_userpasswd" name="admusr_userpasswd" placeholder="Password" />
                   </div> <!-- /field -->
 
                   <div class="field">
                     <label for="re_password">Re-Password</label>
-                    <input type="password" id="re_password" name="re_password" placeholder="Re-Password" required />
+                    <input type="password" id="re_password" name="re_password" placeholder="Re-Password" />
                   </div> <!-- /field -->
 
                   <div class="field">
@@ -37,7 +38,7 @@
                     <select name="admusr_aulv_id" id="admusr_aulv_id" required />
                       <option value="">--Pilih User Level--</option>
                       <?php foreach($option_level as $value): ?>
-                        <option value="<?php echo $value['value']; ?>"><?php echo $value['name']; ?></option>
+                        <option value="<?php echo $value['value']; ?>" <?php echo ($detail['admusr_aulv_id'] == $value['value'] ? 'selected' : ''); ?>><?php echo $value['name']; ?></option>
                       <?php endforeach; ?>
                     </select>
                   </div> <!-- /field -->
@@ -46,7 +47,7 @@
                     <label for="admusr_user_status">Status</label>
                     <select name="admusr_user_status" id="admusr_user_status" required /> 
                       <?php foreach($option_status as $value): ?>
-                        <option value="<?php echo $value['value']; ?>"><?php echo $value['name']; ?></option>
+                        <option value="<?php echo $value['value']; ?>" <?php echo ($detail['admusr_user_status'] == $value['value'] ? 'selected' : ''); ?>><?php echo $value['name']; ?></option>
                       <?php endforeach; ?>
                     </select>
                   </div> <!-- /field -->
