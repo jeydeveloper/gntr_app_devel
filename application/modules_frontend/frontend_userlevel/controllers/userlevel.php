@@ -59,6 +59,42 @@ class Userlevel extends MY_Frontend {
 
 		redirect($this->_data['module_base_url']);
 	}
+
+	function edit($id) {
+		if(!empty($_POST)) {
+			if($this->do_edit()) {
+				redirect($this->_data['module_base_url']);
+				exit();
+			}
+			$this->_data['detail'] = $_POST;
+		} else {
+			$this->_data['detail'] = $this->crud->where('aulv_id = "'.$id.'"')->get_row();
+		}
+
+		$this->template->set('title', 'Tambah Level Pengguna | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
+		$this->template->set('assets', $this->_data['assets']);
+		$this->template->load('template_frontend/main', 'edit', $this->_data);
+	}
+
+	private function do_edit() {
+		$this->load->library('form_validation');
+
+		$this->form_validation->set_rules('aulv_id', 'ID', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
+		$this->form_validation->set_rules('aulv_name', 'Level', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
+
+		if($this->form_validation->run()) {
+			$db_data = array(
+				'aulv_name' => $this->input->post('aulv_name'),
+				'aulv_changedate' => $this->_data['datetime'],
+			);
+			$this->crud->where('aulv_id = "'.$this->input->post('aulv_id').'"')->puts($db_data);
+
+			return true;
+		} else {
+			$this->_data['err_msg'] = validation_errors();
+			return false;
+		}
+	}
 }
 
 ?>
