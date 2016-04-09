@@ -7,6 +7,7 @@ class Userlevel extends MY_Frontend {
 
 		$this->load->model('frontend_userlevel/crud');
 		$this->_data['module_base_url'] = site_url('user-level');
+		$this->_data['datetime'] = date('Y-m-d H:i:s');
 	}
 
 	function index() {
@@ -36,11 +37,9 @@ class Userlevel extends MY_Frontend {
 		$this->form_validation->set_rules('aulv_name', 'Level', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
 
 		if($this->form_validation->run()) {
-			$datetime = date('Y-m-d H:i:s');
-
 			$db_data = array(
 				'aulv_name' => $this->input->post('aulv_name'),
-				'aulv_entrydate' => $datetime,
+				'aulv_entrydate' => $this->_data['datetime'],
 			);
 			$this->crud->posts($db_data);
 
@@ -52,7 +51,11 @@ class Userlevel extends MY_Frontend {
 	}
 
 	function delete($id) {
-		$this->crud->where('aulv_id = "'.$id.'"')->delete();
+		$db_data = array(
+			'aulv_void' => 1,
+			'aulv_changedate' => $this->_data['datetime'],
+		);
+		$this->crud->where('aulv_id = "'.$id.'"')->puts($db_data);
 
 		redirect($this->_data['module_base_url']);
 	}

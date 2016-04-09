@@ -32,7 +32,7 @@
                     <?php endforeach; ?>
                   <?php else: ?>
                     <tr>
-                      <td>Module ini belum terisi!</td>
+                      <td colspan="3" style="background: red;color: white;">Module ini belum terisi!</td>
                     </tr>
                   <?php endif; ?>
                 </tbody>
