@@ -1,6 +1,7 @@
 <div class="main">
   <div class="main-inner">
     <div class="container">
+      <form action="" method="post">
       <div class="row">
         <div class="span7">
           <div class="widget">
@@ -9,58 +10,53 @@
             </div>
             <!-- /widget-header -->
             <div class="widget-content">
-              <form action="#" method="post">
+              
                 
                 <div class="form-fields">
                   
                   <div class="field">
-                    <label for="name">NPWP:</label>
-                    <input id="name" name="name" value="NPWP" placeholder="NPWP" />
+                    <label for="npwp">NPWP:</label>
+                    <input id="npwp" name="pribadi[npwp]" value="<?php echo (!empty($detail['pribadi']['npwp']) ? $detail['pribadi']['npwp'] : ''); ?>" placeholder="NPWP" />
                   </div> <!-- /field -->
                   
                   <div class="field">
-                    <label for="address">Nama Wajib Pajak Pribadi:</label>  
-                    <textarea id="address" name="address" value="" placeholder="Nama Wajib Pajak Pribadi"></textarea>
+                    <label for="nama">Nama Wajib Pajak Pribadi:</label>  
+                    <input id="nama" name="pribadi[nama]" value="<?php echo (!empty($detail['pribadi']['nama']) ? $detail['pribadi']['nama'] : ''); ?>" placeholder="Nama Wajib Pajak Pribadi" />
                   </div> <!-- /field -->
                   
                   <div class="field">
-                    <label for="phone">Alamat:</label>
-                    <input id="phone" name="phone" value="Alamat" placeholder=""/>
+                    <label for="alamat">Alamat:</label>
+                    <input id="alamat" name="pribadi[alamat]" value="<?php echo (!empty($detail['pribadi']['alamat']) ? $detail['pribadi']['alamat'] : ''); ?>" placeholder="Alamat"/>
                   </div> <!-- /field -->
                   
                   <div class="field">
-                    <label for="phone">Kota:</label>
-                    <input id="phone" name="phone" value="Kota" placeholder=""/>
+                    <label for="kota">Kota:</label>
+                    <input id="kota" name="pribadi[kota]" value="<?php echo (!empty($detail['pribadi']['kota']) ? $detail['pribadi']['kota'] : ''); ?>" placeholder="Kota"/>
                   </div> <!-- /field -->
 
                   <div class="field">
-                    <label for="phone">Telepon:</label>
-                    <input id="phone" name="phone" value="Telepon" placeholder=""/>
+                    <label for="telepon">Telepon:</label>
+                    <input id="telepon" name="pribadi[telepon]" value="<?php echo (!empty($detail['pribadi']['telepon']) ? $detail['pribadi']['telepon'] : ''); ?>" placeholder="Telepon"/>
                   </div> <!-- /field -->
 
                   <div class="field">
-                    <label for="phone">Fax:</label>
-                    <input id="phone" name="phone" value="Fax" placeholder=""/>
+                    <label for="fax">Fax:</label>
+                    <input id="fax" name="pribadi[fax]" value="<?php echo (!empty($detail['pribadi']['fax']) ? $detail['pribadi']['fax'] : ''); ?>" placeholder="Fax"/>
                   </div> <!-- /field -->
 
                   <div class="field">
-                    <label for="phone">Kota:</label>
-                    <input id="phone" name="phone" value="Kota" placeholder=""/>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="pribadi[email]" value="<?php echo (!empty($detail['pribadi']['email']) ? $detail['pribadi']['email'] : ''); ?>" placeholder="Email"/>
                   </div> <!-- /field -->
 
                   <div class="field">
-                    <label for="phone">Email:</label>
-                    <input id="phone" name="phone" value="Email" placeholder=""/>
-                  </div> <!-- /field -->
-
-                  <div class="field">
-                    <label for="phone">Jenis Usaha:</label>
-                    <input id="phone" name="phone" value="Jenis Usaha" placeholder=""/>
+                    <label for="jenis_usaha">Jenis Usaha:</label>
+                    <input id="jenis_usaha" name="pribadi[jenis_usaha]" value="<?php echo (!empty($detail['pribadi']['jenis_usaha']) ? $detail['pribadi']['jenis_usaha'] : ''); ?>" placeholder="Jenis Usaha"/>
                   </div> <!-- /field -->
                   
                 </div> <!-- /form-fields -->
 
-              </form>
+              
             </div>
             <!-- /widget-content --> 
           </div>
@@ -76,35 +72,25 @@
             </div>
             <!-- /widget-header -->
             <div class="widget-content">
-              <form action="#" method="post">
                 
                 <div class="form-fields">
                   
                   <div class="field">
-                    <label for="name">Nama Pemilik:</label>
-                    <input id="name" name="name" value="Nama Pemilik" placeholder="" />
+                    <label for="nama">Nama Pemilik:</label>
+                    <input id="nama" name="usaha[nama]" value="<?php echo (!empty($detail['usaha']['nama']) ? $detail['usaha']['nama'] : ''); ?>" placeholder="Nama Pemilik" />
                   </div> <!-- /field -->
                   
                   <div class="field">
                     <label for="phone">NPWP:</label>
-                    <input id="phone" name="phone" value="NPWP" placeholder=""/>
+                    <input id="phone" name="usaha[npwp]" value="<?php echo (!empty($detail['usaha']['npwp']) ? $detail['usaha']['npwp'] : ''); ?>" placeholder="NPWP"/>
                   </div> <!-- /field -->
                   
                   <div class="field">
-                    <label for="address">Keterangan:</label>  
-                    <textarea id="address" name="address" value="Keterangan" placeholder="Keterangan"></textarea>
+                    <label for="keterangan">Keterangan:</label>  
+                    <textarea id="keterangan" name="usaha[keterangan]" placeholder="Keterangan"><?php echo (!empty($detail['usaha']['keterangan']) ? $detail['usaha']['keterangan'] : ''); ?></textarea>
                   </div> <!-- /field -->
 
                 </div> <!-- /form-fields -->
-                
-                <div class="form-actions">
-                  <div class="pull-right">
-                    <button type="reset" class="button btn btn-default btn-large">Reset</button>
-                    <button class="button btn btn-primary btn-large">Submit</button>
-                  </div>
-                </div> <!-- .actions -->
-                
-              </form>
             </div>
             <!-- /widget-content --> 
           </div>
@@ -114,6 +100,17 @@
 
       </div>
       <!-- /row --> 
+      <div class="row">
+        <div class="span12">
+          <div class="form-actions">
+            <div class="text-center">
+              <button type="reset" class="button btn btn-default btn-large">Reset</button>
+              <button type="submit" class="button btn btn-primary btn-large">Submit</button>
+            </div>
+          </div> <!-- .actions -->
+        </div>
+      </div>
+      </form>
     </div>
     <!-- /container --> 
   </div>

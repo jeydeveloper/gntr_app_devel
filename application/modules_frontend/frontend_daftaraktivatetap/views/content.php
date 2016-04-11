@@ -20,7 +20,6 @@
                     <th> Kode Aktiva </th>
                     <th> Keterangan </th>
                     <th> Tipe Aktiva </th>
-                    <th> Akun Aktiva </th>
                     <th> Harga Aktiva </th>
                     <th> Tgl Beli </th>
                     <th> Tgl Pakai </th>
@@ -32,21 +31,28 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td> 1 </td>
-                    <td> GD.001 </td>
-                    <td> Bangunan </td>
-                    <td> Ruko 3 Lt. </td>
-                    <td> 1201-002 </td>
-                    <td> Rp 900.000.000 </td>
-                    <td> 01/03/2007 </td>
-                    <td> 01/03/2007 </td>
-                    <td> 1 </td>
-                    <td> 240 </td>
-                    <td> 5 </td>
-                    <td> Ya </td>
-                    <td class="td-actions"><a href="vendor_edit.html" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a><a href="vendor_list_submit_delete.html" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>
-                  </tr>
+                  <?php if(!empty($result)): ?>
+                    <?php foreach($result as $key => $value): ?>
+                    <tr>
+                      <td><?php echo ($key+1); ?></td>
+                      <td><?php echo $value['dakt_kode']; ?></td>
+                      <td><?php echo $value['dakt_keterangan']; ?></td>
+                      <td><?php echo $value['dakt_tipe']; ?></td>
+                      <td><?php echo $value['dakt_harga']; ?></td>
+                      <td><?php echo $value['dakt_tanggalbeli']; ?></td>
+                      <td><?php echo $value['dakt_tanggalpakai']; ?></td>
+                      <td><?php echo $value['dakt_qty']; ?></td>
+                      <td><?php echo $value['dakt_umurbulan']; ?></td>
+                      <td><?php echo $value['dakt_persensusut']; ?></td>
+                      <td><?php echo $value['dakt_pajak']; ?></td>
+                      <td class="td-actions"><a href="<?php echo ($module_base_url.'/edit/'.$value['dakt_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a> <a href="<?php echo ($module_base_url.'/delete/'.$value['dakt_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>
+                    </tr>
+                    <?php endforeach; ?>
+                  <?php else: ?>
+                    <tr>
+                      <td colspan="12" style="background: red;color: white;">Module ini belum terisi!</td>
+                    </tr>
+                  <?php endif; ?>
                 </tbody>
               </table>
             </div>

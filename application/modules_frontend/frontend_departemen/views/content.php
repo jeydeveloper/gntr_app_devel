@@ -16,23 +16,31 @@
               <table class="table table-striped table-bordered">
                 <thead>
                   <tr>
-                    <th> No. Dept</th>
+                    <th> No.</th>
                     <th> Nama Dept.</th>
-                    <th> Status</th>
-                    <th> Nama Kontak</th>
+                    <th> Manager</th>
                     <th> Tugas</th>
+                    <th> Status</th>
                     <th class="td-actions">Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td> 1001 </td>
-                    <td> Keuangan </td>
-                    <td> Aktif </td>
-                    <td> Van Gaal </td>
-                    <td> Membukukan seluruh aktivitas ekonomi yang dilakukan oleh perusahaan dengan sistematis, periodik serta dengan mudah mampu utuk dipahami oleh pihak pihak yang berkepentingan atas laporannya, baik internal perusahaan ataupun eksternal perusahaan </td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
-                  </tr>           
+                  <?php if(!empty($result)): ?>
+                    <?php foreach($result as $key => $value): ?>
+                    <tr>
+                      <td><?php echo ($key+1); ?></td>
+                      <td><?php echo $value['dprt_nama']; ?></td>
+                      <td><?php echo $value['dprt_manager']; ?></td>
+                      <td><?php echo $value['dprt_tugas']; ?></td>
+                      <td><?php echo $label_status[$value['dprt_status']]; ?></td>
+                      <td class="td-actions"><a href="<?php echo ($module_base_url.'/edit/'.$value['dprt_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a> <a href="<?php echo ($module_base_url.'/delete/'.$value['dprt_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>
+                    </tr>
+                    <?php endforeach; ?>
+                  <?php else: ?>
+                    <tr>
+                      <td colspan="6" style="background: red;color: white;">Module ini belum terisi!</td>
+                    </tr>
+                  <?php endif; ?>
                 </tbody>
               </table>
             </div>

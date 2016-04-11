@@ -13,59 +13,60 @@
             </div>
             <!-- /widget-header -->
             <div class="widget-content">
-              <form action="" method="post">
+              <form action="<?php echo ($module_base_url . '/edit/' . $detail['dakt_id']); ?>" method="post">
+                <input type="hidden" name="dakt_id" value="<?php echo $detail['dakt_id']; ?>" />
                 
                 <div class="form-fields">
                   
                   <div class="field">
                     <label for="dakt_kode">Kode Aktiva</label>
-                    <input id="dakt_kode" name="dakt_kode" placeholder="Kode Aktiva" required />
+                    <input id="dakt_kode" name="dakt_kode" placeholder="Kode Aktiva" value="<?php echo $detail['dakt_kode']; ?>" required />
                   </div> <!-- /field -->
                   
                   
                   <div class="field">
                     <label for="dakt_keterangan">Keterangan</label>
-                    <input id="dakt_keterangan" name="dakt_keterangan" placeholder="Keterangan"/>
+                    <input id="dakt_keterangan" name="dakt_keterangan" value="<?php echo $detail['dakt_keterangan']; ?>" placeholder="Keterangan"/>
                   </div> <!-- /field -->
 
                   <div class="field">
                     <label for="dakt_tipe">Tipe Aktiva</label>
-                    <input id="dakt_tipe" name="dakt_tipe" placeholder="Tipe Aktiva"/>
+                    <input id="dakt_tipe" name="dakt_tipe" value="<?php echo $detail['dakt_tipe']; ?>" placeholder="Tipe Aktiva"/>
                   </div> <!-- /field -->
                   
                   <div class="field">
                     <label for="dakt_harga">Harga Aktiva</label>
-                    <input id="dakt_harga" name="dakt_harga" placeholder="Biaya Aktiva"/>
+                    <input id="dakt_harga" name="dakt_harga" value="<?php echo $detail['dakt_harga']; ?>" placeholder="Biaya Aktiva"/>
                   </div> <!-- /field -->
 
                   <div class="field">
                     <label for="dakt_tanggalpakai">Tgl Pakai</label>
-                    <input id="dakt_tanggalpakai" name="dakt_tanggalpakai" placeholder="Tgl Pakai"/>
+                    <input id="dakt_tanggalpakai" name="dakt_tanggalpakai" value="<?php echo $detail['dakt_tanggalpakai']; ?>" placeholder="Tgl Pakai"/>
                   </div> <!-- /field -->
 
                   <div class="field">
                     <label for="dakt_tanggalbeli">Tgl Beli</label>
-                    <input id="dakt_tanggalbeli" name="dakt_tanggalbeli" placeholder="Tgl Beli"/>
+                    <input id="dakt_tanggalbeli" name="dakt_tanggalbeli" value="<?php echo $detail['dakt_tanggalbeli']; ?>" placeholder="Tgl Beli"/>
                   </div> <!-- /field -->
 
                   <div class="field">
                     <label for="dakt_qty">Qty</label>
-                    <input id="dakt_qty" name="dakt_qty" placeholder="Qty"/>
+                    <input id="dakt_qty" name="dakt_qty" value="<?php echo $detail['dakt_qty']; ?>" placeholder="Qty"/>
                   </div> <!-- /field -->
 
                   <div class="field">
                     <label for="dakt_umurbulan">Umur Bulan Aktiva</label>
-                    <input id="dakt_umurbulan" name="dakt_umurbulan" placeholder="Umur Bulan Aktiva"/>
+                    <input id="dakt_umurbulan" name="dakt_umurbulan" value="<?php echo $detail['dakt_umurbulan']; ?>" placeholder="Umur Bulan Aktiva"/>
                   </div> <!-- /field -->
 
                   <div class="field">
                     <label for="dakt_persensusut">%Penyusut/Tahun</label>
-                    <input id="dakt_persensusut" name="dakt_persensusut" placeholder="%Penyusut/Tahun"/>
+                    <input id="dakt_persensusut" name="dakt_persensusut" value="<?php echo $detail['dakt_persensusut']; ?>" placeholder="%Penyusut/Tahun"/>
                   </div> <!-- /field -->
 
                   <div class="field">
                     <label for="dakt_pajak">Pajak</label>
-                    <input id="dakt_pajak" name="dakt_pajak" placeholder="Pajak"/>
+                    <input id="dakt_pajak" name="dakt_pajak" value="<?php echo $detail['dakt_pajak']; ?>" placeholder="Pajak"/>
                   </div> <!-- /field -->
 
                                 

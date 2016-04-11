@@ -13,30 +13,31 @@
             </div>
             <!-- /widget-header -->
             <div class="widget-content">
-              <form action="" method="post">
+              <form action="<?php echo ($module_base_url . '/edit/' . $detail['dprt_id']); ?>" method="post">
+                <input type="hidden" name="dprt_id" value="<?php echo $detail['dprt_id']; ?>" />
                 
                 <div class="form-fields">
                   
                   <div class="field">
                     <label for="dprt_nama">Nama Departemen</label>
-                    <input id="dprt_nama" name="dprt_nama" placeholder="Nama Departemen" required />
+                    <input id="dprt_nama" name="dprt_nama" value="<?php echo $detail['dprt_nama']; ?>" placeholder="Nama Departemen" required />
                   </div> <!-- /field -->
 
                   <div class="field">
                     <label for="dprt_manager">Nama Manager</label>
-                    <input id="dprt_manager" name="dprt_manager" placeholder="Nama Manager"/>
+                    <input id="dprt_manager" name="dprt_manager" value="<?php echo $detail['dprt_manager']; ?>" placeholder="Nama Manager"/>
                   </div> <!-- /field -->
                   
                   <div class="field">
                     <label for="dprt_tugas">Tugas</label>
-                    <textarea id="dprt_tugas" name="dprt_tugas" placeholder="Tugas"></textarea>
+                    <textarea id="dprt_tugas" name="dprt_tugas" placeholder="Tugas"><?php echo $detail['dprt_tugas']; ?></textarea>
                   </div> <!-- /field -->
 
                   <div class="field">
                     <label for="dprt_status">Status</label>
                     <select name="dprt_status" id="dprt_status" required /> 
                       <?php foreach($option_status as $value): ?>
-                        <option value="<?php echo $value['value']; ?>"><?php echo $value['name']; ?></option>
+                        <option value="<?php echo $value['value']; ?>" <?php echo ($detail['dprt_status'] == $value['value'] ? 'selected' : ''); ?>><?php echo $value['name']; ?></option>
                       <?php endforeach; ?>
                     </select>
                   </div> <!-- /field -->

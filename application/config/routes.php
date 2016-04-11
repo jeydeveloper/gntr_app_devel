@@ -58,10 +58,14 @@ $route['user-level/delete/(:any)'] = "frontend_userlevel/userlevel/delete/$1";
 //route departemen
 $route['departemen'] = "frontend_departemen/departemen";
 $route['departemen/add'] = "frontend_departemen/departemen/add";
+$route['departemen/edit/(:any)'] = "frontend_departemen/departemen/edit/$1";
+$route['departemen/delete/(:any)'] = "frontend_departemen/departemen/delete/$1";
 
 //route daftar aktiva tetap
 $route['daftar-aktiva-tetap'] = "frontend_daftaraktivatetap/daftaraktivatetap";
 $route['daftar-aktiva-tetap/add'] = "frontend_daftaraktivatetap/daftaraktivatetap/add";
+$route['daftar-aktiva-tetap/edit/(:any)'] = "frontend_daftaraktivatetap/daftaraktivatetap/edit/$1";
+$route['daftar-aktiva-tetap/delete/(:any)'] = "frontend_daftaraktivatetap/daftaraktivatetap/delete/$1";
 
 $route['kas-bank-penerimaan'] = "frontend_kasbankpenerimaan/kasbankpenerimaan";
 $route['kas-bank-pembayaran'] = "frontend_kasbankpembayaran/kasbankpembayaran";
