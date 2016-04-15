@@ -96,6 +96,11 @@ $route['penjualan/berita-acara'] = "frontend_penjualan/penjualan/beritaAcara";
 $route['penjualan/tanda-terima'] = "frontend_penjualan/penjualan/tandaTerima";
 $route['penjualan/bukti-pembayaran'] = "frontend_penjualan/penjualan/buktiPembayaran";
 
+//login and logout
+$route['login'] 				= "frontend_login/login";
+$route['login/ajax_submit'] 	= "frontend_login/login/ajax_submit";
+$route['logout'] 				= "frontend_logout/logout";
+
 $route['404_override'] = '';
 
 /* End of file routes.php */

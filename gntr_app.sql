@@ -2,10 +2,10 @@
 -- version 4.0.4
 -- http://www.phpmyadmin.net
 --
--- Inang: 127.0.0.1
--- Waktu pembuatan: 12 Apr 2016 pada 02.20
--- Versi Server: 5.5.32
--- Versi PHP: 5.4.16
+-- Host: 127.0.0.1
+-- Generation Time: Apr 15, 2016 at 04:14 AM
+-- Server version: 5.5.32
+-- PHP Version: 5.4.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Basis data: `gntr_app`
+-- Database: `gntr_app`
 --
 CREATE DATABASE IF NOT EXISTS `gntr_app` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `gntr_app`;
@@ -25,7 +25,7 @@ USE `gntr_app`;
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `gntrapp_adminuserlevels`
+-- Table structure for table `gntrapp_adminuserlevels`
 --
 
 CREATE TABLE IF NOT EXISTS `gntrapp_adminuserlevels` (
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_adminuserlevels` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
--- Dumping data untuk tabel `gntrapp_adminuserlevels`
+-- Dumping data for table `gntrapp_adminuserlevels`
 --
 
 INSERT INTO `gntrapp_adminuserlevels` (`aulv_id`, `aulv_name`, `aulv_void`, `aulv_entryuser`, `aulv_entrydate`, `aulv_changeuser`, `aulv_changedate`) VALUES
@@ -48,13 +48,13 @@ INSERT INTO `gntrapp_adminuserlevels` (`aulv_id`, `aulv_name`, `aulv_void`, `aul
 (2, 'Supervisors', 0, '', '2016-04-09 13:30:56', '', '2016-04-09 14:10:22'),
 (3, 'Demo', 1, '', '2016-04-09 13:31:05', '', '2016-04-09 06:31:10'),
 (4, 'Test', 1, '', '2016-04-09 13:31:48', '', '2016-04-09 06:31:52'),
-(5, 'Demo', 0, '', '2016-04-09 21:10:29', '', '2016-04-09 20:55:50'),
+(5, 'Demos', 0, '', '2016-04-09 21:10:29', '', '2016-04-13 23:23:03'),
 (6, 'dadasd', 1, '', '2016-04-10 03:55:59', '', '2016-04-09 20:56:01');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `gntrapp_adminusers`
+-- Table structure for table `gntrapp_adminusers`
 --
 
 CREATE TABLE IF NOT EXISTS `gntrapp_adminusers` (
@@ -64,6 +64,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_adminusers` (
   `admusr_aulv_id` int(11) DEFAULT NULL,
   `admusr_user_status` enum('y','n') DEFAULT 'y',
   `admusr_void` tinyint(4) NOT NULL,
+  `admusr_lastactivity` datetime NOT NULL,
   `admusr_entryuser` varchar(100) NOT NULL,
   `admusr_entrydate` datetime NOT NULL,
   `admusr_changeuser` varchar(100) NOT NULL,
@@ -72,21 +73,21 @@ CREATE TABLE IF NOT EXISTS `gntrapp_adminusers` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
--- Dumping data untuk tabel `gntrapp_adminusers`
+-- Dumping data for table `gntrapp_adminusers`
 --
 
-INSERT INTO `gntrapp_adminusers` (`admusr_id`, `admusr_username`, `admusr_userpasswd`, `admusr_aulv_id`, `admusr_user_status`, `admusr_void`, `admusr_entryuser`, `admusr_entrydate`, `admusr_changeuser`, `admusr_changedate`) VALUES
-(1, 'superadmin', 'ac43724f16e9241d990427ab7c8f4228', NULL, 'y', 0, '', '0000-00-00 00:00:00', '', '2016-04-09 05:27:29'),
-(2, 'demo', 'ac43724f16e9241d990427ab7c8f4228', 5, 'y', 1, '', '2016-04-10 09:51:37', '', '2016-04-10 02:51:37'),
-(3, 'Test', '101a6ec9f938885df0a44f20458d2eb4', 3, 'y', 1, '', '2016-04-10 03:01:11', '', '2016-04-09 20:01:11'),
-(4, 'Hehe', '196b0f14eba66e10fba74dbf9e99c22f', 5, 'y', 1, '', '2016-04-10 03:04:50', '', '2016-04-09 20:04:50'),
-(5, 'ggfdfg', '6c0cbf5029aed0af395ac4b864c6b095', 5, 'n', 1, '', '2016-04-10 03:56:35', '', '2016-04-09 20:56:35'),
-(6, 'GUntur', '827ccb0eea8a706c4c34a16891f84e7b', 1, 'y', 0, '', '2016-04-10 09:49:29', '', '2016-04-10 02:49:29');
+INSERT INTO `gntrapp_adminusers` (`admusr_id`, `admusr_username`, `admusr_userpasswd`, `admusr_aulv_id`, `admusr_user_status`, `admusr_void`, `admusr_lastactivity`, `admusr_entryuser`, `admusr_entrydate`, `admusr_changeuser`, `admusr_changedate`) VALUES
+(1, 'superadmin', 'ac43724f16e9241d990427ab7c8f4228', NULL, 'y', 0, '2016-04-15 03:52:56', '', '0000-00-00 00:00:00', '', '2016-04-15 01:52:56'),
+(2, 'demo', 'ac43724f16e9241d990427ab7c8f4228', 5, 'y', 1, '0000-00-00 00:00:00', '', '2016-04-10 09:51:37', '', '2016-04-10 02:51:37'),
+(3, 'Test', '101a6ec9f938885df0a44f20458d2eb4', 3, 'y', 1, '0000-00-00 00:00:00', '', '2016-04-10 03:01:11', '', '2016-04-09 20:01:11'),
+(4, 'Hehe', '196b0f14eba66e10fba74dbf9e99c22f', 5, 'y', 1, '0000-00-00 00:00:00', '', '2016-04-10 03:04:50', '', '2016-04-09 20:04:50'),
+(5, 'ggfdfg', '6c0cbf5029aed0af395ac4b864c6b095', 5, 'n', 1, '0000-00-00 00:00:00', '', '2016-04-10 03:56:35', '', '2016-04-09 20:56:35'),
+(6, 'GUntur', '827ccb0eea8a706c4c34a16891f84e7b', 1, 'y', 0, '0000-00-00 00:00:00', '', '2016-04-10 09:49:29', '', '2016-04-10 02:49:29');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `gntrapp_aktivatetap`
+-- Table structure for table `gntrapp_aktivatetap`
 --
 
 CREATE TABLE IF NOT EXISTS `gntrapp_aktivatetap` (
@@ -110,7 +111,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_aktivatetap` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
--- Dumping data untuk tabel `gntrapp_aktivatetap`
+-- Dumping data for table `gntrapp_aktivatetap`
 --
 
 INSERT INTO `gntrapp_aktivatetap` (`dakt_id`, `dakt_kode`, `dakt_keterangan`, `dakt_tipe`, `dakt_harga`, `dakt_tanggalpakai`, `dakt_tanggalbeli`, `dakt_qty`, `dakt_umurbulan`, `dakt_persensusut`, `dakt_pajak`, `dakt_void`, `dakt_entryuser`, `dakt_entrydate`, `dakt_changeuser`, `dakt_changedate`) VALUES
@@ -120,7 +121,7 @@ INSERT INTO `gntrapp_aktivatetap` (`dakt_id`, `dakt_kode`, `dakt_keterangan`, `d
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `gntrapp_departemen`
+-- Table structure for table `gntrapp_departemen`
 --
 
 CREATE TABLE IF NOT EXISTS `gntrapp_departemen` (
@@ -138,7 +139,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_departemen` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
--- Dumping data untuk tabel `gntrapp_departemen`
+-- Dumping data for table `gntrapp_departemen`
 --
 
 INSERT INTO `gntrapp_departemen` (`dprt_id`, `dprt_nama`, `dprt_manager`, `dprt_tugas`, `dprt_status`, `dprt_void`, `dprt_entryuser`, `dprt_entrydate`, `dprt_changeuser`, `dprt_changedate`) VALUES
@@ -148,7 +149,7 @@ INSERT INTO `gntrapp_departemen` (`dprt_id`, `dprt_nama`, `dprt_manager`, `dprt_
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `gntrapp_profile`
+-- Table structure for table `gntrapp_profile`
 --
 
 CREATE TABLE IF NOT EXISTS `gntrapp_profile` (
@@ -163,7 +164,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_profile` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
--- Dumping data untuk tabel `gntrapp_profile`
+-- Dumping data for table `gntrapp_profile`
 --
 
 INSERT INTO `gntrapp_profile` (`prf_id`, `prf_meta`, `prf_value`, `prf_entryuser`, `prf_entrydate`, `prf_changeuser`, `prf_changedate`) VALUES

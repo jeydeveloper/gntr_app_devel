@@ -6,11 +6,17 @@
         class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span> </a><a class="brand" href="<?php echo site_url('/'); ?>">Aplikasi Keuangan - PT. Putra Bahari Mandiri</a>
             <div class="nav-collapse">
                 <ul class="nav pull-right">
+                    <?php if($this->session->userdata('userid')): ?>
                     <li>
-                        <a href="login.html">
-                        <i class="icon-lock"></i> Login
+                        <a href="<?php echo site_url('logout'); ?>">logout</a>
+                    </li>
+                    <?php else: ?>
+                    <li>
+                        <a href="<?php echo site_url('login'); ?>">
+                            <i class="icon-lock"></i> Login
                         </a>
                     </li>
+                    <?php endif; ?>
                 </ul>
                 <form class="navbar-search pull-right">
                     <input type="text" class="search-query" placeholder="Search">
