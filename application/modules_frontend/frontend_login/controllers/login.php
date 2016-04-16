@@ -12,7 +12,7 @@ class Login extends MY_Login {
 	}
 	
 	function index() {
-		$this->template->set('title', 'Login FDN');
+		$this->template->set('title', 'Login PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
 		$this->template->load('template_login/main', 'content', $this->_data);
 	}
