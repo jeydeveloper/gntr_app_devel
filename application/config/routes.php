@@ -71,9 +71,21 @@ $route['kas-bank-penerimaan'] = "frontend_kasbankpenerimaan/kasbankpenerimaan";
 $route['kas-bank-pembayaran'] = "frontend_kasbankpembayaran/kasbankpembayaran";
 $route['grafik-bank-bca'] = "frontend_grafikbankbca/grafikbankbca";
 $route['daftar-akun'] = "frontend_daftarakun/daftarakun";
+
+//route mata uang
 $route['mata-uang'] = "frontend_matauang/matauang";
+$route['mata-uang/add'] = "frontend_matauang/matauang/add";
+$route['mata-uang/edit/(:any)'] = "frontend_matauang/matauang/edit/$1";
+$route['mata-uang/delete/(:any)'] = "frontend_matauang/matauang/delete/$1";
+
 $route['proyek-dashboard'] = "frontend_proyekdashboard/proyekdashboard";
+
+//route lain-lain
 $route['lain-lain'] = "frontend_lainlain/lainlain";
+$route['lain-lain/add'] = "frontend_lainlain/lainlain/add";
+$route['lain-lain/edit/(:any)'] = "frontend_lainlain/lainlain/edit/$1";
+$route['lain-lain/delete/(:any)'] = "frontend_lainlain/lainlain/delete/$1";
+
 $route['bpu'] = "frontend_bpu/bpu";
 $route['laporan'] = "frontend_laporan/laporan";
 $route['karyawan'] = "frontend_karyawan/karyawan";

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 15, 2016 at 04:14 AM
+-- Generation Time: Apr 17, 2016 at 09:10 AM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.16
 
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_adminusers` (
 --
 
 INSERT INTO `gntrapp_adminusers` (`admusr_id`, `admusr_username`, `admusr_userpasswd`, `admusr_aulv_id`, `admusr_user_status`, `admusr_void`, `admusr_lastactivity`, `admusr_entryuser`, `admusr_entrydate`, `admusr_changeuser`, `admusr_changedate`) VALUES
-(1, 'superadmin', 'ac43724f16e9241d990427ab7c8f4228', NULL, 'y', 0, '2016-04-15 03:52:56', '', '0000-00-00 00:00:00', '', '2016-04-15 01:52:56'),
+(1, 'superadmin', 'ac43724f16e9241d990427ab7c8f4228', NULL, 'y', 0, '2016-04-17 05:45:44', '', '0000-00-00 00:00:00', '', '2016-04-17 03:45:44'),
 (2, 'demo', 'ac43724f16e9241d990427ab7c8f4228', 5, 'y', 1, '0000-00-00 00:00:00', '', '2016-04-10 09:51:37', '', '2016-04-10 02:51:37'),
 (3, 'Test', '101a6ec9f938885df0a44f20458d2eb4', 3, 'y', 1, '0000-00-00 00:00:00', '', '2016-04-10 03:01:11', '', '2016-04-09 20:01:11'),
 (4, 'Hehe', '196b0f14eba66e10fba74dbf9e99c22f', 5, 'y', 1, '0000-00-00 00:00:00', '', '2016-04-10 03:04:50', '', '2016-04-09 20:04:50'),
@@ -149,6 +149,34 @@ INSERT INTO `gntrapp_departemen` (`dprt_id`, `dprt_nama`, `dprt_manager`, `dprt_
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `gntrapp_matauang`
+--
+
+CREATE TABLE IF NOT EXISTS `gntrapp_matauang` (
+  `mtua_id` int(11) NOT NULL AUTO_INCREMENT,
+  `mtua_nama` varchar(100) NOT NULL,
+  `mtua_nilaitukar` int(11) NOT NULL,
+  `mtua_negara` varchar(100) NOT NULL,
+  `mtua_simbol` varchar(100) NOT NULL,
+  `mtua_void` tinyint(4) NOT NULL,
+  `mtua_entryuser` varchar(100) NOT NULL,
+  `mtua_entrydate` datetime NOT NULL,
+  `mtua_changeuser` varchar(100) NOT NULL,
+  `mtua_changedate` datetime NOT NULL,
+  PRIMARY KEY (`mtua_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `gntrapp_matauang`
+--
+
+INSERT INTO `gntrapp_matauang` (`mtua_id`, `mtua_nama`, `mtua_nilaitukar`, `mtua_negara`, `mtua_simbol`, `mtua_void`, `mtua_entryuser`, `mtua_entrydate`, `mtua_changeuser`, `mtua_changedate`) VALUES
+(1, 'USD', 13595, 'Amerika Serikat', 'US$', 0, '', '2016-04-17 06:44:47', '', '2016-04-17 06:48:37'),
+(2, 'asal', 100, 'demo', 'dm', 1, '', '2016-04-17 06:49:11', '', '2016-04-17 06:49:13');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `gntrapp_profile`
 --
 
@@ -170,6 +198,33 @@ CREATE TABLE IF NOT EXISTS `gntrapp_profile` (
 INSERT INTO `gntrapp_profile` (`prf_id`, `prf_meta`, `prf_value`, `prf_entryuser`, `prf_entrydate`, `prf_changeuser`, `prf_changedate`) VALUES
 (1, 'Pribadi', 'a:8:{s:4:"npwp";s:4:"1234";s:4:"nama";s:12:"Nama Pribadi";s:6:"alamat";s:14:"Alamat Pribadi";s:4:"kota";s:12:"Kota Pribadi";s:7:"telepon";s:5:"08888";s:3:"fax";s:5:"08899";s:5:"email";s:17:"email@pribadi.com";s:11:"jenis_usaha";s:19:"Jenis Usaha Pribadi";}', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
 (2, 'Usaha', 'a:3:{s:4:"nama";s:16:"Nama Badan Usaha";s:4:"npwp";s:4:"5678";s:10:"keterangan";s:22:"Keterangan Badan Usaha";}', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `gntrapp_saham`
+--
+
+CREATE TABLE IF NOT EXISTS `gntrapp_saham` (
+  `sham_id` int(11) NOT NULL AUTO_INCREMENT,
+  `sham_nama` varchar(100) NOT NULL,
+  `sham_alamat` text NOT NULL,
+  `sham_persentase` int(11) NOT NULL,
+  `sham_void` tinyint(4) NOT NULL,
+  `sham_entryuser` varchar(100) NOT NULL,
+  `sham_entrydate` datetime NOT NULL,
+  `sham_changeuser` varchar(100) NOT NULL,
+  `sham_changedate` datetime NOT NULL,
+  PRIMARY KEY (`sham_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `gntrapp_saham`
+--
+
+INSERT INTO `gntrapp_saham` (`sham_id`, `sham_nama`, `sham_alamat`, `sham_persentase`, `sham_void`, `sham_entryuser`, `sham_entrydate`, `sham_changeuser`, `sham_changedate`) VALUES
+(1, 'Andre Lestari', 'Bekasix', 20, 0, '', '2016-04-17 07:04:57', '', '2016-04-17 07:07:03'),
+(2, 'test', 'aja', 10, 1, '', '2016-04-17 07:07:54', '', '2016-04-17 07:07:56');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
