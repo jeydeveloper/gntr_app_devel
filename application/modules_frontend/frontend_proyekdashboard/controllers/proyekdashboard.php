@@ -4,9 +4,17 @@ class Proyekdashboard extends MY_Frontend {
 
 	function __construct(){
 		parent::__construct();
+
+		$this->load->model('frontend_client/crud_client');
+		$this->load->model('frontend_vendor/crud_vendor');
+		$this->load->model('frontend_barangjasa/crud_barangjasa');
 	}
 
 	function index() {
+		$this->_data['result_client'] = $this->crud_client->where('clnt_void = 0 AND clnt_status = 1')->order_by('clnt_id', 'asc')->get_all();
+		$this->_data['result_vendor'] = $this->crud_vendor->where('vndr_void = 0 AND vndr_status = 1')->order_by('vndr_id', 'asc')->get_all();
+		$this->_data['result_barangjasa'] = $this->crud_barangjasa->where('brjs_void = 0')->order_by('brjs_id', 'asc')->get_all();
+
 		$this->template->set('title', 'Proyek Dashboard | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
 		$this->template->load('template_frontend/main', 'content', $this->_data);

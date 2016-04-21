@@ -3,41 +3,7 @@
     <div class="container">
       <div class="row">
         <div class="span2">
-          <div class="widget">
-            <div class="widget-header"> <i class="icon-bookmark"></i>
-              <h3>Shortcuts</h3>
-            </div>
-            <!-- /widget-header -->
-            <div class="widget-content">
-              <div class="shortcuts"> 
-                <a href="proyek_list.html" class="shortcut" style="width: 100%;">
-                  <i class="shortcut-icon icon-list-alt"></i>
-                  <span class="shortcut-label">Proyek</span> 
-                </a>
-              </div>
-              <div class="shortcuts"> 
-                <a href="vendor_list.html" class="shortcut" style="width: 100%;">
-                  <i class="shortcut-icon icon-reply"></i>
-                  <span class="shortcut-label">Vendor</span> 
-                </a>
-              </div>
-              <div class="shortcuts"> 
-                <a href="client_list.html" class="shortcut" style="width: 100%;">
-                  <i class="shortcut-icon icon-share-alt"></i>
-                  <span class="shortcut-label">Client</span> 
-                </a>
-              </div>
-              <div class="shortcuts"> 
-                <a href="barang_list.html" class="shortcut" style="width: 100%;">
-                  <i class="shortcut-icon icon-hdd"></i>
-                  <span class="shortcut-label">Barang / Jasa</span> 
-                </a>
-              </div>
-              <!-- /shortcuts --> 
-            </div>
-            <!-- /widget-content --> 
-          </div>
-          <!-- /widget -->
+          <?php include('_sidebar.php'); ?>
         </div>
         <!-- /span4 -->
         <div class="span10">
@@ -59,24 +25,7 @@
                     </thead>
                     <tbody>
                       <tr>
-                        <td> Pengerjaan Konstruksi Bangunan Gedung. XYZ </td>
-                        <td> PT. Client 1 </td>
-                        <td> Running </td>
-                      </tr>
-                      <tr>
-                        <td> Pengerjaan Konstruksi Bangunan Gedung. XYZ </td>
-                        <td> PT. Client 2 </td>
-                        <td> Running </td>
-                      </tr>
-                      <tr>
-                        <td> Pengerjaan Konstruksi Bangunan Gedung. XYZ </td>
-                        <td> PT. Client 3 </td>
-                        <td> Running </td>
-                      </tr>
-                      <tr>
-                        <td> Pengerjaan Konstruksi Bangunan Gedung. XYZ </td>
-                        <td> PT. Client 4 </td>
-                        <td> Running </td>
+                        <td colspan="3" style="background: red;color: white;">Module ini belum terisi!</td>
                       </tr>
                     </tbody>
                   </table>
@@ -93,32 +42,25 @@
                   <table class="table table-striped table-bordered">
                     <thead>
                       <tr>
-                        <th> Deskripsi </th>
-                        <th> Client</th>
-                        <th> Status</th>
+                        <th> No </th>
+                        <th> Nama</th>
+                        <th> Telpon</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td> Pengerjaan Konstruksi Bangunan Gedung. XYZ </td>
-                        <td> PT. Client 1 </td>
-                        <td> Running </td>
-                      </tr>
-                      <tr>
-                        <td> Pengerjaan Konstruksi Bangunan Gedung. XYZ </td>
-                        <td> PT. Client 2 </td>
-                        <td> Running </td>
-                      </tr>
-                      <tr>
-                        <td> Pengerjaan Konstruksi Bangunan Gedung. XYZ </td>
-                        <td> PT. Client 3 </td>
-                        <td> Running </td>
-                      </tr>
-                      <tr>
-                        <td> Pengerjaan Konstruksi Bangunan Gedung. XYZ </td>
-                        <td> PT. Client 4 </td>
-                        <td> Running </td>
-                      </tr>
+                      <?php if(!empty($result_client)): ?>
+                        <?php foreach($result_client as $key => $value): ?>
+                        <tr>
+                          <td><?php echo ($key+1); ?></td>
+                          <td><?php echo $value['clnt_nama']; ?></td>
+                          <td><?php echo $value['clnt_telpon']; ?></td>
+                        </tr>
+                        <?php endforeach; ?>
+                      <?php else: ?>
+                        <tr>
+                          <td colspan="3" style="background: red;color: white;">Module ini belum terisi!</td>
+                        </tr>
+                      <?php endif; ?>
                     </tbody>
                   </table>
                 </div>
@@ -136,32 +78,25 @@
                   <table class="table table-striped table-bordered">
                     <thead>
                       <tr>
-                        <th> Deskripsi </th>
-                        <th> Client</th>
-                        <th> Status</th>
+                        <th> No </th>
+                        <th> Nama</th>
+                        <th> Telpon</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td> Pengerjaan Konstruksi Bangunan Gedung. XYZ </td>
-                        <td> PT. Client 1 </td>
-                        <td> Running </td>
-                      </tr>
-                      <tr>
-                        <td> Pengerjaan Konstruksi Bangunan Gedung. XYZ </td>
-                        <td> PT. Client 2 </td>
-                        <td> Running </td>
-                      </tr>
-                      <tr>
-                        <td> Pengerjaan Konstruksi Bangunan Gedung. XYZ </td>
-                        <td> PT. Client 3 </td>
-                        <td> Running </td>
-                      </tr>
-                      <tr>
-                        <td> Pengerjaan Konstruksi Bangunan Gedung. XYZ </td>
-                        <td> PT. Client 4 </td>
-                        <td> Running </td>
-                      </tr>
+                      <?php if(!empty($result_vendor)): ?>
+                        <?php foreach($result_vendor as $key => $value): ?>
+                        <tr>
+                          <td><?php echo ($key+1); ?></td>
+                          <td><?php echo $value['vndr_nama']; ?></td>
+                          <td><?php echo $value['vndr_telpon']; ?></td>
+                        </tr>
+                        <?php endforeach; ?>
+                      <?php else: ?>
+                        <tr>
+                          <td colspan="3" style="background: red;color: white;">Module ini belum terisi!</td>
+                        </tr>
+                      <?php endif; ?>
                     </tbody>
                   </table>
                 </div>
@@ -177,32 +112,25 @@
                   <table class="table table-striped table-bordered">
                     <thead>
                       <tr>
-                        <th> Deskripsi </th>
-                        <th> Client</th>
-                        <th> Status</th>
+                        <th> No </th>
+                        <th> Nama</th>
+                        <th> Kategori</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td> Pengerjaan Konstruksi Bangunan Gedung. XYZ </td>
-                        <td> PT. Client 1 </td>
-                        <td> Running </td>
-                      </tr>
-                      <tr>
-                        <td> Pengerjaan Konstruksi Bangunan Gedung. XYZ </td>
-                        <td> PT. Client 2 </td>
-                        <td> Running </td>
-                      </tr>
-                      <tr>
-                        <td> Pengerjaan Konstruksi Bangunan Gedung. XYZ </td>
-                        <td> PT. Client 3 </td>
-                        <td> Running </td>
-                      </tr>
-                      <tr>
-                        <td> Pengerjaan Konstruksi Bangunan Gedung. XYZ </td>
-                        <td> PT. Client 4 </td>
-                        <td> Running </td>
-                      </tr>
+                      <?php if(!empty($result_barangjasa)): ?>
+                        <?php foreach($result_barangjasa as $key => $value): ?>
+                        <tr>
+                          <td><?php echo ($key+1); ?></td>
+                          <td><?php echo $value['brjs_nama']; ?></td>
+                          <td><?php echo (!empty($static_data_source['barjas_kategori'][$value['brjs_kategori_id']]) ? $static_data_source['barjas_kategori'][$value['brjs_kategori_id']]['name'] : '-'); ?></td>
+                        </tr>
+                        <?php endforeach; ?>
+                      <?php else: ?>
+                        <tr>
+                          <td colspan="3" style="background: red;color: white;">Module ini belum terisi!</td>
+                        </tr>
+                      <?php endif; ?>
                     </tbody>
                   </table>
                 </div>

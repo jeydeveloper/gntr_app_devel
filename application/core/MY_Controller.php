@@ -16,9 +16,12 @@ class MY_Frontend extends MY_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->config->load('assets');
+		$this->config->load('static_data_source');
 		
 		$frontend 				= $this->config->item('frontend');
 		$this->_data['assets'] 	= site_url($frontend['assets']);
+
+		$this->_data['static_data_source'] = $this->config->item('static_data_source');
 	}
 }
 

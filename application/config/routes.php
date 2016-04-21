@@ -78,6 +78,24 @@ $route['mata-uang/add'] = "frontend_matauang/matauang/add";
 $route['mata-uang/edit/(:any)'] = "frontend_matauang/matauang/edit/$1";
 $route['mata-uang/delete/(:any)'] = "frontend_matauang/matauang/delete/$1";
 
+//route vendor
+$route['vendor'] = "frontend_vendor/vendor";
+$route['vendor/add'] = "frontend_vendor/vendor/add";
+$route['vendor/edit/(:any)'] = "frontend_vendor/vendor/edit/$1";
+$route['vendor/delete/(:any)'] = "frontend_vendor/vendor/delete/$1";
+
+//route client
+$route['client'] = "frontend_client/client";
+$route['client/add'] = "frontend_client/client/add";
+$route['client/edit/(:any)'] = "frontend_client/client/edit/$1";
+$route['client/delete/(:any)'] = "frontend_client/client/delete/$1";
+
+//route barang jasa
+$route['barang-jasa'] = "frontend_barangjasa/barangjasa";
+$route['barang-jasa/add'] = "frontend_barangjasa/barangjasa/add";
+$route['barang-jasa/edit/(:any)'] = "frontend_barangjasa/barangjasa/edit/$1";
+$route['barang-jasa/delete/(:any)'] = "frontend_barangjasa/barangjasa/delete/$1";
+
 $route['proyek-dashboard'] = "frontend_proyekdashboard/proyekdashboard";
 
 //route lain-lain

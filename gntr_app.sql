@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 17, 2016 at 09:10 AM
+-- Generation Time: Apr 21, 2016 at 09:26 PM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.16
 
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_adminusers` (
 --
 
 INSERT INTO `gntrapp_adminusers` (`admusr_id`, `admusr_username`, `admusr_userpasswd`, `admusr_aulv_id`, `admusr_user_status`, `admusr_void`, `admusr_lastactivity`, `admusr_entryuser`, `admusr_entrydate`, `admusr_changeuser`, `admusr_changedate`) VALUES
-(1, 'superadmin', 'ac43724f16e9241d990427ab7c8f4228', NULL, 'y', 0, '2016-04-17 05:45:44', '', '0000-00-00 00:00:00', '', '2016-04-17 03:45:44'),
+(1, 'superadmin', 'ac43724f16e9241d990427ab7c8f4228', NULL, 'y', 0, '2016-04-21 20:03:09', '', '0000-00-00 00:00:00', '', '2016-04-21 18:03:09'),
 (2, 'demo', 'ac43724f16e9241d990427ab7c8f4228', 5, 'y', 1, '0000-00-00 00:00:00', '', '2016-04-10 09:51:37', '', '2016-04-10 02:51:37'),
 (3, 'Test', '101a6ec9f938885df0a44f20458d2eb4', 3, 'y', 1, '0000-00-00 00:00:00', '', '2016-04-10 03:01:11', '', '2016-04-09 20:01:11'),
 (4, 'Hehe', '196b0f14eba66e10fba74dbf9e99c22f', 5, 'y', 1, '0000-00-00 00:00:00', '', '2016-04-10 03:04:50', '', '2016-04-09 20:04:50'),
@@ -121,6 +121,90 @@ INSERT INTO `gntrapp_aktivatetap` (`dakt_id`, `dakt_kode`, `dakt_keterangan`, `d
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `gntrapp_barang_jasa`
+--
+
+CREATE TABLE IF NOT EXISTS `gntrapp_barang_jasa` (
+  `brjs_id` int(11) NOT NULL AUTO_INCREMENT,
+  `brjs_kategori_id` int(11) NOT NULL,
+  `brjs_jenis_id` int(11) NOT NULL,
+  `brjs_nama` varchar(100) NOT NULL,
+  `brjs_volume` varchar(100) NOT NULL,
+  `brjs_satuan_id` int(11) NOT NULL,
+  `brjs_harga_satuan` int(11) NOT NULL,
+  `brjs_over_project` int(11) NOT NULL,
+  `brjs_vndr_id` int(11) NOT NULL,
+  `brjs_void` tinyint(4) NOT NULL,
+  `brjs_entryuser` varchar(100) NOT NULL,
+  `brjs_entrydate` datetime NOT NULL,
+  `brjs_changeuser` varchar(100) NOT NULL,
+  `brjs_changedate` datetime NOT NULL,
+  PRIMARY KEY (`brjs_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `gntrapp_barang_jasa`
+--
+
+INSERT INTO `gntrapp_barang_jasa` (`brjs_id`, `brjs_kategori_id`, `brjs_jenis_id`, `brjs_nama`, `brjs_volume`, `brjs_satuan_id`, `brjs_harga_satuan`, `brjs_over_project`, `brjs_vndr_id`, `brjs_void`, `brjs_entryuser`, `brjs_entrydate`, `brjs_changeuser`, `brjs_changedate`) VALUES
+(1, 1, 1, 'Barang 1', '1', 3, 1000, 600, 3, 0, '', '2016-04-21 20:30:37', '', '2016-04-21 21:05:14'),
+(2, 2, 0, 'Jasa 1', '', 0, 0, 0, 3, 1, '', '2016-04-21 21:06:02', '', '2016-04-21 21:06:29');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `gntrapp_bpu`
+--
+
+CREATE TABLE IF NOT EXISTS `gntrapp_bpu` (
+  `bpu_id` int(11) NOT NULL AUTO_INCREMENT,
+  `bpu_request_by` varchar(100) NOT NULL,
+  `bpu_keterangan` text NOT NULL,
+  `bpu_harga` int(11) NOT NULL,
+  `bpu_terbilang` varchar(100) NOT NULL,
+  `bpu_approved_by` varchar(100) NOT NULL,
+  `bpu_project` varchar(100) NOT NULL,
+  `bpu_void` tinyint(4) NOT NULL,
+  `bpu_entryuser` varchar(100) NOT NULL,
+  `bpu_entrydate` datetime NOT NULL,
+  `bpu_changeuser` varchar(100) NOT NULL,
+  `bpu_changedate` datetime NOT NULL,
+  PRIMARY KEY (`bpu_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `gntrapp_client`
+--
+
+CREATE TABLE IF NOT EXISTS `gntrapp_client` (
+  `clnt_id` int(11) NOT NULL AUTO_INCREMENT,
+  `clnt_nama` varchar(100) NOT NULL,
+  `clnt_alamat` text NOT NULL,
+  `clnt_contact_person` varchar(100) NOT NULL,
+  `clnt_telpon` varchar(100) NOT NULL,
+  `clnt_email` varchar(100) NOT NULL,
+  `clnt_status` tinyint(4) NOT NULL,
+  `clnt_void` tinyint(4) NOT NULL,
+  `clnt_entryuser` varchar(100) NOT NULL,
+  `clnt_entrydate` datetime NOT NULL,
+  `clnt_changeuser` varchar(100) NOT NULL,
+  `clnt_changedate` datetime NOT NULL,
+  PRIMARY KEY (`clnt_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `gntrapp_client`
+--
+
+INSERT INTO `gntrapp_client` (`clnt_id`, `clnt_nama`, `clnt_alamat`, `clnt_contact_person`, `clnt_telpon`, `clnt_email`, `clnt_status`, `clnt_void`, `clnt_entryuser`, `clnt_entrydate`, `clnt_changeuser`, `clnt_changedate`) VALUES
+(1, 'Client 1', 'Alamat 1', '0813', '022', 'client1@mail.com', 1, 1, '', '2016-04-21 17:38:57', '', '2016-04-21 17:39:59'),
+(2, 'Client 2', 'Alamat 2', '0813', '022', 'client2@mail.com', 1, 0, '', '2016-04-21 17:40:20', '', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `gntrapp_departemen`
 --
 
@@ -149,6 +233,32 @@ INSERT INTO `gntrapp_departemen` (`dprt_id`, `dprt_nama`, `dprt_manager`, `dprt_
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `gntrapp_karyawan`
+--
+
+CREATE TABLE IF NOT EXISTS `gntrapp_karyawan` (
+  `kary_id` int(11) NOT NULL AUTO_INCREMENT,
+  `kary_nama` varchar(100) NOT NULL,
+  `kary_alamat` text NOT NULL,
+  `kary_tempat_lahir` varchar(100) NOT NULL,
+  `kary_tanggal_lahir` date NOT NULL,
+  `kary_telpon` varchar(100) NOT NULL,
+  `kary_posisi_id` int(11) NOT NULL,
+  `kary_jabatan_id` int(11) NOT NULL,
+  `kary_tipe_id` int(11) NOT NULL,
+  `kary_status_nikah_id` int(11) NOT NULL,
+  `kary_status_kontrak_id` int(11) NOT NULL,
+  `kary_void` tinyint(4) NOT NULL,
+  `kary_entryuser` varchar(100) NOT NULL,
+  `kary_entrydate` datetime NOT NULL,
+  `kary_changeuser` varchar(100) NOT NULL,
+  `kary_changedate` datetime NOT NULL,
+  PRIMARY KEY (`kary_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `gntrapp_matauang`
 --
 
@@ -173,6 +283,70 @@ CREATE TABLE IF NOT EXISTS `gntrapp_matauang` (
 INSERT INTO `gntrapp_matauang` (`mtua_id`, `mtua_nama`, `mtua_nilaitukar`, `mtua_negara`, `mtua_simbol`, `mtua_void`, `mtua_entryuser`, `mtua_entrydate`, `mtua_changeuser`, `mtua_changedate`) VALUES
 (1, 'USD', 13595, 'Amerika Serikat', 'US$', 0, '', '2016-04-17 06:44:47', '', '2016-04-17 06:48:37'),
 (2, 'asal', 100, 'demo', 'dm', 1, '', '2016-04-17 06:49:11', '', '2016-04-17 06:49:13');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `gntrapp_namaakun`
+--
+
+CREATE TABLE IF NOT EXISTS `gntrapp_namaakun` (
+  `nakn_id` int(11) NOT NULL AUTO_INCREMENT,
+  `nakn_no` varchar(100) NOT NULL,
+  `nakn_nama` varchar(100) NOT NULL,
+  `nakn_tipe_id` int(11) NOT NULL,
+  `nakn_saldo` int(11) NOT NULL,
+  `nakn_void` tinyint(4) NOT NULL,
+  `nakn_entryuser` varchar(100) NOT NULL,
+  `nakn_entrydate` datetime NOT NULL,
+  `nakn_changeuser` varchar(100) NOT NULL,
+  `nakn_changedate` datetime NOT NULL,
+  PRIMARY KEY (`nakn_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `gntrapp_penerimaan`
+--
+
+CREATE TABLE IF NOT EXISTS `gntrapp_penerimaan` (
+  `pnrm_id` int(11) NOT NULL AUTO_INCREMENT,
+  `pnrm_bank_id` int(11) NOT NULL,
+  `pnrm_tanggal` date NOT NULL,
+  `pnrm_nakn_id` int(11) NOT NULL,
+  `pnrm_nama` varchar(100) NOT NULL,
+  `pnrm_jumlah` int(11) NOT NULL,
+  `pnrm_keterangan` text NOT NULL,
+  `pnrm_void` tinyint(4) NOT NULL,
+  `pnrm_entryuser` varchar(100) NOT NULL,
+  `pnrm_entrydate` datetime NOT NULL,
+  `pnrm_changeuser` varchar(100) NOT NULL,
+  `pnrm_changedate` datetime NOT NULL,
+  PRIMARY KEY (`pnrm_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `gntrapp_pengeluaran`
+--
+
+CREATE TABLE IF NOT EXISTS `gntrapp_pengeluaran` (
+  `pgln_id` int(11) NOT NULL AUTO_INCREMENT,
+  `pgln_bank_id` int(11) NOT NULL,
+  `pgln_tanggal` date NOT NULL,
+  `pgln_nakn_id` int(11) NOT NULL,
+  `pgln_nama` varchar(100) NOT NULL,
+  `pgln_jumlah` int(11) NOT NULL,
+  `pgln_keterangan` text NOT NULL,
+  `pgln_void` tinyint(4) NOT NULL,
+  `pgln_entryuser` varchar(100) NOT NULL,
+  `pgln_entrydate` datetime NOT NULL,
+  `pgln_changeuser` varchar(100) NOT NULL,
+  `pgln_changedate` datetime NOT NULL,
+  PRIMARY KEY (`pgln_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -225,6 +399,37 @@ CREATE TABLE IF NOT EXISTS `gntrapp_saham` (
 INSERT INTO `gntrapp_saham` (`sham_id`, `sham_nama`, `sham_alamat`, `sham_persentase`, `sham_void`, `sham_entryuser`, `sham_entrydate`, `sham_changeuser`, `sham_changedate`) VALUES
 (1, 'Andre Lestari', 'Bekasix', 20, 0, '', '2016-04-17 07:04:57', '', '2016-04-17 07:07:03'),
 (2, 'test', 'aja', 10, 1, '', '2016-04-17 07:07:54', '', '2016-04-17 07:07:56');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `gntrapp_vendor`
+--
+
+CREATE TABLE IF NOT EXISTS `gntrapp_vendor` (
+  `vndr_id` int(11) NOT NULL AUTO_INCREMENT,
+  `vndr_nama` varchar(100) NOT NULL,
+  `vndr_alamat` text NOT NULL,
+  `vndr_contact_person` varchar(100) NOT NULL,
+  `vndr_telpon` varchar(100) NOT NULL,
+  `vndr_email` varchar(100) NOT NULL,
+  `vndr_status` tinyint(4) NOT NULL,
+  `vndr_void` tinyint(4) NOT NULL,
+  `vndr_entryuser` varchar(100) NOT NULL,
+  `vndr_entrydate` datetime NOT NULL,
+  `vndr_changeuser` varchar(100) NOT NULL,
+  `vndr_changedate` datetime NOT NULL,
+  PRIMARY KEY (`vndr_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `gntrapp_vendor`
+--
+
+INSERT INTO `gntrapp_vendor` (`vndr_id`, `vndr_nama`, `vndr_alamat`, `vndr_contact_person`, `vndr_telpon`, `vndr_email`, `vndr_status`, `vndr_void`, `vndr_entryuser`, `vndr_entrydate`, `vndr_changeuser`, `vndr_changedate`) VALUES
+(1, 'Vendor 1', 'Alamat 1', '0812', '021345', 'vendor1@mail.com', 1, 1, '', '2016-04-21 17:29:11', '', '2016-04-21 17:33:12'),
+(2, 'Vendor 2', 'Alamat 2', '0812', '021345', 'vendor2@mail.com', 0, 0, '', '2016-04-21 17:33:36', '', '2016-04-21 17:34:19'),
+(3, 'Vendor 3', 'Alamat 3', '0814', '021345', 'vendor3@mail.com', 1, 0, '', '2016-04-21 20:54:44', '', '0000-00-00 00:00:00');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
