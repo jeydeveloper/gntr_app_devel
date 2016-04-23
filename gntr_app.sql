@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 23, 2016 at 07:05 AM
+-- Generation Time: Apr 23, 2016 at 07:30 AM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.16
 
@@ -321,26 +321,6 @@ INSERT INTO `gntrapp_matauang` (`mtua_id`, `mtua_nama`, `mtua_nilaitukar`, `mtua
 -- --------------------------------------------------------
 
 --
--- Table structure for table `gntrapp_namaakun`
---
-
-CREATE TABLE IF NOT EXISTS `gntrapp_namaakun` (
-  `nakn_id` int(11) NOT NULL AUTO_INCREMENT,
-  `nakn_no` varchar(100) NOT NULL,
-  `nakn_nama` varchar(100) NOT NULL,
-  `nakn_tipe_id` int(11) NOT NULL,
-  `nakn_saldo` int(11) NOT NULL,
-  `nakn_void` tinyint(4) NOT NULL,
-  `nakn_entryuser` varchar(100) NOT NULL,
-  `nakn_entrydate` datetime NOT NULL,
-  `nakn_changeuser` varchar(100) NOT NULL,
-  `nakn_changedate` datetime NOT NULL,
-  PRIMARY KEY (`nakn_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `gntrapp_penerimaan`
 --
 
@@ -348,7 +328,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_penerimaan` (
   `pnrm_id` int(11) NOT NULL AUTO_INCREMENT,
   `pnrm_bank_id` int(11) NOT NULL,
   `pnrm_tanggal` date NOT NULL,
-  `pnrm_nakn_id` int(11) NOT NULL,
+  `pnrm_akun_id` int(11) NOT NULL,
   `pnrm_nama` varchar(100) NOT NULL,
   `pnrm_jumlah` int(11) NOT NULL,
   `pnrm_keterangan` text NOT NULL,

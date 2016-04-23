@@ -3,36 +3,13 @@
     <div class="container">
       <div class="row">
         <div class="span2">
-          <div class="widget">
-            <div class="widget-header"> <i class="icon-bookmark"></i>
-              <h3>Shortcuts</h3>
-            </div>
-            <!-- /widget-header -->
-            <!-- /widget-content -->
-            <div class="widget-content dua">
-              <div class="shortcuts"> 
-                <a href="#" class="shortcut" style="width: 100%;">
-                  <i class="shortcut-icon icon-list-alt"></i>
-                  <span class="shortcut-label">Daftar Penerimaan</span> 
-                </a>
-              </div>
-              <div class="shortcuts"> 
-                <a href="kas_penerimaan_baru.html" class="shortcut" style="width: 100%;">
-                  <i class="shortcut-icon icon-reply"></i>
-                  <span class="shortcut-label">Kas Penerimaan Baru</span> 
-                </a>
-              </div>
-              <!-- /shortcuts --> 
-            </div>
-            <!-- /widget-content --> 
-          </div>
-          <!-- /widget -->
+          <?php include('_sidebar.php'); ?>
         </div>
         <!-- /span4 -->
         <div class="span10">
-          <div class="widget widget-table action-table">
+          <div class="widget">
             <div class="widget-header"> <i class="icon-th-list"></i>
-              <h3>Daftar Kas Penerimaan</h3>
+              <h3>Daftar Kas Bank Penerimaan</h3>
             </div>
             <!-- /widget-header -->
             <div class="widget-content">
@@ -46,20 +23,28 @@
                     <th> Nama Akun </th>
                     <th> Jumlah </th>
                     <th> Keterangan </th>
-                    <th class="td-actions"> </th>
+                    <th class="td-actions"> Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td> 1 </td>
-                    <td> Bank BCA </td>
-                    <td> 17 Agustus 2015 </td>
-                    <td> 1101-100 </td>
-                    <td> Penerimaan Belum Tertagih </td>
-                    <td> Rp 500.000 </td>
-                    <td> - </td>
-                    <td class="td-actions"><a href="vendor_edit.html" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a><a href="vendor_list_submit_delete.html" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>
-                  </tr>
+                  <?php if(!empty($result)): ?>
+                    <?php foreach($result as $key => $value): ?>
+                    <tr>
+                      <td><?php echo ($key+1); ?></td>
+                      <td><?php echo $value['pnrm_bank_id']; ?></td>
+                      <td><?php echo $value['pnrm_tanggal']; ?></td>
+                      <td><?php echo $value['pnrm_akun_id']; ?></td>
+                      <td><?php echo $value['pnrm_nama']; ?></td>
+                      <td><?php echo $value['pnrm_jumlah']; ?></td>
+                      <td><?php echo $value['pnrm_keterangan']; ?></td>
+                      <td class="td-actions"><a href="<?php echo ($module_base_url.'/edit/'.$value['pnrm_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a> <a href="<?php echo ($module_base_url.'/delete/'.$value['pnrm_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>
+                    </tr>
+                    <?php endforeach; ?>
+                  <?php else: ?>
+                    <tr>
+                      <td colspan="8" style="background: red;color: white;">Module ini belum terisi!</td>
+                    </tr>
+                  <?php endif; ?>
                 </tbody>
               </table>
             </div>
@@ -75,4 +60,3 @@
   </div>
   <!-- /main-inner --> 
 </div>
-<!-- /main -->

@@ -67,8 +67,18 @@ $route['daftar-aktiva-tetap/add'] = "frontend_daftaraktivatetap/daftaraktivateta
 $route['daftar-aktiva-tetap/edit/(:any)'] = "frontend_daftaraktivatetap/daftaraktivatetap/edit/$1";
 $route['daftar-aktiva-tetap/delete/(:any)'] = "frontend_daftaraktivatetap/daftaraktivatetap/delete/$1";
 
+//route kas bank penerimaan
 $route['kas-bank-penerimaan'] = "frontend_kasbankpenerimaan/kasbankpenerimaan";
+$route['kas-bank-penerimaan/add'] = "frontend_kasbankpenerimaan/kasbankpenerimaan/add";
+$route['kas-bank-penerimaan/edit/(:any)'] = "frontend_kasbankpenerimaan/kasbankpenerimaan/edit/$1";
+$route['kas-bank-penerimaan/delete/(:any)'] = "frontend_kasbankpenerimaan/kasbankpenerimaan/delete/$1";
+
+//route kas bank pembayaran
 $route['kas-bank-pembayaran'] = "frontend_kasbankpembayaran/kasbankpembayaran";
+$route['kas-bank-pembayaran/add'] = "frontend_kasbankpembayaran/kasbankpembayaran/add";
+$route['kas-bank-pembayaran/edit/(:any)'] = "frontend_kasbankpembayaran/kasbankpembayaran/edit/$1";
+$route['kas-bank-pembayaran/delete/(:any)'] = "frontend_kasbankpembayaran/kasbankpembayaran/delete/$1";
+
 $route['grafik-bank-bca'] = "frontend_grafikbankbca/grafikbankbca";
 
 //route daftar akun
