@@ -119,7 +119,7 @@ body {
                 	<div class="form-top">
                 		<div class="form-top-left">
                 			<h3>Login to PT. Putra Bahari Mandiri</h3>
-                    		<p>Enter your FDN username and password to log on:</p>
+                    		<p>Enter your username and password to log on:</p>
                             <p class="err"></p>
                 		</div>
                 		<div class="form-top-right">
