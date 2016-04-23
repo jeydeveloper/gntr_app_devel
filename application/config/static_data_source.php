@@ -81,3 +81,63 @@ $config["static_data_source"]['barjas_satuan'] = array(
 		'name' => 'Pcs & Span',
 	),
 );
+
+//data source for tipe karyawan
+$config["static_data_source"]['kary_tipe'] = array(
+	1 => array(
+		'value' => 1,
+		'name' => 'Back Office',
+	),
+	2 => array(
+		'value' => 2,
+		'name' => 'Front Office',
+	),
+);
+
+//data source for status nikah karyawan
+$config["static_data_source"]['kary_status_nikah'] = array(
+	1 => array(
+		'value' => 1,
+		'name' => 'Menikah',
+	),
+	2 => array(
+		'value' => 2,
+		'name' => 'Belum Menikah',
+	),
+);
+
+//data source for status kerja karyawan
+$config["static_data_source"]['kary_status_kontrak'] = array(
+	1 => array(
+		'value' => 1,
+		'name' => 'Kontrak',
+	),
+	2 => array(
+		'value' => 2,
+		'name' => 'Pegawai Tetap',
+	),
+);
+
+//data source for status kerja karyawan
+$config["static_data_source"]['kary_posisi'] = array(
+	1 => array(
+		'value' => 1,
+		'name' => 'Operator Folklift',
+	),
+);
+
+//data source for status kerja karyawan
+$config["static_data_source"]['kary_jabatan'] = array(
+	1 => array(
+		'value' => 1,
+		'name' => 'Staff',
+	),
+	2 => array(
+		'value' => 2,
+		'name' => 'Supervisor',
+	),
+	3 => array(
+		'value' => 3,
+		'name' => 'Manager Operasional',
+	),
+);

@@ -106,7 +106,27 @@ $route['lain-lain/delete/(:any)'] = "frontend_lainlain/lainlain/delete/$1";
 
 $route['bpu'] = "frontend_bpu/bpu";
 $route['laporan'] = "frontend_laporan/laporan";
+
+//route karyawan
 $route['karyawan'] = "frontend_karyawan/karyawan";
+$route['karyawan/add'] = "frontend_karyawan/karyawan/add";
+$route['karyawan/edit/(:any)'] = "frontend_karyawan/karyawan/edit/$1";
+$route['karyawan/delete/(:any)'] = "frontend_karyawan/karyawan/delete/$1";
+
+//route absen karyawan
+$route['karyawan/absen'] = "frontend_karyawan/karyawan/absen";
+$route['karyawan/absen/add'] = "frontend_karyawan/karyawan/add_absen";
+$route['karyawan/absen/edit/(:any)'] = "frontend_karyawan/karyawan/edit_absen/$1";
+
+//route gaji karyawan
+$route['karyawan/gaji'] = "frontend_karyawan/karyawan/gaji";
+$route['karyawan/gaji/add'] = "frontend_karyawan/karyawan/add_gaji";
+$route['karyawan/gaji/edit/(:any)'] = "frontend_karyawan/karyawan/edit_gaji/$1";
+
+//route pph-21 karyawan
+$route['karyawan/pph-21'] = "frontend_karyawan/karyawan/pph_21";
+$route['karyawan/pph-21/add'] = "frontend_karyawan/karyawan/add_pph_21";
+$route['karyawan/pph-21/edit/(:any)'] = "frontend_karyawan/karyawan/edit_pph_21/$1";
 
 //route module pembelian
 $route['pembelian'] = "frontend_pembelian/pembelian";
