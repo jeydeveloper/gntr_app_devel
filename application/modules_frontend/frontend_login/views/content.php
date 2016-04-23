@@ -105,7 +105,7 @@ body {
     justify-content: center;
 }
 
-.form-top-left p.err{margin-bottom: 0;opacity:1;color: red;font-weight: bold;display: none;}
+.form-top-left p.err{margin-bottom: 0;opacity:1;color: yellow;font-weight: normal;display: none;}
 
 </style>
 
