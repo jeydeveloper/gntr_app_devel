@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 21, 2016 at 09:26 PM
+-- Generation Time: Apr 23, 2016 at 07:05 AM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.16
 
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_adminusers` (
 --
 
 INSERT INTO `gntrapp_adminusers` (`admusr_id`, `admusr_username`, `admusr_userpasswd`, `admusr_aulv_id`, `admusr_user_status`, `admusr_void`, `admusr_lastactivity`, `admusr_entryuser`, `admusr_entrydate`, `admusr_changeuser`, `admusr_changedate`) VALUES
-(1, 'superadmin', 'ac43724f16e9241d990427ab7c8f4228', NULL, 'y', 0, '2016-04-21 20:03:09', '', '0000-00-00 00:00:00', '', '2016-04-21 18:03:09'),
+(1, 'superadmin', 'ac43724f16e9241d990427ab7c8f4228', NULL, 'y', 0, '2016-04-23 04:14:13', '', '0000-00-00 00:00:00', '', '2016-04-23 02:14:13'),
 (2, 'demo', 'ac43724f16e9241d990427ab7c8f4228', 5, 'y', 1, '0000-00-00 00:00:00', '', '2016-04-10 09:51:37', '', '2016-04-10 02:51:37'),
 (3, 'Test', '101a6ec9f938885df0a44f20458d2eb4', 3, 'y', 1, '0000-00-00 00:00:00', '', '2016-04-10 03:01:11', '', '2016-04-09 20:01:11'),
 (4, 'Hehe', '196b0f14eba66e10fba74dbf9e99c22f', 5, 'y', 1, '0000-00-00 00:00:00', '', '2016-04-10 03:04:50', '', '2016-04-09 20:04:50'),
@@ -121,6 +121,26 @@ INSERT INTO `gntrapp_aktivatetap` (`dakt_id`, `dakt_kode`, `dakt_keterangan`, `d
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `gntrapp_akun`
+--
+
+CREATE TABLE IF NOT EXISTS `gntrapp_akun` (
+  `akun_id` int(11) NOT NULL AUTO_INCREMENT,
+  `akun_nomor` varchar(100) NOT NULL,
+  `akun_nama` varchar(100) NOT NULL,
+  `akun_tipe_id` int(11) NOT NULL,
+  `akun_saldo` int(11) NOT NULL,
+  `akun_void` tinyint(4) NOT NULL,
+  `akun_entryuser` varchar(100) NOT NULL,
+  `akun_entrydate` datetime NOT NULL,
+  `akun_changeuser` varchar(100) NOT NULL,
+  `akun_changedate` datetime NOT NULL,
+  PRIMARY KEY (`akun_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `gntrapp_barang_jasa`
 --
 
@@ -159,18 +179,25 @@ INSERT INTO `gntrapp_barang_jasa` (`brjs_id`, `brjs_kategori_id`, `brjs_jenis_id
 CREATE TABLE IF NOT EXISTS `gntrapp_bpu` (
   `bpu_id` int(11) NOT NULL AUTO_INCREMENT,
   `bpu_request_by` varchar(100) NOT NULL,
-  `bpu_keterangan` text NOT NULL,
+  `bpu_nama` text NOT NULL,
   `bpu_harga` int(11) NOT NULL,
   `bpu_terbilang` varchar(100) NOT NULL,
   `bpu_approved_by` varchar(100) NOT NULL,
-  `bpu_project` varchar(100) NOT NULL,
+  `bpu_proj_id` int(11) NOT NULL,
   `bpu_void` tinyint(4) NOT NULL,
   `bpu_entryuser` varchar(100) NOT NULL,
   `bpu_entrydate` datetime NOT NULL,
   `bpu_changeuser` varchar(100) NOT NULL,
   `bpu_changedate` datetime NOT NULL,
   PRIMARY KEY (`bpu_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `gntrapp_bpu`
+--
+
+INSERT INTO `gntrapp_bpu` (`bpu_id`, `bpu_request_by`, `bpu_nama`, `bpu_harga`, `bpu_terbilang`, `bpu_approved_by`, `bpu_proj_id`, `bpu_void`, `bpu_entryuser`, `bpu_entrydate`, `bpu_changeuser`, `bpu_changedate`) VALUES
+(1, 'superadmin', 'Transport Ke Inggris', 16000000, 'Enam Belas Juta Rupiah', '', 0, 0, '', '2016-04-23 07:01:15', '', '2016-04-23 07:04:56');
 
 -- --------------------------------------------------------
 
@@ -254,7 +281,14 @@ CREATE TABLE IF NOT EXISTS `gntrapp_karyawan` (
   `kary_changeuser` varchar(100) NOT NULL,
   `kary_changedate` datetime NOT NULL,
   PRIMARY KEY (`kary_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `gntrapp_karyawan`
+--
+
+INSERT INTO `gntrapp_karyawan` (`kary_id`, `kary_nama`, `kary_alamat`, `kary_tempat_lahir`, `kary_tanggal_lahir`, `kary_telpon`, `kary_posisi_id`, `kary_jabatan_id`, `kary_tipe_id`, `kary_status_nikah_id`, `kary_status_kontrak_id`, `kary_void`, `kary_entryuser`, `kary_entrydate`, `kary_changeuser`, `kary_changedate`) VALUES
+(1, 'Alexis', 'Kemang', 'Brazil', '1990-02-14', '021', 1, 1, 2, 1, 1, 0, '', '2016-04-23 04:53:33', '', '2016-04-23 05:02:35');
 
 -- --------------------------------------------------------
 
@@ -372,6 +406,23 @@ CREATE TABLE IF NOT EXISTS `gntrapp_profile` (
 INSERT INTO `gntrapp_profile` (`prf_id`, `prf_meta`, `prf_value`, `prf_entryuser`, `prf_entrydate`, `prf_changeuser`, `prf_changedate`) VALUES
 (1, 'Pribadi', 'a:8:{s:4:"npwp";s:4:"1234";s:4:"nama";s:12:"Nama Pribadi";s:6:"alamat";s:14:"Alamat Pribadi";s:4:"kota";s:12:"Kota Pribadi";s:7:"telepon";s:5:"08888";s:3:"fax";s:5:"08899";s:5:"email";s:17:"email@pribadi.com";s:11:"jenis_usaha";s:19:"Jenis Usaha Pribadi";}', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
 (2, 'Usaha', 'a:3:{s:4:"nama";s:16:"Nama Badan Usaha";s:4:"npwp";s:4:"5678";s:10:"keterangan";s:22:"Keterangan Badan Usaha";}', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `gntrapp_project`
+--
+
+CREATE TABLE IF NOT EXISTS `gntrapp_project` (
+  `proj_id` int(11) NOT NULL AUTO_INCREMENT,
+  `proj_nama` varchar(100) NOT NULL,
+  `proj_void` tinyint(4) NOT NULL,
+  `proj_entryuser` varchar(100) NOT NULL,
+  `proj_entrydate` datetime NOT NULL,
+  `proj_changeuser` varchar(100) NOT NULL,
+  `proj_changedate` datetime NOT NULL,
+  PRIMARY KEY (`proj_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 

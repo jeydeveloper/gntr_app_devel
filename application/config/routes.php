@@ -83,6 +83,12 @@ $route['mata-uang/add'] = "frontend_matauang/matauang/add";
 $route['mata-uang/edit/(:any)'] = "frontend_matauang/matauang/edit/$1";
 $route['mata-uang/delete/(:any)'] = "frontend_matauang/matauang/delete/$1";
 
+//route project
+$route['project'] = "frontend_project/project";
+$route['project/add'] = "frontend_project/project/add";
+$route['project/edit/(:any)'] = "frontend_project/project/edit/$1";
+$route['project/delete/(:any)'] = "frontend_project/project/delete/$1";
+
 //route vendor
 $route['vendor'] = "frontend_vendor/vendor";
 $route['vendor/add'] = "frontend_vendor/vendor/add";
@@ -109,7 +115,12 @@ $route['lain-lain/add'] = "frontend_lainlain/lainlain/add";
 $route['lain-lain/edit/(:any)'] = "frontend_lainlain/lainlain/edit/$1";
 $route['lain-lain/delete/(:any)'] = "frontend_lainlain/lainlain/delete/$1";
 
+//route BPU
 $route['bpu'] = "frontend_bpu/bpu";
+$route['bpu/add'] = "frontend_bpu/bpu/add";
+$route['bpu/edit/(:any)'] = "frontend_bpu/bpu/edit/$1";
+$route['bpu/delete/(:any)'] = "frontend_bpu/bpu/delete/$1";
+
 $route['laporan'] = "frontend_laporan/laporan";
 
 //route karyawan

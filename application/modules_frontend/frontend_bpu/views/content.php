@@ -3,79 +3,48 @@
     <div class="container">
       <div class="row">
         <div class="span2">
-          <div class="widget">
-            <div class="widget-header"> <i class="icon-bookmark"></i>
-              <h3>Shortcuts</h3>
-            </div>
-            <!-- /widget-header -->
-            <div class="widget-content">
-              <div class="shortcuts"> 
-                <a href="bpu.html" class="shortcut" style="width: 100%;">
-                  <i class="shortcut-icon icon-list-alt"></i>
-                  <span class="shortcut-label">List</span> 
-                </a>
-              </div>
-              <!-- /shortcuts -->
-              <div class="shortcuts"> 
-                <a href="bpu_new.html" class="shortcut" style="width: 100%;">
-                  <i class="shortcut-icon icon-file"></i>
-                  <span class="shortcut-label">New</span> 
-                </a>
-              </div>
-              <!-- /shortcuts -->
-            </div>
-            <!-- /widget-content --> 
-          </div>
-          <!-- /widget -->
+          <?php include('_sidebar.php'); ?>
         </div>
         <!-- /span4 -->
         <div class="span10">
-          <div class="widget widget-table action-table">
+          <div class="widget">
             <div class="widget-header"> <i class="icon-th-list"></i>
-              <h3>Bukti Pengeluaran Uang</h3>
+              <h3>Daftar BPU</h3>
             </div>
             <!-- /widget-header -->
             <div class="widget-content">
               <table class="table table-striped table-bordered">
                 <thead>
                   <tr>
+                    <th width="30"> No. </th>
                     <th> Request By </th>
-                    <th> Keterangan </th>
-                    <th> Besaran (Harga) </th>
+                    <th> Nama </th>
+                    <th> Besaran (harga) </th>
                     <th> Terbilang </th>
                     <th> Approved By </th>
                     <th> Project </th>
-                    <th class="td-actions"> </th>
+                    <th class="td-actions"> Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td> Eko </td>
-                    <td> Transport ke Bekasi </td>
-                    <td> Rp 100.000 </td>
-                    <td> Seratus Ribu Rupiah </td>
-                    <td> Andri L. </td>
-                    <td> No </td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
-                  <tr>
-                    <td> Eko </td>
-                    <td> Transport ke Bekasi </td>
-                    <td> Rp 100.000 </td>
-                    <td> Seratus Ribu Rupiah </td>
-                    <td> Andri L. </td>
-                    <td> Yes </td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
-                  </tr>
-                  <tr>
-                    <td> Eko </td>
-                    <td> Transport ke Bekasi </td>
-                    <td> Rp 100.000 </td>
-                    <td> Seratus Ribu Rupiah </td>
-                    <td> Andri L. </td>
-                    <td> Yes </td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
-                  </tr>
-                
+                  <?php if(!empty($result)): ?>
+                    <?php foreach($result as $key => $value): ?>
+                    <tr>
+                      <td><?php echo ($key+1); ?></td>
+                      <td><?php echo $value['bpu_request_by']; ?></td>
+                      <td><?php echo $value['bpu_nama']; ?></td>
+                      <td><?php echo $value['bpu_harga']; ?></td>
+                      <td><?php echo $value['bpu_terbilang']; ?></td>
+                      <td><?php echo (!empty($value['bpu_approved_by']) ? $value['bpu_approved_by'] : '-'); ?></td>
+                      <td><?php echo (!empty($value['bpu_proj_id']) ? $value['bpu_proj_id'] : '-'); ?></td>
+                      <td class="td-actions"><a href="<?php echo ($module_base_url.'/edit/'.$value['bpu_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a> <a href="<?php echo ($module_base_url.'/delete/'.$value['bpu_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>
+                    </tr>
+                    <?php endforeach; ?>
+                  <?php else: ?>
+                    <tr>
+                      <td colspan="8" style="background: red;color: white;">Module ini belum terisi!</td>
+                    </tr>
+                  <?php endif; ?>
                 </tbody>
               </table>
             </div>
@@ -91,4 +60,3 @@
   </div>
   <!-- /main-inner --> 
 </div>
-<!-- /main -->
