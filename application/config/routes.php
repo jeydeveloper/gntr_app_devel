@@ -156,12 +156,37 @@ $route['karyawan/pph-21/edit/(:any)'] = "frontend_karyawan/karyawan/edit_pph_21/
 
 //route module pembelian
 $route['pembelian'] = "frontend_pembelian/pembelian";
+
+//route permintaan pembelian
 $route['pembelian/permintaan'] = "frontend_pembelian/pembelian/permintaan";
+$route['pembelian/permintaan/grafik'] = "frontend_pembelian/pembelian/grafik_permintaan";
+$route['pembelian/permintaan/add'] = "frontend_pembelian/pembelian/add_permintaan";
+$route['pembelian/permintaan/edit/(:any)'] = "frontend_pembelian/pembelian/edit_permintaan/$1";
+
+//route permintaan pembelian
 $route['pembelian/kwitansi'] = "frontend_pembelian/pembelian/kwitansi";
-$route['pembelian/surat-jalan'] = "frontend_pembelian/pembelian/suratJalan";
+$route['pembelian/kwitansi/add'] = "frontend_pembelian/pembelian/add_kwitansi";
+$route['pembelian/kwitansi/edit/(:any)'] = "frontend_pembelian/pembelian/edit_kwitansi/$1";
+
+//route surat jalan pembelian
+$route['pembelian/surat-jalan'] = "frontend_pembelian/pembelian/surat_jalan";
+$route['pembelian/surat-jalan/add'] = "frontend_pembelian/pembelian/add_surat_jalan";
+$route['pembelian/surat-jalan/edit/(:any)'] = "frontend_pembelian/pembelian/edit_surat_jalan/$1";
+
+//route invoice pembelian
 $route['pembelian/invoice'] = "frontend_pembelian/pembelian/invoice";
-$route['pembelian/tanda-terima'] = "frontend_pembelian/pembelian/tandaTerima";
-$route['pembelian/bukti-pembayaran'] = "frontend_pembelian/pembelian/buktiPembayaran";
+$route['pembelian/invoice/add'] = "frontend_pembelian/pembelian/add_invoice";
+$route['pembelian/invoice/edit/(:any)'] = "frontend_pembelian/pembelian/edit_invoice/$1";
+
+//route tanda terima pembelian
+$route['pembelian/tanda-terima'] = "frontend_pembelian/pembelian/tanda_terima";
+$route['pembelian/tanda-terima/add'] = "frontend_pembelian/pembelian/add_tanda_terima";
+$route['pembelian/tanda-terima/edit/(:any)'] = "frontend_pembelian/pembelian/edit_tanda_terima/$1";
+
+//route bukti pembayaran pembelian
+$route['pembelian/bukti-pembayaran'] = "frontend_pembelian/pembelian/bukti_pembayaran";
+$route['pembelian/bukti-pembayaran/add'] = "frontend_pembelian/pembelian/add_bukti_pembayaran";
+$route['pembelian/bukti-pembayaran/edit/(:any)'] = "frontend_pembelian/pembelian/edit_bukti_pembayaran/$1";
 
 $route['penjualan'] = "frontend_penjualan/penjualan";
 $route['penjualan/penawaran'] = "frontend_penjualan/penjualan/penawaran";
