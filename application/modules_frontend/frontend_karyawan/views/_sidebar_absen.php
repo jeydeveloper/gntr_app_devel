@@ -18,6 +18,19 @@
       </a>
     </div>
     <!-- /shortcuts -->
+
+    <?php if(!empty($_SERVER['HTTP_REFERER'])): ?>
+    <?php if(strpos($_SERVER['HTTP_REFERER'], 'karyawan') !== false): ?>
+    <div class="shortcuts"> 
+      <a href="<?php echo site_url('karyawan'); ?>" class="shortcut" style="width: 100%;">
+        <i class="shortcut-icon icon-circle-arrow-left"></i>
+        <span class="shortcut-label">Karyawan</span> 
+      </a>
+    </div>
+    <!-- /shortcuts --> 
+    <?php endif; ?>
+    <?php endif; ?>
+
   </div>
   <!-- /widget-content --> 
 </div>

@@ -3,38 +3,13 @@
     <div class="container">
       <div class="row">
         <div class="span2">
-          <div class="widget">
-            <div class="widget-header"> <i class="icon-bookmark"></i>
-              <h3>Shortcuts</h3>
-            </div>
-            <!-- /widget-header -->
-            <div class="widget-content">
-              <div class="shortcuts"> 
-                <a href="pembelian_list.html" class="shortcut" style="width: 100%;">
-                  <i class="shortcut-icon icon-list-alt"></i>
-                  <span class="shortcut-label">List</span> 
-                </a>
-              </div>
-              <!-- /shortcuts -->
-              <div class="shortcuts"> 
-                <a href="pembelian_new.html" class="shortcut" style="width: 100%;">
-                  <i class="shortcut-icon icon-file"></i>
-                  <span class="shortcut-label">New</span> 
-                </a>
-              </div>
-            </div>
-            <!-- /widget-content --> 
-          </div>
-          <!-- /widget -->
+          <?php include('_sidebar.php'); ?>
         </div>
         <!-- /span4 -->
         <div class="span10">
-          <div class="widget widget-table action-table">
+          <div class="widget">
             <div class="widget-header"> <i class="icon-th-list"></i>
               <h3>Daftar Akun</h3>
-              <div style="float:right; margin-top:5px; margin-right:5px;">
-                <input type="text" placeholder="Keyword">
-              </div>
             </div>
             <!-- /widget-header -->
             <div class="widget-content">
@@ -141,4 +116,3 @@
   </div>
   <!-- /main-inner --> 
 </div>
-<!-- /main -->

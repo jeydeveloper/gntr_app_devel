@@ -70,7 +70,12 @@ $route['daftar-aktiva-tetap/delete/(:any)'] = "frontend_daftaraktivatetap/daftar
 $route['kas-bank-penerimaan'] = "frontend_kasbankpenerimaan/kasbankpenerimaan";
 $route['kas-bank-pembayaran'] = "frontend_kasbankpembayaran/kasbankpembayaran";
 $route['grafik-bank-bca'] = "frontend_grafikbankbca/grafikbankbca";
+
+//route daftar akun
 $route['daftar-akun'] = "frontend_daftarakun/daftarakun";
+$route['daftar-akun/add'] = "frontend_daftarakun/daftarakun/add";
+$route['daftar-akun/edit/(:any)'] = "frontend_daftarakun/daftarakun/edit/$1";
+$route['daftar-akun/delete/(:any)'] = "frontend_daftarakun/daftarakun/delete/$1";
 
 //route mata uang
 $route['mata-uang'] = "frontend_matauang/matauang";
