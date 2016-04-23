@@ -5,6 +5,11 @@ class Matauang extends MY_Frontend {
 	function __construct(){
 		parent::__construct();
 
+		if(!$this->session->userdata('userid')) {
+			redirect('login');
+			exit();
+		}
+
 		$this->load->model('frontend_matauang/crud_matauang', 'crud');
 		$this->_data['module_base_url'] = site_url('mata-uang');
 		$this->_data['datetime'] = date('Y-m-d H:i:s');

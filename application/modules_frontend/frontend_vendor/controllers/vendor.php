@@ -5,6 +5,11 @@ class Vendor extends MY_Frontend {
 	function __construct(){
 		parent::__construct();
 
+		if(!$this->session->userdata('userid')) {
+			redirect('login');
+			exit();
+		}
+
 		$this->load->model('frontend_vendor/crud_vendor', 'crud');
 		$this->_data['module_base_url'] = site_url('vendor');
 		$this->_data['datetime'] = date('Y-m-d H:i:s');

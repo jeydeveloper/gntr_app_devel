@@ -5,6 +5,11 @@ class Bpu extends MY_Frontend {
 	function __construct(){
 		parent::__construct();
 
+		if(!$this->session->userdata('userid')) {
+			redirect('login');
+			exit();
+		}
+
 		$this->load->model('frontend_bpu/crud_bpu', 'crud');
 		$this->load->model('frontend_project/crud_project', 'crud_project');
 		$this->_data['module_base_url'] = site_url('bpu');

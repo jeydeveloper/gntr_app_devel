@@ -5,6 +5,11 @@ class Proyekdashboard extends MY_Frontend {
 	function __construct(){
 		parent::__construct();
 
+		if(!$this->session->userdata('userid')) {
+			redirect('login');
+			exit();
+		}
+
 		$this->load->model('frontend_client/crud_client');
 		$this->load->model('frontend_vendor/crud_vendor');
 		$this->load->model('frontend_barangjasa/crud_barangjasa');

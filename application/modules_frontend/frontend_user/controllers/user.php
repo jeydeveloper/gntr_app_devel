@@ -5,6 +5,11 @@ class User extends MY_Frontend {
 	function __construct(){
 		parent::__construct();
 
+		if(!$this->session->userdata('userid')) {
+			redirect('login');
+			exit();
+		}
+
 		$this->load->model('frontend_user/crud_user' , 'crud_user');
 		$this->load->model('frontend_userlevel/crud', 'crud_userlevel');
 		$this->_data['module_base_url'] = site_url('pengguna');

@@ -4,6 +4,11 @@ class Pembelian extends MY_Frontend {
 
 	function __construct(){
 		parent::__construct();
+
+		if(!$this->session->userdata('userid')) {
+			redirect('login');
+			exit();
+		}
 	}
 
 	function index() {
