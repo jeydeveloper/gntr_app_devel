@@ -8,7 +8,7 @@
                 <ul class="nav pull-right">
                     <?php if($this->session->userdata('userid')): ?>
                     <li>
-                        <a href="<?php echo site_url('logout'); ?>">logout</a>
+                        <a href="<?php echo site_url('logout'); ?>">Hi <i><?php echo $this->session->userdata('username'); ?></i>, (logout)</a>
                     </li>
                     <?php else: ?>
                     <li>
