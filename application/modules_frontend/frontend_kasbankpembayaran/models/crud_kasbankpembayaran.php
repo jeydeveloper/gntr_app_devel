@@ -42,6 +42,11 @@ class Crud_kasbankpembayaran extends CI_Model {
 		$this->db->group_by($group_by);
 		return $this;
 	}
+
+	function join($tablejoin, $onjoin, $jointype = 'inner'){
+		$this->db->join($tablejoin, $onjoin, $jointype);
+		return $this;
+	}
 	//--------------end---------------
 
 	function get_row(){

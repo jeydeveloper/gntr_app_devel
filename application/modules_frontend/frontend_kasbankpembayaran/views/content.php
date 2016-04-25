@@ -17,6 +17,7 @@
                 <thead>
                   <tr>
                     <th width="30"> No. </th>
+                    <th> Nama </th>
                     <th> Paid From </th>
                     <th> Tanggal </th>
                     <th> No. Akun </th>
@@ -31,10 +32,11 @@
                     <?php foreach($result as $key => $value): ?>
                     <tr>
                       <td><?php echo ($key+1); ?></td>
-                      <td><?php echo $value['pgln_bank_id']; ?></td>
-                      <td><?php echo $value['pgln_tanggal']; ?></td>
-                      <td><?php echo $value['pgln_akun_id']; ?></td>
                       <td><?php echo $value['pgln_nama']; ?></td>
+                      <td><?php echo (!empty($static_data_source['bank'][$value['pgln_bank_id']]) ? $static_data_source['bank'][$value['pgln_bank_id']]['name'] : '-'); ?></td>
+                      <td><?php echo $value['pgln_tanggal']; ?></td>
+                      <td><?php echo ($parent_akun[$value['akun_parent']] . '-' . $value['akun_nomor']); ?></td>
+                      <td><?php echo $value['akun_nama']; ?></td>
                       <td><?php echo $value['pgln_jumlah']; ?></td>
                       <td><?php echo $value['pgln_keterangan']; ?></td>
                       <td class="td-actions"><a href="<?php echo ($module_base_url.'/edit/'.$value['pgln_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a> <a href="<?php echo ($module_base_url.'/delete/'.$value['pgln_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>
@@ -42,7 +44,7 @@
                     <?php endforeach; ?>
                   <?php else: ?>
                     <tr>
-                      <td colspan="8" style="background: red;color: white;">Module ini belum terisi!</td>
+                      <td colspan="9" style="background: red;color: white;">Module ini belum terisi!</td>
                     </tr>
                   <?php endif; ?>
                 </tbody>

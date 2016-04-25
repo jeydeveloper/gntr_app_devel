@@ -34,6 +34,26 @@ $config["static_data_source"]['akun_tipe'] = array(
 	),
 );
 
+//data source bank
+$config["static_data_source"]['bank'] = array(
+	1 => array(
+		'value' => 1,
+		'name' => 'Bank BCA',
+	),
+	2 => array(
+		'value' => 2,
+		'name' => 'Bank Mandiri',
+	),
+	3 => array(
+		'value' => 3,
+		'name' => 'Bank BNI',
+	),
+	4 => array(
+		'value' => 4,
+		'name' => 'Bank BRI',
+	),
+);
+
 $config["static_data_source"]['status_aktif'] = array(
 	0 => array(
 		'value' => 0,

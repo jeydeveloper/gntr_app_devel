@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 25, 2016 at 07:09 PM
+-- Generation Time: Apr 25, 2016 at 09:08 PM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.16
 
@@ -350,7 +350,14 @@ CREATE TABLE IF NOT EXISTS `gntrapp_penerimaan` (
   `pnrm_changeuser` varchar(100) NOT NULL,
   `pnrm_changedate` datetime NOT NULL,
   PRIMARY KEY (`pnrm_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `gntrapp_penerimaan`
+--
+
+INSERT INTO `gntrapp_penerimaan` (`pnrm_id`, `pnrm_bank_id`, `pnrm_tanggal`, `pnrm_akun_id`, `pnrm_nama`, `pnrm_jumlah`, `pnrm_keterangan`, `pnrm_void`, `pnrm_entryuser`, `pnrm_entrydate`, `pnrm_changeuser`, `pnrm_changedate`) VALUES
+(1, 2, '2016-04-14', 2, 'Jual Tanah', 150000, 'test', 0, '', '2016-04-25 20:21:02', '', '2016-04-25 21:07:56');
 
 -- --------------------------------------------------------
 
@@ -362,7 +369,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_pengeluaran` (
   `pgln_id` int(11) NOT NULL AUTO_INCREMENT,
   `pgln_bank_id` int(11) NOT NULL,
   `pgln_tanggal` date NOT NULL,
-  `pgln_nakn_id` int(11) NOT NULL,
+  `pgln_akun_id` int(11) NOT NULL,
   `pgln_nama` varchar(100) NOT NULL,
   `pgln_jumlah` int(11) NOT NULL,
   `pgln_keterangan` text NOT NULL,
@@ -372,7 +379,16 @@ CREATE TABLE IF NOT EXISTS `gntrapp_pengeluaran` (
   `pgln_changeuser` varchar(100) NOT NULL,
   `pgln_changedate` datetime NOT NULL,
   PRIMARY KEY (`pgln_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `gntrapp_pengeluaran`
+--
+
+INSERT INTO `gntrapp_pengeluaran` (`pgln_id`, `pgln_bank_id`, `pgln_tanggal`, `pgln_akun_id`, `pgln_nama`, `pgln_jumlah`, `pgln_keterangan`, `pgln_void`, `pgln_entryuser`, `pgln_entrydate`, `pgln_changeuser`, `pgln_changedate`) VALUES
+(1, 3, '2016-04-20', 2, 'Beli Tanah', 1400000, '', 0, '', '2016-04-25 21:04:59', '', '2016-04-25 21:07:45'),
+(2, 3, '2016-04-20', 2, 'Beli Tanah', 1400000, '', 1, '', '2016-04-25 21:05:46', '', '2016-04-25 21:06:43'),
+(3, 3, '2016-04-20', 2, 'Beli Tanah', 1400000, '', 1, '', '2016-04-25 21:06:34', '', '2016-04-25 21:06:42');
 
 -- --------------------------------------------------------
 

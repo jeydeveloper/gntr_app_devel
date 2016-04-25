@@ -93,4 +93,17 @@ class Crud_daftarakun extends CI_Model {
 		}
 		return $data;
 	}
+
+	function get_option_detail() {
+		$res = $this->get_all();
+		$data = array();
+		$parent = $this->get_option_parent();
+		foreach ($res as $key => $value) {
+			$data[] = array(
+				'name' 	=> ($parent[$value['akun_parent']] . '-' . $value['akun_nomor']) . ' [' . $value['akun_nama'] . ']',
+				'value' => $value['akun_id'],
+			); 
+		}
+		return $data;
+	}
 }  
