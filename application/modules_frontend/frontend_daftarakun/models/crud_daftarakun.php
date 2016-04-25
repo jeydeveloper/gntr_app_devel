@@ -65,12 +65,12 @@ class Crud_daftarakun extends CI_Model {
 	}
 
 	function get_option() {
-		$res = $this->where('aulv_void = 0')->get_all();
+		$res = $this->where('akun_void = 0')->get_all();
 		$data = array();
 		foreach ($res as $key => $value) {
 			$data[] = array(
-				'name' 	=> $value['aulv_name'],
-				'value' => $value['aulv_id'],
+				'name' 	=> $value['akun_nama'],
+				'value' => $value['akun_id'],
 			); 
 		}
 		return $data;
@@ -80,7 +80,16 @@ class Crud_daftarakun extends CI_Model {
 		$res = $this->get_all();
 		$data = array();
 		foreach ($res as $key => $value) {
-			$data[$value['aulv_id']] = $value['aulv_name']; 
+			$data[$value['akun_id']] = $value['akun_nama']; 
+		}
+		return $data;
+	}
+
+	function get_option_parent() {
+		$res = $this->get_all();
+		$data = array();
+		foreach ($res as $key => $value) {
+			$data[$value['akun_id']] = $value['akun_nomor']; 
 		}
 		return $data;
 	}

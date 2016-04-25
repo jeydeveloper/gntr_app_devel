@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 23, 2016 at 08:30 AM
+-- Generation Time: Apr 25, 2016 at 07:09 PM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.16
 
@@ -70,19 +70,20 @@ CREATE TABLE IF NOT EXISTS `gntrapp_adminusers` (
   `admusr_changeuser` varchar(100) NOT NULL,
   `admusr_changedate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`admusr_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `gntrapp_adminusers`
 --
 
 INSERT INTO `gntrapp_adminusers` (`admusr_id`, `admusr_username`, `admusr_userpasswd`, `admusr_aulv_id`, `admusr_user_status`, `admusr_void`, `admusr_lastactivity`, `admusr_entryuser`, `admusr_entrydate`, `admusr_changeuser`, `admusr_changedate`) VALUES
-(1, 'superadmin', 'ac43724f16e9241d990427ab7c8f4228', NULL, 'y', 0, '2016-04-23 04:14:13', '', '0000-00-00 00:00:00', '', '2016-04-23 02:14:13'),
-(2, 'demo', 'ac43724f16e9241d990427ab7c8f4228', 5, 'y', 1, '0000-00-00 00:00:00', '', '2016-04-10 09:51:37', '', '2016-04-10 02:51:37'),
+(1, 'superadmin', 'ac43724f16e9241d990427ab7c8f4228', NULL, 'y', 0, '2016-04-25 16:36:21', '', '0000-00-00 00:00:00', '', '2016-04-25 14:36:21'),
+(2, 'demo', 'ac43724f16e9241d990427ab7c8f4228', 5, 'y', 1, '2016-04-23 12:57:58', '', '2016-04-10 09:51:37', '', '2016-04-23 10:57:58'),
 (3, 'Test', '101a6ec9f938885df0a44f20458d2eb4', 3, 'y', 1, '0000-00-00 00:00:00', '', '2016-04-10 03:01:11', '', '2016-04-09 20:01:11'),
 (4, 'Hehe', '196b0f14eba66e10fba74dbf9e99c22f', 5, 'y', 1, '0000-00-00 00:00:00', '', '2016-04-10 03:04:50', '', '2016-04-09 20:04:50'),
 (5, 'ggfdfg', '6c0cbf5029aed0af395ac4b864c6b095', 5, 'n', 1, '0000-00-00 00:00:00', '', '2016-04-10 03:56:35', '', '2016-04-09 20:56:35'),
-(6, 'GUntur', '827ccb0eea8a706c4c34a16891f84e7b', 1, 'y', 0, '0000-00-00 00:00:00', '', '2016-04-10 09:49:29', '', '2016-04-10 02:49:29');
+(6, 'GUntur', '827ccb0eea8a706c4c34a16891f84e7b', 1, 'y', 0, '0000-00-00 00:00:00', '', '2016-04-10 09:49:29', '', '2016-04-10 02:49:29'),
+(7, 'demo', 'ac43724f16e9241d990427ab7c8f4228', 1, 'y', 0, '0000-00-00 00:00:00', '', '2016-04-23 12:53:22', '', '2016-04-23 10:53:22');
 
 -- --------------------------------------------------------
 
@@ -130,13 +131,24 @@ CREATE TABLE IF NOT EXISTS `gntrapp_akun` (
   `akun_nama` varchar(100) NOT NULL,
   `akun_tipe_id` int(11) NOT NULL,
   `akun_saldo` int(11) NOT NULL,
+  `akun_parent` tinyint(4) NOT NULL,
   `akun_void` tinyint(4) NOT NULL,
   `akun_entryuser` varchar(100) NOT NULL,
   `akun_entrydate` datetime NOT NULL,
   `akun_changeuser` varchar(100) NOT NULL,
   `akun_changedate` datetime NOT NULL,
   PRIMARY KEY (`akun_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `gntrapp_akun`
+--
+
+INSERT INTO `gntrapp_akun` (`akun_id`, `akun_nomor`, `akun_nama`, `akun_tipe_id`, `akun_saldo`, `akun_parent`, `akun_void`, `akun_entryuser`, `akun_entrydate`, `akun_changeuser`, `akun_changedate`) VALUES
+(1, '1201', 'Aktiva Tetap', 2, 1000000, 0, 0, '', '2016-04-25 18:00:45', '', '2016-04-25 19:04:16'),
+(2, '001', 'Tanah', 2, 500000, 1, 0, '', '2016-04-25 18:25:23', '', '2016-04-25 19:01:20'),
+(3, '1001', 'Kas', 1, 3000000, 0, 0, '', '2016-04-25 19:03:14', '', '2016-04-25 19:04:22'),
+(4, '001', 'Bank Mandiri', 1, 2000000, 3, 0, '', '2016-04-25 19:03:51', '', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 

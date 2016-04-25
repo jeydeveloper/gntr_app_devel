@@ -16,6 +16,7 @@
               <table class="table table-striped table-bordered">
                 <thead>
                   <tr>
+                    <th> No.</th>
                     <th> No. Akun</th>
                     <th> Nama</th>
                     <th> Tipe</th>
@@ -24,83 +25,22 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td> <span style="font-weight:bold;">1001</span></td>
-                    <td> Kas </td>
-                    <td> Kas/Bank </td>
-                    <td> 500.000.000,00 </td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
-                  </tr>
-                  <tr>
-                    <td> <span style="margin-left:15px;">1001-001</span> </td>
-                    <td> Bank Mandiri </td>
-                    <td> Kas/Bank </td>
-                    <td> 300.000.000,00 </td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
-                  </tr>
-                  <tr>
-                    <td> <span style="margin-left:15px;">1001-002</span> </td>
-                    <td> Bank BCA </td>
-                    <td> Kas/Bank </td>
-                    <td> 150.000.000,00 </td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
-                  </tr>
-                  <tr>
-                    <td> <span style="margin-left:15px;">1001-003</span> </td>
-                    <td> Bank BNI </td>
-                    <td> Kas/Bank </td>
-                    <td> 50.000.000,00 </td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
-                  </tr>
-                  <tr>
-                    <td> <span style="font-weight:bold;">1201</span></td>
-                    <td> Aktiva Tetap </td>
-                    <td> Aktiva Tetap </td>
-                    <td> 600.000.000,00 </td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
-                  </tr>
-                  <tr>
-                    <td> <span style="margin-left:15px;">1201-001</span> </td>
-                    <td> Tanah </td>
-                    <td> Aktiva Tetap </td>
-                    <td> 300.000.000,00 </td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
-                  </tr>
-                  <tr>
-                    <td> <span style="margin-left:15px;">1201-002</span> </td>
-                    <td> Bangunan </td>
-                    <td> Aktiva Tetap </td>
-                    <td> 150.000.000,00 </td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
-                  </tr>
-                  <tr>
-                    <td> <span style="margin-left:15px;">1201-003</span> </td>
-                    <td> Kendaraan </td>
-                    <td> Aktiva Tetap </td>
-                    <td> 150.000.000,00 </td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
-                  </tr>
-                  <tr>
-                    <td> <span style="font-weight:bold;">1301</span></td>
-                    <td> Barang </td>
-                    <td> Aktiva Tetap </td>
-                    <td> 600.000.000,00 </td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
-                  </tr>
-                  <tr>
-                    <td> <span style="margin-left:15px;">1301-001</span> </td>
-                    <td> Palet </td>
-                    <td> Alat Proyek </td>
-                    <td> 20.000.000,00 </td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
-                  </tr>
-                  <tr>
-                    <td> <span style="margin-left:15px;">1301-002</span> </td>
-                    <td> Drum </td>
-                    <td> Alat Proyek </td>
-                    <td> 30.000.000,00 </td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
-                  </tr>
+                  <?php if(!empty($result)): ?>
+                    <?php foreach($result as $key => $value): ?>
+                    <tr>
+                      <td><?php echo ($key+1); ?></td>
+                      <td><?php echo (!empty($parent[$value['akun_parent']]) ? ('&nbsp;&nbsp;&nbsp;' . $parent[$value['akun_parent']] . '-') : ''); ?><?php echo $value['akun_nomor']; ?></td>
+                      <td><?php echo $value['akun_nama']; ?></td>
+                      <td><?php echo (!empty($static_data_source['akun_tipe'][$value['akun_tipe_id']]) ? $static_data_source['akun_tipe'][$value['akun_tipe_id']]['name'] : '-'); ?></td>
+                      <td><?php echo $value['akun_saldo']; ?></td>
+                      <td class="td-actions"><a href="<?php echo ($module_base_url.'/edit/'.$value['akun_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a> <a href="<?php echo ($module_base_url.'/delete/'.$value['akun_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>
+                    </tr>
+                    <?php endforeach; ?>
+                  <?php else: ?>
+                    <tr>
+                      <td colspan="6" style="background: red;color: white;">Module ini belum terisi!</td>
+                    </tr>
+                  <?php endif; ?>
                 </tbody>
               </table>
             </div>

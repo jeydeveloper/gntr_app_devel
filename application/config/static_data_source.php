@@ -18,19 +18,30 @@ $config["static_data_source"]['status'] = array(
 	),
 );
 
-//data source for tipe aktiva
-$config["static_data_source"]['tipe_aktiva'] = array(
-	1001 => array(
-		'kode' => 1001,
+//data source akun tipe
+$config["static_data_source"]['akun_tipe'] = array(
+	1 => array(
+		'value' => 1,
 		'name' => 'Kas/Bank',
 	),
-	1101 => array(
-		'kode' => 1101,
+	2 => array(
+		'value' => 2,
 		'name' => 'Aktiva Tetap',
 	),
-	1201 => array(
-		'kode' => 1201,
+	3 => array(
+		'value' => 3,
 		'name' => 'Barang',
+	),
+);
+
+$config["static_data_source"]['status_aktif'] = array(
+	0 => array(
+		'value' => 0,
+		'name' => 'Tidak Aktif',
+	),
+	1 => array(
+		'value' => 1,
+		'name' => 'Aktif',
 	),
 );
 
