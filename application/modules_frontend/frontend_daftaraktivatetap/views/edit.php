@@ -41,12 +41,12 @@
 
                   <div class="field">
                     <label for="dakt_tanggalpakai">Tgl Pakai</label>
-                    <input id="dakt_tanggalpakai" name="dakt_tanggalpakai" value="<?php echo $detail['dakt_tanggalpakai']; ?>" placeholder="Tgl Pakai"/>
+                    <input class="date-picker" id="dakt_tanggalpakai" name="dakt_tanggalpakai" value="<?php echo $detail['dakt_tanggalpakai']; ?>" placeholder="Tgl Pakai"/>
                   </div> <!-- /field -->
 
                   <div class="field">
                     <label for="dakt_tanggalbeli">Tgl Beli</label>
-                    <input id="dakt_tanggalbeli" name="dakt_tanggalbeli" value="<?php echo $detail['dakt_tanggalbeli']; ?>" placeholder="Tgl Beli"/>
+                    <input class="date-picker" id="dakt_tanggalbeli" name="dakt_tanggalbeli" value="<?php echo $detail['dakt_tanggalbeli']; ?>" placeholder="Tgl Beli"/>
                   </div> <!-- /field -->
 
                   <div class="field">

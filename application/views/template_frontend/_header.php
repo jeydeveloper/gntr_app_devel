@@ -10,6 +10,7 @@
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600"
             rel="stylesheet">
     <link href="<?php echo $assets; ?>/css/font-awesome.css" rel="stylesheet">
+    <link href="<?php echo $assets; ?>/css/jquery-ui.css" rel="stylesheet">
     <link href="<?php echo $assets; ?>/css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link href="<?php echo $assets; ?>/css/pages/dashboard.css" rel="stylesheet">
@@ -22,5 +23,6 @@
         <![endif]-->
 
     <script type="text/javascript" src="<?php echo $assets; ?>/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="<?php echo $assets; ?>/js/jquery-ui.min.js"></script>
     </head>
 <body>

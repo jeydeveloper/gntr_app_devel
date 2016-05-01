@@ -19,6 +19,16 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script type="text/javascript" src="<?php echo $assets; ?>/js/bootstrap.js"></script>
     <script type="text/javascript" src="<?php echo $assets; ?>/js/base.js"></script>
-    
+    <script type="text/javascript">
+        $(function(){
+            $(".date-picker").datepicker({
+                //yearRange: "-100:+0",
+                dateFormat: 'yy-mm-dd',
+                yearRange: '1950:2020',
+                changeMonth: true,
+                changeYear: true
+            });
+        });
+    </script>
 </body>
 </html>

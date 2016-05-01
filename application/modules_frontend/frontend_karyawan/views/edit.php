@@ -34,7 +34,7 @@
 
                   <div class="field">
                     <label for="kary_tanggal_lahir">Tanggal Lahir</label>
-                    <input id="kary_tanggal_lahir" name="kary_tanggal_lahir" placeholder="Tanggal Lahir" value="<?php echo $detail['kary_tanggal_lahir']; ?>" />
+                    <input class="date-picker" id="kary_tanggal_lahir" name="kary_tanggal_lahir" placeholder="Tanggal Lahir" value="<?php echo $detail['kary_tanggal_lahir']; ?>" />
                   </div> <!-- /field -->
 
                   <div class="field">
