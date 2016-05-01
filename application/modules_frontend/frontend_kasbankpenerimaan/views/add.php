@@ -34,7 +34,7 @@
 
                   <div class="field">
                     <label for="pnrm_tanggal">Tanggal</label>
-                    <input id="pnrm_tanggal" name="pnrm_tanggal" placeholder="Tanggal" required />
+                    <input class="date-picker" id="pnrm_tanggal" name="pnrm_tanggal" placeholder="Tanggal" required />
                   </div> <!-- /field -->
 
                   <div class="field">

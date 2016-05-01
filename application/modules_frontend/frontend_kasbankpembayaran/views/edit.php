@@ -34,7 +34,7 @@
 
                   <div class="field">
                     <label for="pgln_tanggal">Tanggal</label>
-                    <input id="pgln_tanggal" name="pgln_tanggal" placeholder="Tanggal" value="<?php echo $detail['pgln_tanggal']; ?>" required />
+                    <input class="date-picker" id="pgln_tanggal" name="pgln_tanggal" placeholder="Tanggal" value="<?php echo $detail['pgln_tanggal']; ?>" required />
                   </div> <!-- /field -->
 
                   <div class="field">
