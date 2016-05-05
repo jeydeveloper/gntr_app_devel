@@ -106,4 +106,33 @@ class Crud_daftarakun extends CI_Model {
 		}
 		return $data;
 	}
+
+	function get_saldo() {
+		$data = array(
+			'pembayaran' => array(
+				'parent' => array(),
+				'child' => array(),
+			),
+			'penerimaan' => array(
+				'parent' => array(),
+				'child' => array(),
+			),
+		);
+		//----pembayaran-----
+		$res = $this->db->select('akun_id, akun_parent, SUM(pgln_jumlah) as total', false)->join('pengeluaran', 'akun_id = pgln_akun_id')->where('akun_void = 0 AND pgln_void = 0')->group_by('akun_id')->get('akun')->result_array();
+		foreach ($res as $key => $value) {
+			if(empty($data['pembayaran']['parent'][$value['akun_parent']])) $data['pembayaran']['parent'][$value['akun_parent']] = 0;
+			$data['pembayaran']['parent'][$value['akun_parent']] += $value['total'];
+			$data['pembayaran']['child'][$value['akun_id']] = $value['total'];
+		}
+		//----penerimaan-----
+		$res = $this->db->select('akun_id, akun_parent, SUM(pnrm_jumlah) as total', false)->join('penerimaan', 'akun_id = pnrm_akun_id')->where('akun_void = 0 AND pnrm_void = 0')->group_by('akun_id')->get('akun')->result_array();
+		foreach ($res as $key => $value) {
+			if(empty($data['penerimaan']['parent'][$value['akun_parent']])) $data['penerimaan']['parent'][$value['akun_parent']] = 0;
+			$data['penerimaan']['parent'][$value['akun_parent']] += $value['total'];
+			$data['penerimaan']['child'][$value['akun_id']] = $value['total'];
+		}
+
+		return $data;
+	}
 }  

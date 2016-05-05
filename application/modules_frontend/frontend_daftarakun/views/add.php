@@ -46,11 +46,6 @@
                       <?php endforeach; ?>
                     </select>
                   </div> <!-- /field -->
-
-                  <div class="field">
-                    <label for="akun_saldo">Saldo</label>
-                    <input id="akun_saldo" name="akun_saldo" placeholder="Saldo" />
-                  </div> <!-- /field -->
                                 
                 </div> <!-- /form-fields -->
                 

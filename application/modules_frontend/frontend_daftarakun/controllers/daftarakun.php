@@ -17,7 +17,20 @@ class Daftarakun extends MY_Frontend {
 
 	function index() {
 		$this->_data['parent'] = $this->crud->where('akun_void = 0 AND akun_parent = 0')->get_option_parent();
-		$this->_data['result'] = $this->crud->where('akun_void = 0')->order_by('akun_id', 'asc')->get_all();
+
+		$this->_data['result'] = array();
+		$this->_data['result_parent'] = array();
+		$this->_data['result_child'] = array();
+		$result = $this->crud->where('akun_void = 0')->order_by('akun_parent', 'asc')->order_by('akun_id', 'asc')->get_all();
+		foreach ($result as $key => $value) {
+			$this->_data['result'][$value['akun_id']] = $value;
+			$this->_data['result_parent'][$value['akun_parent']] = $value['akun_parent'];
+			$this->_data['result_child'][$value['akun_parent']][$value['akun_id']] = $value['akun_id'];
+		}
+
+		$get_saldo = $this->crud->get_saldo();
+		$this->_data['saldo_pembayaran'] = $get_saldo['pembayaran'];
+		$this->_data['saldo_penerimaan'] = $get_saldo['penerimaan'];
 
 		$this->template->set('title', 'Daftar Akun | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
