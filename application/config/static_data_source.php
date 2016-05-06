@@ -19,6 +19,22 @@ $config["static_data_source"]['status'] = array(
 );
 
 //data source akun tipe
+$config["static_data_source"]['status_penjualan'] = array(
+	1 => array(
+		'value' => 1,
+		'name' => 'Menunggu',
+	),
+	2 => array(
+		'value' => 2,
+		'name' => 'Diproses',
+	),
+	3 => array(
+		'value' => 3,
+		'name' => 'Ditutup',
+	),
+);
+
+//data source akun tipe
 $config["static_data_source"]['akun_tipe'] = array(
 	1 => array(
 		'value' => 1,

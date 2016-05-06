@@ -36,19 +36,27 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td> 2016/01/01 </td>
-                    <td> 1000 </td>
-                    <td> 1001 </td>
-                    <td> PT. Client 1 </td>
-                    <td> Mengantri </td>
-                    <td> - </td>
-                    <td> Rp 180.000 </td>
-                    <td> - </td>
-                    <td> Rp 385.000 </td>
-                    <td> - </td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
-                  </tr>                
+                  <?php if(!empty($result)): ?>
+                    <?php foreach($result as $key => $value): ?>
+                    <tr>
+                      <td><?php echo ($key+1); ?></td>
+                      <td><?php echo $value['ppnw_no_penawaran']; ?></td>
+                      <td><?php echo $value['ppnw_no_pemesanan']; ?></td>
+                      <td><?php echo $value['clnt_nama']; ?></td>
+                      <td><?php echo $value['ppnw_status']; ?></td>
+                      <td><?php echo $value['ppnw_diskon']; ?></td>
+                      <td><?php echo $value['ppnw_pajak']; ?></td>
+                      <td><?php echo $value['ppnw_biaya_kirim']; ?></td>
+                      <td><?php echo $value['ppnw_nilai_faktur']; ?></td>
+                      <td><?php echo $value['ppnw_keterangan']; ?></td>
+                      <td class="td-actions"><a href="<?php echo ($module_base_url_penawaran.'/edit/'.$value['ppnw_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a> <a href="<?php echo ($module_base_url_penawaran.'/delete/'.$value['ppnw_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>
+                    </tr>
+                    <?php endforeach; ?>
+                  <?php else: ?>
+                    <tr>
+                      <td colspan="11" style="background: red;color: white;">Module ini belum terisi!</td>
+                    </tr>
+                  <?php endif; ?>
                 </tbody>
               </table>
             </div>

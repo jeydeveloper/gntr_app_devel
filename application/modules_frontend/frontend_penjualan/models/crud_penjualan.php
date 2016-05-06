@@ -1,6 +1,6 @@
 <?php
 
-class Crud_client extends CI_Model {
+class Crud_penjualan extends CI_Model {
 	//--------base---------------
 	function where($where = '') {
 		if($where != '') $this->db->where($where);
@@ -42,45 +42,50 @@ class Crud_client extends CI_Model {
 		$this->db->group_by($group_by);
 		return $this;
 	}
+
+	function join($tablejoin, $onjoin, $jointype = 'inner'){
+		$this->db->join($tablejoin, $onjoin, $jointype);
+		return $this;
+	}
 	//--------------end---------------
 
-	function get_row(){
-		return $this->db->get('client')->row_array();
+	function get_row_penawaran(){
+		return $this->db->get('penjualan_penawaran')->row_array();
 	}
 
-	function get_all(){
-		return $this->db->get('client')->result_array();
+	function get_all_penawaran(){
+		return $this->db->get('penjualan_penawaran')->result_array();
 	}
 
-	function posts($data){
-		return $this->db->insert('client', $data);
+	function posts_penawaran($data){
+		return $this->db->insert('penjualan_penawaran', $data);
 	}
 
-	function puts($data){
-		return $this->db->update('client', $data);
+	function puts_penawaran($data){
+		return $this->db->update('penjualan_penawaran', $data);
 	}
 
-	function delete($data){
-		return $this->db->delete('client', $data);
+	function delete_penawaran($data){
+		return $this->db->delete('penjualan_penawaran', $data);
 	}
 
-	function get_option() {
-		$res = $this->where('clnt_void = 0')->get_all();
+	function get_option_penawaran() {
+		$res = $this->where('ppnw_void = 0')->get_all();
 		$data = array();
 		foreach ($res as $key => $value) {
 			$data[] = array(
-				'name' 	=> $value['clnt_nama'],
-				'value' => $value['clnt_id'],
+				'name' 	=> $value['ppnw_no'],
+				'value' => $value['ppnw_id'],
 			); 
 		}
 		return $data;
 	}
 
-	function get_option_info() {
+	function get_option_info_penawaran() {
 		$res = $this->get_all();
 		$data = array();
 		foreach ($res as $key => $value) {
-			$data[$value['clnt_id']] = $value['clnt_nama']; 
+			$data[$value['ppnw_id']] = $value['ppnw_no']; 
 		}
 		return $data;
 	}

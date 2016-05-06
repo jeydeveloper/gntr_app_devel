@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 25, 2016 at 09:08 PM
+-- Generation Time: May 06, 2016 at 06:18 AM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.16
 
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_adminusers` (
 --
 
 INSERT INTO `gntrapp_adminusers` (`admusr_id`, `admusr_username`, `admusr_userpasswd`, `admusr_aulv_id`, `admusr_user_status`, `admusr_void`, `admusr_lastactivity`, `admusr_entryuser`, `admusr_entrydate`, `admusr_changeuser`, `admusr_changedate`) VALUES
-(1, 'superadmin', 'ac43724f16e9241d990427ab7c8f4228', NULL, 'y', 0, '2016-04-25 16:36:21', '', '0000-00-00 00:00:00', '', '2016-04-25 14:36:21'),
+(1, 'superadmin', 'ac43724f16e9241d990427ab7c8f4228', NULL, 'y', 0, '2016-05-06 05:09:23', '', '0000-00-00 00:00:00', '', '2016-05-06 03:09:23'),
 (2, 'demo', 'ac43724f16e9241d990427ab7c8f4228', 5, 'y', 1, '2016-04-23 12:57:58', '', '2016-04-10 09:51:37', '', '2016-04-23 10:57:58'),
 (3, 'Test', '101a6ec9f938885df0a44f20458d2eb4', 3, 'y', 1, '0000-00-00 00:00:00', '', '2016-04-10 03:01:11', '', '2016-04-09 20:01:11'),
 (4, 'Hehe', '196b0f14eba66e10fba74dbf9e99c22f', 5, 'y', 1, '0000-00-00 00:00:00', '', '2016-04-10 03:04:50', '', '2016-04-09 20:04:50'),
@@ -116,7 +116,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_aktivatetap` (
 --
 
 INSERT INTO `gntrapp_aktivatetap` (`dakt_id`, `dakt_kode`, `dakt_keterangan`, `dakt_tipe`, `dakt_harga`, `dakt_tanggalpakai`, `dakt_tanggalbeli`, `dakt_qty`, `dakt_umurbulan`, `dakt_persensusut`, `dakt_pajak`, `dakt_void`, `dakt_entryuser`, `dakt_entrydate`, `dakt_changeuser`, `dakt_changedate`) VALUES
-(1, 'AKTV-001', 'dsdas', 'fdsfds', 100, '2016-01-12', '2015-01-10', 5, 12, 10, 16, 0, '', '2016-04-12 02:16:55', '', '2016-04-12 02:19:44'),
+(1, 'AKTV-001', 'dsdas', 'fdsfds', 100, '2016-01-11', '2015-01-09', 5, 12, 10, 16, 0, '', '2016-04-12 02:16:55', '', '2016-05-01 06:37:46'),
 (2, 'AKTV-002', '', '', 0, '0000-00-00', '0000-00-00', 0, 0, 0, 0, 1, '', '2016-04-12 02:19:57', '', '2016-04-12 02:20:00');
 
 -- --------------------------------------------------------
@@ -138,7 +138,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_akun` (
   `akun_changeuser` varchar(100) NOT NULL,
   `akun_changedate` datetime NOT NULL,
   PRIMARY KEY (`akun_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `gntrapp_akun`
@@ -148,7 +148,8 @@ INSERT INTO `gntrapp_akun` (`akun_id`, `akun_nomor`, `akun_nama`, `akun_tipe_id`
 (1, '1201', 'Aktiva Tetap', 2, 1000000, 0, 0, '', '2016-04-25 18:00:45', '', '2016-04-25 19:04:16'),
 (2, '001', 'Tanah', 2, 500000, 1, 0, '', '2016-04-25 18:25:23', '', '2016-04-25 19:01:20'),
 (3, '1001', 'Kas', 1, 3000000, 0, 0, '', '2016-04-25 19:03:14', '', '2016-04-25 19:04:22'),
-(4, '001', 'Bank Mandiri', 1, 2000000, 3, 0, '', '2016-04-25 19:03:51', '', '0000-00-00 00:00:00');
+(4, '001', 'Bank Mandiri', 1, 2000000, 3, 0, '', '2016-04-25 19:03:51', '', '0000-00-00 00:00:00'),
+(5, '002', 'Air', 2, 1, 1, 0, '', '2016-05-01 06:57:54', '', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -300,7 +301,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_karyawan` (
 --
 
 INSERT INTO `gntrapp_karyawan` (`kary_id`, `kary_nama`, `kary_alamat`, `kary_tempat_lahir`, `kary_tanggal_lahir`, `kary_telpon`, `kary_posisi_id`, `kary_jabatan_id`, `kary_tipe_id`, `kary_status_nikah_id`, `kary_status_kontrak_id`, `kary_void`, `kary_entryuser`, `kary_entrydate`, `kary_changeuser`, `kary_changedate`) VALUES
-(1, 'Alexis', 'Kemang', 'Brazil', '1990-02-14', '021', 1, 1, 2, 1, 1, 0, '', '2016-04-23 04:53:33', '', '2016-04-23 05:02:35');
+(1, 'Alexis', 'Kemang', 'Brazil', '1990-02-15', '021', 1, 1, 2, 1, 1, 0, '', '2016-04-23 04:53:33', '', '2016-05-01 06:35:11');
 
 -- --------------------------------------------------------
 
@@ -357,7 +358,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_penerimaan` (
 --
 
 INSERT INTO `gntrapp_penerimaan` (`pnrm_id`, `pnrm_bank_id`, `pnrm_tanggal`, `pnrm_akun_id`, `pnrm_nama`, `pnrm_jumlah`, `pnrm_keterangan`, `pnrm_void`, `pnrm_entryuser`, `pnrm_entrydate`, `pnrm_changeuser`, `pnrm_changedate`) VALUES
-(1, 2, '2016-04-14', 2, 'Jual Tanah', 150000, 'test', 0, '', '2016-04-25 20:21:02', '', '2016-04-25 21:07:56');
+(1, 2, '2016-04-14', 2, 'Jual Tanah', 250000, 'test', 0, '', '2016-04-25 20:21:02', '', '2016-05-05 10:58:49');
 
 -- --------------------------------------------------------
 
@@ -386,9 +387,43 @@ CREATE TABLE IF NOT EXISTS `gntrapp_pengeluaran` (
 --
 
 INSERT INTO `gntrapp_pengeluaran` (`pgln_id`, `pgln_bank_id`, `pgln_tanggal`, `pgln_akun_id`, `pgln_nama`, `pgln_jumlah`, `pgln_keterangan`, `pgln_void`, `pgln_entryuser`, `pgln_entrydate`, `pgln_changeuser`, `pgln_changedate`) VALUES
-(1, 3, '2016-04-20', 2, 'Beli Tanah', 1400000, '', 0, '', '2016-04-25 21:04:59', '', '2016-04-25 21:07:45'),
-(2, 3, '2016-04-20', 2, 'Beli Tanah', 1400000, '', 1, '', '2016-04-25 21:05:46', '', '2016-04-25 21:06:43'),
-(3, 3, '2016-04-20', 2, 'Beli Tanah', 1400000, '', 1, '', '2016-04-25 21:06:34', '', '2016-04-25 21:06:42');
+(1, 2, '2016-05-05', 2, 'Beli Tanah', 100000, '', 0, '', '2016-05-05 10:13:11', '', '0000-00-00 00:00:00'),
+(2, 1, '2016-05-04', 2, 'Beli tanah lagi', 50000, '', 0, '', '2016-05-05 10:20:20', '', '0000-00-00 00:00:00'),
+(3, 2, '2016-05-05', 5, 'Beli Air', 125000, '', 0, '', '2016-05-05 10:32:09', '', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `gntrapp_penjualan_penawaran`
+--
+
+CREATE TABLE IF NOT EXISTS `gntrapp_penjualan_penawaran` (
+  `ppnw_id` int(11) NOT NULL AUTO_INCREMENT,
+  `ppnw_no_penawaran` varchar(100) NOT NULL,
+  `ppnw_no_pemesanan` varchar(100) NOT NULL,
+  `ppnw_tanggal` date NOT NULL,
+  `ppnw_clnt_id` int(11) NOT NULL,
+  `ppnw_status` tinyint(4) NOT NULL,
+  `ppnw_diskon` int(11) NOT NULL,
+  `ppnw_pajak` int(11) NOT NULL,
+  `ppnw_biaya_kirim` int(11) NOT NULL,
+  `ppnw_nilai_faktur` int(11) NOT NULL,
+  `ppnw_keterangan` text NOT NULL,
+  `ppnw_void` tinyint(4) NOT NULL,
+  `ppnw_entryuser` varchar(100) NOT NULL,
+  `ppnw_entrydate` datetime NOT NULL,
+  `ppnw_changeuser` varchar(100) NOT NULL,
+  `ppnw_changedate` datetime NOT NULL,
+  PRIMARY KEY (`ppnw_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `gntrapp_penjualan_penawaran`
+--
+
+INSERT INTO `gntrapp_penjualan_penawaran` (`ppnw_id`, `ppnw_no_penawaran`, `ppnw_no_pemesanan`, `ppnw_tanggal`, `ppnw_clnt_id`, `ppnw_status`, `ppnw_diskon`, `ppnw_pajak`, `ppnw_biaya_kirim`, `ppnw_nilai_faktur`, `ppnw_keterangan`, `ppnw_void`, `ppnw_entryuser`, `ppnw_entrydate`, `ppnw_changeuser`, `ppnw_changedate`) VALUES
+(1, 'PNW-001', 'PMSN-001', '0000-00-00', 2, 1, 1000, 2000, 3000, 4000, 'test', 0, '', '2016-05-06 06:02:13', '', '2016-05-06 06:14:46'),
+(2, 'PNW-002', 'PMSN-002', '0000-00-00', 2, 1, 1000, 2000, 3000, 4000, 'Lagi', 1, '', '2016-05-06 06:15:20', '', '2016-05-06 06:17:37');
 
 -- --------------------------------------------------------
 
