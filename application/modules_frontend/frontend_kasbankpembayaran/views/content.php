@@ -37,7 +37,7 @@
                       <td><?php echo $value['pgln_tanggal']; ?></td>
                       <td><?php echo ($parent_akun[$value['akun_parent']] . '-' . $value['akun_nomor']); ?></td>
                       <td><?php echo $value['akun_nama']; ?></td>
-                      <td><?php echo $value['pgln_jumlah']; ?></td>
+                      <td style="text-align: right;"><?php echo number_format_rupiah($value['pgln_jumlah']); ?></td>
                       <td><?php echo $value['pgln_keterangan']; ?></td>
                       <td class="td-actions"><a href="<?php echo ($module_base_url.'/edit/'.$value['pgln_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a> <a href="<?php echo ($module_base_url.'/delete/'.$value['pgln_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>
                     </tr>

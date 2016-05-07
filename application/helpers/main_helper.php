@@ -302,3 +302,8 @@ function show_error_page() {
 	show_404(); 
 	exit();
 }
+
+function number_format_rupiah($val) {
+	if(empty($val)) return 0;
+	return number_format($val, 0, ',', '.');
+}
