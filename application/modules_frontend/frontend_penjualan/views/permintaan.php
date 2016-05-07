@@ -11,10 +11,9 @@
             <div class="widget-header"> <i class="icon-th-list"></i>
               <h3>List Permintaan Penjualan</h3>
               <div style="float:right; margin-top:5px; margin-right:5px;">
-                <input type="checkbox">Terproses
-                <input type="checkbox">Ditutup
                 <input type="checkbox">Menunggu
-                <input type="checkbox">Mengantri
+                <input type="checkbox">Diproses
+                <input type="checkbox">Ditutup
               </div>
             </div>
             <!-- /widget-header -->

@@ -49,6 +49,7 @@ class Crud_penjualan extends CI_Model {
 	}
 	//--------------end---------------
 
+	//-------model penawaran----------------
 	function get_row_penawaran(){
 		return $this->db->get('penjualan_penawaran')->row_array();
 	}
@@ -86,6 +87,48 @@ class Crud_penjualan extends CI_Model {
 		$data = array();
 		foreach ($res as $key => $value) {
 			$data[$value['ppnw_id']] = $value['ppnw_no']; 
+		}
+		return $data;
+	} //model penawaran
+
+	//---------model permintaan-----------
+	function get_row_permintaan(){
+		return $this->db->get('penjualan_permintaan')->row_array();
+	}
+
+	function get_all_permintaan(){
+		return $this->db->get('penjualan_permintaan')->result_array();
+	}
+
+	function posts_permintaan($data){
+		return $this->db->insert('penjualan_permintaan', $data);
+	}
+
+	function puts_permintaan($data){
+		return $this->db->update('penjualan_permintaan', $data);
+	}
+
+	function delete_permintaan($data){
+		return $this->db->delete('penjualan_permintaan', $data);
+	}
+
+	function get_option_permintaan() {
+		$res = $this->where('ppmt_void = 0')->get_all();
+		$data = array();
+		foreach ($res as $key => $value) {
+			$data[] = array(
+				'name' 	=> $value['ppmt_no'],
+				'value' => $value['ppmt_id'],
+			); 
+		}
+		return $data;
+	}
+
+	function get_option_info_permintaan() {
+		$res = $this->get_all();
+		$data = array();
+		foreach ($res as $key => $value) {
+			$data[$value['ppmt_id']] = $value['ppmt_no']; 
 		}
 		return $data;
 	}

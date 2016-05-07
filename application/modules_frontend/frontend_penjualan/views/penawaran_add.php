@@ -23,11 +23,6 @@
                   </div> <!-- /field -->
 
                   <div class="field">
-                    <label for="ppnw_no_pemesanan">No Pemesanan</label>
-                    <input id="ppnw_no_pemesanan" name="ppnw_no_pemesanan" placeholder="No Pemesanan" required />
-                  </div> <!-- /field -->
-
-                  <div class="field">
                     <label for="ppnw_proj_id">Client</label>
                     <select name="ppnw_clnt_id" id="ppnw_clnt_id" />
                       <option value="">-- Pilih --</option>

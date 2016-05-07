@@ -57,7 +57,6 @@ class Penjualan extends MY_Frontend {
 		$this->load->library('form_validation');
 
 		$this->form_validation->set_rules('ppnw_no_penawaran', 'No Penawaran', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
-		$this->form_validation->set_rules('ppnw_no_pemesanan', 'No Pemesanan', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
 		$this->form_validation->set_rules('ppnw_tanggal', 'Tanggal', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|xss_clean');
 		$this->form_validation->set_rules('ppnw_clnt_id', 'Client', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|xss_clean');
 		$this->form_validation->set_rules('ppnw_status', 'Status', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|xss_clean');
@@ -70,7 +69,6 @@ class Penjualan extends MY_Frontend {
 		if($this->form_validation->run()) {
 			$db_data = array(
 				'ppnw_no_penawaran' => $this->input->post('ppnw_no_penawaran'),
-				'ppnw_no_pemesanan' => $this->input->post('ppnw_no_pemesanan'),
 				'ppnw_tanggal' => $this->input->post('ppnw_tanggal'),
 				'ppnw_clnt_id' => $this->input->post('ppnw_clnt_id'),
 				'ppnw_status' => $this->input->post('ppnw_status'),
@@ -123,7 +121,6 @@ class Penjualan extends MY_Frontend {
 
 		$this->form_validation->set_rules('ppnw_id', 'ID', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
 		$this->form_validation->set_rules('ppnw_no_penawaran', 'No Penawaran', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
-		$this->form_validation->set_rules('ppnw_no_pemesanan', 'No Pemesanan', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
 		$this->form_validation->set_rules('ppnw_tanggal', 'Tanggal', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|xss_clean');
 		$this->form_validation->set_rules('ppnw_clnt_id', 'Client', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|xss_clean');
 		$this->form_validation->set_rules('ppnw_status', 'Status', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|xss_clean');
@@ -136,7 +133,6 @@ class Penjualan extends MY_Frontend {
 		if($this->form_validation->run()) {
 			$db_data = array(
 				'ppnw_no_penawaran' => $this->input->post('ppnw_no_penawaran'),
-				'ppnw_no_pemesanan' => $this->input->post('ppnw_no_pemesanan'),
 				'ppnw_tanggal' => $this->input->post('ppnw_tanggal'),
 				'ppnw_clnt_id' => $this->input->post('ppnw_clnt_id'),
 				'ppnw_status' => $this->input->post('ppnw_status'),

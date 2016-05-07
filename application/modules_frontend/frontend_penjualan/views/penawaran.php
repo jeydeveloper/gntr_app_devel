@@ -11,10 +11,9 @@
             <div class="widget-header"> <i class="icon-th-list"></i>
               <h3>List Penawaran Penjualan</h3>
               <div style="float:right; margin-top:5px; margin-right:5px;">
-                <input type="checkbox">Terproses
-                <input type="checkbox">Ditutup
                 <input type="checkbox">Menunggu
-                <input type="checkbox">Mengantri
+                <input type="checkbox">Diproses
+                <input type="checkbox">Ditutup
               </div>
             </div>
             <!-- /widget-header -->
@@ -41,7 +40,7 @@
                     <tr>
                       <td><?php echo ($key+1); ?></td>
                       <td><?php echo $value['ppnw_no_penawaran']; ?></td>
-                      <td><?php echo $value['ppnw_no_pemesanan']; ?></td>
+                      <td><?php echo $value['clnt_id']; ?></td>
                       <td><?php echo $value['clnt_nama']; ?></td>
                       <td><?php echo $value['ppnw_status']; ?></td>
                       <td><?php echo $value['ppnw_diskon']; ?></td>
