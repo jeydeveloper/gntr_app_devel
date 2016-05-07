@@ -153,15 +153,68 @@ class Penjualan extends MY_Frontend {
 	}
 
 	function permintaan() {
+		$this->_data['result'] = $this->crud->join('client', 'ppmt_clnt_id = clnt_id')->where('ppmt_void = 0')->order_by('ppmt_id', 'asc')->get_all_permintaan();
+
 		$this->template->set('title', 'Permintaan Penjualan | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
 		$this->template->load('template_frontend/main', 'permintaan', $this->_data);
 	}
 
 	function add_permintaan() {
+		if(!empty($_POST)) {
+			if($this->do_add_permintaan()) {
+				redirect($this->_data['module_base_url_permintaan']);
+				exit();
+			}
+		}
+
+		$this->_data['option_client'] = $this->crud_client->get_option();
+		$this->_data['option_penawaran'] = $this->crud->get_option_penawaran();
+
 		$this->template->set('title', 'Tambah Permintaan Penjualan | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
 		$this->template->load('template_frontend/main', 'permintaan_add', $this->_data);
+	}
+
+	private function do_add_permintaan() {
+		$this->load->library('form_validation');
+
+		$this->form_validation->set_rules('ppmt_tanggal', 'Tanggal', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|xss_clean');
+		$this->form_validation->set_rules('ppmt_no_so', 'No SO', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|xss_clean');
+		$this->form_validation->set_rules('ppmt_no_po', 'No PO', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|xss_clean');
+		$this->form_validation->set_rules('ppmt_uang_muka', 'Uang Muka', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|xss_clean');
+		$this->form_validation->set_rules('ppmt_keterangan', 'Keterangan', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|xss_clean');
+
+		if($this->form_validation->run()) {
+			$db_data = array(
+				'ppmt_tanggal' => $this->input->post('ppnw_no_penawaran'),
+				'ppmt_no_so' => $this->input->post('ppnw_tanggal'),
+				'ppmt_no_po' => $this->input->post('ppnw_clnt_id'),
+				'ppmt_uang_muka' => $this->input->post('ppnw_status'),
+				'ppnw_diskon' => $this->input->post('ppnw_diskon'),
+				'ppnw_pajak' => $this->input->post('ppnw_pajak'),
+				'ppnw_biaya_kirim' => $this->input->post('ppnw_biaya_kirim'),
+				'ppnw_nilai_faktur' => $this->input->post('ppnw_nilai_faktur'),
+				'ppnw_keterangan' => $this->input->post('ppnw_keterangan'),
+				'ppnw_entrydate' => $this->_data['datetime'],
+			);
+			$this->crud->posts_penawaran($db_data);
+
+			return true;
+		} else {
+			$this->_data['err_msg'] = validation_errors();
+			return false;
+		}
+	}
+
+	function delete_permintaan($id) {
+		$db_data = array(
+			'ppmt_void' => 1,
+			'ppmt_changedate' => $this->_data['datetime'],
+		);
+		$this->crud->where('ppmt_id = "'.$id.'"')->puts_penawaran($db_data);
+
+		redirect($this->_data['module_base_url_permintaan']);
 	}
 
 	function edit_permintaan($id) {

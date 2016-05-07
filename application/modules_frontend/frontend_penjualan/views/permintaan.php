@@ -37,21 +37,29 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td> 2016/01/01 </td>
-                    <td> 1000 </td>
-                    <td> 1001 </td>
-                    <td> PT. Client 1 </td>
-                    <td> Mengantri </td>
-                    <td> - </td>
-                    <td> 0 </td>
-                    <td> Rp 180.000 </td>
-                    <td> - </td>
-                    <td> Rp 385.000 </td>
-                    <td> - </td>
-                    <td> - </td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
-                  </tr>                
+                  <?php if(!empty($result)): ?>
+                    <?php foreach($result as $key => $value): ?>
+                    <tr>
+                      <td><?php echo ($key+1); ?></td>
+                      <td><?php echo $value['ppmt_no_so']; ?></td>
+                      <td><?php echo $value['clnt_id']; ?></td>
+                      <td><?php echo $value['clnt_nama']; ?></td>
+                      <td><?php echo $value['ppmt_status']; ?></td>
+                      <td><?php echo $value['ppmt_no_po']; ?></td>
+                      <td><?php echo $value['ppmt_diskon']; ?></td>
+                      <td><?php echo $value['ppmt_pajak']; ?></td>
+                      <td><?php echo $value['ppmt_biaya_kirim']; ?></td>
+                      <td><?php echo $value['ppmt_nilai_faktur']; ?></td>
+                      <td><?php echo $value['ppmt_uang_muka']; ?></td>
+                      <td><?php echo $value['ppmt_keterangan']; ?></td>
+                      <td class="td-actions"><a href="<?php echo ($module_base_url_permintaan.'/edit/'.$value['ppmt_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a> <a href="<?php echo ($module_base_url_permintaan.'/delete/'.$value['ppmt_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>
+                    </tr>
+                    <?php endforeach; ?>
+                  <?php else: ?>
+                    <tr>
+                      <td colspan="13" style="background: red;color: white;">Module ini belum terisi!</td>
+                    </tr>
+                  <?php endif; ?>
                 </tbody>
               </table>
             </div>
