@@ -1,4 +1,5 @@
 <?php
+$config["static_data_source"]['total_saham'] = '1000000000';
 
 //data source for aktif & non aktif
 $config["static_data_source"]['status'] = array(
