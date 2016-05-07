@@ -33,7 +33,7 @@
                       <td><?php echo ($key+1); ?></td>
                       <td><?php echo $value['bpu_request_by']; ?></td>
                       <td><?php echo $value['bpu_nama']; ?></td>
-                      <td><?php echo $value['bpu_harga']; ?></td>
+                      <td style="text-align:right;"><?php echo number_format_rupiah($value['bpu_harga']); ?></td>
                       <td><?php echo $value['bpu_terbilang']; ?></td>
                       <td><?php echo (!empty($value['bpu_approved_by']) ? $value['bpu_approved_by'] : '-'); ?></td>
                       <td><?php echo (!empty($value['bpu_proj_id']) ? $value['bpu_proj_id'] : '-'); ?></td>
