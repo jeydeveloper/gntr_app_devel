@@ -12,25 +12,42 @@
               <h3>Daftar Surat Jalan Pembelian</h3>
             </div>
             <!-- /widget-header -->
+
             <div class="widget-content">
               <table class="table table-striped table-bordered">
-                <tbody>
+                <thead>
                   <tr>
-                    <td style="background-color: yellow;">ONPROGRESS, please waiting :)</td>
+                    <th> Resource </th>
+                    <th> URL</th>
+                    <!-- <th class="td-actions"> </th> -->
                   </tr>
+                </thead>
+                <tbody>
+                 <?php if(!empty($result)): ?>
+                    <?php foreach($result as $key => $value): ?>
+                      <tr>
+                        <td> <?php echo $value['sj_vendor']; ?></td>
+                        <td><a href="<?php echo ($module_base_url.'/surat-jalan/pdf/'.$value['sj_id']); ?>"><?php echo ($module_base_url.'/surat-jalan/pdf/'.$value['sj_id']); ?></a></td>
+                      </tr>
+                    <?php endforeach; ?>
+                  <?php else: ?>
+                    <tr>
+                      <td colspan="6" style="background: red;color: white;">Module ini belum terisi!</td>
+                    </tr>
+                  <?php endif; ?>
                 </tbody>
               </table>
             </div>
-            <!-- /widget-content --> 
+            <!-- /widget-content -->
           </div>
           <!-- /widget -->
         </div>
         <!-- /span8 -->
       </div>
-      <!-- /row --> 
+      <!-- /row -->
     </div>
-    <!-- /container --> 
+    <!-- /container -->
   </div>
-  <!-- /main-inner --> 
+  <!-- /main-inner -->
 </div>
 <!-- /main -->

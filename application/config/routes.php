@@ -34,8 +34,8 @@
 |	$route['404_override'] = 'errors/page_missing';
 |
 | This route will tell the Router what URI segments to use if those provided
-| in the URL cannot be matched to a valid route.  
-| 
+| in the URL cannot be matched to a valid route.
+|
 */
 
 /* Routing untuk Backstage */
@@ -172,6 +172,7 @@ $route['pembelian/kwitansi/edit/(:any)'] = "frontend_pembelian/pembelian/edit_kw
 $route['pembelian/surat-jalan'] = "frontend_pembelian/pembelian/surat_jalan";
 $route['pembelian/surat-jalan/add'] = "frontend_pembelian/pembelian/add_surat_jalan";
 $route['pembelian/surat-jalan/edit/(:any)'] = "frontend_pembelian/pembelian/edit_surat_jalan/$1";
+$route['pembelian/surat-jalan/pdf/(:any)'] = "frontend_pembelian/pembelian/pdf_surat_jalan";
 
 //route invoice pembelian
 $route['pembelian/invoice'] = "frontend_pembelian/pembelian/invoice";
@@ -187,6 +188,7 @@ $route['pembelian/tanda-terima/edit/(:any)'] = "frontend_pembelian/pembelian/edi
 $route['pembelian/bukti-pembayaran'] = "frontend_pembelian/pembelian/bukti_pembayaran";
 $route['pembelian/bukti-pembayaran/add'] = "frontend_pembelian/pembelian/add_bukti_pembayaran";
 $route['pembelian/bukti-pembayaran/edit/(:any)'] = "frontend_pembelian/pembelian/edit_bukti_pembayaran/$1";
+$route['pembelian/bukti-pembayaran/pdf/(:any)'] = "frontend_pembelian/pembelian/pdf_bukti_pembayaran/$1";
 
 $route['penjualan'] = "frontend_penjualan/penjualan";
 

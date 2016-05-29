@@ -14,23 +14,48 @@
             <!-- /widget-header -->
             <div class="widget-content">
               <table class="table table-striped table-bordered">
-                <tbody>
+                <thead>
                   <tr>
-                    <td style="background-color: yellow;">ONPROGRESS, please waiting :)</td>
+                    <th> No.</th>
+                    <th> Nama</th>
+                    <th> Email</th>
+                    <th> Alamat</th>
+                    <th> No Telp</th>
+                    <th> Keterangan</th>
+                    <th class="td-actions">Action</th>
                   </tr>
+                </thead>
+                <tbody>
+                  <?php if(!empty($result)): ?>
+                    <?php foreach($result as $key => $value): ?>
+                    <tr>
+                      <td><?php echo ($key+1); ?></td>
+                      <td><?php echo $value['pp_nama']; ?></td>
+                      <td><?php echo $value['pp_email']; ?></td>
+                      <td><?php echo $value['pp_alamat']; ?></td>
+                      <td><?php echo $value['pp_telepon']; ?></td>
+                      <td><?php echo $value['pp_keterangan']; ?></td>
+                      <td class="td-actions"><a href="<?php echo ($module_base_url.'/permintaan/edit/'.$value['pp_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a> <a href="<?php echo ($module_base_url.'/permintaan/delete/'.$value['pp_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>
+                    </tr>
+                    <?php endforeach; ?>
+                  <?php else: ?>
+                    <tr>
+                      <td colspan="6" style="background: red;color: white;">Module ini belum terisi!</td>
+                    </tr>
+                  <?php endif; ?>
                 </tbody>
               </table>
             </div>
-            <!-- /widget-content --> 
+            <!-- /widget-content -->
           </div>
           <!-- /widget -->
         </div>
         <!-- /span8 -->
       </div>
-      <!-- /row --> 
+      <!-- /row -->
     </div>
-    <!-- /container --> 
+    <!-- /container -->
   </div>
-  <!-- /main-inner --> 
+  <!-- /main-inner -->
 </div>
 <!-- /main -->
