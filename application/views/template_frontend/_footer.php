@@ -3,7 +3,7 @@
             <div class="container">
                 <div class="row">
                     <div class="span12">
-                        &copy; <a href="#"><?php echo date('Y'); ?> Web Application</a>.
+                        &copy; <a href="#"><?php echo date('Y'); ?> Putra Bahari Mandiri</a>.
                     </div>
                     <!-- /span12 -->
                 </div>
