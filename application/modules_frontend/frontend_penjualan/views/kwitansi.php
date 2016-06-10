@@ -10,12 +10,6 @@
           <div class="widget widget-table action-table">
             <div class="widget-header"> <i class="icon-th-list"></i>
               <h3>List Kwitansi Penjualan</h3>
-              <div style="float:right; margin-top:5px; margin-right:5px;">
-                <input type="checkbox">Terproses
-                <input type="checkbox">Ditutup
-                <input type="checkbox">Menunggu
-                <input type="checkbox">Mengantri
-              </div>
             </div>
             <!-- /widget-header -->
             <div class="widget-content">
@@ -25,40 +19,36 @@
                     <th> No. </th>
                     <th> Diterima Dari</th>
                     <th> Jumlah </th>
-                    <th> Untuk Pembayaran </th>
                     <th> Rekening Tujuan Pembayaran </th>
                     <th> File </th>
                     <th class="td-actions">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td> 1 </td>
-                    <td> PT. Client 1 </td>
-                    <td> Rp. 10.000.000,00 </td>
-                    <td> Pembayaran Sewa Pallet </td>
-                    <td> Bank Mandiri </td>
-                    <td> <img src="assets/img/1.png" alt="" height="100px" width="100px"> </td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
-                  </tr>
-                  <tr>
-                    <td> 2 </td>
-                    <td> PT. Client 2 </td>
-                    <td> Rp. 10.000.000,00 </td>
-                    <td> Pembayaran Material Alam </td>
-                    <td> Bank Mandiri </td>
-                    <td> <img src="assets/img/2.jpg" alt="" height="100px" width="100px"> </td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
-                  </tr>
-                  <tr>
-                    <td> 3 </td>
-                    <td> PT. Client 3 </td>
-                    <td> Rp. 10.000.000,00 </td>
-                    <td> Pembayaran Operator Forklift </td>
-                    <td> Bank Mandiri </td>
-                    <td> <img src="assets/img/3.jpg" alt="" height="100px" width="100px"> </td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
-                  </tr>               
+                  <?php if(!empty($result)): ?>
+                    <?php foreach($result as $key => $value): ?>
+                    <tr>
+                      <td><?php echo ($key+1); ?></td>
+                      <td><?php echo $value['pjkw_dari']; ?></td>
+                      <td><?php echo $value['pjkw_total']; ?></td>
+                      <td>
+                          <?php echo $value['pjkw_bank']; ?><br />
+                          No. Rekening: <?php echo $value['pjkw_norek']; ?><br />
+                          Atas Nama: <?php echo $value['pjkw_an']; ?><br />
+                      </td>
+                       <td>
+                        <a href="<?php echo site_url('/'); ?>assets/images/<?php echo $value['uploadfile']; ?>" target="_blank">
+                          <img src="<?php echo site_url('/'); ?>assets/images/<?php echo $value['uploadfile']; ?>" width="50px">
+                        </a>
+                      </td>
+                      <td class="td-actions"><a href="<?php echo ($module_base_url_kwitansi.'/edit/'.$value['pjkw_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a> <a href="<?php echo ($module_base_url_kwitansi.'/delete/'.$value['pjkw_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>
+                    </tr>
+                    <?php endforeach; ?>
+                  <?php else: ?>
+                    <tr>
+                      <td colspan="13" style="background: red;color: white;">Module ini belum terisi!</td>
+                    </tr>
+                  <?php endif; ?>              
                 </tbody>
               </table>
             </div>

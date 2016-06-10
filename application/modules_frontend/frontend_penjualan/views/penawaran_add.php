@@ -14,9 +14,9 @@
             <!-- /widget-header -->
             <div class="widget-content">
               <form action="" method="post">
-                
+
                 <div class="form-fields">
-                  
+
                   <div class="field">
                     <label for="ppnw_no_penawaran">No Penawaran</label>
                     <input id="ppnw_no_penawaran" name="ppnw_no_penawaran" placeholder="No Penawaran" required />
@@ -66,27 +66,27 @@
                     <label for="ppnw_keterangan">Keterangan</label>
                     <textarea id="ppnw_keterangan" name="ppnw_keterangan" placeholder="Keterangan"></textarea>
                   </div> <!-- /field -->
-                                
+
                 </div> <!-- /form-fields -->
-                
+
                 <div class="form-actions">
                   <div class="pull-right">
                     <button type="reset" class="button btn btn-default btn-large">Reset</button>
                     <button type="submit" class="button btn btn-primary btn-large">Submit</button>
                   </div>
                 </div> <!-- .actions -->
-                
+
               </form>
             </div>
-            <!-- /widget-content --> 
+            <!-- /widget-content -->
           </div>
           <!-- /widget -->
         </div>
         <!-- /span8 -->
       </div>
-      <!-- /row --> 
+      <!-- /row -->
     </div>
-    <!-- /container --> 
+    <!-- /container -->
   </div>
-  <!-- /main-inner --> 
+  <!-- /main-inner -->
 </div>

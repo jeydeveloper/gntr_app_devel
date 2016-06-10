@@ -177,7 +177,10 @@ $route['pembelian/surat-jalan/pdf/(:any)'] = "frontend_pembelian/pembelian/pdf_s
 //route invoice pembelian
 $route['pembelian/invoice'] = "frontend_pembelian/pembelian/invoice";
 $route['pembelian/invoice/add'] = "frontend_pembelian/pembelian/add_invoice";
+$route['pembelian/invoice/detail/add'] = "frontend_pembelian/pembelian/add_invoice_detail";
 $route['pembelian/invoice/edit/(:any)'] = "frontend_pembelian/pembelian/edit_invoice/$1";
+$route['pembelian/invoice/pdf/(:any)'] = "frontend_pembelian/pembelian/pdf_invoice/$1";
+$route['pembelian/invoice/delete/(:any)'] = "frontend_pembelian/pembelian/delete_invoice/$1";
 
 //route tanda terima pembelian
 $route['pembelian/tanda-terima'] = "frontend_pembelian/pembelian/tanda_terima";
@@ -202,31 +205,39 @@ $route['penjualan/penawaran/delete/(:any)'] = "frontend_penjualan/penjualan/dele
 $route['penjualan/permintaan'] = "frontend_penjualan/penjualan/permintaan";
 $route['penjualan/permintaan/add'] = "frontend_penjualan/penjualan/add_permintaan";
 $route['penjualan/permintaan/edit/(:any)'] = "frontend_penjualan/penjualan/edit_permintaan/$1";
+$route['penjualan/permintaan/delete/(:any)'] = "frontend_penjualan/penjualan/delete_permintaan/$1";
+$route['penjualan/permintaan/pdf/(:any)'] = "frontend_penjualan/penjualan/pdf_permintaan";
 
 //route invoice penjualan
 $route['penjualan/invoice'] = "frontend_penjualan/penjualan/invoice";
 $route['penjualan/invoice/add'] = "frontend_penjualan/penjualan/add_invoice";
 $route['penjualan/invoice/edit/(:any)'] = "frontend_penjualan/penjualan/edit_invoice/$1";
+$route['penjualan/invoice/delete/(:any)'] = "frontend_penjualan/penjualan/delete_invoice/$1";
 
 //route kwitansi penjualan
 $route['penjualan/kwitansi'] = "frontend_penjualan/penjualan/kwitansi";
 $route['penjualan/kwitansi/add'] = "frontend_penjualan/penjualan/add_kwitansi";
 $route['penjualan/kwitansi/edit/(:any)'] = "frontend_penjualan/penjualan/edit_kwitansi/$1";
+$route['penjualan/kwitansi/delete/(:any)'] = "frontend_penjualan/penjualan/delete_kwitansi/$1";
+$route['penjualan/kwitansi/pdf/(:any)'] = "frontend_penjualan/penjualan/pdf_kwitansi/$1";
 
 //route berita acara penjualan
 $route['penjualan/berita-acara'] = "frontend_penjualan/penjualan/berita_acara";
 $route['penjualan/berita-acara/add'] = "frontend_penjualan/penjualan/add_berita_acara";
 $route['penjualan/berita-acara/edit/(:any)'] = "frontend_penjualan/penjualan/edit_berita_acara/$1";
+$route['penjualan/berita-acara/delete/(:any)'] = "frontend_penjualan/penjualan/delete_berita_acara/$1";
 
 //route tenda terima penjualan
 $route['penjualan/tanda-terima'] = "frontend_penjualan/penjualan/tanda_terima";
 $route['penjualan/tanda-terima/add'] = "frontend_penjualan/penjualan/add_tanda_terima";
 $route['penjualan/tanda-terima/edit/(:any)'] = "frontend_penjualan/penjualan/edit_tanda_terima/$1";
+$route['penjualan/tanda-terima/delete/(:any)'] = "frontend_penjualan/penjualan/delete_tanda_terima/$1";
 
 //route bukti pemebayaran penjualan
 $route['penjualan/bukti-pembayaran'] = "frontend_penjualan/penjualan/bukti_pembayaran";
 $route['penjualan/bukti-pembayaran/add'] = "frontend_penjualan/penjualan/add_bukti_pembayaran";
 $route['penjualan/bukti-pembayaran/edit/(:any)'] = "frontend_penjualan/penjualan/edit_bukti_pembayaran/$1";
+$route['penjualan/bukti-pembayaran/delete/(:any)'] = "frontend_penjualan/penjualan/delete_bukti_pembayaran/$1";
 
 //login and logout
 $route['login'] 				= "frontend_login/login";

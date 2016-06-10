@@ -16,6 +16,7 @@
     <link href="<?php echo $assets; ?>/css/pages/dashboard.css" rel="stylesheet">
     <link href="<?php echo $assets; ?>/css/sticky-footer-navbar.css" rel="stylesheet">
     <link href="<?php echo $assets; ?>/css/pages/form.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo $assets; ?>/js/jquery.timepicker.css" rel="stylesheet" type="text/css">
     <link href="<?php echo $assets; ?>/css/custom.css" rel="stylesheet">
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
