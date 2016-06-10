@@ -942,6 +942,13 @@ class Penjualan extends MY_Frontend {
 		redirect($this->_data['module_base_url_tanda_terima']);
 	}
 
+	function bukti_pembayaran() {
+		$this->_data['result'] = $this->crud_bukti_pembayaran->order_by('pbktp_id', 'asc')->get_all();
+		$this->template->set('title', 'Bukti Pembayaran Penjualan | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
+		$this->template->set('assets', $this->_data['assets']);
+		$this->template->load('template_frontend/main', 'bukti_pembayaran', $this->_data);
+	}
+
 	function add_bukti_pembayaran() {
 		if(!empty($_POST)) {
 			if($this->do_add_buktipembayaran()) {
