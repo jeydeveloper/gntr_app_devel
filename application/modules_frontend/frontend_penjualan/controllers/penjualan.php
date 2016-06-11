@@ -4,7 +4,6 @@ class Penjualan extends MY_Frontend {
 
 	function __construct(){
 		parent::__construct();
-		require_once APPPATH.'third_party/dompdf/dompdf_config.inc.php';
 		if(!$this->session->userdata('userid')) {
 			redirect('login');
 			exit();
@@ -20,9 +19,6 @@ class Penjualan extends MY_Frontend {
         $this->load->model('frontend_penjualan/crud_berita_acara', 'crud_berita_acara');
         $this->load->model('frontend_penjualan/crud_bukti_pembayaran', 'crud_bukti_pembayaran');
         $this->load->model('frontend_penjualan/crud_tanda_terima', 'crud_tanda_terima');
-
-
-        $this->load->library('dompdf_gen');
 
 		$this->_data['module_base_url_penawaran'] = site_url('penjualan/penawaran');
 		$this->_data['module_base_url_permintaan'] = site_url('penjualan/permintaan');
@@ -208,12 +204,12 @@ class Penjualan extends MY_Frontend {
 		$this->load->library('upload', $config);
 		if (!$this->upload->do_upload('uploadfile')){
 			$filename = '';
-		}	
+		}
 		else{
 			$this->upload_data['file'] =  $this->upload->data();
 			$filename = $this->upload->file_name;
-		}	
-		}	
+		}
+		}
 		if($this->form_validation->run()) {
 			$db_data = array(
                 'ppmt_tanggal'     => $this->input->post('ppmt_tanggal'),
@@ -274,7 +270,7 @@ class Penjualan extends MY_Frontend {
 			$this->load->library('upload', $config);
 			if (!$this->upload->do_upload('uploadfile')){
 				$filename = '';
-			}	
+			}
 			else{
 				$this->upload_data['file'] =  $this->upload->data();
 				$filename = $this->upload->file_name;
@@ -381,10 +377,10 @@ class Penjualan extends MY_Frontend {
 				'pjinv_description' => $this->input->post('pjinv_description'),
 			);
 			$this->crud_invoice->posts($db_data);
-			
+
 			 $barang = $this->input->post('pjinvd_jenisbarang');
 			 $jumlah = $this->input->post('pjinvd_jumlah');
-		
+
 			foreach($barang as $key=>$val)
 			{
 			   $data = array(
@@ -394,7 +390,7 @@ class Penjualan extends MY_Frontend {
 			  );
 				$this->crud_invoice_detail->posts($data);
 			}
-			
+
 			return true;
 		} else {
 			$this->_data['err_msg'] = validation_errors();
@@ -446,11 +442,11 @@ class Penjualan extends MY_Frontend {
 				'pjinv_description' => $this->input->post('pjinv_description'),
 			);
 			$this->crud_invoice->where('pjinv_id = "'.$this->input->post('pjinv_id').'"')->puts($db_data);
-			
+
 			 $barang = $this->input->post('pjinvd_jenisbarang');
 			 $jumlah = $this->input->post('pjinvd_jumlah');
 			 $invd_id = $this->input->post('pjinvd_id');
-		
+
 			foreach($barang as $key=>$val)
 			{
 			   $data = array(
@@ -462,7 +458,7 @@ class Penjualan extends MY_Frontend {
 										  ->where('pjinvd_id = "'.$invd_id[$key].'"')
 										  ->puts($data);
 			}
-			
+
 			return true;
 		} else {
 			$this->_data['err_msg'] = validation_errors();
@@ -471,11 +467,25 @@ class Penjualan extends MY_Frontend {
 	}
 
 	function delete_invoice($id) {
-	
+
 		$this->crud_invoice->where('pjinv_id = "'.$id.'"')->delete($db_data);
 
 		redirect($this->_data['module_base_url_invoice']);
 	}
+
+    function pdf_invoice($id){
+        require_once APPPATH.'third_party/dompdf/dompdf_config.inc.php';
+        $this->_data['detail']  = $this->crud_invoice->where('pjinv_id = "'.$id.'"')->get_row();
+        $this->_data['details']  = $this->crud_invoice_detail->where('penjualan_invoice.pjinv_id = "'.$id.'"')->join();
+
+        $this->load->view('print_invoice_penjualan',  $this->_data);
+        $html = $this->output->get_output();
+        $this->load->library('dompdf_gen');
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream("invoice".$id.".pdf",array('Attachment'=>0));
+        // $this->dompdf->stream("invoice_penjualan_".$id.".pdf");
+    }
 
 	function kwitansi() {
 		$this->_data['result'] = $this->crud_kwitansi->order_by('pjkw_id', 'asc')->get_all();
@@ -516,11 +526,11 @@ class Penjualan extends MY_Frontend {
 		$this->load->library('upload', $config);
 		if (!$this->upload->do_upload('uploadfile')){
 			$filename = '';
-		}	
+		}
 		else{
 			$this->upload_data['file'] =  $this->upload->data();
 			$filename = $this->upload->file_name;
-		}	
+		}
 		}
 		if($this->form_validation->run()) {
 			$db_data = array(
@@ -577,11 +587,11 @@ class Penjualan extends MY_Frontend {
 		$this->load->library('upload', $config);
 			if (!$this->upload->do_upload('uploadfile')){
 				$filename = '';
-			}	
+			}
 			else{
 				$this->upload_data['file'] =  $this->upload->data();
 				$filename = $this->upload->file_name;
-			}	
+			}
 		}
 
 		if($this->form_validation->run() AND $_FILES['uploadfile']['size'] != 0) {
@@ -620,20 +630,23 @@ class Penjualan extends MY_Frontend {
 	}
 
 	function delete_kwitansi($id) {
-	
+
 		$this->crud_kwitansi->where('pjkw_id = "'.$id.'"')->delete($db_data);
 
 		redirect($this->_data['module_base_url_kwitansi']);
 	}
 
     function pdf_kwitansi($id){
+        require_once APPPATH.'third_party/dompdf/dompdf_config.inc.php';
         $this->_data['detail']  = $this->crud_kwitansi->where('pjkw_id = "'.$id.'"')->get_row();
-        $this->load->view('print_kwitansi',  $this->_data);
+
+        $this->load->view('print_kwitansi_penjualan',  $this->_data);
         $html = $this->output->get_output();
+        $this->load->library('dompdf_gen');
         $this->dompdf->load_html($html);
         $this->dompdf->render();
-        //$this->dompdf->stream("invoice".$id.".pdf",array('Attachment'=>0));
-        $this->dompdf->stream("kwitansi".$id.".pdf");
+        $this->dompdf->stream("kwitansi_penjualan_".$id.".pdf",array('Attachment'=>0));
+        // $this->dompdf->stream("invoice_penjualan_".$id.".pdf");
     }
 
 	function berita_acara() {
@@ -672,11 +685,11 @@ class Penjualan extends MY_Frontend {
 		$this->load->library('upload', $config);
 		if (!$this->upload->do_upload('uploadfile')){
 			$filename = '';
-		}	
+		}
 		else{
 			$this->upload_data['file'] =  $this->upload->data();
 			$filename = $this->upload->file_name;
-		}	
+		}
 		}
 		if($this->form_validation->run()) {
 			$db_data = array(
@@ -692,6 +705,8 @@ class Penjualan extends MY_Frontend {
 				'pbcr_tglbpkc' => $this->input->post('pbcr_tglbpkc'),
 				'pbcr_menerima' => $this->input->post('pbcr_menerima'),
 				'pbcr_tglterima' => $this->input->post('pbcr_tglterima'),
+                'pbcr_deskripsi' => $this->input->post('pbcr_deskripsi'),
+                'pbcr_tglperjanjian' => $this->input->post('pbcr_tglperjanjian'),
 				'pbcr_uploadfile'  => $filename,
 			);
 			$this->crud_berita_acara->posts($db_data);
@@ -735,11 +750,11 @@ class Penjualan extends MY_Frontend {
 		$this->load->library('upload', $config);
 		if (!$this->upload->do_upload('uploadfile')){
 			$filename = '';
-		}	
+		}
 		else{
 			$this->upload_data['file'] =  $this->upload->data();
 			$filename = $this->upload->file_name;
-		}	
+		}
 		}
 		if($this->form_validation->run() AND $_FILES['uploadfile']['size'] != 0) {
 			$db_data = array(
@@ -755,6 +770,8 @@ class Penjualan extends MY_Frontend {
 				'pbcr_tglbpkc' => $this->input->post('pbcr_tglbpkc'),
 				'pbcr_menerima' => $this->input->post('pbcr_menerima'),
 				'pbcr_tglterima' => $this->input->post('pbcr_tglterima'),
+                'pbcr_deskripsi' => $this->input->post('pbcr_deskripsi'),
+                'pbcr_tglperjanjian' => $this->input->post('pbcr_tglperjanjian'),
 				'pbcr_uploadfile'  => $filename,
 			);
 			$this->crud_berita_acara->where('pbcr_id = "'.$this->input->post('pbcr_id').'"')->puts($db_data);
@@ -772,6 +789,8 @@ class Penjualan extends MY_Frontend {
 				'pbcr_nobpkc' => $this->input->post('pbcr_nobpkc'),
 				'pbcr_tglbpkc' => $this->input->post('pbcr_tglbpkc'),
 				'pbcr_menerima' => $this->input->post('pbcr_menerima'),
+                'pbcr_deskripsi' => $this->input->post('pbcr_deskripsi'),
+                'pbcr_tglperjanjian' => $this->input->post('pbcr_tglperjanjian'),
 				'pbcr_tglterima' => $this->input->post('pbcr_tglterima'),
 			);
 			$this->crud_berita_acara->where('pbcr_id = "'.$this->input->post('pbcr_id').'"')->puts($db_data);
@@ -783,11 +802,24 @@ class Penjualan extends MY_Frontend {
 	}
 
 	function delete_berita_acara($id) {
-	
+
 		$this->crud_berita_acara->where('pbcr_id = "'.$id.'"')->delete($db_data);
 
 		redirect($this->_data['module_base_url_berita_acara']);
 	}
+
+    function pdf_berita_acara($id){
+        require_once APPPATH.'third_party/dompdf/dompdf_config.inc.php';
+        $this->_data['detail']  = $this->crud_berita_acara->where('pbcr_id = "'.$id.'"')->get_row();
+
+        $this->load->view('print_berita_acara_penjualan',  $this->_data);
+        $html = $this->output->get_output();
+        $this->load->library('dompdf_gen');
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream("print_berita_acara".$id.".pdf",array('Attachment'=>0));
+        // $this->dompdf->stream("invoice_penjualan_".$id.".pdf");
+    }
 
 	function tanda_terima() {
 		$this->_data['result'] = $this->crud_tanda_terima->order_by('pttr_id', 'asc')->get_all();
@@ -825,11 +857,11 @@ class Penjualan extends MY_Frontend {
 		$this->load->library('upload', $config);
 		if (!$this->upload->do_upload('uploadfile')){
 			$filename = '';
-		}	
+		}
 		else{
 			$this->upload_data['file'] =  $this->upload->data();
 			$filename = $this->upload->file_name;
-		}	
+		}
 		}
 		if($this->form_validation->run()) {
 			$db_data = array(
@@ -888,11 +920,11 @@ class Penjualan extends MY_Frontend {
 		$this->load->library('upload', $config);
 		if (!$this->upload->do_upload('uploadfile')){
 			$filename = '';
-		}	
+		}
 		else{
 			$this->upload_data['file'] =  $this->upload->data();
 			$filename = $this->upload->file_name;
-		}	
+		}
 		}
 		if($this->form_validation->run() AND $_FILES['uploadfile']['size'] != 0) {
 			$db_data = array(
@@ -935,19 +967,20 @@ class Penjualan extends MY_Frontend {
 		}
 	}
 
+
 	function delete_tanda_terima($id) {
-	
+
 		$this->crud_tanda_terima->where('pttr_id = "'.$id.'"')->delete($db_data);
 
 		redirect($this->_data['module_base_url_tanda_terima']);
 	}
 
-	function bukti_pembayaran() {
-		$this->_data['result'] = $this->crud_bukti_pembayaran->order_by('pbktp_id', 'asc')->get_all();
-		$this->template->set('title', 'Bukti Pembayaran Penjualan | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
-		$this->template->set('assets', $this->_data['assets']);
-		$this->template->load('template_frontend/main', 'bukti_pembayaran', $this->_data);
-	}
+    function bukti_pembayaran() {
+        $this->_data['result'] = $this->crud_bukti_pembayaran->order_by('pbktp_id', 'asc')->get_all();
+        $this->template->set('title', 'Bukti Pembayaran Penjualan | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
+        $this->template->set('assets', $this->_data['assets']);
+        $this->template->load('template_frontend/main', 'bukti_pembayaran', $this->_data);
+    }
 
 	function add_bukti_pembayaran() {
 		if(!empty($_POST)) {
@@ -977,11 +1010,11 @@ class Penjualan extends MY_Frontend {
 		$this->load->library('upload', $config);
 		if (!$this->upload->do_upload('uploadfile')){
 			$filename = '';
-		}	
+		}
 		else{
 			$this->upload_data['file'] =  $this->upload->data();
 			$filename = $this->upload->file_name;
-		}	
+		}
 		}
 		if($this->form_validation->run()) {
 			$db_data = array(
@@ -1038,11 +1071,11 @@ class Penjualan extends MY_Frontend {
 		$this->load->library('upload', $config);
 		if (!$this->upload->do_upload('uploadfile')){
 			$filename = '';
-		}	
+		}
 		else{
 			$this->upload_data['file'] =  $this->upload->data();
 			$filename = $this->upload->file_name;
-		}	
+		}
 		}
 		if($this->form_validation->run() AND $_FILES['uploadfile']['size'] != 0) {
 			$db_data = array(
@@ -1084,7 +1117,7 @@ class Penjualan extends MY_Frontend {
 	}
 
 	function delete_bukti_pembayaran($id) {
-	
+
 		$this->crud_bukti_pembayaran->where('pbktp_id = "'.$id.'"')->delete($db_data);
 
 		redirect($this->_data['module_base_url_bukti_pembayaran']);

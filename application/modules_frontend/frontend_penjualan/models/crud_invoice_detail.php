@@ -66,11 +66,10 @@ class Crud_invoice_detail extends CI_Model {
 
 	function join(){
         return $this->db
-                ->select('penjualan_invoice_detail.*')
+                ->select('penjualan_invoice_detail.*, barang_jasa.*')
                 ->from('penjualan_invoice_detail')
-                ->join('penjualan_invoice', 'penjualan_invoice_detail.pjinvd_invid = penjualan_invoice.pjinv_noinvoice','left')
-                ->join('barang_jasa', 'penjualan_invoice_detail.pjinvd_jenisbarang = barang_jasa.brjs_id','left')
-                ->where('penjualan_invoice_detail.pjinvd_jenisbarang > 0')
+                ->join('penjualan_invoice', 'penjualan_invoice.pjinv_noinvoice = penjualan_invoice_detail.pjinvd_invid','left')
+                ->join('barang_jasa', 'penjualan_invoice_detail.pjinvd_jenisbarang = barang_jasa.brjs_id', 'left' )
                 ->get()
                 ->result();
     }

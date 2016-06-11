@@ -212,6 +212,7 @@ $route['penjualan/permintaan/pdf/(:any)'] = "frontend_penjualan/penjualan/pdf_pe
 $route['penjualan/invoice'] = "frontend_penjualan/penjualan/invoice";
 $route['penjualan/invoice/add'] = "frontend_penjualan/penjualan/add_invoice";
 $route['penjualan/invoice/edit/(:any)'] = "frontend_penjualan/penjualan/edit_invoice/$1";
+$route['penjualan/invoice/pdf/(:any)'] = "frontend_penjualan/penjualan/pdf_invoice/$1";
 $route['penjualan/invoice/delete/(:any)'] = "frontend_penjualan/penjualan/delete_invoice/$1";
 
 //route kwitansi penjualan
@@ -226,6 +227,7 @@ $route['penjualan/berita-acara'] = "frontend_penjualan/penjualan/berita_acara";
 $route['penjualan/berita-acara/add'] = "frontend_penjualan/penjualan/add_berita_acara";
 $route['penjualan/berita-acara/edit/(:any)'] = "frontend_penjualan/penjualan/edit_berita_acara/$1";
 $route['penjualan/berita-acara/delete/(:any)'] = "frontend_penjualan/penjualan/delete_berita_acara/$1";
+$route['penjualan/berita-acara/pdf/(:any)'] = "frontend_penjualan/penjualan/pdf_berita_acara/$1";
 
 //route tenda terima penjualan
 $route['penjualan/tanda-terima'] = "frontend_penjualan/penjualan/tanda_terima";

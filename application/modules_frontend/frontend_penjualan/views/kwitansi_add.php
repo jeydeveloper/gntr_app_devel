@@ -29,12 +29,12 @@
                   </div> <!-- /field -->
 
                    <div class="field">
-                    <label for="pjkw_alamat">Alamat: </label>
-                    <textarea id="pjkw_alamat" name="pjkw_alamat" placeholder="Alamat">
-          
+                    <label for="pjkw_alamat">Pembayaran: </label>
+                    <textarea id="pjkw_alamat" name="pjkw_alamat" placeholder="Untuk Pembayaran">
+
                     </textarea>
                   </div> <!-- /field -->
-                  
+
                   <div class="field">
                     <label for="pjkw_notlpn">No Telp.: </label>
                     <input id="pjkw_notlpn" name="pjkw_notlpn" placeholder="Alamat"/>
@@ -53,14 +53,14 @@
                     <label for="pjkw_an">Rek. Atas Nama: </label>
                     <input id="pjkw_an" name="pjkw_an" placeholder="Atas nama" />
                   </div> <!-- /field -->
-                  
+
 
                   <div class="field">
                     <label for="pjkw_bank">Nama Bank</label>
                     <input id="pjkw_bank" name="pjkw_bank" placeholder="Nama Bank" />
                   </div> <!-- /field -->
 
-                  <div class="field">
+                  <div class="field" style="display: none;">
                     <label for="pjkw_uploadfile">Upload File:</label>
                     <input type="file" class="form-control-file" name="uploadfile" id="uploadfile">
                   </div> <!-- /field -->
@@ -79,15 +79,15 @@
             </div>
             <!-- /widget-content -->
           </div>
-            <!-- /widget-content --> 
+            <!-- /widget-content -->
           </div>
           <!-- /widget -->
         </div>
         <!-- /span8 -->
       </div>
-      <!-- /row --> 
+      <!-- /row -->
     </div>
-    <!-- /container --> 
+    <!-- /container -->
   </div>
-  <!-- /main-inner --> 
+  <!-- /main-inner -->
 </div>

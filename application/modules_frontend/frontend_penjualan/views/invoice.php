@@ -24,6 +24,7 @@
                     <th> No. Penawaran </th>
                     <th> Ditujukan Ke </th>
                     <th> Total Tagihan</th>
+                    <th> PDF </th>
                     <th class="td-actions"> Actions </th>
                   </tr>
                 </thead>
@@ -39,7 +40,8 @@
                       <td><?php echo $value['pjinv_nopenawaran']; ?></td>
                       <td><?php echo $value['pjinv_to']; ?></td>
                       <td><?php echo $value['pjinv_totaltagihan']; ?></td>
-                      
+                      <td><a href="<?php echo ($module_base_url_invoice.'/pdf/'.$value['pjinv_id']); ?>" target="_blank">View PDF</a></td>
+
                       <td class="td-actions"><a href="<?php echo ($module_base_url_invoice.'/edit/'.$value['pjinv_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a> <a href="<?php echo ($module_base_url_invoice.'/delete/'.$value['pjinv_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>
                     </tr>
                     <?php endforeach; ?>
@@ -51,16 +53,16 @@
                 </tbody>
               </table>
             </div>
-            <!-- /widget-content --> 
+            <!-- /widget-content -->
           </div>
           <!-- /widget -->
         </div>
         <!-- /span8 -->
       </div>
-      <!-- /row --> 
+      <!-- /row -->
     </div>
-    <!-- /container --> 
+    <!-- /container -->
   </div>
-  <!-- /main-inner --> 
+  <!-- /main-inner -->
 </div>
 <!-- /main -->

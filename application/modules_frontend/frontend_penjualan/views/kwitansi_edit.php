@@ -29,12 +29,12 @@
                   </div> <!-- /field -->
 
                    <div class="field">
-                    <label for="pjkw_alamat">Alamat: </label>
+                    <label for="pjkw_alamat">Pembayaran: </label>
                     <textarea id="pjkw_alamat" name="pjkw_alamat">
                         <?php echo $detail['pjkw_alamat']; ?>
                     </textarea>
                   </div> <!-- /field -->
-                  
+
                   <div class="field">
                     <label for="pjkw_notlpn">No Telp.: </label>
                     <input id="pjkw_notlpn" name="pjkw_notlpn" value="<?php echo $detail['pjkw_notlpn']; ?>"/>
@@ -53,17 +53,17 @@
                     <label for="pjkw_an">Rek. Atas Nama: </label>
                     <input id="pjkw_an" name="pjkw_an" value="<?php echo $detail['pjkw_an']; ?>" />
                   </div> <!-- /field -->
-                  
+
 
                   <div class="field">
                     <label for="pjkw_bank">Nama Bank</label>
                     <input id="pjkw_bank" name="pjkw_bank" value="<?php echo $detail['pjkw_bank']; ?>" />
                   </div> <!-- /field -->
 
-                  <div class="field">
+                  <div class="field" style="display: none;">
                     <label for="uploadfile">Upload File:</label>
                       <img src="<?php echo site_url('/'); ?>assets/images/<?php echo $detail['uploadfile']; ?>" width="100px">
-                   
+
                     <input type="file" class="form-control-file" name="uploadfile" id="uploadfile">
                   </div> <!-- /field -->
 
@@ -79,15 +79,15 @@
 
               </form>
             </div>
-            <!-- /widget-content --> 
+            <!-- /widget-content -->
           </div>
           <!-- /widget -->
         </div>
         <!-- /span8 -->
       </div>
-      <!-- /row --> 
+      <!-- /row -->
     </div>
-    <!-- /container --> 
+    <!-- /container -->
   </div>
-  <!-- /main-inner --> 
+  <!-- /main-inner -->
 </div>
