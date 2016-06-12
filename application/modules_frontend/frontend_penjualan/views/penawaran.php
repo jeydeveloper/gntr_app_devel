@@ -31,6 +31,7 @@
                     <th> Biaya Kirim </th>
                     <th> Nilai Faktur </th>
                     <th> Keterangan</th>
+                    <th> PDF</th>
                     <th class="td-actions">Actions</th>
                   </tr>
                 </thead>
@@ -48,6 +49,7 @@
                       <td><?php echo $value['ppnw_biaya_kirim']; ?></td>
                       <td><?php echo $value['ppnw_nilai_faktur']; ?></td>
                       <td><?php echo $value['ppnw_keterangan']; ?></td>
+                       <td><a href="<?php echo ($module_base_url_penawaran.'/pdf/'.$value['ppnw_id']); ?>" target="_blank">View PDF</a></td>
                       <td class="td-actions"><a href="<?php echo ($module_base_url_penawaran.'/edit/'.$value['ppnw_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a> <a href="<?php echo ($module_base_url_penawaran.'/delete/'.$value['ppnw_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>
                     </tr>
                     <?php endforeach; ?>
@@ -59,16 +61,16 @@
                 </tbody>
               </table>
             </div>
-            <!-- /widget-content --> 
+            <!-- /widget-content -->
           </div>
           <!-- /widget -->
         </div>
         <!-- /span8 -->
       </div>
-      <!-- /row --> 
+      <!-- /row -->
     </div>
-    <!-- /container --> 
+    <!-- /container -->
   </div>
-  <!-- /main-inner --> 
+  <!-- /main-inner -->
 </div>
 <!-- /main -->

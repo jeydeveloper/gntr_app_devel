@@ -200,6 +200,7 @@ $route['penjualan/penawaran'] = "frontend_penjualan/penjualan/penawaran";
 $route['penjualan/penawaran/add'] = "frontend_penjualan/penjualan/add_penawaran";
 $route['penjualan/penawaran/edit/(:any)'] = "frontend_penjualan/penjualan/edit_penawaran/$1";
 $route['penjualan/penawaran/delete/(:any)'] = "frontend_penjualan/penjualan/delete_penawaran/$1";
+$route['penjualan/penawaran/pdf/(:any)'] = "frontend_penjualan/penjualan/pdf_penawaran/$1";
 
 //route permintaan penjualan
 $route['penjualan/permintaan'] = "frontend_penjualan/penjualan/permintaan";

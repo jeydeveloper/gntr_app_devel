@@ -19,6 +19,7 @@ class Penjualan extends MY_Frontend {
         $this->load->model('frontend_penjualan/crud_berita_acara', 'crud_berita_acara');
         $this->load->model('frontend_penjualan/crud_bukti_pembayaran', 'crud_bukti_pembayaran');
         $this->load->model('frontend_penjualan/crud_tanda_terima', 'crud_tanda_terima');
+        $this->load->model('frontend_penjualan/crud_penawaran_detail', 'crud_penawaran_detail');
 
 		$this->_data['module_base_url_penawaran'] = site_url('penjualan/penawaran');
 		$this->_data['module_base_url_permintaan'] = site_url('penjualan/permintaan');
@@ -56,7 +57,7 @@ class Penjualan extends MY_Frontend {
 		}
 
 		$this->_data['option_client'] = $this->crud_client->get_option();
-
+        $this->_data['option_barang'] = $this->crud_barangjasa->get_option();
 		$this->template->set('title', 'Tambah Penawaran Penjualan | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
 		$this->template->load('template_frontend/main', 'penawaran_add', $this->_data);
@@ -90,6 +91,47 @@ class Penjualan extends MY_Frontend {
 			);
 			$this->crud->posts_penawaran($db_data);
 
+            $barang      = $this->input->post('ppnwd_jenisbarang');
+            $barang2      = $this->input->post('ppnwd_jenisbarang2');
+            $volume      = $this->input->post('ppnwd_volume');
+            $deskripsi   = $this->input->post('ppnwd_deskripsi_id');
+            $satuan      = $this->input->post('ppnwd_satuan');
+            $hargasatuan = $this->input->post('ppnwd_hargasatuan');
+            if(!empty($barang)){
+                foreach($barang as $key=>$val)
+                {
+                    if($val != ''){
+                        $data = array(
+                        'ppnwd_no_penawaran' => $this->input->post('ppnw_no_penawaran'),
+                        'ppnwd_jenisbarang'  => $val,
+                        'ppnwd_volume'       => $volume[$key],
+                        'ppnwd_deskripsi_id' => $deskripsi[$key],
+                        'ppnwd_satuan'       => $satuan[$key],
+                        'ppnwd_hargasatuan'  => $hargasatuan[$key],
+                      );
+                        $this->crud_penawaran_detail->posts($data);
+                    }
+
+                }
+            }
+            if(!empty($barang2)){
+                foreach($barang2 as $key=>$val2)
+                {
+                    if($val2 != ''){
+                           $data = array(
+                            'ppnwd_no_penawaran' => $this->input->post('ppnw_no_penawaran'),
+                            'ppnwd_jenisbarang'  => $val2,
+                            'ppnwd_volume'       => $volume[$key],
+                            'ppnwd_deskripsi_id' => $deskripsi[$key],
+                            'ppnwd_satuan'       => $satuan[$key],
+                            'ppnwd_hargasatuan'  => $hargasatuan[$key],
+                          );
+                           $this->crud_penawaran_detail->posts($data);
+                    }
+
+                }
+            }
+
 			return true;
 		} else {
 			$this->_data['err_msg'] = validation_errors();
@@ -116,10 +158,11 @@ class Penjualan extends MY_Frontend {
 			$this->_data['detail'] = $_POST;
 		} else {
 			$this->_data['detail'] = $this->crud->where('ppnw_id = "'.$id.'"')->get_row_penawaran();
-		}
+		    $this->_data['penawaran'] = $this->crud_penawaran_detail->where('penjualan_penawaran.ppnw_id = "'.$id.'"')->join();
+        }
 
 		$this->_data['option_client'] = $this->crud_client->get_option();
-
+        $this->_data['option_barang'] = $this->crud_barangjasa->get_option();
 		$this->template->set('title', 'Edit Penawaran Penjualan | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
 		$this->template->load('template_frontend/main', 'penawaran_edit', $this->_data);
@@ -154,12 +197,73 @@ class Penjualan extends MY_Frontend {
 			);
 			$this->crud->where('ppnw_id = "'.$this->input->post('ppnw_id').'"')->puts_penawaran($db_data);
 
+            $barang      = $this->input->post('ppnwd_jenisbarang');
+            $barang2      = $this->input->post('ppnwd_jenisbarang2');
+            $volume      = $this->input->post('ppnwd_volume');
+            $deskripsi   = $this->input->post('ppnwd_deskripsi_id');
+            $satuan      = $this->input->post('ppnwd_satuan');
+            $hargasatuan = $this->input->post('ppnwd_hargasatuan');
+            $detailID = $this->input->post('ppnwd_id');
+            if(!empty($barang)){
+                foreach($barang as $key=>$val)
+                {
+                    if($val != ''){
+                        $data = array(
+                        'ppnwd_no_penawaran' => $this->input->post('ppnw_no_penawaran'),
+                        'ppnwd_jenisbarang'  => $val,
+                        'ppnwd_volume'       => $volume[$key],
+                        'ppnwd_deskripsi_id' => $deskripsi[$key],
+                        'ppnwd_satuan'       => $satuan[$key],
+                        'ppnwd_hargasatuan'  => $hargasatuan[$key],
+                      );
+                         $this->crud_penawaran_detail
+                                          ->where('ppnwd_id = "'.$detailID[$key].'"')
+                                          ->puts($data);
+                    }
+
+                }
+            }
+            if(!empty($barang2)){
+                foreach($barang2 as $key=>$val2)
+                {
+                    if($val2 != ''){
+                           $data = array(
+                            'ppnwd_no_penawaran' => $this->input->post('ppnw_no_penawaran'),
+                            'ppnwd_jenisbarang'  => $val2,
+                            'ppnwd_volume'       => $volume[$key],
+                            'ppnwd_deskripsi_id' => $deskripsi[$key],
+                            'ppnwd_satuan'       => $satuan[$key],
+                            'ppnwd_hargasatuan'  => $hargasatuan[$key],
+                          );
+                         $this->crud_penawaran_detail
+                                          ->where('ppnwd_id = "'.$detailID[$key].'"')
+                                          ->puts($data);
+                    }
+
+                }
+            }
+
 			return true;
+
 		} else {
 			$this->_data['err_msg'] = validation_errors();
 			return false;
 		}
 	}
+
+    function pdf_penawaran($id){
+         require_once APPPATH.'third_party/dompdf/dompdf_config.inc.php';
+        $this->_data['detail']  = $this->crud->where('penjualan_penawaran.ppnw_id = "'.$id.'"')->join_penawaran();
+        $this->_data['details']  = $this->crud_penawaran_detail->where('penjualan_penawaran.ppnw_id = "'.$id.'"')->join();
+
+        $this->load->view('print_penawaran_penjualan',  $this->_data);
+        $html = $this->output->get_output();
+        $this->load->library('dompdf_gen');
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream("penawaran_penjualan_".$id.".pdf",array('Attachment'=>0));
+        // $this->dompdf->stream("invoice_penjualan_".$id.".pdf");
+    }
 
 	function permintaan() {
 		$this->_data['result'] = $this->crud->join('client', 'ppmt_clnt_id = clnt_id')->where('ppmt_void = 0')->order_by('ppmt_id', 'asc')->get_all_permintaan();
@@ -408,7 +512,6 @@ class Penjualan extends MY_Frontend {
 		} else {
 			$this->_data['detail'] = $this->crud_invoice->get_row();
 			$this->_data['invoice'] = $this->crud_invoice_detail->where('penjualan_invoice.pjinv_id = "'.$id.'"')->join();
-
 		}
 		$this->_data['option_barang'] = $this->crud_barangjasa->get_option();
 		$this->template->set('title', 'Edit Invoice Penjualan | Aplikasi Keuangan - PT. Putra Bahari Mandiri');

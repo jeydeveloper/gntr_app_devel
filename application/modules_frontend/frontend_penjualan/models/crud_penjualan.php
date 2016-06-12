@@ -136,4 +136,14 @@ class Crud_penjualan extends CI_Model {
 		}
 		return $data;
 	}
+
+    function join_penawaran(){
+        return $this->db
+                ->select('penjualan_penawaran.*, client.* ')
+                ->from('penjualan_penawaran')
+                ->join('client', 'client.clnt_id = penjualan_penawaran.ppnw_clnt_id','left')
+                ->get()
+                ->row();
+    }
+
 }
