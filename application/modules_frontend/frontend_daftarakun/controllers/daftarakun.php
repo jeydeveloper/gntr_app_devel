@@ -45,7 +45,7 @@ class Daftarakun extends MY_Frontend {
 			}
 		}
 
-		$this->_data['data_source']['parent'] = $this->crud->where('akun_void = 0')->order_by('akun_nama')->get_option();
+		$this->_data['data_source']['parent'] = $this->crud->where('akun_void = 0 AND akun_parent = 0')->order_by('akun_nama')->get_option();
 
 		$this->template->set('title', 'Tambah Daftar Akun | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
@@ -100,7 +100,7 @@ class Daftarakun extends MY_Frontend {
 			$this->_data['detail'] = $this->crud->where('akun_id = "'.$id.'"')->get_row();
 		}
 
-		$this->_data['data_source']['parent'] = $this->crud->where('akun_void = 0 AND akun_id != ' . $id)->order_by('akun_nama')->get_option();
+		$this->_data['data_source']['parent'] = $this->crud->where('akun_void = 0 AND akun_parent = 0 AND akun_id != ' . $id)->order_by('akun_nama')->get_option();
 
 		$this->template->set('title', 'Edit Daftar Akun | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
