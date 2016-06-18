@@ -13,13 +13,67 @@
             </div>
             <!-- /widget-header -->
             <div class="widget-content">
-              <form action="<?php echo ($module_base_url . '/edit/' . $detail['aulv_id']); ?>" method="post">
-                <input type="hidden" name="aulv_id" value="<?php echo $detail['aulv_id']; ?>" />
+              <form action="<?php echo ($module_base_url . '/edit/' . $detail['proj_id']); ?>" method="post">
+                <input type="hidden" name="proj_id" value="<?php echo $detail['proj_id']; ?>" />
                 <div class="form-fields">
                   
                   <div class="field">
-                    <label for="aulv_name">Level</label>
-                    <input id="aulv_name" name="aulv_name" placeholder="Level" value="<?php echo $detail['aulv_name']; ?>" required />
+                    <label for="proj_nama">Nama Project</label>
+                    <input id="proj_nama" name="proj_nama" placeholder="Nama Project" value="<?php echo $detail['proj_nama']; ?>" required />
+                  </div> <!-- /field -->
+
+                  <div class="field">
+                    <label for="proj_clnt_id">Client</label>
+                    <input id="proj_clnt_id" name="proj_clnt_id" placeholder="Client" value="<?php echo $detail['proj_clnt_id']; ?>" required />
+                  </div> <!-- /field -->
+
+                  <div class="field">
+                    <label for="proj_list_barang">Barang</label>
+                    <input id="proj_list_barang" name="proj_list_barang" placeholder="Barang" value="<?php echo $detail['proj_list_barang']; ?>" required />
+                  </div> <!-- /field -->
+
+                  <div class="field">
+                    <label for="proj_vndr_id">Vendor</label>
+                    <input id="proj_vndr_id" name="proj_vndr_id" placeholder="Vendor" value="<?php echo $detail['proj_vndr_id']; ?>" required />
+                  </div> <!-- /field -->
+
+                  <div class="field">
+                    <label for="proj_nilai">Nilai Proyek</label>
+                    <input id="proj_nilai" name="proj_nilai" placeholder="Nilai Proyek" value="<?php echo $detail['proj_nilai']; ?>" required />
+                  </div> <!-- /field -->
+
+                  <div class="field">
+                    <label for="proj_jangka_waktu">Jangka Waktu Proyek</label>
+                    <input id="proj_jangka_waktu" name="proj_jangka_waktu" placeholder="Jangka Waktu Proyek" value="<?php echo $detail['proj_jangka_waktu']; ?>" required />
+                  </div> <!-- /field -->
+
+                  <div class="field">
+                    <label for="proj_cp_client">CP Client</label>
+                    <input id="proj_cp_client" name="proj_cp_client" placeholder="CP Client" value="<?php echo $detail['proj_cp_client']; ?>" required />
+                  </div> <!-- /field -->
+
+                  <div class="field">
+                    <label for="proj_telpon_client">Telpon Client</label>
+                    <input id="proj_telpon_client" name="proj_telpon_client" placeholder="Telpon Client" value="<?php echo $detail['proj_telpon_client']; ?>" required />
+                  </div> <!-- /field -->
+
+                  <div class="field">
+                    <label for="proj_cp_vendor">CP Vendor</label>
+                    <input id="proj_cp_vendor" name="proj_cp_vendor" placeholder="CP Vendor" value="<?php echo $detail['proj_cp_vendor']; ?>" required />
+                  </div> <!-- /field -->
+
+                  <div class="field">
+                    <label for="proj_telpon_vendor">Telpon Vendor</label>
+                    <input id="proj_telpon_vendor" name="proj_telpon_vendor" placeholder="Telpon Vendor" value="<?php echo $detail['proj_telpon_vendor']; ?>" required />
+                  </div> <!-- /field -->
+
+                  <div class="field">
+                    <label for="proj_status">Status</label>
+                    <select name="proj_status" id="proj_status" required /> 
+                      <?php foreach($static_data_source['status_project'] as $value): ?>
+                        <option value="<?php echo $value['value']; ?>" <?php echo ($detail['proj_status'] == $value['value'] ? 'selected' : ''); ?>><?php echo $value['name']; ?></option>
+                      <?php endforeach; ?>
+                    </select>
                   </div> <!-- /field -->
                                 
                 </div> <!-- /form-fields -->

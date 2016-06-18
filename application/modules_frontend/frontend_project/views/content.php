@@ -7,17 +7,54 @@
         </div>
         <!-- /span4 -->
         <div class="span10">
-          <div class="widget">
+          <div class="widget widget-table action-table">
             <div class="widget-header"> <i class="icon-th-list"></i>
               <h3>Daftar Project</h3>
             </div>
             <!-- /widget-header -->
             <div class="widget-content">
               <table class="table table-striped table-bordered">
-                <tbody>
+                <thead>
                   <tr>
-                    <td style="background-color: yellow;">ONPROGRESS, please waiting :)</td>
+                    <th> No.</th>
+                    <th> Nama</th>
+                    <th> Client</th>
+                    <th> Barang</th>
+                    <th> Vendor</th>
+                    <th> Nilai Proyek</th>
+                    <th> Jangka Waktu Proyek</th>
+                    <th> Contact Person Client</th>
+                    <th> Telpon Client</th>
+                    <th> Contact Person Vendor</th>
+                    <th> Telpon Vendor</th>
+                    <th> Status</th>
+                    <th class="td-actions">Action</th>
                   </tr>
+                </thead>
+                <tbody>
+                  <?php if(!empty($result)): ?>
+                    <?php foreach($result as $key => $value): ?>
+                    <tr>
+                      <td><?php echo ($key+1); ?></td>
+                      <td><?php echo $value['proj_nama']; ?></td>
+                      <td><?php echo $value['proj_clnt_id']; ?></td>
+                      <td><?php echo $value['proj_list_barang']; ?></td>
+                      <td><?php echo $value['proj_vndr_id']; ?></td>
+                      <td><?php echo $value['proj_nilai']; ?></td>
+                      <td><?php echo $value['proj_jangka_waktu']; ?></td>
+                      <td><?php echo $value['proj_cp_client']; ?></td>
+                      <td><?php echo $value['proj_telpon_client']; ?></td>
+                      <td><?php echo $value['proj_cp_vendor']; ?></td>
+                      <td><?php echo $value['proj_telpon_vendor']; ?></td>
+                      <td><?php echo (!empty($static_data_source['status_project'][$value['proj_status']]) ? $static_data_source['status_project'][$value['proj_status']]['name'] : '-'); ?></td>
+                      <td class="td-actions"><a href="<?php echo ($module_base_url.'/edit/'.$value['proj_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a> <a href="<?php echo ($module_base_url.'/delete/'.$value['proj_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>
+                    </tr>
+                    <?php endforeach; ?>
+                  <?php else: ?>
+                    <tr>
+                      <td colspan="13" style="background: red;color: white;">Module ini belum terisi!</td>
+                    </tr>
+                  <?php endif; ?>
                 </tbody>
               </table>
             </div>
@@ -33,3 +70,4 @@
   </div>
   <!-- /main-inner --> 
 </div>
+<!-- /main -->

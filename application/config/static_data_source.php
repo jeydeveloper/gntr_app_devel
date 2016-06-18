@@ -189,3 +189,18 @@ $config["static_data_source"]['kary_jabatan'] = array(
 		'name' => 'Manager Operasional',
 	),
 );
+
+$config["static_data_source"]['status_project'] = array(
+	1 => array(
+		'value' => 1,
+		'name' => 'NEW',
+	),
+	2 => array(
+		'value' => 2,
+		'name' => 'ONPROGRESS',
+	),
+	3 => array(
+		'value' => 3,
+		'name' => 'DONE',
+	),
+);

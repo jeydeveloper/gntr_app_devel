@@ -24,9 +24,19 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td colspan="3" style="background: red;color: white;">Module ini belum terisi!</td>
-                      </tr>
+                      <?php if(!empty($result_project)): ?>
+                        <?php foreach($result_project as $key => $value): ?>
+                        <tr>
+                          <td><?php echo $value['proj_nama']; ?></td>
+                          <td><?php echo $value['proj_clnt_id']; ?></td>
+                          <td><?php echo (!empty($static_data_source['status_project'][$value['proj_status']]) ? $static_data_source['status_project'][$value['proj_status']]['name'] : '-'); ?></td>
+                        </tr>
+                        <?php endforeach; ?>
+                      <?php else: ?>
+                        <tr>
+                          <td colspan="3" style="background: red;color: white;">Module ini belum terisi!</td>
+                        </tr>
+                      <?php endif; ?>
                     </tbody>
                   </table>
                 </div>
