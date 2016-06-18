@@ -56,7 +56,6 @@
                 <li class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-book"></i><span>Buku Besar</span> <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><a href="<?php echo site_url('daftar-akun'); ?>">Daftar Akun</a></li>
-                        <li><a href="<?php echo site_url('wajib-pajak'); ?>">Info Perusahaan</a></li>
                         <li><a href="<?php echo site_url('mata-uang'); ?>">Mata Uang</a></li>
                     </ul>
                 </li>
