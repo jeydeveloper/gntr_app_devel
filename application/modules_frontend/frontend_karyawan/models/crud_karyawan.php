@@ -42,6 +42,11 @@ class Crud_karyawan extends CI_Model {
 		$this->db->group_by($group_by);
 		return $this;
 	}
+
+	function join($tablejoin, $onjoin, $jointype = 'inner'){
+		$this->db->join($tablejoin, $onjoin, $jointype);
+		return $this;
+	}
 	//--------------end---------------
 
 	function get_row(){
@@ -83,5 +88,26 @@ class Crud_karyawan extends CI_Model {
 			$data[$value['kary_id']] = $value['kary_nama']; 
 		}
 		return $data;
+	}
+
+	//------------model gaji karyawan-------------
+	function get_row_gaji(){
+		return $this->db->get('karyawan_gaji')->row_array();
+	}
+
+	function get_all_gaji(){
+		return $this->db->get('karyawan_gaji')->result_array();
+	}
+
+	function posts_gaji($data){
+		return $this->db->insert('karyawan_gaji', $data);
+	}
+
+	function puts_gaji($data){
+		return $this->db->update('karyawan_gaji', $data);
+	}
+
+	function delete_gaji($data){
+		return $this->db->delete('karyawan_gaji', $data);
 	}
 }  
