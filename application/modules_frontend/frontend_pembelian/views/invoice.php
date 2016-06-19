@@ -24,7 +24,7 @@
                     <th> No. Penawaran </th>
                     <th> Ditujukan Ke </th>
                     <th> Total Tagihan</th>
-                    <th> PDF </th>
+                    <th> File </th>
                     <th class="td-actions"> Actions </th>
                   </tr>
                 </thead>
@@ -40,7 +40,9 @@
                       <td><?php echo $value['pbinv_nopenawaran']; ?></td>
                       <td><?php echo $value['pbinv_to']; ?></td>
                       <td><?php echo $value['pbinv_totaltagihan']; ?></td>
-                      <td><a href="<?php echo ($module_base_url.'/invoice/pdf/'.$value['pbinv_id']); ?>" target="_blank">View PDF</a></td>
+                      <td><a href="<?php echo site_url('/'); ?>assets/images/<?php echo $value['uploadfile']; ?>" target="_blank">
+                          <img src="<?php echo site_url('/'); ?>assets/images/<?php echo $value['uploadfile']; ?>" width="50px">
+                        </a></td>
 
                       <td class="td-actions"><a href="<?php echo ($module_base_url.'/invoice/edit/'.$value['pbinv_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a>
                       <a href="<?php echo ($module_base_url.'/invoice/delete/'.$value['pbinv_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>

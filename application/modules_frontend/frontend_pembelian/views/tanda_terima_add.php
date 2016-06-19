@@ -71,7 +71,7 @@
                     <input id="pbttr_tglterima" class="date-picker" name="pbttr_tglterima" value="" placeholder="Tanggal" />
                   </div> <!-- /field -->
 
-                  <div class="field">
+                  <div class="field" style="display: none;">
                     <label for="ppmt_uploadfile">Upload File:</label>
                     <input type="file" class="form-control-file" name="uploadfile" id="uploadfile">
                     <small class="text-muted">Upload hardcopy tanda terima.</small>

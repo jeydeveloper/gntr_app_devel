@@ -60,7 +60,7 @@
                     <input id="pbkw_bank" name="pbkw_bank" value="<?php echo $detail['pbkw_bank']; ?>" />
                   </div> <!-- /field -->
 
-                  <div class="field" style="display: none;">
+                  <div class="field">
                     <label for="uploadfile">Upload File:</label>
                       <img src="<?php echo site_url('/'); ?>assets/images/<?php echo $detail['uploadfile']; ?>" width="100px">
 

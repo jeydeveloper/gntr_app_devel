@@ -6,7 +6,7 @@
           <?php include('_sidebar_surat_jalan.php'); ?>
         </div>
         <!-- /span4 -->
-         <form action="<?php echo ($module_base_url . '/surat-jalan/edit/' . $detail['pbsrtjalan_id']); ?>" method="post">
+         <?php echo form_open_multipart($module_base_url.'/surat-jalan/edit/' . $detail['pbsrtjalan_id']);?>
                 <input type="hidden" name="pbsrtjalan_id" value="<?php echo $detail['pbsrtjalan_id']; ?>" />
                 <input type="hidden" name="pbsrtjalan_no" value="<?php echo $detail['pbsrtjalan_no']; ?>" />
             <div class="span5">
@@ -105,6 +105,13 @@
                         <label for="pbsrtjalan_terbilang">Terbilang:</label>
                         <input type="text"   id="pbsrtjalan_terbilang" name="pbsrtjalan_terbilang" value="<?php echo $detail['pbsrtjalan_terbilang']; ?>" />
                       </div> <!-- /field -->
+
+                      <div class="field">
+                    <label for="uploadfile">Upload File:</label>
+                      <img src="<?php echo site_url('/'); ?>assets/images/<?php echo $detail['uploadfile']; ?>" width="100px">
+
+                    <input type="file" class="form-control-file" name="uploadfile" id="uploadfile">
+                  </div> <!-- /field -->
 
                     </div> <!-- /form-fields -->
                 </div>

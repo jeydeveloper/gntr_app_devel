@@ -276,7 +276,39 @@ class Pembelian extends MY_Frontend {
         $this->form_validation->set_rules('pbkw_dari', 'Terima dari', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|xss_clean');
         $this->form_validation->set_rules('pbkw_total', 'Total', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|xss_clean');
 
-        if($this->form_validation->run()) {
+        if($_FILES['uploadfile']['size'] != 0){
+        $upload_dir = './assets/images/';
+        $config['upload_path']   = $upload_dir;
+        $config['allowed_types'] = 'gif|jpg|png|jpeg';
+        $config['file_name']     = 'tandaterima_'.substr(md5(rand()),0,7);
+        $config['overwrite']     = false;
+        $config['max_size']  = '5120';
+
+        $this->load->library('upload', $config);
+        if (!$this->upload->do_upload('uploadfile')){
+            $filename = '';
+        }
+        else{
+            $this->upload_data['file'] =  $this->upload->data();
+            $filename = $this->upload->file_name;
+        }
+        }
+        if($this->form_validation->run() AND $_FILES['uploadfile']['size'] != 0) {
+            $db_data = array(
+                'pbkw_no' => $this->input->post('pbkw_no'),
+                'pbkw_dari' => $this->input->post('pbkw_dari'),
+                'pbkw_alamat' => $this->input->post('pbkw_alamat'),
+                'pbkw_notlpn' => $this->input->post('pbkw_notlpn'),
+                'pbkw_total' => $this->input->post('pbkw_total'),
+                'pbkw_norek' => $this->input->post('pbkw_norek'),
+                'pbkw_an' => $this->input->post('pbkw_an'),
+                'pbkw_bank' => $this->input->post('pbkw_bank'),
+                'pbkw_changedate'  => $this->_data['datetime'],
+                'uploadfile'  => $filename,
+            );
+              $this->crud_kwitansi->where('pbkw_id = "'.$this->input->post('pbkw_id').'"')->puts($db_data);
+            return true;
+        }elseif ($this->form_validation->run()) {
             $db_data = array(
                 'pbkw_no' => $this->input->post('pbkw_no'),
                 'pbkw_dari' => $this->input->post('pbkw_dari'),
@@ -288,7 +320,7 @@ class Pembelian extends MY_Frontend {
                 'pbkw_bank' => $this->input->post('pbkw_bank'),
                 'pbkw_changedate'  => $this->_data['datetime'],
             );
-            $this->crud_kwitansi->where('pbkw_id = "'.$this->input->post('pbkw_id').'"')->puts($db_data);
+             $this->crud_kwitansi->where('pbkw_id = "'.$this->input->post('pbkw_id').'"')->puts($db_data);
             return true;
         } else {
             $this->_data['err_msg'] = validation_errors();
@@ -351,11 +383,27 @@ class Pembelian extends MY_Frontend {
 
     private function do_add_surat_jalan() {
 
-         $this->load->library('form_validation');
+        $this->load->library('form_validation');
 
         $this->form_validation->set_rules('pbsrtjalan_no', 'No', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
         $this->form_validation->set_rules('pbsrtjalan_tanggal', 'Tanggal', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|xss_clean');
+        if($_FILES['uploadfile']['size'] != 0){
+            $upload_dir = './assets/images/';
+            $config['upload_path']   = $upload_dir;
+            $config['allowed_types'] = 'gif|jpg|png|jpeg';
+            $config['file_name']     = 'suratjalan_'.substr(md5(rand()),0,7);
+            $config['overwrite']     = false;
+            $config['max_size']  = '5120';
 
+            $this->load->library('upload', $config);
+            if (!$this->upload->do_upload('uploadfile')){
+                $filename = '';
+            }
+            else{
+                $this->upload_data['file'] =  $this->upload->data();
+                $filename = $this->upload->file_name;
+            }
+        }
         if($this->form_validation->run()) {
             $db_data = array(
                 'pbsrtjalan_tanggal' => $this->input->post('pbsrtjalan_tanggal'),
@@ -375,6 +423,7 @@ class Pembelian extends MY_Frontend {
                 'pbsrtjalan_totaltagihan' => $this->input->post('pbsrtjalan_totaltagihan'),
                 'pbsrtjalan_terbilang' => $this->input->post('pbsrtjalan_terbilang'),
                 'pbsrtjalan_nokendaraan' => $this->input->post('pbsrtjalan_nokendaraan'),
+                'uploadfile' => $filename,
             );
             $this->crud_suratjalan->posts($db_data);
 
@@ -415,6 +464,7 @@ class Pembelian extends MY_Frontend {
 		$this->template->set('assets', $this->_data['assets']);
 		$this->template->load('template_frontend/main', 'surat_jalan_edit', $this->_data);
 	}
+
     private function do_edit_surat_jalan()
     {
         $this->load->library('form_validation');
@@ -422,7 +472,62 @@ class Pembelian extends MY_Frontend {
         $this->form_validation->set_rules('pbsrtjalan_no', 'No', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
         $this->form_validation->set_rules('pbsrtjalan_tanggal', 'Tanggal', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|xss_clean');
 
-        if($this->form_validation->run()) {
+         if($_FILES['uploadfile']['size'] != 0){
+        $upload_dir = './assets/images/';
+        $config['upload_path']   = $upload_dir;
+        $config['allowed_types'] = 'gif|jpg|png|jpeg';
+        $config['file_name']     = 'suratjalan_'.substr(md5(rand()),0,7);
+        $config['overwrite']     = false;
+        $config['max_size']  = '5120';
+
+        $this->load->library('upload', $config);
+        if (!$this->upload->do_upload('uploadfile')){
+            $filename = '';
+        }
+        else{
+            $this->upload_data['file'] =  $this->upload->data();
+            $filename = $this->upload->file_name;
+        }
+        }
+        if($this->form_validation->run() AND $_FILES['uploadfile']['size'] != 0) {
+            $db_data = array(
+                'pbsrtjalan_tanggal' => $this->input->post('pbsrtjalan_tanggal'),
+                'pbsrtjalan_no' => $this->input->post('pbsrtjalan_no'),
+                'pbsrtjalan_halaman' => $this->input->post('pbsrtjalan_halaman'),
+                'pbsrtjalan_matauang' => $this->input->post('pbsrtjalan_matauang'),
+                'pbsrtjalan_vendor' => $this->input->post('pbsrtjalan_vendor'),
+                'pbsrtjalan_proposalno' => $this->input->post('pbsrtjalan_proposalno'),
+                'pbsrtjalan_projectcode' => $this->input->post('pbsrtjalan_projectcode'),
+                'pbsrtjalan_buyer' => $this->input->post('pbsrtjalan_buyer'),
+                'pbsrtjalan_catatan' => $this->input->post('pbsrtjalan_catatan'),
+                'pbsrtjalan_terms' => $this->input->post('pbsrtjalan_terms'),
+                'pbsrtjalan_tanggalditerima' => $this->input->post('pbsrtjalan_tanggalditerima'),
+                'pbsrtjalan_diterimaoleh' => $this->input->post('pbsrtjalan_diterimaoleh'),
+                'pbsrtjalan_namapenerima' => $this->input->post('pbsrtjalan_namapenerima'),
+                'pbsrtjalan_tanggalterima' => $this->input->post('pbsrtjalan_tanggalterima'),
+                'pbsrtjalan_totaltagihan' => $this->input->post('pbsrtjalan_totaltagihan'),
+                'pbsrtjalan_terbilang' => $this->input->post('pbsrtjalan_terbilang'),
+                'pbsrtjalan_nokendaraan' => $this->input->post('pbsrtjalan_nokendaraan'),
+                'uploadfile'  => $filename,
+            );
+              $this->crud_suratjalan->where('pbsrtjalan_id = "'.$this->input->post('pbsrtjalan_id').'"')->puts($db_data);
+              $barang = $this->input->post('pbsuratjaland_jenisbarang');
+             $jumlah = $this->input->post('pbsuratjaland_jumlah');
+             $invd_id = $this->input->post('pbsuratjaland_id');
+
+            foreach($barang as $key=>$val)
+            {
+               $data = array(
+                'pbsuratjaland_jenisbarang' => $val,
+                'pbsuratjaland_jumlah' => $jumlah[$key],
+              );
+                $this->crud_suratjalan_detail->where('pbsuratjaland_nopermintaan = "'.$this->input->post('pbsrtjalan_no').'"')
+                                          ->where('pbsuratjaland_jenisbarang > 0')
+                                          ->where('pbsuratjaland_id = "'.$invd_id[$key].'"')
+                                          ->puts($data);
+            }
+            return true;
+        }elseif ($this->form_validation->run()) {
             $db_data = array(
                 'pbsrtjalan_tanggal' => $this->input->post('pbsrtjalan_tanggal'),
                 'pbsrtjalan_no' => $this->input->post('pbsrtjalan_no'),
@@ -442,9 +547,8 @@ class Pembelian extends MY_Frontend {
                 'pbsrtjalan_terbilang' => $this->input->post('pbsrtjalan_terbilang'),
                 'pbsrtjalan_nokendaraan' => $this->input->post('pbsrtjalan_nokendaraan'),
             );
-            $this->crud_suratjalan->where('pbsrtjalan_id = "'.$this->input->post('pbsrtjalan_id').'"')->puts($db_data);
-
-             $barang = $this->input->post('pbsuratjaland_jenisbarang');
+              $this->crud_suratjalan->where('pbsrtjalan_id = "'.$this->input->post('pbsrtjalan_id').'"')->puts($db_data);
+              $barang = $this->input->post('pbsuratjaland_jenisbarang');
              $jumlah = $this->input->post('pbsuratjaland_jumlah');
              $invd_id = $this->input->post('pbsuratjaland_id');
 
@@ -464,6 +568,7 @@ class Pembelian extends MY_Frontend {
             $this->_data['err_msg'] = validation_errors();
             return false;
         }
+
     }
     function delete_surat_jalan($id)
     {
@@ -501,6 +606,23 @@ class Pembelian extends MY_Frontend {
         $this->form_validation->set_rules('pbinv_terbilang', 'Terbilang', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|xss_clean');
         $this->form_validation->set_rules('pbinv_description', 'Deskripsi Kirim', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|xss_clean');
 
+        if($_FILES['uploadfile']['size'] != 0){
+            $upload_dir = './assets/images/';
+            $config['upload_path']   = $upload_dir;
+            $config['allowed_types'] = 'gif|jpg|png|jpeg';
+            $config['file_name']     = 'invoicepembelian_'.substr(md5(rand()),0,7);
+            $config['overwrite']     = false;
+            $config['max_size']  = '5120';
+
+            $this->load->library('upload', $config);
+            if (!$this->upload->do_upload('uploadfile')){
+                $filename = '';
+            }
+            else{
+                $this->upload_data['file'] =  $this->upload->data();
+                $filename = $this->upload->file_name;
+            }
+        }
 
         if($this->form_validation->run()) {
             $db_data = array(
@@ -514,6 +636,7 @@ class Pembelian extends MY_Frontend {
                 'pbinv_totaltagihan' => $this->input->post('pbinv_totaltagihan'),
                 'pbinv_terbilang' => $this->input->post('pbinv_terbilang'),
                 'pbinv_description' => $this->input->post('pbinv_description'),
+                'uploadfile'    => $filename,
             );
             $this->crud_invoice->posts($db_data);
 
@@ -569,7 +692,24 @@ class Pembelian extends MY_Frontend {
         $this->form_validation->set_rules('pbinv_description', 'Deskripsi Kirim', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|xss_clean');
 
 
-        if($this->form_validation->run()) {
+        if($_FILES['uploadfile']['size'] != 0){
+        $upload_dir = './assets/images/';
+        $config['upload_path']   = $upload_dir;
+        $config['allowed_types'] = 'gif|jpg|png|jpeg';
+        $config['file_name']     = 'invoicepembelian_'.substr(md5(rand()),0,7);
+        $config['overwrite']     = false;
+        $config['max_size']  = '5120';
+
+        $this->load->library('upload', $config);
+        if (!$this->upload->do_upload('uploadfile')){
+            $filename = '';
+        }
+        else{
+            $this->upload_data['file'] =  $this->upload->data();
+            $filename = $this->upload->file_name;
+        }
+        }
+        if($this->form_validation->run() AND $_FILES['uploadfile']['size'] != 0) {
             $db_data = array(
                 'pbinv_noinvoice' => $this->input->post('pbinv_noinvoice'),
                 'pbinv_tanggal' => $this->input->post('pbinv_tanggal'),
@@ -581,8 +721,41 @@ class Pembelian extends MY_Frontend {
                 'pbinv_totaltagihan' => $this->input->post('pbinv_totaltagihan'),
                 'pbinv_terbilang' => $this->input->post('pbinv_terbilang'),
                 'pbinv_description' => $this->input->post('pbinv_description'),
+                'uploadfile'  => $filename,
             );
-            $this->crud_invoice->where('pbinv_id = "'.$this->input->post('pbinv_id').'"')->puts($db_data);
+             $this->crud_invoice->where('pbinv_id = "'.$this->input->post('pbinv_id').'"')->puts($db_data);
+
+             $barang = $this->input->post('pbinvd_jenisbarang');
+             $jumlah = $this->input->post('pbinvd_jumlah');
+             $invd_id = $this->input->post('pbinvd_id');
+
+            foreach($barang as $key=>$val)
+            {
+               $data = array(
+                'pbinvd_jenisbarang' => $val,
+                'pbinvd_jumlah' => $jumlah[$key],
+              );
+                $this->crud_invoice_detail->where('pbinvd_invid = "'.$this->input->post('pbinv_noinvoice').'"')
+                                          ->where('pbinvd_jenisbarang > 0')
+                                          ->where('pbinvd_id = "'.$invd_id[$key].'"')
+                                          ->puts($data);
+            }
+
+            return true;
+        }elseif ($this->form_validation->run()) {
+            $db_data = array(
+               'pbinv_noinvoice' => $this->input->post('pbinv_noinvoice'),
+                'pbinv_tanggal' => $this->input->post('pbinv_tanggal'),
+                'pbinv_wotgl' => $this->input->post('pbinv_wotgl'),
+                'pbinv_wo' => $this->input->post('pbinv_wo'),
+                'pbinv_nopenawaran' => $this->input->post('pbinv_nopenawaran'),
+                'pbinv_to' => $this->input->post('pbinv_to'),
+                'pbinv_alamat' => $this->input->post('pbinv_alamat'),
+                'pbinv_totaltagihan' => $this->input->post('pbinv_totaltagihan'),
+                'pbinv_terbilang' => $this->input->post('pbinv_terbilang'),
+                'pbinv_description' => $this->input->post('pbinv_description'),
+            );
+             $this->crud_invoice->where('pbinv_id = "'.$this->input->post('pbinv_id').'"')->puts($db_data);
 
              $barang = $this->input->post('pbinvd_jenisbarang');
              $jumlah = $this->input->post('pbinvd_jumlah');
@@ -605,6 +778,7 @@ class Pembelian extends MY_Frontend {
             $this->_data['err_msg'] = validation_errors();
             return false;
         }
+
     }
 
     function pdf_invoice($id){
@@ -713,6 +887,18 @@ class Pembelian extends MY_Frontend {
         $this->crud_tanda_terima->where('pbttr_id = "'.$id.'"')->delete($db_data);
 
         redirect($this->_data['module_base_url'].'/tanda-terima');
+    }
+
+    function pdf_tanda_terima($id){
+        require_once APPPATH.'third_party/dompdf/dompdf_config.inc.php';
+        $this->_data['detail']  = $this->crud_tanda_terima->where('pbttr_id = "'.$id.'"')->get_row();
+        $this->load->view('print_tandaterima_pembelian',  $this->_data);
+        $html = $this->output->get_output();
+        $this->load->library('dompdf_gen');
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream("invoice_pembelian.pdf",array('Attachment'=>0));
+        // $this->dompdf->stream("invoice_penjualan_".$id.".pdf");
     }
 
 

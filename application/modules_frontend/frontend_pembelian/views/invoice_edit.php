@@ -7,7 +7,7 @@
         </div>
         <!-- /span4 -->
         <!-- /span4 -->
-          <form action="<?php echo ($module_base_url . '/invoice/edit/' . $detail['pbinv_id']); ?>" method="post">
+         <?php echo form_open_multipart($module_base_url.'/invoice/edit/' . $detail['pbinv_id']);?>
                 <input type="hidden" name="pbinv_id" value="<?php echo $detail['pbinv_id']; ?>" />
                 <input type="hidden" name="pbinv_noinvoice" value="<?php echo $detail['pbinv_noinvoice']; ?>" />
             <div class="span5">
@@ -70,6 +70,13 @@
                         <label for="pbinv_description">Deskripsi:</label>
                         <textarea id="pbinv_description" name="pbinv_description"><?php echo $detail['pbinv_description']; ?></textarea>
                       </div> <!-- /field -->
+
+                      <div class="field">
+                    <label for="uploadfile">Upload File:</label>
+                      <img src="<?php echo site_url('/'); ?>assets/images/<?php echo $detail['uploadfile']; ?>" width="100px">
+
+                    <input type="file" class="form-control-file" name="uploadfile" id="uploadfile">
+                  </div> <!-- /field -->
 
                     </div> <!-- /form-fields -->
                 </div>

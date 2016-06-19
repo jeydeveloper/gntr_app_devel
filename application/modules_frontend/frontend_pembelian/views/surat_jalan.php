@@ -23,7 +23,7 @@
                     <th> No. Proposal </th>
                     <th> Project Code </th>
                     <th> Total Tagihan</th>
-                    <th> PDF </th>
+                    <th> File </th>
                     <th class="td-actions"> Actions </th>
                   </tr>
                 </thead>
@@ -38,7 +38,9 @@
                       <td><?php echo $value['pbsrtjalan_proposalno']; ?></td>
                       <td><?php echo $value['pbsrtjalan_projectcode']; ?></td>
                       <td><?php echo $value['pbsrtjalan_totaltagihan']; ?></td>
-                      <td><a href="<?php echo ($module_base_url.'/surat-jalan/pdf/'.$value['pbsrtjalan_id']); ?>" target="_blank">View PDF</a></td>
+                      <td><a href="<?php echo site_url('/'); ?>assets/images/<?php echo $value['uploadfile']; ?>" target="_blank">
+                          <img src="<?php echo site_url('/'); ?>assets/images/<?php echo $value['uploadfile']; ?>" width="50px">
+                        </a></td>
 
                       <td class="td-actions"><a href="<?php echo ($module_base_url.'/surat-jalan/edit/'.$value['pbsrtjalan_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a>
                       <a href="<?php echo ($module_base_url.'/surat-jalan/delete/'.$value['pbsrtjalan_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>

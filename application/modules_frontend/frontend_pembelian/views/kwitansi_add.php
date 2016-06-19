@@ -55,12 +55,12 @@
 
 
                   <div class="field">
-                    <label for="pjkwpbkw_bank_bank">Nama Bank</label>
+                    <label for="pbkw_bank">Nama Bank</label>
                     <input id="pbkw_bank" name="pbkw_bank" placeholder="Nama Bank" />
                   </div> <!-- /field -->
 
-                  <div class="field" style="display: none;">
-                    <label for="pjkw_uploadfile">Upload File:</label>
+                  <div class="field">
+                    <label for="uploadfile">Upload File:</label>
                     <input type="file" class="form-control-file" name="uploadfile" id="uploadfile">
                   </div> <!-- /field -->
 

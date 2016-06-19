@@ -20,7 +20,7 @@
                     <th> Diterima Dari</th>
                     <th> Jumlah </th>
                     <th> Rekening Tujuan Pembayaran </th>
-                    <th> PDF </th>
+                    <th> File </th>
                     <th class="td-actions">Actions</th>
                   </tr>
                 </thead>
@@ -36,7 +36,9 @@
                           No. Rekening: <?php echo $value['pbkw_norek']; ?><br />
                           Atas Nama: <?php echo $value['pbkw_an']; ?><br />
                       </td>
-                      <td><a href="<?php echo ($module_base_url.'/kwitansi/pdf/'.$value['pbkw_id']); ?>" target="_blank">View PDF</a></td>
+                      <td><a href="<?php echo site_url('/'); ?>assets/images/<?php echo $value['uploadfile']; ?>" target="_blank">
+                          <img src="<?php echo site_url('/'); ?>assets/images/<?php echo $value['uploadfile']; ?>" width="50px">
+                        </a></td>
                       <td class="td-actions"><a href="<?php echo ($module_base_url.'/kwitansi/edit/'.$value['pbkw_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a> <a href="<?php echo ($module_base_url.'/kwitansi/delete/'.$value['pbkw_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>
                     </tr>
                     <?php endforeach; ?>

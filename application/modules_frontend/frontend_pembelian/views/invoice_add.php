@@ -6,7 +6,7 @@
           <?php include('_sidebar_invoice.php'); ?>
         </div>
         <!-- /span4 -->
-        <form action="" method="post">
+         <?php echo form_open_multipart('');?>
             <div class="span5">
               <div class="widget">
                 <div class="widget-header"> <i class="icon-th-list"></i>
@@ -67,6 +67,11 @@
                       <div class="field">
                         <label for="pbinv_description">Deskripsi:</label>
                         <textarea id="pbinv_description" name="pbinv_description" value="" placeholder="Deskripsi"></textarea>
+                      </div> <!-- /field -->
+
+                     <div class="field">
+                        <label for="uploadfile">Upload File:</label>
+                        <input type="file" class="form-control-file" name="uploadfile" id="uploadfile">
                       </div> <!-- /field -->
 
                     </div> <!-- /form-fields -->

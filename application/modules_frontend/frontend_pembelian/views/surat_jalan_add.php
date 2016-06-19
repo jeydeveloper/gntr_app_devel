@@ -6,7 +6,7 @@
           <?php include('_sidebar_surat_jalan.php'); ?>
         </div>
         <!-- /span4 -->
-          <form action="" method="post">
+          <?php echo form_open_multipart('');?>
             <div class="span5">
               <div class="widget">
                 <div class="widget-header"> <i class="icon-th-list"></i>
@@ -101,6 +101,11 @@
                       <div class="field">
                         <label for="pbsrtjalan_terbilang">Terbilang:</label>
                         <input type="text"   id="pbsrtjalan_terbilang" name="pbsrtjalan_terbilang" value="" placeholder="Terbilang" />
+                      </div> <!-- /field -->
+
+                      <div class="field">
+                        <label for="uploadfile">Upload File:</label>
+                        <input type="file" class="form-control-file" name="uploadfile" id="uploadfile">
                       </div> <!-- /field -->
                     </div> <!-- /form-fields -->
                 </div>

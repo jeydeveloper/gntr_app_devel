@@ -72,7 +72,7 @@
                     <input id="pbttr_tglterima" class="date-picker" name="pbttr_tglterima" value="<?php echo $detail['pbttr_tglterima']; ?>"/>
                   </div> <!-- /field -->
 
-                  <div class="field">
+                  <div class="field" style="display: none;">
                     <label for="pbttr_uploadfile">Upload File:</label>
                       <img src="<?php echo site_url('/'); ?>assets/images/<?php echo $detail['pbttr_uploadfile']; ?>" width="100px">
 
