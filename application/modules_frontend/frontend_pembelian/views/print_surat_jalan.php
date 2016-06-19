@@ -161,12 +161,15 @@
             </td>
            <td style="width:50%;">
                 <table style="width: 100%">
-
+                    <?php
+                            $originalDate   = $detail['pbsrtjalan_tanggal'];
+                            $newDate        = date("d F Y", strtotime($originalDate));
+                        ?>
                     <tr>
-                        <td  style="text-align: right;">Bekasi, <?php echo $detail['sj_tanggal']; ?></td>
+                        <td  style="text-align: right;">Bekasi, <?php echo $newDate; ?></td>
                     </tr>
                      <tr>
-                        <td style="text-align: right;">Kepada :<?php echo $detail['sj_vendor']; ?></td>
+                        <td style="text-align: right;">Kepada :<?php echo $detail['pbsrtjalan_buyer']; ?></td>
                     </tr>
 
 
@@ -178,7 +181,7 @@
     <table style="width:100%; margin-top: 50px;">
         <tr style="line-height: 5px;">
                 <td >
-                    <span style="font-size: 15pt; color: #333"><strong>SURAT JALAN No. Kendaraan : B 9410 ZC</strong></span><br /><br />
+                    <span style="font-size: 15pt; color: #333"><strong>SURAT JALAN No. Kendaraan : <?php echo $detail['pbsrtjalan_nokendaraan']; ?></strong></span><br /><br />
                 </td>
         </tr>
 
@@ -193,15 +196,17 @@
                 <table style="width: 100%">
                     <tr style="line-height:12px;"><td colspan="5" style="border-top:1px solid black;">&nbsp;</td></tr>
                     <tr style="line-height:6px;">
-                        <td style=" color: black; text-align: left; font-weight: bold; width: 50%;font-size:11pt;">Banyaknya</td>
-                        <td style="text-align: left; color: black; padding-left: 10px; font-weight: bold; width: 50%;font-size:11pt;">Nama Barang</td>
+                        <td style=" color: black; text-align: left; font-weight: bold; width: 50%;font-size:11pt;">Nama Barang</td>
+                        <td style="text-align: left; color: black; padding-left: 10px; font-weight: bold; width: 50%;font-size:11pt;">Banyaknya</td>
                     </tr>
                     <tr style="line-height:12px;"><td colspan="5" style="border-bottom:1px solid black;">&nbsp;</td></tr>
                     <tr style="line-height:16px;"><td colspan="5">&nbsp;</td></tr>
+                    <?php foreach($details as $key => $value): ?>
                     <tr>
-                            <td style="text-align: left;"><?php echo $detail['sj_jenisbarang']; ?></td>
-                            <td style="text-align: left;"><?php echo $detail['sj_jumlah']; ?></td>
+                            <td style="text-align: left;"><?php echo $value->brjs_nama; ?></td>
+                            <td style="text-align: left;"><?php echo $value->pbsuratjaland_jumlah; ?></td>
                     </tr>
+                    <?php endforeach; ?>
                 </table>
             </td>
         </tr>
@@ -260,13 +265,13 @@
             <td>&nbsp;</td>
         </tr>
         <tr height="17">
-            <td style="height:17px;width:20%;text-align:left;border-top:1px solid #ccc;padding:5px 15px;"><?php echo $detail['sj_diterimaoleh']; ?></td>
+            <td style="height:17px;width:20%;text-align:left;border-top:1px solid #ccc;padding:5px 15px;"><?php echo $detail['pbsrtjalan_diterimaoleh']; ?></td>
             <td style="width:6%;"></td>
             <td style="height:17px;width:20%;text-align:left;border-top:1px solid white;padding:5px 15px;">&nbsp;</td>
             <td style="width:6%;"></td>
             <td style="height:17px;width:20%;text-align:left;border-top:1px solid white;padding:5px 15px;">&nbsp;</td>
             <td style="width:6%;"></td>
-            <td style="height:17px;width:20%;text-align:left;border-top:1px solid #ccc;padding:5px 15px;"><?php echo $detail['sj_namapenerima']; ?></td>
+            <td style="height:17px;width:20%;text-align:left;border-top:1px solid #ccc;padding:5px 15px;"><?php echo $detail['pbsrtjalan_namapenerima']; ?></td>
         </tr>
         <tr height="17">
             <td height="17" style="height:17px;">&nbsp;</td>

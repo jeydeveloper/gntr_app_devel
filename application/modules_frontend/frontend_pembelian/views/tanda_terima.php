@@ -14,23 +14,55 @@
             <!-- /widget-header -->
             <div class="widget-content">
               <table class="table table-striped table-bordered">
-                <tbody>
+                <thead>
                   <tr>
-                    <td style="background-color: yellow;">ONPROGRESS, please waiting :)</td>
+                    <th> No. </th>
+                    <th> No. Proyek</th>
+                    <th> Tagihan Dari </th>
+                    <th> Nilai Tagihan </th>
+                    <th> Lampiran </th>
+                    <th> Yang menerima </th>
+                    <th> File </th>
+                    <th class="td-actions"><div style="width:150px;">Actions</div></th>
                   </tr>
+                </thead>
+                <tbody>
+                  <?php if(!empty($result)): ?>
+                    <?php foreach($result as $key => $value): ?>
+                    <tr>
+                      <td><?php echo ($key+1); ?></td>
+                      <td><?php echo $value['pbttr_noproyek']; ?></td>
+                      <td><?php echo $value['pbttr_tagihan']; ?></td>
+                      <td><?php echo $value['pbttr_nilaitagihan']; ?></td>
+                      <td><?php echo $value['pbttr_lampiran']; ?></td>
+                      <td><?php echo $value['pbttr_menerima']; ?></td>
+                      <td>
+                        <a href="<?php echo site_url('/'); ?>assets/images/<?php echo $value['pbttr_uploadfile']; ?>" target="_blank">
+                          <img src="<?php echo site_url('/'); ?>assets/images/<?php echo $value['pbttr_uploadfile']; ?>" width="50px">
+                        </a>
+                      </td>
+                      <td class="td-actions"><a href="<?php echo ($module_base_url.'/tanda-terima/edit/'.$value['pbttr_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a>
+                      <a href="<?php echo ($module_base_url.'/tanda-terima/delete/'.$value['pbttr_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>
+                    </tr>
+                    <?php endforeach; ?>
+                  <?php else: ?>
+                    <tr>
+                      <td colspan="13" style="background: red;color: white;">Module ini belum terisi!</td>
+                    </tr>
+                  <?php endif; ?>
                 </tbody>
               </table>
             </div>
-            <!-- /widget-content --> 
+            <!-- /widget-content -->
           </div>
           <!-- /widget -->
         </div>
         <!-- /span8 -->
       </div>
-      <!-- /row --> 
+      <!-- /row -->
     </div>
-    <!-- /container --> 
+    <!-- /container -->
   </div>
-  <!-- /main-inner --> 
+  <!-- /main-inner -->
 </div>
 <!-- /main -->

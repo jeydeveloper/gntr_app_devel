@@ -1,6 +1,6 @@
 <?php
 
-class Crud_pembelian extends CI_Model {
+class Crud_invoice extends CI_Model {
     //--------base---------------
     function where($where = '') {
         if($where != '') $this->db->where($where);
@@ -45,23 +45,32 @@ class Crud_pembelian extends CI_Model {
     //--------------end---------------
 
     function get_row(){
-        return $this->db->get('pembelian_permintaan')->row_array();
+        return $this->db->get('pembelian_invoice')->row_array();
     }
 
     function get_all(){
-        return $this->db->get('pembelian_permintaan')->result_array();
+        return $this->db->get('pembelian_invoice')->result_array();
     }
 
     function posts($data){
-        return $this->db->insert('pembelian_permintaan', $data);
+        return $this->db->insert('pembelian_invoice', $data);
     }
 
     function puts($data){
-        return $this->db->update('pembelian_permintaan', $data);
+        return $this->db->update('pembelian_invoice', $data);
     }
 
     function delete($data){
-        return $this->db->delete('pembelian_permintaan', $data);
+        return $this->db->delete('pembelian_invoice', $data);
     }
 
+    // function join(){
+
+    //     return $this->db
+    //             ->select('gntrapp_penjualan_invoice_detail.*')
+    //             ->from('gntrapp_penjualan_invoice_detail')
+    //             ->join('gntrapp_penjualan_invoice', 'gntrapp_penjualan_invoice.inv_noinvoice = gntrapp_penjualan_invoice_detail.invd_noinvoice','left')
+    //             ->get()
+    //             ->result();
+    // }
 }

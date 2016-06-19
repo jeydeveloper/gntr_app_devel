@@ -12,27 +12,41 @@
               <h3>Daftar Surat Jalan Pembelian</h3>
             </div>
             <!-- /widget-header -->
-
-            <div class="widget-content">
+             <div class="widget-content">
               <table class="table table-striped table-bordered">
                 <thead>
                   <tr>
-                    <th> Resource </th>
-                    <th> URL</th>
-                    <!-- <th class="td-actions"> </th> -->
+                    <th> No. </th>
+                    <th> No. Permintaan </th>
+                    <th> Tanggal </th>
+                    <th> Vendor</th>
+                    <th> No. Proposal </th>
+                    <th> Project Code </th>
+                    <th> Total Tagihan</th>
+                    <th> PDF </th>
+                    <th class="td-actions"> Actions </th>
                   </tr>
                 </thead>
                 <tbody>
-                 <?php if(!empty($result)): ?>
+                  <?php if(!empty($result)): ?>
                     <?php foreach($result as $key => $value): ?>
-                      <tr>
-                        <td> <?php echo $value['sj_vendor']; ?></td>
-                        <td><a href="<?php echo ($module_base_url.'/surat-jalan/pdf/'.$value['sj_id']); ?>"><?php echo ($module_base_url.'/surat-jalan/pdf/'.$value['sj_id']); ?></a></td>
-                      </tr>
+                    <tr>
+                      <td><?php echo ($key+1); ?></td>
+                      <td><?php echo $value['pbsrtjalan_no']; ?></td>
+                      <td><?php echo $value['pbsrtjalan_tanggal']; ?></td>
+                      <td><?php echo $value['pbsrtjalan_vendor']; ?></td>
+                      <td><?php echo $value['pbsrtjalan_proposalno']; ?></td>
+                      <td><?php echo $value['pbsrtjalan_projectcode']; ?></td>
+                      <td><?php echo $value['pbsrtjalan_totaltagihan']; ?></td>
+                      <td><a href="<?php echo ($module_base_url.'/surat-jalan/pdf/'.$value['pbsrtjalan_id']); ?>" target="_blank">View PDF</a></td>
+
+                      <td class="td-actions"><a href="<?php echo ($module_base_url.'/surat-jalan/edit/'.$value['pbsrtjalan_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a>
+                      <a href="<?php echo ($module_base_url.'/surat-jalan/delete/'.$value['pbsrtjalan_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>
+                    </tr>
                     <?php endforeach; ?>
                   <?php else: ?>
                     <tr>
-                      <td colspan="6" style="background: red;color: white;">Module ini belum terisi!</td>
+                      <td colspan="13" style="background: red;color: white;">Module ini belum terisi!</td>
                     </tr>
                   <?php endif; ?>
                 </tbody>

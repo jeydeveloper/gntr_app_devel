@@ -45,22 +45,22 @@ class Crud_suratjalan extends CI_Model {
     //--------------end---------------
 
     function get_row(){
-        return $this->db->get('gntrapp_surat_jalan')->row_array();
+        return $this->db->get('pembelian_suratjalan')->row_array();
     }
 
     function get_all(){
-        return $this->db->get('gntrapp_surat_jalan')->result_array();
+        return $this->db->get('pembelian_suratjalan')->result_array();
     }
 
     function posts($data){
-        return $this->db->insert('gntrapp_surat_jalan', $data);
+        return $this->db->insert('pembelian_suratjalan', $data);
     }
 
     function puts($data){
-        return $this->db->update('gntrapp_surat_jalan', $data);
+        return $this->db->update('pembelian_suratjalan', $data);
     }
 
     function delete($data){
-        return $this->db->delete('gntrapp_surat_jalan', $data);
+        return $this->db->delete('pembelian_suratjalan', $data);
     }
 }
