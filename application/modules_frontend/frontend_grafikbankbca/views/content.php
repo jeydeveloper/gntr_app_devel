@@ -1,3 +1,8 @@
+<style type="text/css">
+    select{padding: 3px;margin: 0;}
+    #wrap_form select, #wrap_form button{display: inline-block;width: initial;vertical-align: middle;}
+</style>
+
 <div class="main">
     <div class="main-inner">
         <div class="container">
@@ -6,13 +11,23 @@
                     <div class="widget">
                         <div class="widget-header">
                             <i class="icon-bar-chart"></i>
-                            <h3>Grafik Buku Bank BCA</h3>
-                            <div style="float:right; margin-top:5px; margin-right:5px;">
-                                <select name="" id="" onchange="if( this.options[this.selectedIndex].value != '' ) location.href=this.options[this.selectedIndex].value;">
-                                  <option value="http://localhost:8080/gntr_app_html/grafik_bank_bca.html">Bank BCA</option>
-                                  <option value="http://localhost:8080/gntr_app_html/grafik_bank_mandiri.html">Bank Mandiri</option>
-                                  <option value="http://localhost:8080/gntr_app_html/grafik_bank_bni.html">Bank BNI</option>
+                            <h3>Grafik Buku <?php echo (!empty($static_data_source['bank'][$select_bank_id]) ? $static_data_source['bank'][$select_bank_id]['name'] : ''); ?></h3>
+                            <div id="wrap_form" style="float:right; margin-right:5px;">
+                                <form action="<?php echo site_url('grafik-bank-bca'); ?>">
+                                <select name="bank_id">
+                                    <?php foreach($static_data_source['bank'] as $key => $value): ?>
+                                    <option value="<?php echo $key; ?>" <?php echo ($key == $select_bank_id ? 'selected' : ''); ?>><?php echo $value['name']; ?></option>
+                                    <?php endforeach; ?>
                                 </select>
+                                <select name="year">
+                                    <option value="2016" <?php echo (2016 == $select_year ? 'selected' : ''); ?>>2016</option>
+                                    <option value="2017" <?php echo (2017 == $select_year ? 'selected' : ''); ?>>2017</option>
+                                    <option value="2018" <?php echo (2018 == $select_year ? 'selected' : ''); ?>>2018</option>
+                                    <option value="2019" <?php echo (2019 == $select_year ? 'selected' : ''); ?>>2019</option>
+                                    <option value="2020" <?php echo (2020 == $select_year ? 'selected' : ''); ?>>2020</option>
+                                </select>
+                                <button type="submit">Submit</button>
+                                </form>
                             </div>
                         </div>
                         <!-- /widget-header -->
@@ -22,7 +37,7 @@
                             <!-- /bar-chart -->
                         </div>
                         <div style="text-align:right; margin-top:10px;">
-                            <a href="buku_bank_bca.html" class="button btn btn-primary btn-large">Buku Rekening BCA</a>
+                            <a href="buku_bank_bca.html" class="button btn btn-primary btn-large">Buku Rekening <?php echo (!empty($static_data_source['bank'][$select_bank_id]) ? $static_data_source['bank'][$select_bank_id]['name'] : ''); ?></a>
                         </div>
                         <!-- /widget-content -->
                     </div>
@@ -45,14 +60,14 @@
         labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "Octobre", "November", "December"],
         datasets: [
             {
-                fillColor: "rgba(220,220,220,0.5)",
-                strokeColor: "rgba(220,220,220,1)",
-                data: [65, 59, 90, 81, 56, 55, 40, 100, 100, 80, 90, 40]
+                fillColor: "rgba(255,0,0,0.5)",
+                strokeColor: "rgba(255,0,0,1)",
+                data: [<?php echo $data_pengeluaran; ?>]
             },
             {
-                fillColor: "rgba(151,187,205,0.5)",
-                strokeColor: "rgba(151,187,205,1)",
-                data: [28, 48, 40, 19, 96, 27, 100, 50, 50, 40, 70, 50]
+                fillColor: "rgba(0,0,255,0.5)",
+                strokeColor: "rgba(0,0,255,1)",
+                data: [<?php echo $data_penerimaan; ?>]
             }
         ]
 

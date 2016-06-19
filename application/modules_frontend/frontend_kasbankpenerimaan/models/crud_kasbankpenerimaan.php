@@ -2,6 +2,11 @@
 
 class Crud_kasbankpenerimaan extends CI_Model {
 	//--------base---------------
+	function select($select = '', $status = false) {
+		if($select != '') $this->db->select($select, $status);
+		return $this;
+	}
+	
 	function where($where = '') {
 		if($where != '') $this->db->where($where);
 		return $this;
