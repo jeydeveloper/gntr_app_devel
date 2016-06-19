@@ -39,7 +39,8 @@ class Karyawan extends MY_Frontend {
 	private function do_add() {
 		$this->load->library('form_validation');
 
-		$this->form_validation->set_rules('kary_nama', 'Level', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
+		$this->form_validation->set_rules('kary_nama', 'Nama', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
+		$this->form_validation->set_rules('kary_nik', 'NIK', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
 		$this->form_validation->set_rules('kary_alamat', 'Alamat', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|xss_clean');
 		$this->form_validation->set_rules('kary_tempat_lahir', 'Tempat Lahir', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|xss_clean');
 		$this->form_validation->set_rules('kary_tanggal_lahir', 'Tanggal Lahir', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|xss_clean');
@@ -52,6 +53,7 @@ class Karyawan extends MY_Frontend {
 
 		if($this->form_validation->run()) {
 			$db_data = array(
+				'kary_nik' => $this->input->post('kary_nik'),
 				'kary_nama' => $this->input->post('kary_nama'),
 				'kary_alamat' => $this->input->post('kary_alamat'),
 				'kary_tempat_lahir' => $this->input->post('kary_tempat_lahir'),
@@ -104,6 +106,7 @@ class Karyawan extends MY_Frontend {
 
 		$this->form_validation->set_rules('kary_id', 'ID', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
 		$this->form_validation->set_rules('kary_nama', 'Nama', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
+		$this->form_validation->set_rules('kary_nik', 'NIK', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
 		$this->form_validation->set_rules('kary_alamat', 'Alamat', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|xss_clean');
 		$this->form_validation->set_rules('kary_tempat_lahir', 'Tempat Lahir', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|xss_clean');
 		$this->form_validation->set_rules('kary_tanggal_lahir', 'Tanggal Lahir', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|xss_clean');
@@ -116,6 +119,7 @@ class Karyawan extends MY_Frontend {
 
 		if($this->form_validation->run()) {
 			$db_data = array(
+				'kary_nik' => $this->input->post('kary_nik'),
 				'kary_nama' => $this->input->post('kary_nama'),
 				'kary_alamat' => $this->input->post('kary_alamat'),
 				'kary_tempat_lahir' => $this->input->post('kary_tempat_lahir'),

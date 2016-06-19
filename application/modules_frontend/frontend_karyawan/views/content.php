@@ -17,6 +17,7 @@
                 <thead>
                   <tr>
                     <th width="30"> No. </th>
+                    <th> NIK </th>
                     <th> Nama </th>
                     <th> Alamat </th>
                     <th> TTL </th>
@@ -34,6 +35,7 @@
                     <?php foreach($result as $key => $value): ?>
                     <tr>
                       <td><?php echo ($key+1); ?></td>
+                      <td><?php echo $value['kary_nik']; ?></td>
                       <td><?php echo $value['kary_nama']; ?></td>
                       <td><?php echo $value['kary_alamat']; ?></td>
                       <td><?php echo $value['kary_tempat_lahir']; ?>, <?php echo $value['kary_tanggal_lahir']; ?></td>

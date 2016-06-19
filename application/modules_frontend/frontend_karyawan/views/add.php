@@ -16,6 +16,11 @@
               <form action="" method="post">
                 
                 <div class="form-fields">
+
+                  <div class="field">
+                    <label for="kary_nik">NIK</label>
+                    <input id="kary_nik" name="kary_nik" placeholder="NIK" required />
+                  </div> <!-- /field -->
                   
                   <div class="field">
                     <label for="kary_nama">Nama</label>

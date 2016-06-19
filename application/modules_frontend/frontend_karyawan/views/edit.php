@@ -16,6 +16,11 @@
               <form action="<?php echo ($module_base_url . '/edit/' . $detail['kary_id']); ?>" method="post">
                 <input type="hidden" name="kary_id" value="<?php echo $detail['kary_id']; ?>" />
                 <div class="form-fields">
+
+                  <div class="field">
+                    <label for="kary_nik">NIK</label>
+                    <input id="kary_nik" name="kary_nik" placeholder="NIK" value="<?php echo $detail['kary_nik']; ?>" required />
+                  </div> <!-- /field -->
                   
                   <div class="field">
                     <label for="kary_nama">Nama</label>
