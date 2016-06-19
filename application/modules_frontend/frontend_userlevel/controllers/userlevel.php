@@ -42,8 +42,10 @@ class Userlevel extends MY_Frontend {
 		$this->form_validation->set_rules('aulv_name', 'Level', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
 
 		if($this->form_validation->run()) {
+			$role_access = $this->input->post('aulv_role_access');
 			$db_data = array(
 				'aulv_name' => $this->input->post('aulv_name'),
+				'aulv_role_access' => (!empty($role_access) ? serialize($role_access) : ''),
 				'aulv_entrydate' => $this->_data['datetime'],
 			);
 			$this->crud->posts($db_data);
@@ -88,8 +90,10 @@ class Userlevel extends MY_Frontend {
 		$this->form_validation->set_rules('aulv_name', 'Level', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
 
 		if($this->form_validation->run()) {
+			$role_access = $this->input->post('aulv_role_access');
 			$db_data = array(
 				'aulv_name' => $this->input->post('aulv_name'),
+				'aulv_role_access' => (!empty($role_access) ? serialize($role_access) : ''),
 				'aulv_changedate' => $this->_data['datetime'],
 			);
 			$this->crud->where('aulv_id = "'.$this->input->post('aulv_id').'"')->puts($db_data);

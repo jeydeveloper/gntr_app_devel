@@ -204,3 +204,51 @@ $config["static_data_source"]['status_project'] = array(
 		'name' => 'DONE',
 	),
 );
+
+$config["static_data_source"]['role_access'] = array(
+	'pengguna' => array(
+		'name' => 'Pengguna',
+	),
+	'wajib-pajak' => array(
+		'name' => 'Data Wajib Pajak & Badan',
+	),
+	'user-level' => array(
+		'name' => 'User Level',
+	),
+	'departemen' => array(
+		'name' => 'Departemen',
+	),
+	'daftar-aktiva-tetap' => array(
+		'name' => 'Aktiva Tetap',
+	),
+	'kas-bank-penerimaan' => array(
+		'name' => 'Penerimaan',
+	),
+	'kas-bank-pembayaran' => array(
+		'name' => 'Pembayaran',
+	),
+	'grafik-bank-bca' => array(
+		'name' => 'Buku Bank',
+	),
+	'daftar-akun' => array(
+		'name' => 'Daftar Akun',
+	),
+	'mata-uang' => array(
+		'name' => 'Mata Uang',
+	),
+	'project' => array(
+		'name' => 'Project',
+	),
+	'vendor' => array(
+		'name' => 'Vendor',
+	),
+	'client' => array(
+		'name' => 'Client',
+	),
+	'barang-jasa' => array(
+		'name' => 'Barang / Jasa',
+	),
+	'lain-lain' => array(
+		'name' => 'Lain-lain',
+	),
+);
