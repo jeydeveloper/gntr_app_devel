@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 18, 2016 at 04:15 PM
+-- Generation Time: Jun 19, 2016 at 07:51 AM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.16
 
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_adminusers` (
 --
 
 INSERT INTO `gntrapp_adminusers` (`admusr_id`, `admusr_username`, `admusr_userpasswd`, `admusr_aulv_id`, `admusr_user_status`, `admusr_void`, `admusr_lastactivity`, `admusr_entryuser`, `admusr_entrydate`, `admusr_changeuser`, `admusr_changedate`) VALUES
-(1, 'superadmin', 'ac43724f16e9241d990427ab7c8f4228', NULL, 'y', 0, '2016-06-10 10:15:28', '', '0000-00-00 00:00:00', '', '2016-06-10 08:15:28'),
+(1, 'superadmin', 'ac43724f16e9241d990427ab7c8f4228', NULL, 'y', 0, '2016-06-19 05:59:04', '', '0000-00-00 00:00:00', '', '2016-06-19 03:59:04'),
 (2, 'demo', 'ac43724f16e9241d990427ab7c8f4228', 5, 'y', 1, '2016-04-23 12:57:58', '', '2016-04-10 09:51:37', '', '2016-04-23 10:57:58'),
 (3, 'Test', '101a6ec9f938885df0a44f20458d2eb4', 3, 'y', 1, '0000-00-00 00:00:00', '', '2016-04-10 03:01:11', '', '2016-04-09 20:01:11'),
 (4, 'Hehe', '196b0f14eba66e10fba74dbf9e99c22f', 5, 'y', 1, '0000-00-00 00:00:00', '', '2016-04-10 03:04:50', '', '2016-04-09 20:04:50'),
@@ -374,6 +374,7 @@ INSERT INTO `gntrapp_invoice_detail` (`invd_id`, `invd_noinvoice`, `invd_jenisba
 
 CREATE TABLE IF NOT EXISTS `gntrapp_karyawan` (
   `kary_id` int(11) NOT NULL AUTO_INCREMENT,
+  `kary_nik` varchar(100) NOT NULL,
   `kary_nama` varchar(100) NOT NULL,
   `kary_alamat` text NOT NULL,
   `kary_tempat_lahir` varchar(100) NOT NULL,
@@ -396,8 +397,41 @@ CREATE TABLE IF NOT EXISTS `gntrapp_karyawan` (
 -- Dumping data for table `gntrapp_karyawan`
 --
 
-INSERT INTO `gntrapp_karyawan` (`kary_id`, `kary_nama`, `kary_alamat`, `kary_tempat_lahir`, `kary_tanggal_lahir`, `kary_telpon`, `kary_posisi_id`, `kary_jabatan_id`, `kary_tipe_id`, `kary_status_nikah_id`, `kary_status_kontrak_id`, `kary_void`, `kary_entryuser`, `kary_entrydate`, `kary_changeuser`, `kary_changedate`) VALUES
-(1, 'Alexis', 'Kemang', 'Brazil', '1990-02-15', '021', 1, 1, 2, 1, 1, 0, '', '2016-04-23 04:53:33', '', '2016-05-01 06:35:11');
+INSERT INTO `gntrapp_karyawan` (`kary_id`, `kary_nik`, `kary_nama`, `kary_alamat`, `kary_tempat_lahir`, `kary_tanggal_lahir`, `kary_telpon`, `kary_posisi_id`, `kary_jabatan_id`, `kary_tipe_id`, `kary_status_nikah_id`, `kary_status_kontrak_id`, `kary_void`, `kary_entryuser`, `kary_entrydate`, `kary_changeuser`, `kary_changedate`) VALUES
+(1, '1234', 'Alexis', 'Kemang', 'Brazil', '1990-02-15', '021', 1, 1, 2, 1, 1, 0, '', '2016-04-23 04:53:33', '', '2016-06-19 06:43:10');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `gntrapp_karyawan_gaji`
+--
+
+CREATE TABLE IF NOT EXISTS `gntrapp_karyawan_gaji` (
+  `kygj_id` int(11) NOT NULL AUTO_INCREMENT,
+  `kygj_kary_id` int(11) NOT NULL,
+  `kygj_gaji_pokok` int(11) NOT NULL,
+  `kygj_tunjangan` int(11) NOT NULL,
+  `kygj_lembur` int(11) NOT NULL,
+  `kygj_uang_makan` int(11) NOT NULL,
+  `kygj_transport` int(11) NOT NULL,
+  `kygj_bonus` int(11) NOT NULL,
+  `kygj_pinjaman` int(11) NOT NULL,
+  `kygj_lain_lain` int(11) NOT NULL,
+  `kygj_total` int(11) NOT NULL,
+  `kygj_void` tinyint(4) NOT NULL,
+  `kygj_entryuser` varchar(100) NOT NULL,
+  `kygj_entrydate` datetime NOT NULL,
+  `kygj_changeuser` varchar(100) NOT NULL,
+  `kygj_changedate` datetime NOT NULL,
+  PRIMARY KEY (`kygj_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `gntrapp_karyawan_gaji`
+--
+
+INSERT INTO `gntrapp_karyawan_gaji` (`kygj_id`, `kygj_kary_id`, `kygj_gaji_pokok`, `kygj_tunjangan`, `kygj_lembur`, `kygj_uang_makan`, `kygj_transport`, `kygj_bonus`, `kygj_pinjaman`, `kygj_lain_lain`, `kygj_total`, `kygj_void`, `kygj_entryuser`, `kygj_entrydate`, `kygj_changeuser`, `kygj_changedate`) VALUES
+(1, 1, 1, 2, 3, 4, 5, 6, 7, 9, 37, 0, '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -830,7 +864,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_project` (
 --
 
 INSERT INTO `gntrapp_project` (`proj_id`, `proj_clnt_id`, `proj_vndr_id`, `proj_nama`, `proj_nilai`, `proj_jangka_waktu`, `proj_cp_client`, `proj_telpon_client`, `proj_cp_vendor`, `proj_telpon_vendor`, `proj_list_barang`, `proj_status`, `proj_void`, `proj_entryuser`, `proj_entrydate`, `proj_changeuser`, `proj_changedate`) VALUES
-(1, 0, 0, 'Test 1', 0, 'dasd', 'gsg', 'dasdas', 'dasdas', 'dadas', 'dasdasd', 2, 0, '', '2016-06-18 16:04:59', '', '2016-06-18 16:07:30'),
+(1, 2, 3, 'Test 1', 10000, 'dasd', 'gsg', 'dasdas', 'dasdas', 'dadas', '1', 2, 0, '', '2016-06-18 16:04:59', '', '2016-06-19 06:26:24'),
 (2, 0, 0, 'dasdsa', 0, 'fsfsd', 'fsfs', 'fsdfsdf', 'fsdfsd', 'fsdfsd', 'sdassdf', 1, 1, '', '2016-06-18 16:07:54', '', '2016-06-18 16:07:59');
 
 -- --------------------------------------------------------
