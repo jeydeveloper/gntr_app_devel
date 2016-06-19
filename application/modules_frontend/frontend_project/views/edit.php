@@ -24,17 +24,32 @@
 
                   <div class="field">
                     <label for="proj_clnt_id">Client</label>
-                    <input id="proj_clnt_id" name="proj_clnt_id" placeholder="Client" value="<?php echo $detail['proj_clnt_id']; ?>" required />
+                    <select name="proj_clnt_id" id="proj_clnt_id" />
+                      <option value="">-- Pilih --</option>
+                      <?php foreach($option_client as $value): ?>
+                        <option value="<?php echo $value['value']; ?>" <?php echo ($detail['proj_clnt_id'] == $value['value'] ? 'selected' : ''); ?>><?php echo $value['name']; ?></option>
+                      <?php endforeach; ?>
+                    </select>
                   </div> <!-- /field -->
 
                   <div class="field">
                     <label for="proj_list_barang">Barang</label>
-                    <input id="proj_list_barang" name="proj_list_barang" placeholder="Barang" value="<?php echo $detail['proj_list_barang']; ?>" required />
+                    <select name="proj_list_barang" id="proj_list_barang" />
+                      <option value="">-- Pilih --</option>
+                      <?php foreach($option_barangjasa as $value): ?>
+                        <option value="<?php echo $value['value']; ?>" <?php echo ($detail['proj_list_barang'] == $value['value'] ? 'selected' : ''); ?>><?php echo $value['name']; ?></option>
+                      <?php endforeach; ?>
+                    </select>
                   </div> <!-- /field -->
 
                   <div class="field">
                     <label for="proj_vndr_id">Vendor</label>
-                    <input id="proj_vndr_id" name="proj_vndr_id" placeholder="Vendor" value="<?php echo $detail['proj_vndr_id']; ?>" required />
+                    <select name="proj_vndr_id" id="proj_vndr_id" />
+                      <option value="">-- Pilih --</option>
+                      <?php foreach($option_vendor as $value): ?>
+                        <option value="<?php echo $value['value']; ?>" <?php echo ($detail['proj_vndr_id'] == $value['value'] ? 'selected' : ''); ?>><?php echo $value['name']; ?></option>
+                      <?php endforeach; ?>
+                    </select>
                   </div> <!-- /field -->
 
                   <div class="field">

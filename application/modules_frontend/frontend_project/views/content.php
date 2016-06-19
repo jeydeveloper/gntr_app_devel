@@ -37,9 +37,9 @@
                     <tr>
                       <td><?php echo ($key+1); ?></td>
                       <td><?php echo $value['proj_nama']; ?></td>
-                      <td><?php echo $value['proj_clnt_id']; ?></td>
-                      <td><?php echo $value['proj_list_barang']; ?></td>
-                      <td><?php echo $value['proj_vndr_id']; ?></td>
+                      <td><?php echo $value['clnt_nama']; ?></td>
+                      <td><?php echo $value['brjs_nama']; ?></td>
+                      <td><?php echo $value['vndr_nama']; ?></td>
                       <td><?php echo $value['proj_nilai']; ?></td>
                       <td><?php echo $value['proj_jangka_waktu']; ?></td>
                       <td><?php echo $value['proj_cp_client']; ?></td>

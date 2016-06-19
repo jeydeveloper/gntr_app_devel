@@ -21,7 +21,9 @@
     <!--[if lt IE 9]>
           <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
-
+    <style type="text/css">
+        select{height: initial;padding: 10px 0 10px 5px;width: 100%;}
+    </style>
     <script type="text/javascript" src="<?php echo $assets; ?>/js/jquery-1.7.2.min.js"></script>
     <script type="text/javascript" src="<?php echo $assets; ?>/js/jquery-ui.min.js"></script>
     </head>

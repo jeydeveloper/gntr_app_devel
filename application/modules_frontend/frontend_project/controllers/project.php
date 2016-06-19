@@ -11,12 +11,16 @@ class Project extends MY_Frontend {
 		}
 
 		$this->load->model('frontend_project/crud_project', 'crud');
+		$this->load->model('frontend_client/crud_client', 'crud_client');
+		$this->load->model('frontend_vendor/crud_vendor', 'crud_vendor');
+		$this->load->model('frontend_barangjasa/crud_barangjasa', 'crud_barangjasa');
+
 		$this->_data['module_base_url'] = site_url('project');
 		$this->_data['datetime'] = date('Y-m-d H:i:s');
 	}
 
 	function index() {
-		$this->_data['result'] = $this->crud->where('proj_void = 0')->order_by('proj_id', 'asc')->get_all();
+		$this->_data['result'] = $this->crud->join('client', 'proj_clnt_id = clnt_id', 'LEFT')->join('vendor', 'proj_vndr_id = vndr_id', 'LEFT')->join('barang_jasa', 'proj_list_barang = brjs_id', 'LEFT')->where('proj_void = 0')->order_by('proj_id', 'asc')->get_all();
 
 		$this->template->set('title', 'Project | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
@@ -30,6 +34,10 @@ class Project extends MY_Frontend {
 				exit();
 			}
 		}
+
+		$this->_data['option_client'] = $this->crud_client->get_option();
+		$this->_data['option_vendor'] = $this->crud_vendor->get_option();
+		$this->_data['option_barangjasa'] = $this->crud_barangjasa->get_option();
 
 		$this->template->set('title', 'Tambah Project | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
@@ -95,6 +103,10 @@ class Project extends MY_Frontend {
 		} else {
 			$this->_data['detail'] = $this->crud->where('proj_id = "'.$id.'"')->get_row();
 		}
+
+		$this->_data['option_client'] = $this->crud_client->get_option();
+		$this->_data['option_vendor'] = $this->crud_vendor->get_option();
+		$this->_data['option_barangjasa'] = $this->crud_barangjasa->get_option();
 
 		$this->template->set('title', 'Edit Project | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);

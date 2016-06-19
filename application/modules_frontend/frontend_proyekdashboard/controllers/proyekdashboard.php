@@ -17,7 +17,7 @@ class Proyekdashboard extends MY_Frontend {
 	}
 
 	function index() {
-		$this->_data['result_project'] = $this->crud_project->where('proj_void = 0')->order_by('proj_clnt_id', 'DESC')->set_limit(5)->get_all();
+		$this->_data['result_project'] = $this->crud_project->join('client', 'proj_clnt_id = clnt_id', 'LEFT')->where('proj_void = 0')->order_by('proj_clnt_id', 'DESC')->set_limit(5)->get_all();
 		$this->_data['result_client'] = $this->crud_client->where('clnt_void = 0 AND clnt_status = 1')->order_by('clnt_id', 'DESC')->set_limit(5)->get_all();
 		$this->_data['result_vendor'] = $this->crud_vendor->where('vndr_void = 0 AND vndr_status = 1')->order_by('vndr_id', 'DESC')->set_limit(5)->get_all();
 		$this->_data['result_barangjasa'] = $this->crud_barangjasa->where('brjs_void = 0')->order_by('brjs_id', 'DESC')->set_limit(5)->get_all();

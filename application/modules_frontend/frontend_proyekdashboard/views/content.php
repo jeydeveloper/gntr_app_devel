@@ -18,7 +18,7 @@
                   <table class="table table-striped table-bordered">
                     <thead>
                       <tr>
-                        <th> Deskripsi </th>
+                        <th> Nama </th>
                         <th> Client</th>
                         <th> Status</th>
                       </tr>
@@ -28,7 +28,7 @@
                         <?php foreach($result_project as $key => $value): ?>
                         <tr>
                           <td><?php echo $value['proj_nama']; ?></td>
-                          <td><?php echo $value['proj_clnt_id']; ?></td>
+                          <td><?php echo $value['clnt_nama']; ?></td>
                           <td><?php echo (!empty($static_data_source['status_project'][$value['proj_status']]) ? $static_data_source['status_project'][$value['proj_status']]['name'] : '-'); ?></td>
                         </tr>
                         <?php endforeach; ?>

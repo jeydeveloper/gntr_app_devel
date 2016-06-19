@@ -24,17 +24,32 @@
 
                   <div class="field">
                     <label for="proj_clnt_id">Client</label>
-                    <input id="proj_clnt_id" name="proj_clnt_id" placeholder="Client" required />
+                    <select name="proj_clnt_id" id="proj_clnt_id" />
+                      <option value="">-- Pilih --</option>
+                      <?php foreach($option_client as $value): ?>
+                        <option value="<?php echo $value['value']; ?>"><?php echo $value['name']; ?></option>
+                      <?php endforeach; ?>
+                    </select>
                   </div> <!-- /field -->
 
                   <div class="field">
                     <label for="proj_list_barang">Barang</label>
-                    <input id="proj_list_barang" name="proj_list_barang" placeholder="Barang" required />
+                    <select name="proj_list_barang" id="proj_list_barang" />
+                      <option value="">-- Pilih --</option>
+                      <?php foreach($option_barangjasa as $value): ?>
+                        <option value="<?php echo $value['value']; ?>"><?php echo $value['name']; ?></option>
+                      <?php endforeach; ?>
+                    </select>
                   </div> <!-- /field -->
 
                   <div class="field">
                     <label for="proj_vndr_id">Vendor</label>
-                    <input id="proj_vndr_id" name="proj_vndr_id" placeholder="Vendor" required />
+                    <select name="proj_vndr_id" id="proj_vndr_id" />
+                      <option value="">-- Pilih --</option>
+                      <?php foreach($option_vendor as $value): ?>
+                        <option value="<?php echo $value['value']; ?>"><?php echo $value['name']; ?></option>
+                      <?php endforeach; ?>
+                    </select>
                   </div> <!-- /field -->
 
                   <div class="field">
