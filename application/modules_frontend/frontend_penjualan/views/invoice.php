@@ -13,7 +13,7 @@
             </div>
             <!-- /widget-header -->
             <div class="widget-content">
-              <table class="table table-striped table-bordered" id="fixTable" style="width:2000px;">
+              <table class="table table-striped table-bordered">
                 <thead>
                   <tr>
                     <th> No. </th>
@@ -23,103 +23,46 @@
                     <th> Tanggal </th>
                     <th> No. Penawaran </th>
                     <th> Ditujukan Ke </th>
-                    <th> Deskripsi </th>
-                    <th> Total </th>
-                    <th> PPh 2% </th>
-                    <th> PPn 10% </th>
                     <th> Total Tagihan</th>
+                    <th> PDF </th>
                     <th class="td-actions"> Actions </th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td> 1.</td>
-                    <td> 0103/INV-XII/2015 </td>
-                    <td> 21 Desember 2015</td>
-                    <td> PO-0660-JIND/PBM-001</td>
-                    <td> 07 Desember 2015</td>
-                    <td> SPH-0105/SAB-IX/2015</td>
-                    <td> PT. JGC Indonesia</td>
-                    <td> Sewa 1 Unit Backhoe Loader, 1 Unit Vibro & Dump Truck 7m3 + Mob Demob</td>
-                    <td> Rp 50.800.000</td>
-                    <td> Rp 1.016.000</td>
-                    <td> Rp 5.080.000</td>
-                    <td> Rp 54.864.000</td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
-                  </tr>
-                  <tr>
-                    <td> 2.</td>
-                    <td> 0103/INV-XII/2015 </td>
-                    <td> 21 Desember 2015</td>
-                    <td> PO-0660-JIND/PBM-001</td>
-                    <td> 07 Desember 2015</td>
-                    <td> SPH-0105/SAB-IX/2015</td>
-                    <td> PT. JGC Indonesia</td>
-                    <td> Sewa 1 Unit Backhoe Loader, 1 Unit Vibro & Dump Truck 7m3 + Mob Demob</td>
-                    <td> Rp 50.800.000</td>
-                    <td> Rp 1.016.000</td>
-                    <td> Rp 5.080.000</td>
-                    <td> Rp 54.864.000</td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
-                  </tr>
-                  <tr>
-                    <td> 3.</td>
-                    <td> 0103/INV-XII/2015 </td>
-                    <td> 21 Desember 2015</td>
-                    <td> PO-0660-JIND/PBM-001</td>
-                    <td> 07 Desember 2015</td>
-                    <td> SPH-0105/SAB-IX/2015</td>
-                    <td> PT. JGC Indonesia</td>
-                    <td> Sewa 1 Unit Backhoe Loader, 1 Unit Vibro & Dump Truck 7m3 + Mob Demob</td>
-                    <td> Rp 50.800.000</td>
-                    <td> Rp 1.016.000</td>
-                    <td> Rp 5.080.000</td>
-                    <td> Rp 54.864.000</td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
-                  </tr>
-                  <tr>
-                    <td> 4.</td>
-                    <td> 0103/INV-XII/2015 </td>
-                    <td> 21 Desember 2015</td>
-                    <td> PO-0660-JIND/PBM-001</td>
-                    <td> 07 Desember 2015</td>
-                    <td> SPH-0105/SAB-IX/2015</td>
-                    <td> PT. JGC Indonesia</td>
-                    <td> Sewa 1 Unit Backhoe Loader, 1 Unit Vibro & Dump Truck 7m3 + Mob Demob</td>
-                    <td> Rp 50.800.000</td>
-                    <td> Rp 1.016.000</td>
-                    <td> Rp 5.080.000</td>
-                    <td> Rp 54.864.000</td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
-                  </tr>
-                  <tr>
-                    <td> 5.</td>
-                    <td> 0103/INV-XII/2015 </td>
-                    <td> 21 Desember 2015</td>
-                    <td> PO-0660-JIND/PBM-001</td>
-                    <td> 07 Desember 2015</td>
-                    <td> SPH-0105/SAB-IX/2015</td>
-                    <td> PT. JGC Indonesia</td>
-                    <td> Sewa 1 Unit Backhoe Loader, 1 Unit Vibro & Dump Truck 7m3 + Mob Demob</td>
-                    <td> Rp 50.800.000</td>
-                    <td> Rp 1.016.000</td>
-                    <td> Rp 5.080.000</td>
-                    <td> Rp 54.864.000</td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
-                  </tr>
+                  <?php if(!empty($result)): ?>
+                    <?php foreach($result as $key => $value): ?>
+                    <tr>
+                      <td><?php echo ($key+1); ?></td>
+                      <td><?php echo $value['pjinv_noinvoice']; ?></td>
+                      <td><?php echo $value['pjinv_tanggal']; ?></td>
+                      <td><?php echo $value['pjinv_wo']; ?></td>
+                      <td><?php echo $value['pjinv_wotgl']; ?></td>
+                      <td><?php echo $value['pjinv_nopenawaran']; ?></td>
+                      <td><?php echo $value['pjinv_to']; ?></td>
+                      <td><?php echo $value['pjinv_totaltagihan']; ?></td>
+                      <td><a href="<?php echo ($module_base_url_invoice.'/pdf/'.$value['pjinv_id']); ?>" target="_blank">View PDF</a></td>
+
+                      <td class="td-actions"><a href="<?php echo ($module_base_url_invoice.'/edit/'.$value['pjinv_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a> <a href="<?php echo ($module_base_url_invoice.'/delete/'.$value['pjinv_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>
+                    </tr>
+                    <?php endforeach; ?>
+                  <?php else: ?>
+                    <tr>
+                      <td colspan="13" style="background: red;color: white;">Module ini belum terisi!</td>
+                    </tr>
+                  <?php endif; ?>
                 </tbody>
               </table>
             </div>
-            <!-- /widget-content --> 
+            <!-- /widget-content -->
           </div>
           <!-- /widget -->
         </div>
         <!-- /span8 -->
       </div>
-      <!-- /row --> 
+      <!-- /row -->
     </div>
-    <!-- /container --> 
+    <!-- /container -->
   </div>
-  <!-- /main-inner --> 
+  <!-- /main-inner -->
 </div>
 <!-- /main -->

@@ -14,23 +14,43 @@
             <!-- /widget-header -->
             <div class="widget-content">
               <table class="table table-striped table-bordered">
-                <tbody>
+                <thead>
                   <tr>
-                    <td style="background-color: yellow;">ONPROGRESS, please waiting :)</td>
+                    <th> No. Bukti Pembayaran </th>
+                    <th> PDF</th>
+                    <th> Action</th>
+                    <!-- <th class="td-actions"> </th> -->
                   </tr>
+                </thead>
+                <tbody>
+                 <?php if(!empty($result)): ?>
+                    <?php foreach($result as $key => $value): ?>
+                      <tr>
+                        <td> <?php echo $value['bp_no']; ?></td>
+                        <td><a href="<?php echo ($module_base_url.'/bukti-pembayaran/pdf/'.$value['bp_id']); ?>" target="_blank">View PDF</a></td>
+
+                      <td class="td-actions"><a href="<?php echo ($module_base_url.'/bukti-pembayaran/edit/'.$value['bp_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a>
+                      <a href="<?php echo ($module_base_url.'/bukti-pembayaran/delete/'.$value['bp_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>
+                      </tr>
+                    <?php endforeach; ?>
+                  <?php else: ?>
+                    <tr>
+                      <td colspan="6" style="background: red;color: white;">Module ini belum terisi!</td>
+                    </tr>
+                  <?php endif; ?>
                 </tbody>
               </table>
             </div>
-            <!-- /widget-content --> 
+            <!-- /widget-content -->
           </div>
           <!-- /widget -->
         </div>
         <!-- /span8 -->
       </div>
-      <!-- /row --> 
+      <!-- /row -->
     </div>
-    <!-- /container --> 
+    <!-- /container -->
   </div>
-  <!-- /main-inner --> 
+  <!-- /main-inner -->
 </div>
 <!-- /main -->

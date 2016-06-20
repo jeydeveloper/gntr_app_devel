@@ -6,30 +6,173 @@
           <?php include('_sidebar_permintaan.php'); ?>
         </div>
         <!-- /span4 -->
-        <div class="span10">
-          <div class="widget">
-            <div class="widget-header"> <i class="icon-th-list"></i>
-              <h3>Form Add Permintaan</h3>
+          <form action="" method="post">
+            <div class="span5">
+              <div class="widget">
+                <div class="widget-header"> <i class="icon-th-list"></i>
+                  <h3>Form Permintaan</h3>
+                </div>
+                <!-- /widget-header -->
+                <div class="widget-content">
+
+                    <div class="form-fields">
+
+                      <div class="field">
+                        <label for="pbptn_tanggal">Tanggal</label>
+                        <input type="text"  class="date-picker" id="pbptn_tanggal" name="pbptn_tanggal" value="" placeholder="Tanggal" />
+                      </div> <!-- /field -->
+
+                      <div class="field">
+                        <label for="pbptn_no">No:</label>
+                        <input type="text" id="pbptn_no" name="pbptn_no" value="" placeholder="No." />
+                      </div> <!-- /field -->
+
+                      <div class="field">
+                        <label for="pbptn_halaman">Halaman:</label>
+                        <input type="text" id="pbptn_halaman" name="pbptn_halaman" value="" placeholder="Halaman"/>
+                      </div> <!-- /field -->
+
+                      <div class="field">
+                        <label for="pbptn_matauang">Mata Uang:</label>
+                        <input type="text" id="pbptn_matauang" name="pbptn_matauang" value="" placeholder="Mata Uang"/>
+                      </div> <!-- /field -->
+
+                      <div class="field">
+                        <label for="pbptn_vendor">Vendor:</label>
+                        <input type="text" id="pbptn_vendor" name="pbptn_vendor" value="" placeholder="Vendor"/>
+                      </div> <!-- /field -->
+
+                      <div class="field">
+                        <label for="pbptn_proposalno">Vendor Proposan No.:</label>
+                        <input type="text" id="pbptn_proposalno" name="pbptn_proposalno" value="" placeholder="Vendor Proposan No."/>
+                      </div> <!-- /field -->
+
+                      <div class="field">
+                        <label for="pbptn_projectcode">Project Code:</label>
+                        <input type="text" id="pbptn_projectcode" name="pbptn_projectcode" value="" placeholder="Project Code"/>
+                      </div> <!-- /field -->
+
+                      <div class="field">
+                        <label for="pbptn_buyer">Buyer:</label>
+                        <input type="text" id="pbptn_buyer" name="pbptn_buyer" value="" placeholder="Buyer"/>
+                      </div> <!-- /field -->
+
+                      <div class="field">
+                        <label for="pbptn_terms">Catatan:</label>
+                        <textarea id="pbptn_terms" name="pbptn_terms" value="" placeholder="Catatan"></textarea>
+                      </div> <!-- /field -->
+
+                      <div class="field">
+                        <label for="pbptn_catatan">Terms Pembayaran:</label>
+                        <textarea id="pbptn_catatan" name="pbptn_catatan" value="" placeholder="Terms Pembayaran"></textarea>
+                      </div> <!-- /field -->
+
+
+                      <div class="field">
+                        <label for="pbptn_tanggalditerima">Tanggal Penerimaan</label>
+                        <input type="text"  class="date-picker" id="pbptn_tanggalditerima" name="pbptn_tanggalditerima" value="" placeholder="Tanggal Penerimaan" />
+                      </div> <!-- /field -->
+
+                      <div class="field">
+                        <label for="pbptn_diterimaoleh">Diterima Oleh:</label>
+                        <input type="text" id="pbptn_diterimaoleh" name="pbptn_diterimaoleh" value="" placeholder="Diterima Oleh"/>
+                      </div> <!-- /field -->
+
+                      <div class="field">
+                        <label for="pbptn_namapenerima">Nama Penerima:</label>
+                        <input type="text" id="pbptn_namapenerima" name="pbptn_namapenerima" value="" placeholder="Nama Penerima"/>
+                      </div> <!-- /field -->
+
+                      <div class="field">
+                        <label for="pbptn_tanggalterima">Tanggal</label>
+                        <input type="text"  class="date-picker" id="pbptn_tanggalterima" name="pbptn_tanggalterima" value="" placeholder="Tanggal" />
+                      </div> <!-- /field -->
+
+                      <div class="field">
+                        <label for="pbptn_totaltagihan">Total Tagihan:</label>
+                        <input type="text" id="pbptn_totaltagihan" name="pbptn_totaltagihan" value="" placeholder="Total Tagihan"/>
+                      </div> <!-- /field -->
+
+                      <div class="field">
+                        <label for="pbptn_terbilang">Terbilang:</label>
+                        <input type="text"   id="pbptn_terbilang" name="pbptn_terbilang" value="" placeholder="Terbilang" />
+                      </div> <!-- /field -->
+                    </div> <!-- /form-fields -->
+                </div>
+                <!-- /widget-content -->
+              </div>
+              <!-- /widget -->
             </div>
-            <!-- /widget-header -->
-            <div class="widget-content">
-              <table class="table table-striped table-bordered">
-                <tbody>
-                  <tr>
-                    <td style="background-color: yellow;">ONPROGRESS, please waiting :)</td>
-                  </tr>
-                </tbody>
-              </table>
+            <div class="span5">
+              <div class="widget">
+                <div class="widget-header"> <i class="icon-th-list"></i>
+                  <h3>Form</h3>
+                </div>
+                <!-- /widget-header -->
+                <div class="widget-content">
+
+                    <div class="form-fields">
+
+
+
+                    </div> <!-- /form-fields -->
+                    <div class="extraPersonTemplate form-fields">
+
+                      <div class="field">
+                          <label for="pbptnd_jenisbarang">Jenis Barang:</label>
+                          <select name="pbptnd_jenisbarang[]" id="pbptnd_jenisbarang[]" />
+                            <option value="">-- Pilih --</option>
+                            <?php foreach($option_barang as $value): ?>
+                              <option value="<?php echo $value['value']; ?>"><?php echo $value['name']; ?></option>
+                            <?php endforeach; ?>
+                          </select>
+                      </div> <!-- /field -->
+
+                      <div class="field">
+                        <label for="pbptnd_jumlah">Volume:</label>
+                        <input id="pbptnd_jumlah[]" name="pbptnd_jumlah[]" value="" placeholder="Volume"/>
+                      </div> <!-- /field -->
+                    </div>
+                    <div id="container"></div>
+                    <a href="#" id="addRow"><i class="icon-plus-sign icon-white"></i> Tambah Barang</p></a>
+                    <div class="form-actions">
+                      <div class="pull-right">
+                        <button type="reset" class="button btn btn-default btn-large">Reset</button>
+                        <button class="button btn btn-primary btn-large"><a href="print_invoice.html"></a> Submit</button>
+                      </div>
+                    </div> <!-- .actions -->
+                </div>
+                <!-- /widget-content -->
+              </div>
+              <!-- /widget -->
             </div>
-            <!-- /widget-content --> 
-          </div>
-          <!-- /widget -->
-        </div>
+        </form>
         <!-- /span8 -->
       </div>
-      <!-- /row --> 
+      <!-- /row -->
     </div>
-    <!-- /container --> 
+    <!-- /container -->
   </div>
-  <!-- /main-inner --> 
+  <!-- /main-inner -->
 </div>
+<script type="text/javascript">
+  $(document).ready(function () {
+     $('<div/>', {
+         'class' : 'extraPerson form-fields', html: GetHtml()
+     }).appendTo('#container');
+     $('#addRow').click(function () {
+           $('<div/>', {
+               'class' : 'extraPerson form-fields', html: GetHtml()
+     }).hide().appendTo('#container').slideDown('slow');
+
+     });
+ })
+ function GetHtml()
+{
+      var len = $('.extraPerson form-fields').length;
+    var $html = $('.extraPersonTemplate').clone();
+    $html.find('[name=pbptnd_jenisbarang]').name="pbptnd_jenisbarang[]" + len;
+    $html.find('[name=pbptnd_jumlah]').name="pbptnd_jumlah[]" + len;
+    return $html.html();
+}
+</script>

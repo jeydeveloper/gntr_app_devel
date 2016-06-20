@@ -28,32 +28,42 @@
                     <th> Nilai Tagihan </th>
                     <th> Lampiran </th>
                     <th> Yang menerima </th>
+                    <th> PDF </th>
                     <th class="td-actions"><div style="width:150px;">Actions</div></th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td> 1 </td>
-                    <td> 2001-001 </td>
-                    <td> PT. Client 1 </td>
-                    <td> Rp. 15.000.000,00 </td>
-                    <td> Kwitansi, Invoice, PO </td>
-                    <td> Budi Sudarsono </td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a><a class="btn btn-small btn-warning" href="berita_acara_detail_insentif_hari_raya.html">Detail</a></td>
-                  </tr>              
+                  <?php if(!empty($result)): ?>
+                    <?php foreach($result as $key => $value): ?>
+                    <tr>
+                      <td><?php echo ($key+1); ?></td>
+                      <td><?php echo $value['pbcr_noproyek']; ?></td>
+                      <td><?php echo $value['pbcr_tagihan']; ?></td>
+                      <td><?php echo $value['pbcr_nilaitagihan']; ?></td>
+                      <td><?php echo $value['pbcr_lampiran']; ?></td>
+                      <td><?php echo $value['pbcr_menerima']; ?></td>
+                      <td><a href="<?php echo ($module_base_url_berita_acara.'/pdf/'.$value['pbcr_id']); ?>" target="_blank">View PDF</a></td>
+                      <td class="td-actions"><a href="<?php echo ($module_base_url_berita_acara.'/edit/'.$value['pbcr_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a> <a href="<?php echo ($module_base_url_berita_acara.'/delete/'.$value['pbcr_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>
+                    </tr>
+                    <?php endforeach; ?>
+                  <?php else: ?>
+                    <tr>
+                      <td colspan="13" style="background: red;color: white;">Module ini belum terisi!</td>
+                    </tr>
+                  <?php endif; ?>
                 </tbody>
               </table>
             </div>
-            <!-- /widget-content --> 
+            <!-- /widget-content -->
           </div>
           <!-- /widget -->
         </div>
         <!-- /span8 -->
       </div>
-      <!-- /row --> 
+      <!-- /row -->
     </div>
-    <!-- /container --> 
+    <!-- /container -->
   </div>
-  <!-- /main-inner --> 
+  <!-- /main-inner -->
 </div>
 <!-- /main -->

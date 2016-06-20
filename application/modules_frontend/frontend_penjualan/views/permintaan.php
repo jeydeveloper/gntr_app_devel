@@ -21,9 +21,8 @@
               <table class="table table-striped table-bordered">
                 <thead>
                   <tr>
-                    <th> Tanggal </th>
+                    <th> No </th>
                     <th> No. SO </th>
-                    <th> No. Pelanggan </th>
                     <th> Nama Pelanggan </th>
                     <th> Status </th>
                     <th> No. PO </th>
@@ -33,6 +32,7 @@
                     <th> Nilai Faktur </th>
                     <th> Uang Muka </th>
                     <th> Keterangan</th>
+                    <th> File </th>
                     <th class="td-actions">Actions</th>
                   </tr>
                 </thead>
@@ -41,17 +41,21 @@
                     <?php foreach($result as $key => $value): ?>
                     <tr>
                       <td><?php echo ($key+1); ?></td>
-                      <td><?php echo $value['ppmt_no_so']; ?></td>
-                      <td><?php echo $value['clnt_id']; ?></td>
+                      <td><?php echo $value['ppmt_noso']; ?></td>
                       <td><?php echo $value['clnt_nama']; ?></td>
                       <td><?php echo $value['ppmt_status']; ?></td>
-                      <td><?php echo $value['ppmt_no_po']; ?></td>
+                      <td><?php echo $value['ppmt_nopo']; ?></td>
                       <td><?php echo $value['ppmt_diskon']; ?></td>
                       <td><?php echo $value['ppmt_pajak']; ?></td>
-                      <td><?php echo $value['ppmt_biaya_kirim']; ?></td>
-                      <td><?php echo $value['ppmt_nilai_faktur']; ?></td>
-                      <td><?php echo $value['ppmt_uang_muka']; ?></td>
+                      <td><?php echo $value['ppmt_biayakirim']; ?></td>
+                      <td><?php echo $value['ppmt_nilaifaktur']; ?></td>
+                      <td><?php echo $value['ppmt_uangmuka']; ?></td>
                       <td><?php echo $value['ppmt_keterangan']; ?></td>
+                      <td>
+                        <a href="<?php echo site_url('/'); ?>assets/images/<?php echo $value['ppmt_fileupload']; ?>" target="_blank">
+                          <img src="<?php echo site_url('/'); ?>assets/images/<?php echo $value['ppmt_fileupload']; ?>" width="50px">
+                        </a>
+                      </td>
                       <td class="td-actions"><a href="<?php echo ($module_base_url_permintaan.'/edit/'.$value['ppmt_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a> <a href="<?php echo ($module_base_url_permintaan.'/delete/'.$value['ppmt_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>
                     </tr>
                     <?php endforeach; ?>
@@ -63,16 +67,16 @@
                 </tbody>
               </table>
             </div>
-            <!-- /widget-content --> 
+            <!-- /widget-content -->
           </div>
           <!-- /widget -->
         </div>
         <!-- /span8 -->
       </div>
-      <!-- /row --> 
+      <!-- /row -->
     </div>
-    <!-- /container --> 
+    <!-- /container -->
   </div>
-  <!-- /main-inner --> 
+  <!-- /main-inner -->
 </div>
 <!-- /main -->

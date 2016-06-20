@@ -16,28 +16,28 @@ class Crud_penjualan extends CI_Model {
 		if($where != '' AND $fieldname != '') $this->db->where_not_in($fieldname, $where);
 		return $this;
 	}
-	
+
 	function set_limit($limit, $start = 0) {
     	$this->db->limit($limit, $start);
         return $this;
     }
-	
+
 	function order_by($field, $direction = 'asc') {
 		$this->db->order_by($field, $direction);
 		return $this;
 	}
-	
+
 	function like($field, $keyword, $pattern = 'both') {
 		$this->db->like($field, $keyword, $pattern);
 		return $this;
 	}
-	
+
 	function or_like($field, $keyword = '', $pattern = 'both'){
 		if($keyword != '') $this->db->or_like($field, $keyword, $pattern);
 		else  $this->db->or_like($field);
 		return $this;
 	}
-	
+
 	function group_by($group_by = ''){
 		$this->db->group_by($group_by);
 		return $this;
@@ -71,22 +71,26 @@ class Crud_penjualan extends CI_Model {
 	}
 
 	function get_option_penawaran() {
-		$res = $this->where('ppnw_void = 0')->get_all();
-		$data = array();
-		foreach ($res as $key => $value) {
-			$data[] = array(
-				'name' 	=> $value['ppnw_no'],
-				'value' => $value['ppnw_id'],
-			); 
-		}
-		return $data;
+	$this->db->select("*");
+    $this->db->from("gntrapp_penjualan_penawaran");
+    $this->db->where('ppnw_void', '0');
+    $query = $this->db->get();
+    $res   = $query->result();
+        $data = array();
+        foreach ($res as $key => $value) {
+                $data[] = array(
+                'name'  => $value->ppnw_no_penawaran,
+                'value' => $value->ppnw_id,
+            );
+        }
+        return $data;
 	}
 
 	function get_option_info_penawaran() {
 		$res = $this->get_all();
 		$data = array();
 		foreach ($res as $key => $value) {
-			$data[$value['ppnw_id']] = $value['ppnw_no']; 
+			$data[$value['ppnw_id']] = $value['ppnw_no'];
 		}
 		return $data;
 	} //model penawaran
@@ -119,7 +123,7 @@ class Crud_penjualan extends CI_Model {
 			$data[] = array(
 				'name' 	=> $value['ppmt_no'],
 				'value' => $value['ppmt_id'],
-			); 
+			);
 		}
 		return $data;
 	}
@@ -128,8 +132,18 @@ class Crud_penjualan extends CI_Model {
 		$res = $this->get_all();
 		$data = array();
 		foreach ($res as $key => $value) {
-			$data[$value['ppmt_id']] = $value['ppmt_no']; 
+			$data[$value['ppmt_id']] = $value['ppmt_no'];
 		}
 		return $data;
 	}
-}  
+
+    function join_penawaran(){
+        return $this->db
+                ->select('penjualan_penawaran.*, client.* ')
+                ->from('penjualan_penawaran')
+                ->join('client', 'client.clnt_id = penjualan_penawaran.ppnw_clnt_id','left')
+                ->get()
+                ->row();
+    }
+
+}

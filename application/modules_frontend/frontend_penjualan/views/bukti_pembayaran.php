@@ -27,16 +27,29 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td> 1. </td>
-                    <td> 17/08/2016 </td>
-                    <td> 08190930 </td>
-                    <td> 910191019101901 </td>
-                    <td> 0103/INV-XII/2015 </td>
-                    <td> Rp 54.864.000</td>
-                    <td> Transfer </td>
-                    <td class="td-actions"><a href="javascript:;" class="btn btn-small btn-success"><i class="btn-icon-only icon-ok"> </i></a><a href="javascript:;" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
-                  </tr>                
+                  <?php if(!empty($result)): ?>
+                    <?php foreach($result as $key => $value): ?>
+                    <tr>
+                      <td><?php echo ($key+1); ?></td>
+                      <td><?php echo $value['pbktp_tgltransaksi']; ?></td>
+                      <td><?php echo $value['pbktp_notransaksi']; ?></td>
+                      <td><?php echo $value['pbktp_norekening']; ?></td>
+                      <td><?php echo $value['pbktp_noinvoice']; ?></td>
+                      <td><?php echo $value['pbktp_totaltagihan']; ?></td>
+                      <td><?php echo $value['pbktp_jenistransaksi']; ?></td>
+                      <td>
+                        <a href="<?php echo site_url('/'); ?>assets/images/<?php echo $value['pbktp_uploadfile']; ?>" target="_blank">
+                          <img src="<?php echo site_url('/'); ?>assets/images/<?php echo $value['pbktp_uploadfile']; ?>" width="50px">
+                        </a>
+                      </td>
+                      <td class="td-actions"><a href="<?php echo ($module_base_url_bukti_pembayaran.'/edit/'.$value['pbktp_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a> <a href="<?php echo ($module_base_url_bukti_pembayaran.'/delete/'.$value['pbktp_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>
+                    </tr>
+                    <?php endforeach; ?>
+                  <?php else: ?>
+                    <tr>
+                      <td colspan="13" style="background: red;color: white;">Module ini belum terisi!</td>
+                    </tr>
+                  <?php endif; ?>              
                 </tbody>
               </table>
             </div>

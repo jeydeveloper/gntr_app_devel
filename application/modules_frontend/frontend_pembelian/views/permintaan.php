@@ -12,25 +12,56 @@
               <h3>Daftar Permintaan Pembelian</h3>
             </div>
             <!-- /widget-header -->
-            <div class="widget-content">
+             <div class="widget-content">
               <table class="table table-striped table-bordered">
-                <tbody>
+                <thead>
                   <tr>
-                    <td style="background-color: yellow;">ONPROGRESS, please waiting :)</td>
+                    <th> No. </th>
+                    <th> No. Permintaan </th>
+                    <th> Tanggal </th>
+                    <th> Vendor</th>
+                    <th> No. Proposal </th>
+                    <th> Project Code </th>
+                    <th> Total Tagihan</th>
+                    <th> PDF </th>
+                    <th class="td-actions"> Actions </th>
                   </tr>
+                </thead>
+                <tbody>
+                  <?php if(!empty($result)): ?>
+                    <?php foreach($result as $key => $value): ?>
+                    <tr>
+                      <td><?php echo ($key+1); ?></td>
+                      <td><?php echo $value['pbptn_no']; ?></td>
+                      <td><?php echo $value['pbptn_tanggal']; ?></td>
+                      <td><?php echo $value['pbptn_vendor']; ?></td>
+                      <td><?php echo $value['pbptn_proposalno']; ?></td>
+                      <td><?php echo $value['pbptn_projectcode']; ?></td>
+                      <td><?php echo $value['pbptn_totaltagihan']; ?></td>
+                      <td><a href="<?php echo ($module_base_url.'/permintaan/pdf/'.$value['pbptn_id']); ?>" target="_blank">View PDF</a></td>
+
+                      <td class="td-actions"><a href="<?php echo ($module_base_url.'/permintaan/edit/'.$value['pbptn_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a>
+                      <a href="<?php echo ($module_base_url.'/permintaan/delete/'.$value['pbptn_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>
+                    </tr>
+                    <?php endforeach; ?>
+                  <?php else: ?>
+                    <tr>
+                      <td colspan="13" style="background: red;color: white;">Module ini belum terisi!</td>
+                    </tr>
+                  <?php endif; ?>
                 </tbody>
               </table>
             </div>
-            <!-- /widget-content --> 
+            <!-- /widget-content -->
           </div>
           <!-- /widget -->
         </div>
         <!-- /span8 -->
       </div>
-      <!-- /row --> 
+      <!-- /row -->
     </div>
-    <!-- /container --> 
+    <!-- /container -->
   </div>
-  <!-- /main-inner --> 
+  <!-- /main-inner -->
 </div>
 <!-- /main -->

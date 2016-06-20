@@ -19,6 +19,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script type="text/javascript" src="<?php echo $assets; ?>/js/bootstrap.js"></script>
     <script type="text/javascript" src="<?php echo $assets; ?>/js/base.js"></script>
+    <script type="text/javascript" src="<?php echo $assets; ?>/js/jquery.timepicker.js"></script>
     <script type="text/javascript">
         $(function(){
             $(".date-picker").datepicker({
@@ -30,5 +31,10 @@
             });
         });
     </script>
+    <script type="text/javascript">
+        $(function(){
+            $('.time').timepicker({ 'scrollDefault': 'now' });
+        });
+    </script
 </body>
 </html>
