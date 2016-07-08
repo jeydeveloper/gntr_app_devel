@@ -146,4 +146,15 @@ class Crud_penjualan extends CI_Model {
                 ->row();
     }
 
+    function get_option_info_detail($id='') {
+    	if(!empty($id)) $this->db->where('ppnw_id = "'.$id.'"');
+
+        $res = $this->db->join('client', 'ppnw_clnt_id = clnt_id')->where('ppnw_void = 0')->order_by('ppnw_id', 'asc')->get('penjualan_penawaran')->result_array();
+        $data = array();
+        foreach ($res as $key => $value) {
+            $data[$value['ppnw_id']] = $value;
+        }
+        return $data;
+    }
+
 }

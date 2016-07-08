@@ -19,6 +19,16 @@
                 <div class="form-fields">
 
                   <div class="field">
+                    <label for="pbkw_pbptn_id">Referensi</label>
+                    <select name="pbkw_pbptn_id" id="pbkw_pbptn_id" required />
+                      <option value="">--Pilih--</option>
+                      <?php foreach($option_referensi as $value): ?>
+                        <option value="<?php echo $value['pbptn_id']; ?>" <?php echo ($detail['pbkw_pbptn_id'] == $value['pbptn_id'] ? 'selected' : ''); ?>><?php echo $value['pbptn_no']; ?></option>
+                      <?php endforeach; ?>
+                    </select>
+                  </div> <!-- /field -->
+
+                  <div class="field">
                     <label for="pbkw_no">No Kwitansi</label>
                     <input id="pbkw_no" name="pbkw_no" value="<?php echo $detail['pbkw_no']; ?>" />
                   </div> <!-- /field -->

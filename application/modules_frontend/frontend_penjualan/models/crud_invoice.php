@@ -73,4 +73,15 @@ class Crud_invoice extends CI_Model {
                 ->get()
                 ->result();
     }
+
+    function get_option_info_detail($id='') {
+    	if(!empty($id)) $this->db->where('pjinv_id = "'.$id.'"');
+    	
+        $res = $this->db->get('penjualan_invoice')->result_array();
+        $data = array();
+        foreach ($res as $key => $value) {
+            $data[$value['pjinv_id']] = $value;
+        }
+        return $data;
+    }
 }

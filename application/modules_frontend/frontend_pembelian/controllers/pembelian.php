@@ -203,6 +203,9 @@ class Pembelian extends MY_Frontend {
                 exit();
             }
         }
+
+        $this->_data['option_referensi'] = $this->crud_pembelian->get_option_info_detail();
+
 		$this->template->set('title', 'Tambah Kwitansi Pembelian | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
 		$this->template->load('template_frontend/main', 'kwitansi_add', $this->_data);
@@ -235,6 +238,7 @@ class Pembelian extends MY_Frontend {
         }
         if($this->form_validation->run()) {
             $db_data = array(
+                'pbkw_pbptn_id' => $this->input->post('pbkw_pbptn_id'),
                 'pbkw_no' => $this->input->post('pbkw_no'),
                 'pbkw_dari' => $this->input->post('pbkw_dari'),
                 'pbkw_alamat' => $this->input->post('pbkw_alamat'),
@@ -263,6 +267,9 @@ class Pembelian extends MY_Frontend {
         } else {
             $this->_data['detail'] = $this->crud_kwitansi->where('pbkw_id = "'.$id.'"')->get_row();
         }
+
+        $this->_data['option_referensi'] = $this->crud_pembelian->get_option_info_detail();
+
 		$this->template->set('title', 'Edit Kwitansi Pembelian | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
 		$this->template->load('template_frontend/main', 'kwitansi_edit', $this->_data);
@@ -295,6 +302,7 @@ class Pembelian extends MY_Frontend {
         }
         if($this->form_validation->run() AND $_FILES['uploadfile']['size'] != 0) {
             $db_data = array(
+                'pbkw_pbptn_id' => $this->input->post('pbkw_pbptn_id'),
                 'pbkw_no' => $this->input->post('pbkw_no'),
                 'pbkw_dari' => $this->input->post('pbkw_dari'),
                 'pbkw_alamat' => $this->input->post('pbkw_alamat'),
@@ -310,6 +318,7 @@ class Pembelian extends MY_Frontend {
             return true;
         }elseif ($this->form_validation->run()) {
             $db_data = array(
+                'pbkw_pbptn_id' => $this->input->post('pbkw_pbptn_id'),
                 'pbkw_no' => $this->input->post('pbkw_no'),
                 'pbkw_dari' => $this->input->post('pbkw_dari'),
                 'pbkw_alamat' => $this->input->post('pbkw_alamat'),
@@ -375,6 +384,9 @@ class Pembelian extends MY_Frontend {
                 exit();
             }
         }
+
+        $this->_data['option_referensi'] = $this->crud_kwitansi->get_option_info_detail();
+
         $this->_data['option_barang'] = $this->crud_barangjasa->get_option();
 		$this->template->set('title', 'Tambah Surat Jalan Pembelian | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
@@ -405,7 +417,12 @@ class Pembelian extends MY_Frontend {
             }
         }
         if($this->form_validation->run()) {
+            $tmp = $this->crud_kwitansi->get_option_info_detail($this->input->post('pbsrtjalan_pbkw_id'));
+            $additional = $tmp[$this->input->post('pbsrtjalan_pbkw_id')];
+
             $db_data = array(
+                'pbsrtjalan_pbkw_id' => $this->input->post('pbsrtjalan_pbkw_id'),
+                'pbsrtjalan_pbptn_id' => $additional['pbkw_pbptn_id'],
                 'pbsrtjalan_tanggal' => $this->input->post('pbsrtjalan_tanggal'),
                 'pbsrtjalan_no' => $this->input->post('pbsrtjalan_no'),
                 'pbsrtjalan_halaman' => $this->input->post('pbsrtjalan_halaman'),
@@ -459,6 +476,9 @@ class Pembelian extends MY_Frontend {
             $this->_data['detail'] = $this->crud_suratjalan->where('pbsrtjalan_id = "'.$id.'"')->get_row();
             $this->_data['surat'] = $this->crud_suratjalan_detail->where('pembelian_suratjalan.pbsrtjalan_id = "'.$id.'"')->join();
         }
+
+        $this->_data['option_referensi'] = $this->crud_kwitansi->get_option_info_detail();
+
         $this->_data['option_barang'] = $this->crud_barangjasa->get_option();
 		$this->template->set('title', 'Edit Surat Jalan Pembelian | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
@@ -489,8 +509,14 @@ class Pembelian extends MY_Frontend {
             $filename = $this->upload->file_name;
         }
         }
+
+        $tmp = $this->crud_kwitansi->get_option_info_detail($this->input->post('pbsrtjalan_pbkw_id'));
+        $additional = $tmp[$this->input->post('pbsrtjalan_pbkw_id')];
+
         if($this->form_validation->run() AND $_FILES['uploadfile']['size'] != 0) {
             $db_data = array(
+                'pbsrtjalan_pbkw_id' => $this->input->post('pbsrtjalan_pbkw_id'),
+                'pbsrtjalan_pbptn_id' => $additional['pbkw_pbptn_id'],
                 'pbsrtjalan_tanggal' => $this->input->post('pbsrtjalan_tanggal'),
                 'pbsrtjalan_no' => $this->input->post('pbsrtjalan_no'),
                 'pbsrtjalan_halaman' => $this->input->post('pbsrtjalan_halaman'),
@@ -529,6 +555,8 @@ class Pembelian extends MY_Frontend {
             return true;
         }elseif ($this->form_validation->run()) {
             $db_data = array(
+                'pbsrtjalan_pbkw_id' => $this->input->post('pbsrtjalan_pbkw_id'),
+                'pbsrtjalan_pbptn_id' => $additional['pbkw_pbptn_id'],
                 'pbsrtjalan_tanggal' => $this->input->post('pbsrtjalan_tanggal'),
                 'pbsrtjalan_no' => $this->input->post('pbsrtjalan_no'),
                 'pbsrtjalan_halaman' => $this->input->post('pbsrtjalan_halaman'),
@@ -589,6 +617,9 @@ class Pembelian extends MY_Frontend {
                 exit();
             }
         }
+
+        $this->_data['option_referensi'] = $this->crud_suratjalan->get_option_info_detail();
+
         $this->_data['option_barang'] = $this->crud_barangjasa->get_option();
 		$this->template->set('title', 'Tambah Invoice Pembelian | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
@@ -625,7 +656,13 @@ class Pembelian extends MY_Frontend {
         }
 
         if($this->form_validation->run()) {
+            $tmp = $this->crud_suratjalan->get_option_info_detail($this->input->post('pbinv_pbsrtjalan_id'));
+            $additional = $tmp[$this->input->post('pbinv_pbsrtjalan_id')];
+
             $db_data = array(
+                'pbinv_pbsrtjalan_id' => $this->input->post('pbinv_pbsrtjalan_id'),
+                'pbinv_pbkw_id' => $additional['pbsrtjalan_pbkw_id'],
+                'pbinv_pbptn_id' => $additional['pbsrtjalan_pbptn_id'],
                 'pbinv_noinvoice' => $this->input->post('pbinv_noinvoice'),
                 'pbinv_tanggal' => $this->input->post('pbinv_tanggal'),
                 'pbinv_wotgl' => $this->input->post('pbinv_wotgl'),
@@ -673,7 +710,9 @@ class Pembelian extends MY_Frontend {
             $this->_data['detail'] = $this->crud_invoice->where('pbinv_id = "'.$id.'"')->get_row();
             $this->_data['invoice'] = $this->crud_invoice_detail->where('pembelian_invoice.pbinv_id = "'.$id.'"')->join();
         }
+
         $this->_data['option_barang'] = $this->crud_barangjasa->get_option();
+        $this->_data['option_referensi'] = $this->crud_suratjalan->get_option_info_detail();
 
 		$this->template->set('title', 'Edit Invoice Pembelian | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
@@ -709,8 +748,15 @@ class Pembelian extends MY_Frontend {
             $filename = $this->upload->file_name;
         }
         }
+
+        $tmp = $this->crud_suratjalan->get_option_info_detail($this->input->post('pbinv_pbsrtjalan_id'));
+        $additional = $tmp[$this->input->post('pbinv_pbsrtjalan_id')];
+
         if($this->form_validation->run() AND $_FILES['uploadfile']['size'] != 0) {
             $db_data = array(
+                'pbinv_pbsrtjalan_id' => $this->input->post('pbinv_pbsrtjalan_id'),
+                'pbinv_pbkw_id' => $additional['pbsrtjalan_pbkw_id'],
+                'pbinv_pbptn_id' => $additional['pbsrtjalan_pbptn_id'],
                 'pbinv_noinvoice' => $this->input->post('pbinv_noinvoice'),
                 'pbinv_tanggal' => $this->input->post('pbinv_tanggal'),
                 'pbinv_wotgl' => $this->input->post('pbinv_wotgl'),
@@ -744,7 +790,10 @@ class Pembelian extends MY_Frontend {
             return true;
         }elseif ($this->form_validation->run()) {
             $db_data = array(
-               'pbinv_noinvoice' => $this->input->post('pbinv_noinvoice'),
+                'pbinv_pbsrtjalan_id' => $this->input->post('pbinv_pbsrtjalan_id'),
+                'pbinv_pbkw_id' => $additional['pbsrtjalan_pbkw_id'],
+                'pbinv_pbptn_id' => $additional['pbsrtjalan_pbptn_id'],
+                'pbinv_noinvoice' => $this->input->post('pbinv_noinvoice'),
                 'pbinv_tanggal' => $this->input->post('pbinv_tanggal'),
                 'pbinv_wotgl' => $this->input->post('pbinv_wotgl'),
                 'pbinv_wo' => $this->input->post('pbinv_wo'),
@@ -815,6 +864,9 @@ class Pembelian extends MY_Frontend {
                 exit();
             }
         }
+
+        $this->_data['option_referensi'] = $this->crud_invoice->get_option_info_detail();
+
 		$this->template->set('title', 'Tambah Tanda Terima Pembelian | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
 		$this->template->load('template_frontend/main', 'tanda_terima_add', $this->_data);
@@ -844,7 +896,14 @@ class Pembelian extends MY_Frontend {
         }
         }
         if($this->form_validation->run()) {
+            $tmp = $this->crud_invoice->get_option_info_detail($this->input->post('pbttr_pbinv_id'));
+            $additional = $tmp[$this->input->post('pbttr_pbinv_id')];
+
             $db_data = array(
+                'pbttr_pbinv_id' => $this->input->post('pbttr_pbinv_id'),
+                'pbttr_pbsrtjalan_id' => $additional['pbinv_pbsrtjalan_id'],
+                'pbttr_pbkw_id' => $additional['pbinv_pbkw_id'],
+                'pbttr_pbptn_id' => $additional['pbinv_pbptn_id'],
                 'pbttr_no' => $this->input->post('pbttr_no'),
                 'pbttr_noproyek' => $this->input->post('pbttr_noproyek'),
                 'pbttr_tghndari' => $this->input->post('pbttr_tghndari'),
@@ -877,6 +936,9 @@ class Pembelian extends MY_Frontend {
         } else {
             $this->_data['detail'] = $this->crud_tanda_terima->where('pbttr_id = "'.$id.'"')->get_row();
         }
+
+        $this->_data['option_referensi'] = $this->crud_invoice->get_option_info_detail();
+
 		$this->template->set('title', 'Edit Tanda Terima Pembelian | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
 		$this->template->load('template_frontend/main', 'tanda_terima_edit', $this->_data);
@@ -931,8 +993,16 @@ class Pembelian extends MY_Frontend {
             $filename = $this->upload->file_name;
         }
         }
+
+        $tmp = $this->crud_invoice->get_option_info_detail($this->input->post('pbttr_pbinv_id'));
+        $additional = $tmp[$this->input->post('pbttr_pbinv_id')];
+
         if($this->form_validation->run() AND $_FILES['uploadfile']['size'] != 0) {
             $db_data = array(
+                'pbttr_pbinv_id' => $this->input->post('pbttr_pbinv_id'),
+                'pbttr_pbsrtjalan_id' => $additional['pbinv_pbsrtjalan_id'],
+                'pbttr_pbkw_id' => $additional['pbinv_pbkw_id'],
+                'pbttr_pbptn_id' => $additional['pbinv_pbptn_id'],
                 'pbttr_no' => $this->input->post('pbttr_no'),
                 'pbttr_noproyek' => $this->input->post('pbttr_noproyek'),
                 'pbttr_tghndari' => $this->input->post('pbttr_tghndari'),
@@ -951,6 +1021,10 @@ class Pembelian extends MY_Frontend {
             return true;
         }elseif ($this->form_validation->run()) {
             $db_data = array(
+                'pbttr_pbinv_id' => $this->input->post('pbttr_pbinv_id'),
+                'pbttr_pbsrtjalan_id' => $additional['pbinv_pbsrtjalan_id'],
+                'pbttr_pbkw_id' => $additional['pbinv_pbkw_id'],
+                'pbttr_pbptn_id' => $additional['pbinv_pbptn_id'],
                 'pbttr_no' => $this->input->post('pbttr_no'),
                 'pbttr_noproyek' => $this->input->post('pbttr_noproyek'),
                 'pbttr_tghndari' => $this->input->post('pbttr_tghndari'),
@@ -979,6 +1053,8 @@ class Pembelian extends MY_Frontend {
             }
         }
 
+        $this->_data['option_referensi'] = $this->crud_tanda_terima->get_option_info_detail();
+
 		$this->template->set('title', 'Tambah Bukti Pembayaran Pembelian | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
 		$this->template->load('template_frontend/main', 'bukti_pembayaran_add', $this->_data);
@@ -997,7 +1073,15 @@ class Pembelian extends MY_Frontend {
         $this->form_validation->set_rules('bp_jenistransaksi', 'Jenis Transaksi', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|xss_clean');
 
         if($this->form_validation->run()) {
+            $tmp = $this->crud_tanda_terima->get_option_info_detail($this->input->post('bp_pbttr_id'));
+            $additional = $tmp[$this->input->post('bp_pbttr_id')];
+
             $db_data = array(
+                'bp_pbttr_id' => $this->input->post('bp_pbttr_id'),
+                'bp_pbinv_id' => $additional['pbttr_pbinv_id'],
+                'bp_pbsrtjalan_id' => $additional['pbttr_pbsrtjalan_id'],
+                'bp_pbkw_id' => $additional['pbttr_pbkw_id'],
+                'bp_pbptn_id' => $additional['pbttr_pbptn_id'],
                 'bp_no'             => $this->input->post('bp_no'),
                 'bp_tgltransaksi'   => $this->input->post('bp_tgltransaksi'),
                 'bp_norekening'     => $this->input->post('bp_norekening'),
@@ -1048,6 +1132,8 @@ class Pembelian extends MY_Frontend {
             $this->_data['detail'] = $this->crud_buktipembayaran->where('bp_id = "'.$id.'"')->get_row();
         }
 
+        $this->_data['option_referensi'] = $this->crud_tanda_terima->get_option_info_detail();
+
 		$this->template->set('title', 'Edit Bukti Pembayaran Pembelian | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
 		$this->template->load('template_frontend/main', 'bukti_pembayaran_edit', $this->_data);
@@ -1069,7 +1155,15 @@ class Pembelian extends MY_Frontend {
 
 
         if($this->form_validation->run()) {
+            $tmp = $this->crud_tanda_terima->get_option_info_detail($this->input->post('bp_pbttr_id'));
+            $additional = $tmp[$this->input->post('bp_pbttr_id')];
+            
             $db_data = array(
+                'bp_pbttr_id' => $this->input->post('bp_pbttr_id'),
+                'bp_pbinv_id' => $additional['pbttr_pbinv_id'],
+                'bp_pbsrtjalan_id' => $additional['pbttr_pbsrtjalan_id'],
+                'bp_pbkw_id' => $additional['pbttr_pbkw_id'],
+                'bp_pbptn_id' => $additional['pbttr_pbptn_id'],
                 'bp_no'             => $this->input->post('bp_no'),
                 'bp_tgltransaksi'   => $this->input->post('bp_tgltransaksi'),
                 'bp_norekening'     => $this->input->post('bp_norekening'),

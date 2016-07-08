@@ -19,7 +19,17 @@
 
                     <div class="form-fields">
 
-                       <div class="field">
+                      <div class="field">
+                        <label for="pbsrtjalan_pbkw_id">Referensi</label>
+                        <select name="pbsrtjalan_pbkw_id" id="pbsrtjalan_pbkw_id" required />
+                          <option value="">--Pilih--</option>
+                          <?php foreach($option_referensi as $value): ?>
+                            <option value="<?php echo $value['pbkw_id']; ?>" <?php echo ($detail['pbsrtjalan_pbkw_id'] == $value['pbkw_id'] ? 'selected' : ''); ?>><?php echo $value['pbkw_no']; ?></option>
+                          <?php endforeach; ?>
+                        </select>
+                      </div> <!-- /field -->
+
+                      <div class="field">
                         <label for="pbsrtjalan_tanggal">Tanggal</label>
                         <input type="text"  class="date-picker" id="pbsrtjalan_tanggal" name="pbsrtjalan_tanggal" value="<?php echo $detail['pbsrtjalan_tanggal']; ?>"/>
                       </div> <!-- /field -->

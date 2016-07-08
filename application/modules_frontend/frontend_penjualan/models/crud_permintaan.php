@@ -63,4 +63,15 @@ class Crud_permintaan extends CI_Model {
 	function delete($data){
 		return $this->db->delete('penjualan_permintaan', $data);
 	}
+
+	function get_option_info_detail($id='') {
+		if(!empty($id)) $this->db->where('ppmt_id = "'.$id.'"');
+		
+        $res = $this->db->join('client', 'ppmt_clnt_id = clnt_id')->where('ppmt_void = 0')->order_by('ppmt_id', 'asc')->get('penjualan_permintaan')->result_array();
+        $data = array();
+        foreach ($res as $key => $value) {
+            $data[$value['ppmt_id']] = $value;
+        }
+        return $data;
+    }
 }

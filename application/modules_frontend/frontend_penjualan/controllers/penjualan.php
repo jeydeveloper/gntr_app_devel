@@ -284,6 +284,8 @@ class Penjualan extends MY_Frontend {
 		$this->_data['option_client'] = $this->crud_client->get_option();
 		$this->_data['option_penawaran'] = $this->crud->get_option_penawaran();
 
+		$this->_data['option_referensi'] = $this->crud->get_option_info_detail();
+
 		$this->template->set('title', 'Tambah Permintaan Penjualan | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
 		$this->template->load('template_frontend/main', 'permintaan_add', $this->_data);
@@ -316,6 +318,7 @@ class Penjualan extends MY_Frontend {
 		}
 		if($this->form_validation->run()) {
 			$db_data = array(
+                'ppmt_ppnw_id'     => $this->input->post('ppmt_ppnw_id'),
                 'ppmt_tanggal'     => $this->input->post('ppmt_tanggal'),
                 'ppmt_noso'        => $this->input->post('ppmt_noso'),
                 'ppmt_nopo'        => $this->input->post('ppmt_nopo'),
@@ -350,6 +353,8 @@ class Penjualan extends MY_Frontend {
 			$this->_data['detail'] = $this->crud->where('ppmt_id = "'.$id.'"')->get_row_permintaan();
 		}
 
+		$this->_data['option_referensi'] = $this->crud->get_option_info_detail();
+
 		$this->_data['option_client'] = $this->crud_client->get_option();
 		$this->template->set('title', 'Edit Permintaan Penjualan | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
@@ -382,6 +387,7 @@ class Penjualan extends MY_Frontend {
 	    }
 		if($this->form_validation->run() AND $_FILES['uploadfile']['size'] != 0) {
 			$db_data = array(
+				'ppmt_ppnw_id'     => $this->input->post('ppmt_ppnw_id'),
 				'ppmt_tanggal'     => $this->input->post('ppmt_tanggal'),
                 'ppmt_noso'        => $this->input->post('ppmt_noso'),
                 'ppmt_nopo'        => $this->input->post('ppmt_nopo'),
@@ -401,6 +407,7 @@ class Penjualan extends MY_Frontend {
 			return true;
 		}elseif ($this->form_validation->run()) {
 			$db_data = array(
+				'ppmt_ppnw_id'     => $this->input->post('ppmt_ppnw_id'),
 				'ppmt_tanggal'     => $this->input->post('ppmt_tanggal'),
                 'ppmt_noso'        => $this->input->post('ppmt_noso'),
                 'ppmt_nopo'        => $this->input->post('ppmt_nopo'),
@@ -449,6 +456,8 @@ class Penjualan extends MY_Frontend {
 			}
 		}
 
+		$this->_data['option_referensi'] = $this->crud_permintaan->get_option_info_detail();
+
 		$this->_data['option_barang'] = $this->crud_barangjasa->get_option();
 		$this->template->set('title', 'Tambah Invoice Penjualan | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
@@ -468,7 +477,12 @@ class Penjualan extends MY_Frontend {
 
 
 		if($this->form_validation->run()) {
+			$tmp = $this->crud_permintaan->get_option_info_detail($this->input->post('pjinv_ppmt_id'));
+            $additional = $tmp[$this->input->post('pjinv_ppmt_id')];
+
 			$db_data = array(
+				'pjinv_ppmt_id' => $this->input->post('pjinv_ppmt_id'),
+                'pjinv_ppnw_id' => $additional['ppmt_ppnw_id'],
 				'pjinv_noinvoice' => $this->input->post('pjinv_noinvoice'),
 				'pjinv_tanggal' => $this->input->post('pjinv_tanggal'),
 				'pjinv_wotgl' => $this->input->post('pjinv_wotgl'),
@@ -487,7 +501,9 @@ class Penjualan extends MY_Frontend {
 
 			foreach($barang as $key=>$val)
 			{
-			   $data = array(
+				if(empty($val)) continue;
+
+			   	$data = array(
 				'pjinvd_invid' => $this->input->post('pjinv_noinvoice'),
 				'pjinvd_jenisbarang' => $val,
 				'pjinvd_jumlah' => $jumlah[$key],
@@ -510,9 +526,12 @@ class Penjualan extends MY_Frontend {
 			}
 			$this->_data['detail'] = $_POST;
 		} else {
-			$this->_data['detail'] = $this->crud_invoice->get_row();
+			$this->_data['detail'] = $this->crud_invoice->where('pjinv_id = "'.$id.'"')->get_row();
 			$this->_data['invoice'] = $this->crud_invoice_detail->where('penjualan_invoice.pjinv_id = "'.$id.'"')->join();
 		}
+
+		$this->_data['option_referensi'] = $this->crud_permintaan->get_option_info_detail();
+
 		$this->_data['option_barang'] = $this->crud_barangjasa->get_option();
 		$this->template->set('title', 'Edit Invoice Penjualan | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
@@ -532,7 +551,12 @@ class Penjualan extends MY_Frontend {
 
 
 		if($this->form_validation->run()) {
+			$tmp = $this->crud_permintaan->get_option_info_detail($this->input->post('pjinv_ppmt_id'));
+            $additional = $tmp[$this->input->post('pjinv_ppmt_id')];
+
 			$db_data = array(
+				'pjinv_ppmt_id' => $this->input->post('pjinv_ppmt_id'),
+                'pjinv_ppnw_id' => $additional['ppmt_ppnw_id'],
 				'pjinv_noinvoice' => $this->input->post('pjinv_noinvoice'),
 				'pjinv_tanggal' => $this->input->post('pjinv_tanggal'),
 				'pjinv_wotgl' => $this->input->post('pjinv_wotgl'),
@@ -605,6 +629,9 @@ class Penjualan extends MY_Frontend {
 				exit();
 			}
 		}
+
+		$this->_data['option_referensi'] = $this->crud_invoice->get_option_info_detail();
+
 		$this->template->set('title', 'Tambah Kwitansi Penjualan | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
 		$this->template->load('template_frontend/main', 'kwitansi_add', $this->_data);
@@ -636,7 +663,13 @@ class Penjualan extends MY_Frontend {
 		}
 		}
 		if($this->form_validation->run()) {
+			$tmp = $this->crud_invoice->get_option_info_detail($this->input->post('pjkw_pjinv_id'));
+            $additional = $tmp[$this->input->post('pjkw_pjinv_id')];
+
 			$db_data = array(
+				'pjkw_pjinv_id' => $this->input->post('pjkw_pjinv_id'),
+                'pjkw_ppmt_id' => $additional['pjinv_ppmt_id'],
+                'pjkw_ppnw_id' => $additional['pjinv_ppnw_id'],
 				'pjkw_no' => $this->input->post('pjkw_no'),
 				'pjkw_dari' => $this->input->post('pjkw_dari'),
 				'pjkw_alamat' => $this->input->post('pjkw_alamat'),
@@ -665,6 +698,8 @@ class Penjualan extends MY_Frontend {
         } else {
             $this->_data['detail'] = $this->crud_kwitansi->where('pjkw_id = "'.$id.'"')->get_row();
         }
+
+        $this->_data['option_referensi'] = $this->crud_invoice->get_option_info_detail();
 
 		$this->template->set('title', 'Edit Kwitansi Penjualan | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
@@ -697,8 +732,14 @@ class Penjualan extends MY_Frontend {
 			}
 		}
 
+		$tmp = $this->crud_invoice->get_option_info_detail($this->input->post('pjkw_pjinv_id'));
+        $additional = $tmp[$this->input->post('pjkw_pjinv_id')];
+
 		if($this->form_validation->run() AND $_FILES['uploadfile']['size'] != 0) {
 			$db_data = array(
+				'pjkw_pjinv_id' => $this->input->post('pjkw_pjinv_id'),
+                'pjkw_ppmt_id' => $additional['pjinv_ppmt_id'],
+                'pjkw_ppnw_id' => $additional['pjinv_ppnw_id'],
 				'pjkw_no' => $this->input->post('pjkw_no'),
 				'pjkw_dari' => $this->input->post('pjkw_dari'),
 				'pjkw_alamat' => $this->input->post('pjkw_alamat'),
@@ -714,6 +755,9 @@ class Penjualan extends MY_Frontend {
 			return true;
 		}elseif ($this->form_validation->run()) {
 			$db_data = array(
+				'pjkw_pjinv_id' => $this->input->post('pjkw_pjinv_id'),
+                'pjkw_ppmt_id' => $additional['pjinv_ppmt_id'],
+                'pjkw_ppnw_id' => $additional['pjinv_ppnw_id'],
 				'pjkw_no' => $this->input->post('pjkw_no'),
 				'pjkw_dari' => $this->input->post('pjkw_dari'),
 				'pjkw_alamat' => $this->input->post('pjkw_alamat'),
@@ -766,6 +810,9 @@ class Penjualan extends MY_Frontend {
 				exit();
 			}
 		}
+
+		$this->_data['option_referensi'] = $this->crud_kwitansi->get_option_info_detail();
+
 		$this->template->set('title', 'Tambah Berita Acara Penjualan | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
 		$this->template->load('template_frontend/main', 'berita_acara_add', $this->_data);
@@ -795,7 +842,14 @@ class Penjualan extends MY_Frontend {
 		}
 		}
 		if($this->form_validation->run()) {
+			$tmp = $this->crud_kwitansi->get_option_info_detail($this->input->post('pbcr_pjkw_id'));
+        	$additional = $tmp[$this->input->post('pbcr_pjkw_id')];
+
 			$db_data = array(
+				'pbcr_pjkw_id' => $this->input->post('pbcr_pjkw_id'),
+                'pbcr_pjinv_id' => $additional['pjkw_pjinv_id'],
+                'pbcr_ppmt_id' => $additional['pjkw_ppmt_id'],
+                'pbcr_ppnw_id' => $additional['pjkw_ppnw_id'],
 				'pbcr_no' => $this->input->post('pbcr_no'),
 				'pbcr_noproyek' => $this->input->post('pbcr_noproyek'),
 				'pbcr_tghndari' => $this->input->post('pbcr_tghndari'),
@@ -831,6 +885,9 @@ class Penjualan extends MY_Frontend {
         } else {
             $this->_data['detail'] = $this->crud_berita_acara->where('pbcr_id = "'.$id.'"')->get_row();
         }
+
+        $this->_data['option_referensi'] = $this->crud_kwitansi->get_option_info_detail();
+
 		$this->template->set('title', 'Edit Berita Acara Penjualan | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
 		$this->template->load('template_frontend/main', 'berita_acara_edit', $this->_data);
@@ -859,8 +916,16 @@ class Penjualan extends MY_Frontend {
 			$filename = $this->upload->file_name;
 		}
 		}
+
+		$tmp = $this->crud_kwitansi->get_option_info_detail($this->input->post('pbcr_pjkw_id'));
+        $additional = $tmp[$this->input->post('pbcr_pjkw_id')];
+
 		if($this->form_validation->run() AND $_FILES['uploadfile']['size'] != 0) {
 			$db_data = array(
+				'pbcr_pjkw_id' => $this->input->post('pbcr_pjkw_id'),
+                'pbcr_pjinv_id' => $additional['pjkw_pjinv_id'],
+                'pbcr_ppmt_id' => $additional['pjkw_ppmt_id'],
+                'pbcr_ppnw_id' => $additional['pjkw_ppnw_id'],
 				'pbcr_no' => $this->input->post('pbcr_no'),
 				'pbcr_noproyek' => $this->input->post('pbcr_noproyek'),
 				'pbcr_tghndari' => $this->input->post('pbcr_tghndari'),
@@ -881,6 +946,10 @@ class Penjualan extends MY_Frontend {
 			return true;
 		}elseif ($this->form_validation->run()) {
 			$db_data = array(
+				'pbcr_pjkw_id' => $this->input->post('pbcr_pjkw_id'),
+                'pbcr_pjinv_id' => $additional['pjkw_pjinv_id'],
+                'pbcr_ppmt_id' => $additional['pjkw_ppmt_id'],
+                'pbcr_ppnw_id' => $additional['pjkw_ppnw_id'],
 				'pbcr_no' => $this->input->post('pbcr_no'),
 				'pbcr_noproyek' => $this->input->post('pbcr_noproyek'),
 				'pbcr_tghndari' => $this->input->post('pbcr_tghndari'),
@@ -938,6 +1007,9 @@ class Penjualan extends MY_Frontend {
 				exit();
 			}
 		}
+
+		$this->_data['option_referensi'] = $this->crud_berita_acara->get_option_info_detail();
+
 		$this->template->set('title', 'Tambah Tanda Terima Penjualan | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
 		$this->template->load('template_frontend/main', 'tanda_terima_add', $this->_data);
@@ -967,7 +1039,15 @@ class Penjualan extends MY_Frontend {
 		}
 		}
 		if($this->form_validation->run()) {
+			$tmp = $this->crud_berita_acara->get_option_info_detail($this->input->post('pttr_pbcr_id'));
+        	$additional = $tmp[$this->input->post('pttr_pbcr_id')];
+
 			$db_data = array(
+				'pttr_pbcr_id' => $this->input->post('pttr_pbcr_id'),
+                'pttr_pjkw_id' => $additional['pbcr_pjkw_id'],
+                'pttr_pjinv_id' => $additional['pbcr_pjinv_id'],
+                'pttr_ppmt_id' => $additional['pbcr_ppmt_id'],
+                'pttr_ppnw_id' => $additional['pbcr_ppnw_id'],
 				'pttr_no' => $this->input->post('pttr_no'),
 				'pttr_noproyek' => $this->input->post('pttr_noproyek'),
 				'pttr_tghndari' => $this->input->post('pttr_tghndari'),
@@ -1001,6 +1081,9 @@ class Penjualan extends MY_Frontend {
         } else {
             $this->_data['detail'] = $this->crud_tanda_terima->where('pttr_id = "'.$id.'"')->get_row();
         }
+
+        $this->_data['option_referensi'] = $this->crud_berita_acara->get_option_info_detail();
+
 		$this->template->set('title', 'Edit Tanda Terima Penjualan | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
 		$this->template->load('template_frontend/main', 'tanda_terima_edit', $this->_data);
@@ -1029,8 +1112,17 @@ class Penjualan extends MY_Frontend {
 			$filename = $this->upload->file_name;
 		}
 		}
+
+		$tmp = $this->crud_berita_acara->get_option_info_detail($this->input->post('pttr_pbcr_id'));
+        $additional = $tmp[$this->input->post('pttr_pbcr_id')];
+
 		if($this->form_validation->run() AND $_FILES['uploadfile']['size'] != 0) {
 			$db_data = array(
+				'pttr_pbcr_id' => $this->input->post('pttr_pbcr_id'),
+                'pttr_pjkw_id' => $additional['pbcr_pjkw_id'],
+                'pttr_pjinv_id' => $additional['pbcr_pjinv_id'],
+                'pttr_ppmt_id' => $additional['pbcr_ppmt_id'],
+                'pttr_ppnw_id' => $additional['pbcr_ppnw_id'],
 				'pttr_no' => $this->input->post('pttr_no'),
 				'pttr_noproyek' => $this->input->post('pttr_noproyek'),
 				'pttr_tghndari' => $this->input->post('pttr_tghndari'),
@@ -1049,6 +1141,11 @@ class Penjualan extends MY_Frontend {
 			return true;
 		}elseif ($this->form_validation->run()) {
 			$db_data = array(
+				'pttr_pbcr_id' => $this->input->post('pttr_pbcr_id'),
+                'pttr_pjkw_id' => $additional['pbcr_pjkw_id'],
+                'pttr_pjinv_id' => $additional['pbcr_pjinv_id'],
+                'pttr_ppmt_id' => $additional['pbcr_ppmt_id'],
+                'pttr_ppnw_id' => $additional['pbcr_ppnw_id'],
 				'pttr_no' => $this->input->post('pttr_no'),
 				'pttr_noproyek' => $this->input->post('pttr_noproyek'),
 				'pttr_tghndari' => $this->input->post('pttr_tghndari'),
@@ -1092,6 +1189,9 @@ class Penjualan extends MY_Frontend {
 				exit();
 			}
 		}
+
+		$this->_data['option_referensi'] = $this->crud_tanda_terima->get_option_info_detail();
+
 		$this->template->set('title', 'Tambah Bukti Pembayaran Penjualan | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
 		$this->template->load('template_frontend/main', 'bukti_pembayaran_add', $this->_data);
@@ -1120,7 +1220,16 @@ class Penjualan extends MY_Frontend {
 		}
 		}
 		if($this->form_validation->run()) {
+			$tmp = $this->crud_tanda_terima->get_option_info_detail($this->input->post('pbktp_pttr_id'));
+        	$additional = $tmp[$this->input->post('pbktp_pttr_id')];
+
 			$db_data = array(
+				'pbktp_pttr_id' => $this->input->post('pbktp_pttr_id'),
+                'pbktp_pbcr_id' => $additional['pttr_pbcr_id'],
+                'pbktp_pjkw_id' => $additional['pttr_pjkw_id'],
+                'pbktp_pjinv_id' => $additional['pttr_pjinv_id'],
+                'pbktp_ppmt_id' => $additional['pttr_ppmt_id'],
+                'pbktp_ppnw_id' => $additional['pttr_ppnw_id'],
 				'pbktp_tgltransaksi' => $this->input->post('pbktp_tgltransaksi'),
 				'pbktp_tgltransaksi' => $this->input->post('pbktp_tgltransaksi'),
 				'pbktp_notransaksi' => $this->input->post('pbktp_notransaksi'),
@@ -1152,6 +1261,9 @@ class Penjualan extends MY_Frontend {
         } else {
             $this->_data['detail'] = $this->crud_bukti_pembayaran->where('pbktp_id = "'.$id.'"')->get_row();
         }
+
+        $this->_data['option_referensi'] = $this->crud_tanda_terima->get_option_info_detail();
+
 		$this->template->set('title', 'Edit Bukti Pembayaran Penjualan | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
 		$this->template->load('template_frontend/main', 'bukti_pembayaran_edit', $this->_data);
@@ -1180,8 +1292,18 @@ class Penjualan extends MY_Frontend {
 			$filename = $this->upload->file_name;
 		}
 		}
+
+		$tmp = $this->crud_tanda_terima->get_option_info_detail($this->input->post('pbktp_pttr_id'));
+        $additional = $tmp[$this->input->post('pbktp_pttr_id')];
+
 		if($this->form_validation->run() AND $_FILES['uploadfile']['size'] != 0) {
 			$db_data = array(
+				'pbktp_pttr_id' => $this->input->post('pbktp_pttr_id'),
+                'pbktp_pbcr_id' => $additional['pttr_pbcr_id'],
+                'pbktp_pjkw_id' => $additional['pttr_pjkw_id'],
+                'pbktp_pjinv_id' => $additional['pttr_pjinv_id'],
+                'pbktp_ppmt_id' => $additional['pttr_ppmt_id'],
+                'pbktp_ppnw_id' => $additional['pttr_ppnw_id'],
 				'pbktp_tgltransaksi' => $this->input->post('pbktp_tgltransaksi'),
 				'pbktp_tgltransaksi' => $this->input->post('pbktp_tgltransaksi'),
 				'pbktp_notransaksi' => $this->input->post('pbktp_notransaksi'),
@@ -1199,6 +1321,12 @@ class Penjualan extends MY_Frontend {
 			return true;
 		}elseif ($this->form_validation->run()) {
 			$db_data = array(
+				'pbktp_pttr_id' => $this->input->post('pbktp_pttr_id'),
+                'pbktp_pbcr_id' => $additional['pttr_pbcr_id'],
+                'pbktp_pjkw_id' => $additional['pttr_pjkw_id'],
+                'pbktp_pjinv_id' => $additional['pttr_pjinv_id'],
+                'pbktp_ppmt_id' => $additional['pttr_ppmt_id'],
+                'pbktp_ppnw_id' => $additional['pttr_ppnw_id'],
 				'pbktp_tgltransaksi' => $this->input->post('pbktp_tgltransaksi'),
 				'pbktp_tgltransaksi' => $this->input->post('pbktp_tgltransaksi'),
 				'pbktp_notransaksi' => $this->input->post('pbktp_notransaksi'),

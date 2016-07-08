@@ -63,4 +63,15 @@ class Crud_berita_acara extends CI_Model {
 	function delete($data){
 		return $this->db->delete('penjualan_beritaacara', $data);
 	}
+
+	function get_option_info_detail($id='') {
+		if(!empty($id)) $this->db->where('pbcr_id = "'.$id.'"');
+		
+        $res = $this->db->get('penjualan_beritaacara')->result_array();
+        $data = array();
+        foreach ($res as $key => $value) {
+            $data[$value['pbcr_id']] = $value;
+        }
+        return $data;
+    }
 }

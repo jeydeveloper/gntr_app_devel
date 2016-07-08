@@ -64,6 +64,17 @@ class Crud_invoice extends CI_Model {
         return $this->db->delete('pembelian_invoice', $data);
     }
 
+    function get_option_info_detail($id='') {
+        if(!empty($id)) $this->db->where('pbinv_id = "'.$id.'"');
+        
+        $res = $this->db->get('pembelian_invoice')->result_array();
+        $data = array();
+        foreach ($res as $key => $value) {
+            $data[$value['pbinv_id']] = $value;
+        }
+        return $data;
+    }
+
     // function join(){
 
     //     return $this->db

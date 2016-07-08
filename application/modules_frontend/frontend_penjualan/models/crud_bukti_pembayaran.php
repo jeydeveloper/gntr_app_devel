@@ -63,4 +63,15 @@ class Crud_bukti_pembayaran extends CI_Model {
 	function delete($data){
 		return $this->db->delete('penjualan_bukti_pembayaran', $data);
 	}
+
+	function get_option_info_detail($id='') {
+		if(!empty($id)) $this->db->where('pbktp_id = "'.$id.'"');
+		
+        $res = $this->db->get('penjualan_bukti_pembayaran')->result_array();
+        $data = array();
+        foreach ($res as $key => $value) {
+            $data[$value['pbktp_id']] = $value;
+        }
+        return $data;
+    }
 }

@@ -63,4 +63,13 @@ class Crud_buktipembayaran extends CI_Model {
     function delete($data){
         return $this->db->delete('gntrapp_bukti_pembayaran', $data);
     }
+
+    function get_option_info_detail() {
+        $res = $this->db->get('gntrapp_bukti_pembayaran')->result_array();
+        $data = array();
+        foreach ($res as $key => $value) {
+            $data[$value['bp_id']] = $value;
+        }
+        return $data;
+    }
 }

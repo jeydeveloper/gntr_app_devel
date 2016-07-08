@@ -18,6 +18,16 @@
                 <div class="form-fields">
 
                   <div class="field">
+                    <label for="ppmt_ppnw_id">Referensi</label>
+                    <select name="ppmt_ppnw_id" id="ppmt_ppnw_id" required />
+                      <option value="">--Pilih--</option>
+                      <?php foreach($option_referensi as $value): ?>
+                        <option value="<?php echo $value['ppnw_id']; ?>" <?php echo ($detail['ppmt_ppnw_id'] == $value['ppnw_id'] ? 'selected' : ''); ?>><?php echo $value['ppnw_no_penawaran']; ?></option>
+                      <?php endforeach; ?>
+                    </select>
+                  </div> <!-- /field -->
+
+                  <div class="field">
                     <label for="name">Tanggal:</label>
                     <input type="text" name="ppmt_tanggal" name="ppmt_tanggal" class="date-picker" value="<?php echo $detail['ppmt_tanggal']; ?>" />
                   </div> <!-- /field -->

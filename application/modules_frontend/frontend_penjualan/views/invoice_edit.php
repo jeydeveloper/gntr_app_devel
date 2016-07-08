@@ -18,6 +18,16 @@
                 <div class="widget-content">
                     
                     <div class="form-fields">
+
+                      <div class="field">
+                        <label for="pjinv_ppmt_id">Referensi</label>
+                        <select name="pjinv_ppmt_id" id="pjinv_ppmt_id" required />
+                          <option value="">--Pilih--</option>
+                          <?php foreach($option_referensi as $value): ?>
+                            <option value="<?php echo $value['ppmt_id']; ?>" <?php echo ($detail['pjinv_ppmt_id'] == $value['ppmt_id'] ? 'selected' : ''); ?>><?php echo $value['ppmt_noso']; ?></option>
+                          <?php endforeach; ?>
+                        </select>
+                      </div> <!-- /field -->
                       
                       <div class="field">
                         <label for="pjinv_noinvoice">Invoice No:</label>

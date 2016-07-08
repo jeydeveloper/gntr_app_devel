@@ -21,6 +21,16 @@
                     <div class="form-fields">
 
                       <div class="field">
+                        <label for="pbinv_pbsrtjalan_id">Referensi</label>
+                        <select name="pbinv_pbsrtjalan_id" id="pbinv_pbsrtjalan_id" required />
+                          <option value="">--Pilih--</option>
+                          <?php foreach($option_referensi as $value): ?>
+                            <option value="<?php echo $value['pbsrtjalan_id']; ?>" <?php echo ($detail['pbinv_pbsrtjalan_id'] == $value['pbsrtjalan_id'] ? 'selected' : ''); ?>><?php echo $value['pbsrtjalan_no']; ?></option>
+                          <?php endforeach; ?>
+                        </select>
+                      </div> <!-- /field -->
+
+                      <div class="field">
                         <label for="pbinv_noinvoice">Invoice No:</label>
                         <input type="text" id="pbinv_noinvoice" name="pbinv_noinvoice" value="<?php echo $detail['pbinv_noinvoice']; ?>" disabled/>
                       </div> <!-- /field -->

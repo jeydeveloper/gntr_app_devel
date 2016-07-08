@@ -16,6 +16,16 @@
               <?php echo form_open_multipart('');?>
                 
                 <div class="form-fields">
+
+                  <div class="field">
+                    <label for="pttr_pbcr_id">Referensi</label>
+                    <select name="pttr_pbcr_id" id="pttr_pbcr_id" required />
+                      <option value="">--Pilih--</option>
+                      <?php foreach($option_referensi as $value): ?>
+                        <option value="<?php echo $value['pbcr_id']; ?>"><?php echo $value['pbcr_no']; ?></option>
+                      <?php endforeach; ?>
+                    </select>
+                  </div> <!-- /field -->
                   
                   <div class="field">
                     <label for="pttr_no">No:</label>

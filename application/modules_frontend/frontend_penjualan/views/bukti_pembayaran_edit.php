@@ -18,6 +18,16 @@
                 
                 
                 <div class="form-fields">
+
+                  <div class="field">
+                    <label for="pbktp_pttr_id">Referensi</label>
+                    <select name="pbktp_pttr_id" id="pbktp_pttr_id" required />
+                      <option value="">--Pilih--</option>
+                      <?php foreach($option_referensi as $value): ?>
+                        <option value="<?php echo $value['pttr_id']; ?>" <?php echo ($detail['pbktp_pttr_id'] == $value['pttr_id'] ? 'selected' : ''); ?>><?php echo $value['pttr_no']; ?></option>
+                      <?php endforeach; ?>
+                    </select>
+                  </div> <!-- /field -->
                   
                   <div class="field">
                     <label for="pbktp_tgltransaksi">Tgl Transaksi:</label>

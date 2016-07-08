@@ -19,6 +19,16 @@
                 <div class="form-fields">
 
                   <div class="field">
+                    <label for="pjkw_pjinv_id">Referensi</label>
+                    <select name="pjkw_pjinv_id" id="pjkw_pjinv_id" required />
+                      <option value="">--Pilih--</option>
+                      <?php foreach($option_referensi as $value): ?>
+                        <option value="<?php echo $value['pjinv_id']; ?>" <?php echo ($detail['pjkw_pjinv_id'] == $value['pjinv_id'] ? 'selected' : ''); ?>><?php echo $value['pjinv_noinvoice']; ?></option>
+                      <?php endforeach; ?>
+                    </select>
+                  </div> <!-- /field -->
+
+                  <div class="field">
                     <label for="pjkw_no">No Kwitansi</label>
                     <input id="pjkw_no" name="pjkw_no" value="<?php echo $detail['pjkw_no']; ?>" />
                   </div> <!-- /field -->

@@ -63,4 +63,15 @@ class Crud_tanda_terima extends CI_Model {
 	function delete($data){
 		return $this->db->delete('pembelian_tandaterima', $data);
 	}
+
+	function get_option_info_detail($id='') {
+		if(!empty($id)) $this->db->where('pbttr_id = "'.$id.'"');
+		
+        $res = $this->db->get('pembelian_tandaterima')->result_array();
+        $data = array();
+        foreach ($res as $key => $value) {
+            $data[$value['pbttr_id']] = $value;
+        }
+        return $data;
+    }
 }

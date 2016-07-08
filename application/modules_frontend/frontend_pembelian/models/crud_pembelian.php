@@ -64,4 +64,14 @@ class Crud_pembelian extends CI_Model {
         return $this->db->delete('pembelian_permintaan', $data);
     }
 
+    function get_option_info_detail($id='') {
+        if(!empty($id)) $this->db->where('pbptn_id = "'.$id.'"');
+        
+        $res = $this->db->get('pembelian_permintaan')->result_array();
+        $data = array();
+        foreach ($res as $key => $value) {
+            $data[$value['pbptn_id']] = $value;
+        }
+        return $data;
+    }
 }

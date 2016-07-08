@@ -18,6 +18,16 @@
                 <div class="form-fields">
 
                   <div class="field">
+                    <label for="pbttr_pbinv_id">Referensi</label>
+                    <select name="pbttr_pbinv_id" id="pbttr_pbinv_id" required />
+                      <option value="">--Pilih--</option>
+                      <?php foreach($option_referensi as $value): ?>
+                        <option value="<?php echo $value['pbinv_id']; ?>"><?php echo $value['pbinv_noinvoice']; ?></option>
+                      <?php endforeach; ?>
+                    </select>
+                  </div> <!-- /field -->
+
+                  <div class="field">
                     <label for="pbttr_no">No:</label>
                     <input id="pbttr_no" name="pbttr_no" value="" placeholder="No" />
                   </div> <!-- /field -->

@@ -63,4 +63,15 @@ class Crud_kwitansi extends CI_Model {
 	function delete($data){
 		return $this->db->delete('penjualan_kwitansi', $data);
 	}
+
+	function get_option_info_detail($id='') {
+		if(!empty($id)) $this->db->where('pjkw_id = "'.$id.'"');
+		
+        $res = $this->db->get('penjualan_kwitansi')->result_array();
+        $data = array();
+        foreach ($res as $key => $value) {
+            $data[$value['pjkw_id']] = $value;
+        }
+        return $data;
+    }
 }

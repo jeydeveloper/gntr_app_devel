@@ -63,4 +63,15 @@ class Crud_suratjalan extends CI_Model {
     function delete($data){
         return $this->db->delete('pembelian_suratjalan', $data);
     }
+
+    function get_option_info_detail($id='') {
+        if(!empty($id)) $this->db->where('pbsrtjalan_id = "'.$id.'"');
+        
+        $res = $this->db->get('pembelian_suratjalan')->result_array();
+        $data = array();
+        foreach ($res as $key => $value) {
+            $data[$value['pbsrtjalan_id']] = $value;
+        }
+        return $data;
+    }
 }
