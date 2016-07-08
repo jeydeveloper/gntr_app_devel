@@ -17,7 +17,9 @@
         <span class="shortcut-label">New</span> 
       </a>
     </div>
-    <!-- /shortcuts --> 
+    <!-- /shortcuts -->
+    
+    <?php if(1==2): //di take-out ?>
     <div class="shortcuts"> 
       <a href="<?php echo site_url('pembelian/permintaan/grafik'); ?>" class="shortcut" style="width: 100%;">
         <i class="shortcut-icon icon-bar-chart"></i>
@@ -25,6 +27,7 @@
       </a>
     </div>
     <!-- /shortcuts -->
+    <?php endif; ?>
 
     <?php if(!empty($_SERVER['HTTP_REFERER'])): ?>
     <?php if(strpos($_SERVER['HTTP_REFERER'], 'pembelian') !== false): ?>
