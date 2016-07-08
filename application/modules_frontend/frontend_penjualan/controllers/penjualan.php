@@ -404,6 +404,8 @@ class Penjualan extends MY_Frontend {
 			);
 			$this->crud->where('ppmt_id = "'.$this->input->post('ppmt_id').'"')->puts_permintaan($db_data);
 
+			$this->crud_permintaan->update_relation_referensi($this->input->post('ppmt_id'), $this->input->post('ppmt_ppnw_id'));
+
 			return true;
 		}elseif ($this->form_validation->run()) {
 			$db_data = array(
@@ -422,6 +424,8 @@ class Penjualan extends MY_Frontend {
                 'ppmt_changedate'  => $this->_data['datetime'],
 			);
 			$this->crud->where('ppmt_id = "'.$this->input->post('ppmt_id').'"')->puts_permintaan($db_data);
+
+			$this->crud_permintaan->update_relation_referensi($this->input->post('ppmt_id'), $this->input->post('ppmt_ppnw_id'));
 
 			return true;
 		} else {
@@ -585,6 +589,8 @@ class Penjualan extends MY_Frontend {
 										  ->where('pjinvd_id = "'.$invd_id[$key].'"')
 										  ->puts($data);
 			}
+
+			$this->crud_invoice->update_relation_referensi($this->input->post('pjinv_id'), $this->input->post('pjinv_ppmt_id'), $additional['ppmt_ppnw_id']);
 
 			return true;
 		} else {
@@ -752,6 +758,9 @@ class Penjualan extends MY_Frontend {
 				'uploadfile'  => $filename,
 			);
 			$this->crud_kwitansi->where('pjkw_id = "'.$this->input->post('pjkw_id').'"')->puts($db_data);
+
+			$this->crud_kwitansi->update_relation_referensi($this->input->post('pjkw_id'), $this->input->post('pjkw_pjinv_id'), $additional['pjinv_ppmt_id'], $additional['pjinv_ppnw_id']);
+
 			return true;
 		}elseif ($this->form_validation->run()) {
 			$db_data = array(
@@ -769,6 +778,9 @@ class Penjualan extends MY_Frontend {
 				'pjkw_changedate'  => $this->_data['datetime'],
 			);
 			$this->crud_kwitansi->where('pjkw_id = "'.$this->input->post('pjkw_id').'"')->puts($db_data);
+
+			$this->crud_kwitansi->update_relation_referensi($this->input->post('pjkw_id'), $this->input->post('pjkw_pjinv_id'), $additional['pjinv_ppmt_id'], $additional['pjinv_ppnw_id']);
+
 			return true;
 		} else {
 			$this->_data['err_msg'] = validation_errors();
@@ -943,6 +955,9 @@ class Penjualan extends MY_Frontend {
 				'pbcr_uploadfile'  => $filename,
 			);
 			$this->crud_berita_acara->where('pbcr_id = "'.$this->input->post('pbcr_id').'"')->puts($db_data);
+
+			$this->crud_berita_acara->update_relation_referensi($this->input->post('pbcr_id'), $this->input->post('pbcr_pjkw_id'), $additional['pjkw_pjinv_id'], $additional['pjkw_ppmt_id'], $additional['pjkw_ppnw_id']);
+
 			return true;
 		}elseif ($this->form_validation->run()) {
 			$db_data = array(
@@ -966,6 +981,9 @@ class Penjualan extends MY_Frontend {
 				'pbcr_tglterima' => $this->input->post('pbcr_tglterima'),
 			);
 			$this->crud_berita_acara->where('pbcr_id = "'.$this->input->post('pbcr_id').'"')->puts($db_data);
+
+			$this->crud_berita_acara->update_relation_referensi($this->input->post('pbcr_id'), $this->input->post('pbcr_pjkw_id'), $additional['pjkw_pjinv_id'], $additional['pjkw_ppmt_id'], $additional['pjkw_ppnw_id']);
+
 			return true;
 		} else {
 			$this->_data['err_msg'] = validation_errors();
@@ -1138,6 +1156,9 @@ class Penjualan extends MY_Frontend {
 				'pttr_uploadfile'  => $filename,
 			);
 			$this->crud_tanda_terima->where('pttr_id = "'.$this->input->post('pttr_id').'"')->puts($db_data);
+
+			$this->crud_tanda_terima->update_relation_referensi($this->input->post('pttr_id'), $this->input->post('pttr_pbcr_id'), $additional['pbcr_pjkw_id'], $additional['pbcr_pjinv_id'], $additional['pbcr_ppmt_id'], $additional['pbcr_ppnw_id']);
+
 			return true;
 		}elseif ($this->form_validation->run()) {
 			$db_data = array(
@@ -1160,6 +1181,9 @@ class Penjualan extends MY_Frontend {
 				'pttr_tglterima' => $this->input->post('pttr_tglterima'),
 			);
 			$this->crud_tanda_terima->where('pttr_id = "'.$this->input->post('pttr_id').'"')->puts($db_data);
+
+			$this->crud_tanda_terima->update_relation_referensi($this->input->post('pttr_id'), $this->input->post('pttr_pbcr_id'), $additional['pbcr_pjkw_id'], $additional['pbcr_pjinv_id'], $additional['pbcr_ppmt_id'], $additional['pbcr_ppnw_id']);
+			
 			return true;
 		} else {
 			$this->_data['err_msg'] = validation_errors();

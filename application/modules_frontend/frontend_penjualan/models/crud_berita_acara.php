@@ -74,4 +74,22 @@ class Crud_berita_acara extends CI_Model {
         }
         return $data;
     }
+
+    function update_relation_referensi($id_1, $id_2, $id_3, $id_4, $id_5) {
+		$data = array(
+    		'pttr_pjkw_id' => $id_2,
+    		'pttr_pjinv_id' => $id_3,
+    		'pttr_ppmt_id' => $id_4,
+    		'pttr_ppnw_id' => $id_5,
+    	);
+		$this->db->where('pttr_pbcr_id = "'.$id_1.'"')->update('penjualan_tandaterima', $data);
+
+		$data = array(
+    		'pbktp_pjkw_id' => $id_2,
+    		'pbktp_pjinv_id' => $id_3,
+    		'pbktp_ppmt_id' => $id_4,
+    		'pbktp_ppnw_id' => $id_5,
+    	);
+		$this->db->where('pbktp_pbcr_id = "'.$id_1.'"')->update('penjualan_bukti_pembayaran', $data);
+    }
 }

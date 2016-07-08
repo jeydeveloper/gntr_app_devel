@@ -84,4 +84,30 @@ class Crud_invoice extends CI_Model {
         }
         return $data;
     }
+
+    function update_relation_referensi($id_1, $id_2, $id_3) {
+		$data = array(
+    		'pjkw_ppmt_id' => $id_2,
+    		'pjkw_ppnw_id' => $id_3,
+    	);
+		$this->db->where('pjkw_pjinv_id = "'.$id_1.'"')->update('penjualan_kwitansi', $data);
+
+		$data = array(
+    		'pbcr_ppmt_id' => $id_2,
+    		'pbcr_ppnw_id' => $id_3,
+    	);
+		$this->db->where('pbcr_pjinv_id = "'.$id_1.'"')->update('penjualan_beritaacara', $data);
+
+		$data = array(
+    		'pttr_ppmt_id' => $id_2,
+    		'pttr_ppnw_id' => $id_3,
+    	);
+		$this->db->where('pttr_pjinv_id = "'.$id_1.'"')->update('penjualan_tandaterima', $data);
+
+		$data = array(
+    		'pbktp_ppmt_id' => $id_2,
+    		'pbktp_ppnw_id' => $id_3,
+    	);
+		$this->db->where('pbktp_pjinv_id = "'.$id_1.'"')->update('penjualan_bukti_pembayaran', $data);
+    }
 }

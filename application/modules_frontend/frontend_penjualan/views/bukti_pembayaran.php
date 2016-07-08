@@ -23,6 +23,7 @@
                     <th> No. Invoice </th>
                     <th> Total Tagihan </th>
                     <th> Jenis Transaksi </th>
+                    <th> File </th>
                     <th class="td-actions"> Actions</th>
                   </tr>
                 </thead>
@@ -47,7 +48,7 @@
                     <?php endforeach; ?>
                   <?php else: ?>
                     <tr>
-                      <td colspan="13" style="background: red;color: white;">Module ini belum terisi!</td>
+                      <td colspan="9" style="background: red;color: white;">Module ini belum terisi!</td>
                     </tr>
                   <?php endif; ?>              
                 </tbody>

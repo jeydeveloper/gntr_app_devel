@@ -74,4 +74,31 @@ class Crud_permintaan extends CI_Model {
         }
         return $data;
     }
+
+    function update_relation_referensi($id_1, $id_2) {
+    	$data = array(
+    		'pjinv_ppnw_id' => $id_2,
+    	);
+		$this->db->where('pjinv_ppmt_id = "'.$id_1.'"')->update('penjualan_invoice', $data);
+
+		$data = array(
+    		'pjkw_ppnw_id' => $id_2,
+    	);
+		$this->db->where('pjkw_ppmt_id = "'.$id_1.'"')->update('penjualan_kwitansi', $data);
+
+		$data = array(
+    		'pbcr_ppnw_id' => $id_2,
+    	);
+		$this->db->where('pbcr_ppmt_id = "'.$id_1.'"')->update('penjualan_beritaacara', $data);
+
+		$data = array(
+    		'pttr_ppnw_id' => $id_2,
+    	);
+		$this->db->where('pttr_ppmt_id = "'.$id_1.'"')->update('penjualan_tandaterima', $data);
+
+		$data = array(
+    		'pbktp_ppnw_id' => $id_2,
+    	);
+		$this->db->where('pbktp_ppmt_id = "'.$id_1.'"')->update('penjualan_bukti_pembayaran', $data);
+    }
 }

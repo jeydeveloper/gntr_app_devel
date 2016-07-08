@@ -74,4 +74,15 @@ class Crud_tanda_terima extends CI_Model {
         }
         return $data;
     }
+
+    function update_relation_referensi($id_1, $id_2, $id_3, $id_4, $id_5, $id_6) {
+		$data = array(
+    		'pbktp_pbcr_id' => $id_2,
+    		'pbktp_pjkw_id' => $id_3,
+    		'pbktp_pjinv_id' => $id_4,
+    		'pbktp_ppmt_id' => $id_5,
+    		'pbktp_ppnw_id' => $id_6,
+    	);
+		$this->db->where('pbktp_pttr_id = "'.$id_1.'"')->update('penjualan_bukti_pembayaran', $data);
+    }
 }

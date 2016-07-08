@@ -74,4 +74,24 @@ class Crud_suratjalan extends CI_Model {
         }
         return $data;
     }
+
+    function update_relation_referensi($id_1, $id_2, $id_3) {
+        $data = array(
+            'pbinv_pbkw_id' => $id_2,
+            'pbinv_pbptn_id' => $id_3,
+        );
+        $this->db->where('pbinv_pbsrtjalan_id = "'.$id_1.'"')->update('pembelian_invoice', $data);
+
+        $data = array(
+            'pbttr_pbkw_id' => $id_2,
+            'pbttr_pbptn_id' => $id_3,
+        );
+        $this->db->where('pbttr_pbsrtjalan_id = "'.$id_1.'"')->update('pembelian_tandaterima', $data);
+
+        $data = array(
+            'bp_pbkw_id' => $id_2,
+            'bp_pbptn_id' => $id_3,
+        );
+        $this->db->where('bp_pbsrtjalan_id = "'.$id_1.'"')->update('bukti_pembayaran', $data);
+    }
 }

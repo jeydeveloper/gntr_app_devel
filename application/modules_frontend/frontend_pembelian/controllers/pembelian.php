@@ -314,7 +314,11 @@ class Pembelian extends MY_Frontend {
                 'pbkw_changedate'  => $this->_data['datetime'],
                 'uploadfile'  => $filename,
             );
-              $this->crud_kwitansi->where('pbkw_id = "'.$this->input->post('pbkw_id').'"')->puts($db_data);
+            
+            $this->crud_kwitansi->where('pbkw_id = "'.$this->input->post('pbkw_id').'"')->puts($db_data);
+
+            $this->crud_kwitansi->update_relation_referensi($this->input->post('pbkw_id'), $this->input->post('pbkw_pbptn_id'));
+
             return true;
         }elseif ($this->form_validation->run()) {
             $db_data = array(
@@ -329,7 +333,11 @@ class Pembelian extends MY_Frontend {
                 'pbkw_bank' => $this->input->post('pbkw_bank'),
                 'pbkw_changedate'  => $this->_data['datetime'],
             );
-             $this->crud_kwitansi->where('pbkw_id = "'.$this->input->post('pbkw_id').'"')->puts($db_data);
+
+            $this->crud_kwitansi->where('pbkw_id = "'.$this->input->post('pbkw_id').'"')->puts($db_data);
+
+            $this->crud_kwitansi->update_relation_referensi($this->input->post('pbkw_id'), $this->input->post('pbkw_pbptn_id'));
+
             return true;
         } else {
             $this->_data['err_msg'] = validation_errors();
@@ -552,6 +560,9 @@ class Pembelian extends MY_Frontend {
                                           ->where('pbsuratjaland_id = "'.$invd_id[$key].'"')
                                           ->puts($data);
             }
+
+            $this->crud_suratjalan->update_relation_referensi($this->input->post('pbsrtjalan_id'), $this->input->post('pbsrtjalan_pbkw_id'), $additional['pbkw_pbptn_id']);
+
             return true;
         }elseif ($this->form_validation->run()) {
             $db_data = array(
@@ -591,6 +602,9 @@ class Pembelian extends MY_Frontend {
                                           ->where('pbsuratjaland_id = "'.$invd_id[$key].'"')
                                           ->puts($data);
             }
+
+            $this->crud_suratjalan->update_relation_referensi($this->input->post('pbsrtjalan_id'), $this->input->post('pbsrtjalan_pbkw_id'), $additional['pbkw_pbptn_id']);
+
             return true;
         } else {
             $this->_data['err_msg'] = validation_errors();
@@ -787,6 +801,8 @@ class Pembelian extends MY_Frontend {
                                           ->puts($data);
             }
 
+            $this->crud_invoice->update_relation_referensi($this->input->post('pbinv_id'), $this->input->post('pbinv_pbsrtjalan_id'), $additional['pbsrtjalan_pbkw_id'], $additional['pbsrtjalan_pbptn_id']);
+
             return true;
         }elseif ($this->form_validation->run()) {
             $db_data = array(
@@ -821,6 +837,8 @@ class Pembelian extends MY_Frontend {
                                           ->where('pbinvd_id = "'.$invd_id[$key].'"')
                                           ->puts($data);
             }
+
+            $this->crud_invoice->update_relation_referensi($this->input->post('pbinv_id'), $this->input->post('pbinv_pbsrtjalan_id'), $additional['pbsrtjalan_pbkw_id'], $additional['pbsrtjalan_pbptn_id']);
 
             return true;
         } else {
@@ -1017,7 +1035,11 @@ class Pembelian extends MY_Frontend {
                 'pbttr_tglterima' => $this->input->post('pbttr_tglterima'),
                 'pbttr_uploadfile'  => $filename,
             );
+
             $this->crud_tanda_terima->where('pbttr_id = "'.$this->input->post('pbttr_id').'"')->puts($db_data);
+
+            $this->crud_tanda_terima->update_relation_referensi($this->input->post('pbttr_id'), $this->input->post('pbttr_pbinv_id'), $additional['pbinv_pbsrtjalan_id'], $additional['pbinv_pbkw_id'], $additional['pbinv_pbptn_id']);
+
             return true;
         }elseif ($this->form_validation->run()) {
             $db_data = array(
@@ -1038,7 +1060,11 @@ class Pembelian extends MY_Frontend {
                 'pbttr_menerima' => $this->input->post('pbttr_menerima'),
                 'pbttr_tglterima' => $this->input->post('pbttr_tglterima'),
             );
+
             $this->crud_tanda_terima->where('pbttr_id = "'.$this->input->post('pbttr_id').'"')->puts($db_data);
+
+            $this->crud_tanda_terima->update_relation_referensi($this->input->post('pbttr_id'), $this->input->post('pbttr_pbinv_id'), $additional['pbinv_pbsrtjalan_id'], $additional['pbinv_pbkw_id'], $additional['pbinv_pbptn_id']);
+
             return true;
         } else {
             $this->_data['err_msg'] = validation_errors();
