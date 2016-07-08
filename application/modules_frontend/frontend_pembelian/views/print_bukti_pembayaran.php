@@ -132,7 +132,7 @@
         }
 
         .delimiter {
-            width: 80px;
+            width: 25px;
         }
 
         table.no-border, table.no-border th, table.no-border td {
@@ -231,7 +231,7 @@
             </td>
         </tr>
     </table>
-    <table style="width:100%; margin-top: 80px;">
+    <table style="width:100%; margin-top: 25px;">
         <tr>
             <td style="width:50%; font-style: italic;">
                 PT. PUTRA BAHARI MANDIRI<br />

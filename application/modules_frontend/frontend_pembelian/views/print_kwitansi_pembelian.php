@@ -172,7 +172,7 @@
 
         </tr>
 </table>
-<table style="width:100%; margin-top: 80px;" border="0" cellspacing="10" cellpadding="10">
+<table style="width:100%; margin-top: 25px;" border="0" cellspacing="10" cellpadding="10">
                         <tr>
                             <td>
                                 <table class="border blck no-b">
@@ -227,7 +227,7 @@
                         </tr>
 </table>
 
-<table style="width:100%; margin-top: 80px;" border="0" cellspacing="0" cellpadding="0">
+<table style="width:100%; margin-top: 25px;" border="0" cellspacing="0" cellpadding="0">
         <tr>
             <td style="width:50%; font-style: italic;">
                 PT. PUTRA BAHARI MANDIRI<br />

@@ -132,7 +132,7 @@
         }
 
         .delimiter {
-            width: 80px;
+            width: 25px;
         }
 
         table.no-border, table.no-border th, table.no-border td {

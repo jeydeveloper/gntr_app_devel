@@ -163,7 +163,7 @@
 
         </tr>
 </table>
-  <table style="width:100%; margin-top: 80px;" border="0" cellspacing="0" cellpadding="0">
+  <table style="width:100%; margin-top: 25px;" border="0" cellspacing="0" cellpadding="0">
         <tr>
             <td style="width:30%;">
                 <h3>Vendor: <?php echo $detail['pbptn_vendor']; ?></h3><br />
@@ -275,7 +275,7 @@
         		</tbody>
         	</table>
         </div><br><br><br>
-        <table style="width:100%; margin-top: 80px;" border="0" cellspacing="0" cellpadding="0">
+        <table style="width:100%; margin-top: 25px;" border="0" cellspacing="0" cellpadding="0">
         <tr>
             <td style="width:50%; font-style: italic;">
                 PT. PUTRA BAHARI MANDIRI<br />
