@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 15, 2016 at 06:14 PM
+-- Generation Time: Jul 16, 2016 at 12:48 AM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.16
 
@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_adminusers` (
 --
 
 INSERT INTO `gntrapp_adminusers` (`admusr_id`, `admusr_username`, `admusr_userpasswd`, `admusr_aulv_id`, `admusr_user_status`, `admusr_void`, `admusr_lastactivity`, `admusr_entryuser`, `admusr_entrydate`, `admusr_changeuser`, `admusr_changedate`) VALUES
-(1, 'superadmin', 'ac43724f16e9241d990427ab7c8f4228', NULL, 'y', 0, '2016-07-15 14:09:06', '', '0000-00-00 00:00:00', '', '2016-06-24 15:17:46'),
+(1, 'superadmin', 'ac43724f16e9241d990427ab7c8f4228', NULL, 'y', 0, '2016-07-15 23:17:37', '', '0000-00-00 00:00:00', '', '2016-06-24 15:17:46'),
 (2, 'demo', 'ac43724f16e9241d990427ab7c8f4228', 5, 'y', 1, '2016-04-23 12:57:58', '', '2016-04-10 09:51:37', '', '2016-04-23 10:57:58'),
 (3, 'Test', '101a6ec9f938885df0a44f20458d2eb4', 3, 'y', 1, '0000-00-00 00:00:00', '', '2016-04-10 03:01:11', '', '2016-04-09 20:01:11'),
 (4, 'Hehe', '196b0f14eba66e10fba74dbf9e99c22f', 5, 'y', 1, '0000-00-00 00:00:00', '', '2016-04-10 03:04:50', '', '2016-04-09 20:04:50'),
@@ -567,7 +567,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_pembelian_kwitansi` (
 
 INSERT INTO `gntrapp_pembelian_kwitansi` (`pbkw_id`, `pbkw_pbptn_id`, `pbkw_no`, `pbkw_dari`, `pbkw_total`, `pbkw_bank`, `pbkw_norek`, `pbkw_an`, `pbkw_alamat`, `pbkw_notlpn`, `pbkw_tipe_pembayaran`, `pbkw_transfer_from_bank`, `pbkw_entrydate`, `pbkw_changedate`, `uploadfile`) VALUES
 (1, 11, 'PEM-1', '0', '0', 'Bank BCA', '098675547', 'Rudi Supriadi', '0', '0', 1, 2, '2016-06-18 17:34:41', '2016-07-15 17:37:59', 'tandaterima_e761813.JPG'),
-(2, 10, 'sdsa', '0', '0', 'Bank BNI', 'Dua Ratus Lima Puluh Ribu Rupiah', 'Suparman', '0', '0', 1, 2, '2016-06-18 17:49:31', '2016-07-15 17:38:55', 'tandaterima_d8ec7fe.jpg'),
+(2, 12, 'sdsa', '0', '0', 'Bank BNI', 'Dua Ratus Lima Puluh Ribu Rupiah', 'Suparman', '0', '0', 1, 2, '2016-06-18 17:49:31', '2016-07-15 23:59:45', 'tandaterima_d8ec7fe.jpg'),
 (3, 10, 'KW-002', '0', '0', 'bca', '5678', 'jojo', '0', '0', 1, 1, NULL, '2016-07-15 17:39:04', NULL),
 (4, 10, 'KW-003', '0', '0', 'bni', '56789', 'jojox', '0', '0', 2, 4, NULL, '2016-07-15 17:39:16', 'kwitansi_pembelian_6568436.jpg'),
 (5, 10, 'KW-004', '0', '0', 'dsdsadasdsa', '43242', 'dsadsa', '0', '0', 2, 3, NULL, NULL, NULL);
@@ -609,9 +609,9 @@ CREATE TABLE IF NOT EXISTS `gntrapp_pembelian_permintaan` (
 --
 
 INSERT INTO `gntrapp_pembelian_permintaan` (`pbptn_id`, `pbptn_clnt_id`, `pbptn_vndr_id`, `pbptn_mtua_id`, `pbptn_tanggal`, `pbptn_no`, `pbptn_halaman`, `pbptn_matauang`, `pbptn_vendor`, `pbptn_proposalno`, `pbptn_projectcode`, `pbptn_buyer`, `pbptn_catatan`, `pbptn_terms`, `pbptn_tanggalditerima`, `pbptn_diterimaoleh`, `pbptn_namapenerima`, `pbptn_tanggalterima`, `pbptn_totaltagihan`, `pbptn_terbilang`, `pbptn_entrydate`, `pbptn_changedate`) VALUES
-(10, 3, 2, 1, '2016-06-29', 'PER-01', '1', '0', '0', 'PROP-01', 'CD-01', '0', 'cash', 'Sewa truk', '2016-06-30', 'Anna', 'Lisma', '2016-06-30', '0', '0', '2016-06-19 07:28:21', '2016-06-19 07:28:21'),
-(11, 0, 0, 0, '2016-07-08', 'PRMT-001', '3', 'Rp', 'dsadsa', '432534', 'dsasa35', 'dasda', 'dasdasd', 'dasdas', '2016-07-08', 'dasdasd', 'dasdasd', '2016-07-08', '123', 'fsfsdsdf', NULL, NULL),
-(12, 2, 3, 3, '2016-07-15', 'PRMT-002', '0', '0', '0', 'dsadas', 'dsada', '0', 'dsada', 'dsadas', '2016-07-16', '0', 'dasdsad', '2016-07-17', '0', '0', NULL, NULL);
+(10, 3, 2, 1, '2016-06-29', 'PER-01', '0', '0', '0', 'PROP-01', 'CD-01', '0', 'cash', 'Sewa truk', '2016-06-30', '0', 'Lisma', '2016-06-30', '1000000', '0', '2016-06-19 07:28:21', '2016-06-19 07:28:21'),
+(11, 2, 2, 3, '2016-07-08', 'PRMT-001', '0', '0', '0', '432534', 'dsasa35', '0', 'dasdasd', 'dasdas', '2016-07-08', '0', 'dasdasd', '2016-07-08', '2000000', '0', NULL, NULL),
+(12, 2, 3, 3, '2016-07-15', 'PRMT-002', '0', '0', '0', 'dsadas', 'dsada', '0', 'dsada', 'dsadas', '2016-07-16', '0', 'dasdsad', '2016-07-17', '3000000', '0', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -717,8 +717,8 @@ CREATE TABLE IF NOT EXISTS `gntrapp_pembelian_suratjalan` (
 --
 
 INSERT INTO `gntrapp_pembelian_suratjalan` (`pbsrtjalan_id`, `pbsrtjalan_pbkw_id`, `pbsrtjalan_pbptn_id`, `pbsrtjalan_tanggal`, `pbsrtjalan_no`, `pbsrtjalan_halaman`, `pbsrtjalan_matauang`, `pbsrtjalan_vendor`, `pbsrtjalan_proposalno`, `pbsrtjalan_projectcode`, `pbsrtjalan_buyer`, `pbsrtjalan_catatan`, `pbsrtjalan_terms`, `pbsrtjalan_tanggalditerima`, `pbsrtjalan_diterimaoleh`, `pbsrtjalan_namapenerima`, `pbsrtjalan_tanggalterima`, `pbsrtjalan_totaltagihan`, `pbsrtjalan_nokendaraan`, `pbsrtjalan_terbilang`, `uploadfile`, `pbsrtjalan_entrydate`, `pbsrtjalan_changedate`) VALUES
-(2, 3, 10, '2016-06-30', 'SRT-01', '1', 'Rp', 'PT VENDOR II', 'PROP-01', 'PCODE-01', 'PT MUTIARA', 'cash', '', '2016-06-30', 'Mutiara', 'Lisa', '2016-06-30', '128000', 'B 123 KL', 'Seratus dua puluh delapan ribu rupiah', 'tandaterima_14ea0d5.jpg', '2016-06-19 08:34:59', '2016-06-19 10:03:03'),
-(3, 3, 10, '2016-07-08', '1234', '1', 'rdsad', 'dasdsad', 'dsad', 'dsafsdf', 'gsddf', 'dasdfasf', 'asdsad', '2016-07-08', 'dasdsa', 'dadsad', '2016-07-08', '13213', '12', 'cggdfgdfg', NULL, NULL, NULL);
+(2, 2, 12, '2016-06-30', 'SRT-01', '0', '3', '0', '0', '0', '0', '0', '0', '2016-06-30', '0', 'Lisa', '0000-00-00', '0', 'B 123 KL', '0', 'suratjalan_80a9efd.jpg', '2016-06-19 08:34:59', '2016-06-19 10:03:03'),
+(3, 3, 10, '2016-07-08', '1234', '0', '1', '0', '0', '0', '0', '0', '0', '2016-07-08', '0', 'dadsad', '0000-00-00', '0', '12', '0', 'suratjalan_816d385.gif', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1308,7 +1308,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_vendor` (
 INSERT INTO `gntrapp_vendor` (`vndr_id`, `vndr_nama`, `vndr_alamat`, `vndr_contact_person`, `vndr_telpon`, `vndr_email`, `vndr_status`, `vndr_void`, `vndr_entryuser`, `vndr_entrydate`, `vndr_changeuser`, `vndr_changedate`) VALUES
 (1, 'Vendor 1', 'Alamat 1', '0812', '021345', 'vendor1@mail.com', 1, 1, '', '2016-04-21 17:29:11', '', '2016-04-21 17:33:12'),
 (2, 'Vendor 2', 'Alamat 2', '0812', '021345', 'vendor2@mail.com', 0, 0, '', '2016-04-21 17:33:36', '', '2016-04-21 17:34:19'),
-(3, 'Vendor 3', 'Alamat 3', '0814', '021345', 'vendor3@mail.com', 1, 0, '', '2016-04-21 20:54:44', '', '0000-00-00 00:00:00');
+(3, 'Vendor 3', 'Alamat 3', '0814', '6789', 'vendor3@mail.com', 1, 0, '', '2016-04-21 20:54:44', '', '2016-07-15 23:50:04');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
