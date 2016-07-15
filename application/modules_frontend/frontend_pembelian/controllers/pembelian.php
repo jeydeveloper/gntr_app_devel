@@ -19,6 +19,11 @@ class Pembelian extends MY_Frontend {
         $this->load->model('frontend_pembelian/crud_permintaan_detail');
         $this->load->model('frontend_pembelian/crud_suratjalan_detail');
         $this->load->model('frontend_barangjasa/crud_barangjasa', 'crud_barangjasa');
+
+        $this->load->model('frontend_client/crud_client', 'crud_client');
+        $this->load->model('frontend_vendor/crud_vendor', 'crud_vendor');
+        $this->load->model('frontend_matauang/crud_matauang', 'crud_matauang');
+
         $this->_data['module_base_url'] = site_url('pembelian');
         $this->_data['datetime'] = date('Y-m-d H:i:s');
 	}
@@ -44,7 +49,12 @@ class Pembelian extends MY_Frontend {
                 exit();
             }
         }
+
         $this->_data['option_barang'] = $this->crud_barangjasa->get_option();
+        $this->_data['option_client'] = $this->crud_client->get_option();
+        $this->_data['option_vendor'] = $this->crud_vendor->get_option();
+        $this->_data['option_matauang'] = $this->crud_matauang->get_option();
+
 		$this->template->set('title', 'Tambah Permintaan Pembelian | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
 		$this->template->load('template_frontend/main', 'permintaan_add', $this->_data);
@@ -74,6 +84,9 @@ class Pembelian extends MY_Frontend {
                 'pbptn_tanggalterima' => $this->input->post('pbptn_tanggalterima'),
                 'pbptn_totaltagihan' => $this->input->post('pbptn_totaltagihan'),
                 'pbptn_terbilang' => $this->input->post('pbptn_terbilang'),
+                'pbptn_clnt_id' => $this->input->post('pbptn_clnt_id'),
+                'pbptn_vndr_id' => $this->input->post('pbptn_vndr_id'),
+                'pbptn_mtua_id' => $this->input->post('pbptn_mtua_id'),
             );
             $this->crud_pembelian->posts($db_data);
 
@@ -109,7 +122,12 @@ class Pembelian extends MY_Frontend {
             $this->_data['detail'] = $this->crud_pembelian->where('pbptn_id = "'.$id.'"')->get_row();
             $this->_data['permintaan'] = $this->crud_permintaan_detail->where('pembelian_permintaan.pbptn_id = "'.$id.'"')->join();
         }
+
         $this->_data['option_barang'] = $this->crud_barangjasa->get_option();
+        $this->_data['option_client'] = $this->crud_client->get_option();
+        $this->_data['option_vendor'] = $this->crud_vendor->get_option();
+        $this->_data['option_matauang'] = $this->crud_matauang->get_option();
+
 		$this->template->set('title', 'Edit Permintaan Pembelian | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
 		$this->template->load('template_frontend/main', 'permintaan_edit', $this->_data);
@@ -139,6 +157,9 @@ class Pembelian extends MY_Frontend {
                 'pbptn_tanggalterima' => $this->input->post('pbptn_tanggalterima'),
                 'pbptn_totaltagihan' => $this->input->post('pbptn_totaltagihan'),
                 'pbptn_terbilang' => $this->input->post('pbptn_terbilang'),
+                'pbptn_clnt_id' => $this->input->post('pbptn_clnt_id'),
+                'pbptn_vndr_id' => $this->input->post('pbptn_vndr_id'),
+                'pbptn_mtua_id' => $this->input->post('pbptn_mtua_id'),
             );
             $this->crud_pembelian->where('pbptn_id = "'.$this->input->post('pbptn_id').'"')->puts($db_data);
 
@@ -247,6 +268,8 @@ class Pembelian extends MY_Frontend {
                 'pbkw_norek' => $this->input->post('pbkw_norek'),
                 'pbkw_an' => $this->input->post('pbkw_an'),
                 'pbkw_bank' => $this->input->post('pbkw_bank'),
+                'pbkw_tipe_pembayaran' => $this->input->post('pbkw_tipe_pembayaran'),
+                'pbkw_transfer_from_bank' => $this->input->post('pbkw_transfer_from_bank'),
                 'uploadfile'  => $filename,
             );
             $this->crud_kwitansi->posts($db_data);
@@ -311,6 +334,8 @@ class Pembelian extends MY_Frontend {
                 'pbkw_norek' => $this->input->post('pbkw_norek'),
                 'pbkw_an' => $this->input->post('pbkw_an'),
                 'pbkw_bank' => $this->input->post('pbkw_bank'),
+                'pbkw_tipe_pembayaran' => $this->input->post('pbkw_tipe_pembayaran'),
+                'pbkw_transfer_from_bank' => $this->input->post('pbkw_transfer_from_bank'),
                 'pbkw_changedate'  => $this->_data['datetime'],
                 'uploadfile'  => $filename,
             );
@@ -331,6 +356,8 @@ class Pembelian extends MY_Frontend {
                 'pbkw_norek' => $this->input->post('pbkw_norek'),
                 'pbkw_an' => $this->input->post('pbkw_an'),
                 'pbkw_bank' => $this->input->post('pbkw_bank'),
+                'pbkw_tipe_pembayaran' => $this->input->post('pbkw_tipe_pembayaran'),
+                'pbkw_transfer_from_bank' => $this->input->post('pbkw_transfer_from_bank'),
                 'pbkw_changedate'  => $this->_data['datetime'],
             );
 

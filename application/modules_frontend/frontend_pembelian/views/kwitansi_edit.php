@@ -1,3 +1,26 @@
+<style type="text/css">
+.form-fields input[type="radio"] {
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 3px 0;
+    line-height: normal;
+    cursor: pointer;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    border: 0 \9;
+}
+
+.rd-inline label{
+  padding-left: 20px;display:inline-block;margin-right:10px;
+}
+
+.rd-inline label input[type="radio"] {
+  position: absolute;margin-left: -20px;
+}
+</style>
+
 <div class="main">
   <div class="main-inner">
     <div class="container">
@@ -35,24 +58,25 @@
 
                   <div class="field">
                     <label for="pbkw_dari">Terima Dari: </label>
-                    <input id="pbkw_dari" name="pbkw_dari" value="<?php echo $detail['pbkw_dari']; ?>" />
+                    <p class="alert" id="pbkw_dari">referensi vendor</p>
                   </div> <!-- /field -->
 
-                   <div class="field">
+                  <div class="field">
                     <label for="pbkw_alamat">Pembayaran: </label>
-                    <textarea id="pbkw_alamat" name="pbkw_alamat">
-                        <?php echo $detail['pbkw_alamat']; ?>
-                    </textarea>
+                    <div class="rd-inline">
+                      <label><input type="radio" name="pbkw_tipe_pembayaran" id="pbkw_tipe_pembayaran" value="1" <?php echo ($detail['pbkw_tipe_pembayaran'] == 1 ? 'checked' : ''); ?>> Cash</label>
+                      <label><input type="radio" name="pbkw_tipe_pembayaran" id="pbkw_tipe_pembayaran" value="2" <?php echo ($detail['pbkw_tipe_pembayaran'] == 2 ? 'checked' : ''); ?>> Transfer</label>
+                    </div>
                   </div> <!-- /field -->
 
                   <div class="field">
                     <label for="pbkw_notlpn">No Telp.: </label>
-                    <input id="pbkw_notlpn" name="pbkw_notlpn" value="<?php echo $detail['pbkw_notlpn']; ?>"/>
+                    <p class="alert" id="pbkw_notlpn">referensi vendor</p>
                   </div> <!-- /field -->
 
                   <div class="field">
                     <label for="pbkw_total">Total:</label>
-                    <input id="pbkw_total" name="pbkw_total" value="<?php echo $detail['pbkw_total']; ?>" />
+                    <p class="alert" id="pbkw_total">referensi vendor</p>
                   </div> <!-- /field -->
                   <div class="field">
                     <label for="pbkw_norek">No Rekening: </label>
@@ -68,6 +92,16 @@
                   <div class="field">
                     <label for="pbkw_bank">Nama Bank</label>
                     <input id="pbkw_bank" name="pbkw_bank" value="<?php echo $detail['pbkw_bank']; ?>" />
+                  </div> <!-- /field -->
+
+                  <div class="field">
+                    <label for="pbkw_transfer_from_bank">Transfer Dari Bank ?</label>
+                    <select name="pbkw_transfer_from_bank" id="pbkw_transfer_from_bank" required /> 
+                      <option value="">-- Pilih --</option>
+                      <?php foreach($static_data_source['bank'] as $value): ?>
+                        <option value="<?php echo $value['value']; ?>" <?php echo ($detail['pbkw_transfer_from_bank'] == $value['value'] ? 'selected' : ''); ?>><?php echo $value['name']; ?></option>
+                      <?php endforeach; ?>
+                    </select>
                   </div> <!-- /field -->
 
                   <div class="field">

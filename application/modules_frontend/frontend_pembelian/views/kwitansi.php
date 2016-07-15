@@ -27,6 +27,9 @@
                 <tbody>
                   <?php if(!empty($result)): ?>
                     <?php foreach($result as $key => $value): ?>
+                    <?php
+                      $img_url = !empty($value['uploadfile']) ? (site_url('/').'assets/images/'.$value['uploadfile']) : '';
+                    ?>
                     <tr>
                       <td><?php echo ($key+1); ?></td>
                       <td><?php echo $value['pbkw_dari']; ?></td>
@@ -36,9 +39,13 @@
                           No. Rekening: <?php echo $value['pbkw_norek']; ?><br />
                           Atas Nama: <?php echo $value['pbkw_an']; ?><br />
                       </td>
-                      <td><a href="<?php echo site_url('/'); ?>assets/images/<?php echo $value['uploadfile']; ?>" target="_blank">
-                          <img src="<?php echo site_url('/'); ?>assets/images/<?php echo $value['uploadfile']; ?>" width="50px">
-                        </a></td>
+                      <td>
+                        <?php if(!empty($img_url)): ?>
+                        <a href="<?php echo $img_url; ?>" target="_blank">
+                          <img src="<?php echo $img_url; ?>" width="50px" onError="this.onerror=null;this.src='http://localhost/gntr_app_devel/assets/images/noimage.png';">
+                        </a>
+                        <?php endif; ?>
+                      </td>
                       <td class="td-actions"><a href="<?php echo ($module_base_url.'/kwitansi/edit/'.$value['pbkw_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a> <a href="<?php echo ($module_base_url.'/kwitansi/delete/'.$value['pbkw_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>
                     </tr>
                     <?php endforeach; ?>

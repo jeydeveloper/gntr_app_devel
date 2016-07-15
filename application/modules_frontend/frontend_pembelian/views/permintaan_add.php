@@ -1,3 +1,11 @@
+<style type="text/css">
+  .add_form, .add_form:hover{
+    color: red;
+    text-decoration: none;
+    display: none;
+  }
+</style>
+
 <div class="main">
   <div class="main-inner">
     <div class="container">
@@ -28,18 +36,23 @@
                       </div> <!-- /field -->
 
                       <div class="field">
-                        <label for="pbptn_halaman">Halaman:</label>
-                        <input type="text" id="pbptn_halaman" name="pbptn_halaman" value="" placeholder="Halaman"/>
+                        <label for="pbptn_mtua_id">Mata Uang</label>
+                        <select name="pbptn_mtua_id" id="pbptn_mtua_id" />
+                          <option value="">-- Pilih --</option>
+                          <?php foreach($option_matauang as $value): ?>
+                            <option value="<?php echo $value['value']; ?>"><?php echo $value['name']; ?></option>
+                          <?php endforeach; ?>
+                        </select>
                       </div> <!-- /field -->
 
                       <div class="field">
-                        <label for="pbptn_matauang">Mata Uang:</label>
-                        <input type="text" id="pbptn_matauang" name="pbptn_matauang" value="" placeholder="Mata Uang"/>
-                      </div> <!-- /field -->
-
-                      <div class="field">
-                        <label for="pbptn_vendor">Vendor:</label>
-                        <input type="text" id="pbptn_vendor" name="pbptn_vendor" value="" placeholder="Vendor"/>
+                        <label for="pbptn_vndr_id">Vendor</label>
+                        <select name="pbptn_vndr_id" id="pbptn_vndr_id" />
+                          <option value="">-- Pilih --</option>
+                          <?php foreach($option_vendor as $value): ?>
+                            <option value="<?php echo $value['value']; ?>"><?php echo $value['name']; ?></option>
+                          <?php endforeach; ?>
+                        </select>
                       </div> <!-- /field -->
 
                       <div class="field">
@@ -53,8 +66,13 @@
                       </div> <!-- /field -->
 
                       <div class="field">
-                        <label for="pbptn_buyer">Buyer:</label>
-                        <input type="text" id="pbptn_buyer" name="pbptn_buyer" value="" placeholder="Buyer"/>
+                        <label for="pbptn_clnt_id">Client</label>
+                        <select name="pbptn_clnt_id" id="pbptn_clnt_id" />
+                          <option value="">-- Pilih --</option>
+                          <?php foreach($option_client as $value): ?>
+                            <option value="<?php echo $value['value']; ?>"><?php echo $value['name']; ?></option>
+                          <?php endforeach; ?>
+                        </select>
                       </div> <!-- /field -->
 
                       <div class="field">
@@ -74,11 +92,6 @@
                       </div> <!-- /field -->
 
                       <div class="field">
-                        <label for="pbptn_diterimaoleh">Diterima Oleh:</label>
-                        <input type="text" id="pbptn_diterimaoleh" name="pbptn_diterimaoleh" value="" placeholder="Diterima Oleh"/>
-                      </div> <!-- /field -->
-
-                      <div class="field">
                         <label for="pbptn_namapenerima">Nama Penerima:</label>
                         <input type="text" id="pbptn_namapenerima" name="pbptn_namapenerima" value="" placeholder="Nama Penerima"/>
                       </div> <!-- /field -->
@@ -86,16 +99,6 @@
                       <div class="field">
                         <label for="pbptn_tanggalterima">Tanggal</label>
                         <input type="text"  class="date-picker" id="pbptn_tanggalterima" name="pbptn_tanggalterima" value="" placeholder="Tanggal" />
-                      </div> <!-- /field -->
-
-                      <div class="field">
-                        <label for="pbptn_totaltagihan">Total Tagihan:</label>
-                        <input type="text" id="pbptn_totaltagihan" name="pbptn_totaltagihan" value="" placeholder="Total Tagihan"/>
-                      </div> <!-- /field -->
-
-                      <div class="field">
-                        <label for="pbptn_terbilang">Terbilang:</label>
-                        <input type="text"   id="pbptn_terbilang" name="pbptn_terbilang" value="" placeholder="Terbilang" />
                       </div> <!-- /field -->
                     </div> <!-- /form-fields -->
                 </div>
@@ -117,7 +120,7 @@
 
                     </div> <!-- /form-fields -->
                     <div class="extraPersonTemplate form-fields">
-
+                      <div style="text-align: right;"><a class="add_form" href="#">[ HAPUS ]</a></div>
                       <div class="field">
                           <label for="pbptnd_jenisbarang">Jenis Barang:</label>
                           <select name="pbptnd_jenisbarang[]" id="pbptnd_jenisbarang[]" />
@@ -160,11 +163,17 @@
      $('<div/>', {
          'class' : 'extraPerson form-fields', html: GetHtml()
      }).appendTo('#container');
-     $('#addRow').click(function () {
+     $('#addRow').click(function (e) {
+        e.preventDefault();
            $('<div/>', {
                'class' : 'extraPerson form-fields', html: GetHtml()
      }).hide().appendTo('#container').slideDown('slow');
 
+     });
+
+     $('.add_form').live('click', function(e){
+      e.preventDefault();
+      $(this).closest('.extraPerson').remove();
      });
  })
  function GetHtml()
@@ -173,6 +182,7 @@
     var $html = $('.extraPersonTemplate').clone();
     $html.find('[name=pbptnd_jenisbarang]').name="pbptnd_jenisbarang[]" + len;
     $html.find('[name=pbptnd_jumlah]').name="pbptnd_jumlah[]" + len;
+    $html.find('.add_form').show();
     return $html.html();
 }
 </script>

@@ -63,4 +63,16 @@ class Crud_matauang extends CI_Model {
 	function delete($data){
 		return $this->db->delete('matauang', $data);
 	}
+
+	function get_option() {
+		$res = $this->where('mtua_void = 0')->get_all();
+		$data = array();
+		foreach ($res as $key => $value) {
+			$data[] = array(
+				'name' 	=> $value['mtua_nama'],
+				'value' => $value['mtua_id'],
+			); 
+		}
+		return $data;
+	}
 }  

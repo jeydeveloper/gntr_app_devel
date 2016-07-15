@@ -30,18 +30,23 @@
                       </div> <!-- /field -->
 
                       <div class="field">
-                        <label for="pbptn_halaman">Halaman:</label>
-                        <input type="text" id="pbptn_halaman" name="pbptn_halaman" value="<?php echo $detail['pbptn_halaman']; ?>"/>
+                        <label for="pbptn_mtua_id">Mata Uang</label>
+                        <select name="pbptn_mtua_id" id="pbptn_mtua_id" />
+                          <option value="">-- Pilih --</option>
+                          <?php foreach($option_matauang as $value): ?>
+                            <option value="<?php echo $value['value']; ?>" <?php echo ($detail['pbptn_mtua_id'] == $value['value'] ? 'selected' : ''); ?>><?php echo $value['name']; ?></option>
+                          <?php endforeach; ?>
+                        </select>
                       </div> <!-- /field -->
 
                       <div class="field">
-                        <label for="pbptn_matauang">Mata Uang:</label>
-                        <input type="text" id="pbptn_matauang" name="pbptn_matauang" value="<?php echo $detail['pbptn_matauang']; ?>"/>
-                      </div> <!-- /field -->
-
-                      <div class="field">
-                        <label for="pbptn_vendor">Vendor:</label>
-                        <input type="text" id="pbptn_vendor" name="pbptn_vendor" value="<?php echo $detail['pbptn_vendor']; ?>"/>
+                        <label for="pbptn_vndr_id">Vendor</label>
+                        <select name="pbptn_vndr_id" id="pbptn_vndr_id" />
+                          <option value="">-- Pilih --</option>
+                          <?php foreach($option_vendor as $value): ?>
+                            <option value="<?php echo $value['value']; ?>" <?php echo ($detail['pbptn_vndr_id'] == $value['value'] ? 'selected' : ''); ?>><?php echo $value['name']; ?></option>
+                          <?php endforeach; ?>
+                        </select>
                       </div> <!-- /field -->
 
                       <div class="field">
@@ -55,8 +60,13 @@
                       </div> <!-- /field -->
 
                       <div class="field">
-                        <label for="pbptn_buyer">Buyer:</label>
-                        <input type="text" id="pbptn_buyer" name="pbptn_buyer" value="<?php echo $detail['pbptn_buyer']; ?>"/>
+                        <label for="pbptn_clnt_id">Client</label>
+                        <select name="pbptn_clnt_id" id="pbptn_clnt_id" />
+                          <option value="">-- Pilih --</option>
+                          <?php foreach($option_client as $value): ?>
+                            <option value="<?php echo $value['value']; ?>" <?php echo ($detail['pbptn_clnt_id'] == $value['value'] ? 'selected' : ''); ?>><?php echo $value['name']; ?></option>
+                          <?php endforeach; ?>
+                        </select>
                       </div> <!-- /field -->
 
                       <div class="field">
@@ -76,11 +86,6 @@
                       </div> <!-- /field -->
 
                       <div class="field">
-                        <label for="pbptn_diterimaoleh">Diterima Oleh:</label>
-                        <input type="text" id="pbptn_diterimaoleh" name="pbptn_diterimaoleh" value="<?php echo $detail['pbptn_diterimaoleh']; ?>"/>
-                      </div> <!-- /field -->
-
-                      <div class="field">
                         <label for="pbptn_namapenerima">Nama Penerima:</label>
                         <input type="text" id="pbptn_namapenerima" name="pbptn_namapenerima" value="<?php echo $detail['pbptn_namapenerima']; ?>"/>
                       </div> <!-- /field -->
@@ -88,16 +93,6 @@
                       <div class="field">
                         <label for="pbptn_tanggalterima">Tanggal</label>
                         <input type="text"  class="date-picker" id="pbptn_tanggalterima" name="pbptn_tanggalterima" value="<?php echo $detail['pbptn_tanggalterima']; ?>"/>
-                      </div> <!-- /field -->
-
-                      <div class="field">
-                        <label for="pbptn_totaltagihan">Total Tagihan:</label>
-                        <input type="text" id="pbptn_totaltagihan" name="pbptn_totaltagihan" value="<?php echo $detail['pbptn_totaltagihan']; ?>"/>
-                      </div> <!-- /field -->
-
-                      <div class="field">
-                        <label for="pbptn_terbilang">Terbilang:</label>
-                        <input type="text"   id="pbptn_terbilang" name="pbptn_terbilang" value="<?php echo $detail['pbptn_terbilang']; ?>" />
                       </div> <!-- /field -->
 
                     </div> <!-- /form-fields -->

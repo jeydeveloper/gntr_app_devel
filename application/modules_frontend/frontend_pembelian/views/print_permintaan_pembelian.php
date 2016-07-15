@@ -266,7 +266,7 @@
         				<td class="numeric">Rp <?php echo number_format($ppn,2,",","."); ?></td>
         			</tr>
         			<tr>
-        				<td colspan="5" class="numeric">TOTAL II</td>
+        				<td colspan="5" class="numeric">GRAND TOTAL</td>
         				<td class="numeric">Rp <?php echo number_format($detail['pbptn_totaltagihan'],2,",","."); ?></td>
         			</tr>
                     <tr>
