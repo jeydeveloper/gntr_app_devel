@@ -164,6 +164,11 @@ $route['pembelian/permintaan/add'] = "frontend_pembelian/pembelian/add_permintaa
 $route['pembelian/permintaan/edit/(:any)'] = "frontend_pembelian/pembelian/edit_permintaan/$1";
 $route['pembelian/permintaan/delete/(:any)'] = "frontend_pembelian/pembelian/delete_permintaan/$1";
 $route['pembelian/permintaan/pdf/(:any)'] = "frontend_pembelian/pembelian/pdf_permintaan/$1";
+
+//route pembelian referensi
+$route['pembelian/referensi/(:any)'] = "frontend_pembelian/pembelian/referensi/$1";
+$route['pembelian/referensi_kwitansi/(:any)'] = "frontend_pembelian/pembelian/referensi_kwitansi/$1";
+
 //route permintaan pembelian
 $route['pembelian/kwitansi'] = "frontend_pembelian/pembelian/kwitansi";
 $route['pembelian/kwitansi/add'] = "frontend_pembelian/pembelian/add_kwitansi";

@@ -44,56 +44,24 @@
                         <input type="text" id="pbsrtjalan_nokendaraan" name="pbsrtjalan_nokendaraan" value="<?php echo $detail['pbsrtjalan_nokendaraan']; ?>" />
                       </div> <!-- /field -->
 
-
                       <div class="field">
-                        <label for="pbsrtjalan_halaman">Halaman:</label>
-                        <input type="text" id="pbsrtjalan_halaman" name="pbsrtjalan_halaman" value="<?php echo $detail['pbsrtjalan_halaman']; ?>"/>
-                      </div> <!-- /field -->
-
-                      <div class="field">
-                        <label for="pbsrtjalan_matauang">Mata Uang:</label>
-                        <input type="text" id="pbsrtjalan_matauang" name="pbsrtjalan_matauang" value="<?php echo $detail['pbsrtjalan_matauang']; ?>"/>
+                        <label for="pbsrtjalan_matauang">Mata Uang</label>
+                        <select name="pbsrtjalan_matauang" id="pbsrtjalan_matauang" />
+                          <option value="">-- Pilih --</option>
+                          <?php foreach($option_matauang as $value): ?>
+                            <option value="<?php echo $value['value']; ?>" <?php echo ($detail['pbsrtjalan_matauang'] == $value['value'] ? 'selected' : ''); ?>><?php echo $value['name']; ?></option>
+                          <?php endforeach; ?>
+                        </select>
                       </div> <!-- /field -->
 
                       <div class="field">
                         <label for="pbsrtjalan_vendor">Vendor:</label>
-                        <input type="text" id="pbsrtjalan_vendor" name="pbsrtjalan_vendor" value="<?php echo $detail['pbsrtjalan_vendor']; ?>"/>
+                        <p class="alert" id="pbsrtjalan_vendor">-</p>
                       </div> <!-- /field -->
-
-                      <div class="field">
-                        <label for="pbsrtjalan_proposalno">Vendor Proposan No.:</label>
-                        <input type="text" id="pbsrtjalan_proposalno" name="pbsrtjalan_proposalno" value="<?php echo $detail['pbsrtjalan_proposalno']; ?>"/>
-                      </div> <!-- /field -->
-
-                      <div class="field">
-                        <label for="pbsrtjalan_projectcode">Project Code:</label>
-                        <input type="text" id="pbsrtjalan_projectcode" name="pbsrtjalan_projectcode" value="<?php echo $detail['pbsrtjalan_projectcode']; ?>"/>
-                      </div> <!-- /field -->
-
-                      <div class="field">
-                        <label for="pbsrtjalan_buyer">Buyer:</label>
-                        <input type="text" id="pbsrtjalan_buyer" name="pbsrtjalan_buyer" value="<?php echo $detail['pbsrtjalan_buyer']; ?>"/>
-                      </div> <!-- /field -->
-
-                      <div class="field">
-                        <label for="pbsrtjalan_terms">Catatan:</label>
-                        <textarea id="pbsrtjalan_terms" name="pbsrtjalan_terms"><?php echo $detail['pbsrtjalan_terms']; ?></textarea>
-                      </div> <!-- /field -->
-
-                      <div class="field">
-                        <label for="pbsrtjalan_catatan">Terms Pembayaran:</label>
-                        <textarea id="pbsrtjalan_catatan" name="pbsrtjalan_catatan"><?php echo $detail['pbsrtjalan_catatan']; ?></textarea>
-                      </div> <!-- /field -->
-
 
                       <div class="field">
                         <label for="pbsrtjalan_tanggalditerima">Tanggal Penerimaan</label>
                         <input type="text"  class="date-picker" id="pbsrtjalan_tanggalditerima" name="pbsrtjalan_tanggalditerima" value="<?php echo $detail['pbsrtjalan_tanggalditerima']; ?>"/>
-                      </div> <!-- /field -->
-
-                      <div class="field">
-                        <label for="pbsrtjalan_diterimaoleh">Diterima Oleh:</label>
-                        <input type="text" id="pbsrtjalan_diterimaoleh" name="pbsrtjalan_diterimaoleh" value="<?php echo $detail['pbsrtjalan_diterimaoleh']; ?>"/>
                       </div> <!-- /field -->
 
                       <div class="field">
@@ -102,18 +70,13 @@
                       </div> <!-- /field -->
 
                       <div class="field">
-                        <label for="pbsrtjalan_tanggalterima">Tanggal</label>
-                        <input type="text"  class="date-picker" id="pbsrtjalan_tanggalterima" name="pbsrtjalan_tanggalterima" value="<?php echo $detail['pbsrtjalan_tanggalterima']; ?>"/>
-                      </div> <!-- /field -->
-
-                      <div class="field">
                         <label for="pbsrtjalan_totaltagihan">Total Tagihan:</label>
-                        <input type="text" id="pbsrtjalan_totaltagihan" name="pbsrtjalan_totaltagihan" value="<?php echo $detail['pbsrtjalan_totaltagihan']; ?>"/>
+                        <p class="alert" id="pbsrtjalan_totaltagihan">-</p>
                       </div> <!-- /field -->
 
                       <div class="field">
                         <label for="pbsrtjalan_terbilang">Terbilang:</label>
-                        <input type="text"   id="pbsrtjalan_terbilang" name="pbsrtjalan_terbilang" value="<?php echo $detail['pbsrtjalan_terbilang']; ?>" />
+                        <p class="alert" id="pbsrtjalan_terbilang">-</p>
                       </div> <!-- /field -->
 
                       <div class="field">
@@ -179,3 +142,22 @@
   </div>
   <!-- /main-inner -->
 </div>
+
+<script type="text/javascript">
+  $(function(){
+    var get_info = function(id) {
+      var url = '<?php echo site_url("pembelian/referensi_kwitansi"); ?>/'+id;
+      $.getJSON(url, function(data){
+        $('#pbsrtjalan_vendor').text(data.vndr_nama);
+        $('#pbsrtjalan_totaltagihan').text(data.pbptn_totaltagihan);
+      });
+    };
+    
+    $('#pbsrtjalan_pbkw_id').change(function(){
+      var me = $(this);
+      get_info(me.val());
+    });
+
+    get_info($('#pbsrtjalan_pbkw_id').val());
+  })
+</script>

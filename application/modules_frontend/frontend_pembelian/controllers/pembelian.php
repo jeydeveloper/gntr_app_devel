@@ -421,6 +421,7 @@ class Pembelian extends MY_Frontend {
         }
 
         $this->_data['option_referensi'] = $this->crud_kwitansi->get_option_info_detail();
+        $this->_data['option_matauang'] = $this->crud_matauang->get_option();
 
         $this->_data['option_barang'] = $this->crud_barangjasa->get_option();
 		$this->template->set('title', 'Tambah Surat Jalan Pembelian | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
@@ -513,6 +514,7 @@ class Pembelian extends MY_Frontend {
         }
 
         $this->_data['option_referensi'] = $this->crud_kwitansi->get_option_info_detail();
+        $this->_data['option_matauang'] = $this->crud_matauang->get_option();
 
         $this->_data['option_barang'] = $this->crud_barangjasa->get_option();
 		$this->template->set('title', 'Edit Surat Jalan Pembelian | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
@@ -1235,13 +1237,22 @@ class Pembelian extends MY_Frontend {
             return false;
         }
     }
- function delete_bukti_pembayaran($id)
- {
-     $this->crud_buktipembayaran->where('bp_id = "'.$id.'"')->delete($db_data);
-     redirect($this->_data['module_base_url'].'/bukti-pembayaran');
- }
 
+    function delete_bukti_pembayaran($id)
+    {
+        $this->crud_buktipembayaran->where('bp_id = "'.$id.'"')->delete($db_data);
+        redirect($this->_data['module_base_url'].'/bukti-pembayaran');
+    }
 
+    function referensi($id) {
+        $result = $this->db->from('pembelian_permintaan')->join('vendor', 'pbptn_vndr_id=vndr_id')->where('pbptn_id = "'.$id.'"')->get()->row_array();
+        echo json_encode($result);
+    }
+
+    function referensi_kwitansi($id) {
+        $result = $this->db->from('pembelian_kwitansi')->join('pembelian_permintaan', 'pbkw_pbptn_id=pbptn_id')->join('vendor', 'pbptn_vndr_id=vndr_id')->where('pbkw_id = "'.$id.'"')->get()->row_array();
+        echo json_encode($result);
+    }
 }
 
 ?>

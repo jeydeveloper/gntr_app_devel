@@ -57,7 +57,7 @@
 
                   <div class="field">
                     <label for="pbkw_dari">Terima Dari: </label>
-                    <p class="alert" id="pbkw_dari">referensi vendor</p>
+                    <p class="alert" id="pbkw_dari">-</p>
                   </div> <!-- /field -->
 
                    <div class="field">
@@ -70,12 +70,12 @@
 
                   <div class="field">
                     <label for="pbkw_notlpn">No Telp.: </label>
-                    <p class="alert" id="pbkw_notlpn">referensi vendor</p>
+                    <p class="alert" id="pbkw_notlpn">-</p>
                   </div> <!-- /field -->
 
                   <div class="field">
                     <label for="pbkw_total">Total:</label>
-                    <p class="alert" id="pbkw_total">referensi vendor</p>
+                    <p class="alert" id="pbkw_total">-</p>
                   </div> <!-- /field -->
                   <div class="field">
                     <label for="pbkw_norek">No Rekening: </label>
@@ -132,3 +132,21 @@
   </div>
   <!-- /main-inner -->
 </div>
+
+<script type="text/javascript">
+  $(function(){
+    var get_info = function(id) {
+      var url = '<?php echo site_url("pembelian/referensi"); ?>/'+id;
+      $.getJSON(url, function(data){
+        $('#pbkw_dari').text(data.vndr_nama);
+        $('#pbkw_notlpn').text(data.vndr_telpon);
+        $('#pbkw_total').text(data.pbptn_totaltagihan);
+      });
+    };
+    
+    $('#pbkw_pbptn_id').change(function(){
+      var me = $(this);
+      get_info(me.val());
+    });
+  })
+</script>

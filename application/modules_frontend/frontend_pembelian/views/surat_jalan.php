@@ -20,8 +20,6 @@
                     <th> No. Permintaan </th>
                     <th> Tanggal </th>
                     <th> Vendor</th>
-                    <th> No. Proposal </th>
-                    <th> Project Code </th>
                     <th> Total Tagihan</th>
                     <th> File </th>
                     <th class="td-actions"> Actions </th>
@@ -30,18 +28,22 @@
                 <tbody>
                   <?php if(!empty($result)): ?>
                     <?php foreach($result as $key => $value): ?>
+                    <?php
+                      $img_url = !empty($value['uploadfile']) ? (site_url('/').'assets/images/'.$value['uploadfile']) : '';
+                    ?>
                     <tr>
                       <td><?php echo ($key+1); ?></td>
                       <td><?php echo $value['pbsrtjalan_no']; ?></td>
                       <td><?php echo $value['pbsrtjalan_tanggal']; ?></td>
-                      <td><?php echo $value['pbsrtjalan_vendor']; ?></td>
-                      <td><?php echo $value['pbsrtjalan_proposalno']; ?></td>
-                      <td><?php echo $value['pbsrtjalan_projectcode']; ?></td>
-                      <td><?php echo $value['pbsrtjalan_totaltagihan']; ?></td>
-                      <td><a href="<?php echo site_url('/'); ?>assets/images/<?php echo $value['uploadfile']; ?>" target="_blank">
-                          <img src="<?php echo site_url('/'); ?>assets/images/<?php echo $value['uploadfile']; ?>" width="50px">
-                        </a></td>
-
+                      <td><?php echo $value['vndr_nama']; ?></td>
+                      <td><?php echo $value['pbptn_totaltagihan']; ?></td>
+                      <td>
+                        <?php if(!empty($img_url)): ?>
+                        <a href="<?php echo $img_url; ?>" target="_blank">
+                          <img src="<?php echo $img_url; ?>" width="50px" onError="this.onerror=null;this.src='http://localhost/gntr_app_devel/assets/images/noimage.png';">
+                        </a>
+                        <?php endif; ?>
+                      </td>
                       <td class="td-actions"><a href="<?php echo ($module_base_url.'/surat-jalan/edit/'.$value['pbsrtjalan_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a>
                       <a href="<?php echo ($module_base_url.'/surat-jalan/delete/'.$value['pbsrtjalan_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>
                     </tr>

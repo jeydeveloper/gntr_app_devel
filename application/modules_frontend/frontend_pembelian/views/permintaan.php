@@ -34,7 +34,7 @@
                       <td><?php echo ($key+1); ?></td>
                       <td><?php echo $value['pbptn_no']; ?></td>
                       <td><?php echo $value['pbptn_tanggal']; ?></td>
-                      <td><?php echo $value['pbptn_vendor']; ?></td>
+                      <td><?php echo $value['vndr_nama']; ?></td>
                       <td><?php echo $value['pbptn_proposalno']; ?></td>
                       <td><?php echo $value['pbptn_projectcode']; ?></td>
                       <td><?php echo $value['pbptn_totaltagihan']; ?></td>

@@ -32,8 +32,8 @@
                     ?>
                     <tr>
                       <td><?php echo ($key+1); ?></td>
-                      <td><?php echo $value['pbkw_dari']; ?></td>
-                      <td><?php echo $value['pbkw_total']; ?></td>
+                      <td><?php echo $value['vndr_nama']; ?></td>
+                      <td><?php echo $value['pbptn_totaltagihan']; ?></td>
                       <td>
                           <?php echo $value['pbkw_bank']; ?><br />
                           No. Rekening: <?php echo $value['pbkw_norek']; ?><br />

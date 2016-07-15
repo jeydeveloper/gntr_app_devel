@@ -100,6 +100,11 @@
                         <label for="pbptn_tanggalterima">Tanggal</label>
                         <input type="text"  class="date-picker" id="pbptn_tanggalterima" name="pbptn_tanggalterima" value="" placeholder="Tanggal" />
                       </div> <!-- /field -->
+
+                      <div class="field">
+                        <label for="pbptn_totaltagihan">Total Tagihan</label>
+                        <input type="text"  class="date-picker" id="pbptn_totaltagihan" name="pbptn_totaltagihan" value="" placeholder="Total Tagihan" />
+                      </div> <!-- /field -->
                     </div> <!-- /form-fields -->
                 </div>
                 <!-- /widget-content -->
