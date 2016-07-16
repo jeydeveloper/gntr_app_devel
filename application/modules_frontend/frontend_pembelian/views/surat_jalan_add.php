@@ -173,6 +173,7 @@
       $.getJSON(url, function(data){
         $('#pbsrtjalan_vendor').text(data.vndr_nama);
         $('#pbsrtjalan_totaltagihan').text(data.pbptn_totaltagihan);
+        $('#pbsrtjalan_terbilang').text(data.pbsrtjalan_terbilang);
       });
     };
     

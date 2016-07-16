@@ -307,3 +307,56 @@ function number_format_rupiah($val) {
 	if(empty($val)) return 0;
 	return number_format($val, 0, ',', '.');
 }
+
+function do_terbilang($x) {
+    $x = abs($x);
+    $angka = array("", "satu", "dua", "tiga", "empat", "lima",
+    "enam", "tujuh", "delapan", "sembilan", "sepuluh", "sebelas");
+    $temp = "";
+    if ($x <12) {
+        $temp = " ". $angka[$x];
+    } else if ($x <20) {
+        $temp = do_terbilang($x - 10). " belas";
+    } else if ($x <100) {
+        $temp = do_terbilang($x/10)." puluh". do_terbilang($x % 10);
+    } else if ($x <200) {
+        $temp = " seratus" . do_terbilang($x - 100);
+    } else if ($x <1000) {
+        $temp = do_terbilang($x/100) . " ratus" . do_terbilang($x % 100);
+    } else if ($x <2000) {
+        $temp = " seribu" . do_terbilang($x - 1000);
+    } else if ($x <1000000) {
+        $temp = do_terbilang($x/1000) . " ribu" . do_terbilang($x % 1000);
+    } else if ($x <1000000000) {
+        $temp = do_terbilang($x/1000000) . " juta" . do_terbilang($x % 1000000);
+    } else if ($x <1000000000000) {
+        $temp = do_terbilang($x/1000000000) . " milyar" . do_terbilang(fmod($x,1000000000));
+    } else if ($x <1000000000000000) {
+        $temp = do_terbilang($x/1000000000000) . " trilyun" . do_terbilang(fmod($x,1000000000000));
+    }     
+        return $temp;
+}
+ 
+ 
+function terbilang($x, $style=4) {
+    if($x<0) {
+        $hasil = "minus ". trim(do_terbilang($x));
+    } else {
+        $hasil = trim(do_terbilang($x));
+    }     
+    switch ($style) {
+        case 1:
+            $hasil = strtoupper($hasil);
+            break;
+        case 2:
+            $hasil = strtolower($hasil);
+            break;
+        case 3:
+            $hasil = ucwords($hasil);
+            break;
+        default:
+            $hasil = ucfirst($hasil);
+            break;
+    }     
+    return $hasil;
+}

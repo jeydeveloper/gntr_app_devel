@@ -97,7 +97,7 @@
 
                       <div class="field">
                         <label for="pbptn_totaltagihan">Total Tagihan</label>
-                        <input type="text"  class="date-picker" id="pbptn_totaltagihan" name="pbptn_totaltagihan" value="<?php echo $detail['pbptn_totaltagihan']; ?>" placeholder="Total Tagihan" />
+                        <input type="text" id="pbptn_totaltagihan" name="pbptn_totaltagihan" value="<?php echo $detail['pbptn_totaltagihan']; ?>" placeholder="Total Tagihan" />
                       </div> <!-- /field -->
 
                     </div> <!-- /form-fields -->

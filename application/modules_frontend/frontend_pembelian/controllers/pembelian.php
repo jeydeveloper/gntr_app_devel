@@ -1251,6 +1251,7 @@ class Pembelian extends MY_Frontend {
 
     function referensi_kwitansi($id) {
         $result = $this->db->from('pembelian_kwitansi')->join('pembelian_permintaan', 'pbkw_pbptn_id=pbptn_id')->join('vendor', 'pbptn_vndr_id=vndr_id')->where('pbkw_id = "'.$id.'"')->get()->row_array();
+        $result['pbsrtjalan_terbilang'] = !empty($result['pbptn_totaltagihan']) ? terbilang($result['pbptn_totaltagihan']) : '-';
         echo json_encode($result);
     }
 }
