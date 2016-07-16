@@ -19,8 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `gntr_app_new`
 --
-CREATE DATABASE IF NOT EXISTS `gntr_app_new` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `gntr_app_new`;
+CREATE DATABASE IF NOT EXISTS `gntr_app` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `gntr_app`;
 
 -- --------------------------------------------------------
 
