@@ -95,37 +95,22 @@
                 </div>
                 <!-- /widget-header -->
                 <div class="widget-content">
-
                     <div class="form-fields">
-
-
-
+                      <table style="width:100%;" border="1" cellpadding="5" id="tblInfoBarang">
+                        <thead>
+                          <tr>
+                            <th>No</th>
+                            <th>Nama Barang</th>
+                            <th>Volume</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td colspan="3">Data is empty</td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </div> <!-- /form-fields -->
-                    <div class="extraPersonTemplate form-fields">
-
-                      <div class="field">
-                          <label for="pbsuratjaland_jenisbarang">Jenis Barang:</label>
-                          <select name="pbsuratjaland_jenisbarang[]" id="pbsuratjaland_jenisbarang[]" />
-                            <option value="">-- Pilih --</option>
-                            <?php foreach($option_barang as $value): ?>
-                              <option value="<?php echo $value['value']; ?>"><?php echo $value['name']; ?></option>
-                            <?php endforeach; ?>
-                          </select>
-                      </div> <!-- /field -->
-
-                      <div class="field">
-                        <label for="pbsuratjaland_jumlah">Volume:</label>
-                        <input id="pbsuratjaland_jumlah[]" name="pbsuratjaland_jumlah[]" value="" placeholder="Volume"/>
-                      </div> <!-- /field -->
-                    </div>
-                    <div id="container"></div>
-                    <a href="#" id="addRow"><i class="icon-plus-sign icon-white"></i> Tambah Barang</p></a>
-                    <div class="form-actions">
-                      <div class="pull-right">
-                        <button type="reset" class="button btn btn-default btn-large">Reset</button>
-                        <button class="button btn btn-primary btn-large"><a href="print_invoice.html"></a> Submit</button>
-                      </div>
-                    </div> <!-- .actions -->
                 </div>
                 <!-- /widget-content -->
               </div>
@@ -168,12 +153,31 @@
 
 <script type="text/javascript">
   $(function(){
+    var info_barang = function(id) {
+      var url = '<?php echo site_url("pembelian/info_barang"); ?>/'+id;
+      $.getJSON(url, function(data){
+        var txtHtml = '';
+        var cnt = 1;
+        $.each(data, function(idx, val){
+          console.log(val);
+          txtHtml += '<tr>';
+          txtHtml += '<td>'+ cnt++ +'</td>';
+          txtHtml += '<td>'+val.brjs_nama+'</td>';
+          txtHtml += '<td>'+val.pbptnd_jumlah+'</td>';
+          txtHtml += '<tr>';
+        });
+        $('#tblInfoBarang tbody').empty().append(txtHtml);
+      });
+    };
+
     var get_info = function(id) {
       var url = '<?php echo site_url("pembelian/referensi_kwitansi"); ?>/'+id;
       $.getJSON(url, function(data){
         $('#pbsrtjalan_vendor').text(data.vndr_nama);
         $('#pbsrtjalan_totaltagihan').text(data.pbptn_totaltagihan);
         $('#pbsrtjalan_terbilang').text(data.pbsrtjalan_terbilang);
+
+        info_barang(data.pbptn_id);
       });
     };
     

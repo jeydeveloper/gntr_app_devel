@@ -1254,6 +1254,11 @@ class Pembelian extends MY_Frontend {
         $result['pbsrtjalan_terbilang'] = !empty($result['pbptn_totaltagihan']) ? terbilang($result['pbptn_totaltagihan']) : '-';
         echo json_encode($result);
     }
+
+    function info_barang($id) {
+        $result = $this->db->from('pembelian_permintaan')->join('pembelian_permintaan_detail', 'pbptn_no=pbptnd_nopermintaan')->join('barang_jasa', 'pbptnd_jenisbarang=brjs_id')->where('pbptn_id = "'.$id.'"')->get()->result_array();
+        echo json_encode($result);
+    }
 }
 
 ?>

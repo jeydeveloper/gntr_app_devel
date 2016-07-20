@@ -102,15 +102,15 @@ $config["static_data_source"]['barjas_kategori'] = array(
 $config["static_data_source"]['barjas_jenis'] = array(
 	1 => array(
 		'value' => 1,
-		'name' => 'Pallet',
+		'name' => 'Barang',
 	),
 	2 => array(
 		'value' => 2,
-		'name' => 'Manpower',
+		'name' => 'Manpower (Jasa)',
 	),
 	3 => array(
 		'value' => 3,
-		'name' => 'Pallet & Manpower',
+		'name' => 'Barang & Manpower (Jasa)',
 	),
 );
 
