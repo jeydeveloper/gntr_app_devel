@@ -1261,6 +1261,11 @@ class Pembelian extends MY_Frontend {
         echo json_encode($result);
     }
 
+    function referensi_invoice($id) {
+        $result = $this->db->from('pembelian_invoice')->join('pembelian_permintaan', 'pbinv_pbptn_id=pbptn_id')->join('vendor', 'pbptn_vndr_id=vndr_id')->where('pbinv_id = "'.$id.'"')->get()->row_array();
+        echo json_encode($result);
+    }
+
     function info_barang($id) {
         $result = $this->db->from('pembelian_permintaan')->join('pembelian_permintaan_detail', 'pbptn_no=pbptnd_nopermintaan')->join('barang_jasa', 'pbptnd_jenisbarang=brjs_id')->where('pbptn_id = "'.$id.'"')->get()->result_array();
         echo json_encode($result);

@@ -49,7 +49,7 @@ class Crud_tanda_terima extends CI_Model {
 	}
 
 	function get_all(){
-		return $this->db->get('pembelian_tandaterima')->result_array();
+		return $this->db->from('pembelian_tandaterima')->join('pembelian_permintaan', 'pbttr_pbptn_id=pbptn_id')->join('vendor', 'pbptn_vndr_id=vndr_id')->get()->result_array();
 	}
 
 	function posts($data){

@@ -1,3 +1,30 @@
+<style type="text/css">
+.form-fields input[type="radio"], .form-fields input[type="checkbox"] {
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 3px 0;
+    line-height: normal;
+    cursor: pointer;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    border: 0 \9;
+}
+
+.rd-inline{
+  margin-bottom: 20px;
+}
+
+.rd-inline label{
+  padding-left: 20px;margin-right:10px;
+}
+
+.rd-inline label input[type="radio"], .rd-inline label input[type="checkbox"] {
+  position: absolute;margin-left: -20px;
+}
+</style>
+
 <div class="main">
   <div class="main-inner">
     <div class="container">
@@ -34,40 +61,37 @@
                   </div> <!-- /field -->
 
                   <div class="field">
-                    <label for="pbttr_noproyek">No. Proyek</label>
-                    <input id="pbttr_noproyek" name="pbttr_noproyek" value="<?php echo $detail['pbttr_noproyek']; ?>" />
-                  </div> <!-- /field -->
-
-                  <div class="field">
                     <label for="phone">Tagihan Dari</label>
-                    <label class="checkbox-inline"><input type="checkbox" name="pbttr_tghndari" value="Subcontractor">Subcontractor</label>
-                    <label class="checkbox-inline"><input type="checkbox" name="pbttr_tghndari" value="Supplier">Supplier</label>
-                    <label class="checkbox-inline"><input type="checkbox" name="pbttr_tghndari" value="Lain Lain">Lain Lain</label>
-                    <label class="checkbox-inline"><input type="checkbox" name="pbttr_tghndari" value="">Telepon</label>
-                    <label class="checkbox-inline"><input type="checkbox" name="pbttr_tghndari" value="Telepon">Fax</label>
+                    <div class="rd-inline">
+                      <label class="checkbox-inline"><input type="checkbox" name="pbttr_tghndari" value="Subcontractor">Subcontractor</label>
+                      <label class="checkbox-inline"><input type="checkbox" name="pbttr_tghndari" value="Supplier">Supplier</label>
+                      <label class="checkbox-inline"><input type="checkbox" name="pbttr_tghndari" value="Lain Lain">Lain Lain</label>
+                    </div>
                     <input id="pbttr_tagihan" name="pbttr_tagihan" value="<?php echo $detail['pbttr_tagihan']; ?>"/>
                   </div> <!-- /field -->
 
                   <div class="field">
                     <label for="phone">Nilai Tagihan</label>
-                    <label class="checkbox-inline"><input type="checkbox" name="pbttr_mtuang" value="Rp">Rp</label>
-                    <label class="checkbox-inline"><input type="checkbox" name="pbttr_mtuang" value="US$">US$</label>
-                    <input id="pbttr_nilaitagihan" name="pbttr_nilaitagihan" value="<?php echo $detail['pbttr_nilaitagihan']; ?>"/>
+                    <p class="alert" id="pbttr_nilaitagihan">-</p>
                   </div> <!-- /field -->
 
                   <div class="field">
                     <label for="note">Lampiran</label>
-                    <label class="checkbox-inline"><input type="checkbox" name="pbttr_lampiran" value="Kwitansi Asli">Kwitansi Asli</label>
-                    <label class="checkbox-inline"><input type="checkbox" name="pbttr_lampiran" value="Invoice Asli">nvoice Asli</label>
-                    <label class="checkbox-inline"><input type="checkbox" name="pbttr_lampiran" value="Faktur Pajak Asli">Faktur Pajak Asli</label>
-                    <label class="checkbox-inline"><input type="checkbox" name="pbttr_lampiran" value="Surat Jalan Asli">Surat Jalan Asli</label>
-                    <label class="checkbox-inline"><input type="checkbox" name="pbttr_lampiran" value="Tanda Terima Asli + Quality Control Approval">Tanda Terima Asli + Quality Control Approval</label>
-                    <label class="checkbox-inline"><input type="checkbox" name="pbttr_lampiran" value="Purchase Order Asli/SPK"></label>
+                    <div class="rd-inline">
+                      <label class="checkbox-inline"><input type="checkbox" name="pbttr_lampiran" value="Kwitansi Asli">Kwitansi Asli</label>
+                      <label class="checkbox-inline"><input type="checkbox" name="pbttr_lampiran" value="Invoice Asli">nvoice Asli</label>
+                      <label class="checkbox-inline"><input type="checkbox" name="pbttr_lampiran" value="Faktur Pajak Asli">Faktur Pajak Asli</label>
+                      <label class="checkbox-inline"><input type="checkbox" name="pbttr_lampiran" value="Surat Jalan Asli">Surat Jalan Asli</label>
+                      <label class="checkbox-inline"><input type="checkbox" name="pbttr_lampiran" value="Tanda Terima Asli + Quality Control Approval">Tanda Terima Asli + Quality Control Approval</label>
+                      <label class="checkbox-inline"><input type="checkbox" name="pbttr_lampiran" value="Purchase Order Asli/SPK">Purchase Order Asli/SPK</label>
+                    </div>
                   </div> <!-- /field -->
 
                   <div class="field">
                     <label for="note">Lampiran</label>
-                    <label class="checkbox-inline"><input type="checkbox" value="">Dikembalikan, untuk dimasukkan kembali tanggal<input id="pbttr_tglkembali" class="date-picker" name="ppbttr_tglkembali" value="<?php echo $detail['pbttr_tglkembali']; ?>"  />karena lampiran tidak lengkap</label>
+                    <div class="rd-inline">
+                      <label class="checkbox-inline"><input type="checkbox" value="">Dikembalikan, untuk dimasukkan kembali tanggal<input id="pbttr_tglkembali" class="date-picker" name="ppbttr_tglkembali" value="<?php echo $detail['pbttr_tglkembali']; ?>"  />karena lampiran tidak lengkap</label>
+                    </div>
                   </div> <!-- /field -->
 
                   <div class="field">
@@ -112,3 +136,29 @@
   </div>
   <!-- /main-inner -->
 </div>
+
+<script type="text/javascript">
+  $(function(){
+
+    var get_info = function(id) {
+      var url = '<?php echo site_url("pembelian/referensi_invoice"); ?>/'+id;
+      $.getJSON(url, function(data){
+        $('#pbttr_nilaitagihan').text(data.pbptn_totaltagihan);
+      });
+    };
+
+    var clear_info = function() {
+      $('#pbttr_nilaitagihan').text('-');
+    };
+    
+    $('#pbttr_pbinv_id').change(function(){
+      clear_info();
+      var me = $(this);
+      var nilai = me.val() || '';
+      if(nilai == '') return;
+      get_info(nilai);
+    });
+
+    get_info($('#pbttr_pbinv_id').val());
+  })
+</script>

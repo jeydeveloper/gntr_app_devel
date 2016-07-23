@@ -169,6 +169,7 @@ $route['pembelian/permintaan/pdf/(:any)'] = "frontend_pembelian/pembelian/pdf_pe
 $route['pembelian/referensi/(:any)'] = "frontend_pembelian/pembelian/referensi/$1";
 $route['pembelian/referensi_kwitansi/(:any)'] = "frontend_pembelian/pembelian/referensi_kwitansi/$1";
 $route['pembelian/referensi_suratjalan/(:any)'] = "frontend_pembelian/pembelian/referensi_suratjalan/$1";
+$route['pembelian/referensi_invoice/(:any)'] = "frontend_pembelian/pembelian/referensi_invoice/$1";
 
 //route pembelian info barang
 $route['pembelian/info_barang/(:any)'] = "frontend_pembelian/pembelian/info_barang/$1";
