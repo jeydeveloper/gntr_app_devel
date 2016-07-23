@@ -1122,7 +1122,7 @@ class Pembelian extends MY_Frontend {
         $this->form_validation->set_rules('bp_norekening', 'No Rekening', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|xss_clean');
         $this->form_validation->set_rules('bp_noinvoice', 'No Invoice', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|xss_clean');
         $this->form_validation->set_rules('bp_tagihan', 'Tagihan', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|xss_clean');
-        $this->form_validation->set_rules('bp_terbilang', 'Terbilang', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
+        $this->form_validation->set_rules('bp_terbilang', 'Terbilang', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|xss_clean');
         $this->form_validation->set_rules('bp_tgltransaksi', 'Tanggal Transaksi', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|xss_clean');
         $this->form_validation->set_rules('bp_jamtransaksi', 'Jam Transaksi', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|xss_clean');
         $this->form_validation->set_rules('bp_jenistransaksi', 'Jenis Transaksi', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|xss_clean');
@@ -1203,7 +1203,7 @@ class Pembelian extends MY_Frontend {
         $this->form_validation->set_rules('bp_norekening', 'No Rekening', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|xss_clean');
         $this->form_validation->set_rules('bp_noinvoice', 'No Invoice', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|xss_clean');
         $this->form_validation->set_rules('bp_tagihan', 'Tagihan', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|xss_clean');
-        $this->form_validation->set_rules('bp_terbilang', 'Terbilang', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
+        $this->form_validation->set_rules('bp_terbilang', 'Terbilang', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|xss_clean');
         $this->form_validation->set_rules('bp_tgltransaksi', 'Tanggal Transaksi', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|xss_clean');
         $this->form_validation->set_rules('bp_jamtransaksi', 'Jam Transaksi', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|xss_clean');
         $this->form_validation->set_rules('bp_jenistransaksi', 'Jenis Transaksi', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|xss_clean');
@@ -1263,6 +1263,12 @@ class Pembelian extends MY_Frontend {
 
     function referensi_invoice($id) {
         $result = $this->db->from('pembelian_invoice')->join('pembelian_permintaan', 'pbinv_pbptn_id=pbptn_id')->join('vendor', 'pbptn_vndr_id=vndr_id')->where('pbinv_id = "'.$id.'"')->get()->row_array();
+        echo json_encode($result);
+    }
+
+    function referensi_tandaterima($id) {
+        $result = $this->db->from('pembelian_tandaterima')->join('pembelian_invoice', 'pbttr_pbinv_id=pbinv_id')->join('pembelian_kwitansi', 'pbttr_pbkw_id=pbkw_id')->join('pembelian_permintaan', 'pbttr_pbptn_id=pbptn_id')->join('vendor', 'pbptn_vndr_id=vndr_id')->where('pbttr_id = "'.$id.'"')->get()->row_array();
+        $result['terbilang'] = !empty($result['pbptn_totaltagihan']) ? terbilang($result['pbptn_totaltagihan']) : '-';
         echo json_encode($result);
     }
 

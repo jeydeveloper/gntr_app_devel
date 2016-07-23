@@ -38,28 +38,28 @@
                   </div> <!-- /field -->
 
                   <div class="field">
-                    <label for="bp_norekening">No Rekening:</label>
-                    <input id="bp_norekening" name="bp_norekening" value="<?php echo $detail['bp_norekening']; ?>"/>
+                    <label for="pbkw_norek">No Rekening:</label>
+                    <p class="alert" id="pbkw_norek">-</p>
                   </div> <!-- /field -->
 
                    <div class="field">
-                    <label for="bp_namarekening">Nama Rekening:</label>
-                    <input id="bp_namarekening" name="bp_namarekening" value="<?php echo $detail['bp_namarekening']; ?>"/>
+                    <label for="pbkw_an">Nama Rekening:</label>
+                    <p class="alert" id="pbkw_an">-</p>
                   </div> <!-- /field -->
 
                   <div class="field">
-                    <label for="bp_noinvoice">No Invoice:</label>
-                    <input type="bp_noinvoice" name="bp_noinvoice" value="<?php echo $detail['bp_noinvoice']; ?>"/>
+                    <label for="pbinv_noinvoice">No Invoice:</label>
+                    <p class="alert" id="pbinv_noinvoice">-</p>
                   </div> <!-- /field -->
 
                   <div class="field">
-                    <label for="bp_tagihan">Total Tagihan:</label>
-                    <input type="bp_tagihan" name="bp_tagihan" value="<?php echo $detail['bp_tagihan']; ?>"/>
+                    <label for="pbptn_totaltagihan">Total Tagihan:</label>
+                    <p class="alert" id="pbptn_totaltagihan">-</p>
                   </div> <!-- /field -->
 
                   <div class="field">
-                    <label for="bp_terbilang">Terbilang:</label>
-                    <textarea id="bp_terbilang" name="bp_terbilang"><?php echo $detail['bp_terbilang']; ?></textarea>
+                    <label for="terbilang">Terbilang:</label>
+                    <p class="alert" id="terbilang">-</p>
                   </div> <!-- /field -->
 
                   <div class="field">
@@ -95,3 +95,37 @@
   </div>
   <!-- /main-inner -->
 </div>
+
+<script type="text/javascript">
+  $(function(){
+
+    var get_info = function(id) {
+      var url = '<?php echo site_url("pembelian/referensi_tandaterima"); ?>/'+id;
+      $.getJSON(url, function(data){
+        $('#pbkw_norek').text(data.pbkw_norek);
+        $('#pbkw_an').text(data.pbkw_an);
+        $('#pbinv_noinvoice').text(data.pbinv_noinvoice);
+        $('#pbptn_totaltagihan').text(data.pbptn_totaltagihan);
+        $('#terbilang').text(data.terbilang);
+      });
+    };
+
+    var clear_info = function() {
+      $('#pbkw_norek').text('-');
+      $('#pbkw_an').text('-');
+      $('#pbinv_noinvoice').text('-');
+      $('#pbptn_totaltagihan').text('-');
+      $('#terbilang').text('-');
+    };
+    
+    $('#bp_pbttr_id').change(function(){
+      clear_info();
+      var me = $(this);
+      var nilai = me.val() || '';
+      if(nilai == '') return;
+      get_info(nilai);
+    });
+
+    get_info($('#bp_pbttr_id').val());
+  })
+</script>
