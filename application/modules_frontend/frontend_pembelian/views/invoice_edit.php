@@ -40,40 +40,14 @@
                         <input type="text"  class="date-picker" id="pbinv_tanggal" name="pbinv_tanggal" value="<?php echo $detail['pbinv_tanggal']; ?>" />
                       </div> <!-- /field -->
 
-
-                      <div class="field">
-                        <label for="pbinv_wo">WO No:</label>
-                        <input type="text" id="pbinv_wo" name="pbinv_wo" value="<?php echo $detail['pbinv_wo']; ?>"/>
-                      </div> <!-- /field -->
-
-                      <div class="field">
-                        <label for="pbinv_wotgl">Tanggal:</label>
-                        <input type="text"  class="date-picker" id="pbinv_wotgl" name="pbinv_wotgl" value="<?php echo $detail['pbinv_wotgl']; ?>" />
-                      </div> <!-- /field -->
-
-                      <div class="field">
-                        <label for="pbinv_nopenawaran">Penawaran WO</label>
-                        <input type="text" id="pbinv_nopenawaran" name="pbinv_nopenawaran" value="<?php echo $detail['pbinv_nopenawaran']; ?>"/>
-                      </div> <!-- /field -->
-
-                      <div class="field">
-                        <label for="pbinv_to">Ditujukan Ke:</label>
-                        <input type="text"   id="pbinv_to" name="pbinv_to" value="<?php echo $detail['pbinv_to']; ?>" />
-                      </div> <!-- /field -->
-
-                      <div class="field">
-                        <label for="pbinv_alamat">Alamat:</label>
-                        <textarea id="pbinv_alamat" name="pbinv_alamat"><?php echo $detail['pbinv_alamat']; ?></textarea>
-                      </div> <!-- /field -->
-
                       <div class="field">
                         <label for="pbinv_totaltagihan">Total Tagihan:</label>
-                        <input type="text" id="pbinv_totaltagihan" name="pbinv_totaltagihan" value="<?php echo $detail['pbinv_totaltagihan']; ?>"/>
+                        <p class="alert" id="pbinv_totaltagihan">-</p>
                       </div> <!-- /field -->
 
                       <div class="field">
                         <label for="pbinv_terbilang">Terbilang:</label>
-                        <input type="text" id="pbinv_terbilang" name="pbinv_terbilang" value="<?php echo $detail['pbinv_terbilang']; ?>"/>
+                        <p class="alert" id="pbinv_terbilang">-</p>
                       </div> <!-- /field -->
 
                       <div class="field">
@@ -82,11 +56,18 @@
                       </div> <!-- /field -->
 
                       <div class="field">
-                    <label for="uploadfile">Upload File:</label>
-                      <img src="<?php echo site_url('/'); ?>assets/images/<?php echo $detail['uploadfile']; ?>" width="100px">
+                        <label for="uploadfile">Upload File:</label>
+                          <img src="<?php echo site_url('/'); ?>assets/images/<?php echo $detail['uploadfile']; ?>" width="100px">
 
-                    <input type="file" class="form-control-file" name="uploadfile" id="uploadfile">
-                  </div> <!-- /field -->
+                        <input type="file" class="form-control-file" name="uploadfile" id="uploadfile">
+                      </div> <!-- /field -->
+
+                      <div class="form-actions">
+                        <div class="pull-right">
+                          <button type="reset" class="button btn btn-default btn-large">Reset</button>
+                          <button class="button btn btn-primary btn-large">Submit</button>
+                        </div>
+                      </div>
 
                     </div> <!-- /form-fields -->
                 </div>
@@ -102,31 +83,22 @@
                 <!-- /widget-header -->
                 <div class="widget-content">
                     <div class="form-fields">
-                       <?php foreach($invoice as $inv): ?>
-                        <div class="field">
-                            <label for="pbinvd_jenisbarang">Jenis Barang:</label>
-                            <select name="pbinvd_jenisbarang[]" id="pbinvd_jenisbarang[]" />
-                               <?php foreach($option_barang as $value): ?>
-                              <option value="<?php echo $value['value']; ?>" <?php echo ($inv->pbinvd_jenisbarang == $value['value'] ? 'selected' : ''); ?>><?php echo $value['name']; ?></option>
-                              <?php endforeach; ?>
-                            </select>
-                        </div> <!-- /field -->
-
-                        <div class="field">
-                            <label for="pbinvd_jumlah">Volume:</label>
-                            <input id="pbinvd_jumlah[]" name="pbinvd_jumlah[]" value="<?php echo $inv->pbinvd_jumlah; ?>"/>
-                        </div> <!-- /field -->
-                        <input type="hidden" name="pbinvd_id[]" value="<?php echo $inv->pbinvd_id; ?>" />
-                        <?php endforeach; ?>
-                    </div>
-                    <div id="container"></div>
-                    <!-- <a href="#" id="addRow"><i class="icon-plus-sign icon-white"></i> Tambah Barang</p></a> -->
-                    <div class="form-actions">
-                      <div class="pull-right">
-                        <button type="reset" class="button btn btn-default btn-large">Reset</button>
-                        <button class="button btn btn-primary btn-large"><a href="print_invoice.html"></a> Submit</button>
-                      </div>
-                    </div> <!-- .actions -->
+                      <table style="width:100%;" border="1" cellpadding="5" id="tblInfoBarang">
+                        <thead>
+                          <tr>
+                            <th>No</th>
+                            <th>Nama Barang</th>
+                            <th>Volume</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td colspan="3">Data is empty</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div> <!-- /form-fields -->
+                </div>
                 <!-- /widget-content -->
               </div>
               <!-- /widget -->
@@ -140,3 +112,51 @@
   </div>
   <!-- /main-inner -->
 </div>
+
+<script type="text/javascript">
+  $(function(){
+    var info_barang = function(id) {
+      var url = '<?php echo site_url("pembelian/info_barang"); ?>/'+id;
+      $.getJSON(url, function(data){
+        var txtHtml = '';
+        var cnt = 1;
+        $.each(data, function(idx, val){
+          console.log(val);
+          txtHtml += '<tr>';
+          txtHtml += '<td>'+ cnt++ +'</td>';
+          txtHtml += '<td>'+val.brjs_nama+'</td>';
+          txtHtml += '<td>'+val.pbptnd_jumlah+'</td>';
+          txtHtml += '<tr>';
+        });
+        $('#tblInfoBarang tbody').empty().append(txtHtml);
+      });
+    };
+
+    var get_info = function(id) {
+      var url = '<?php echo site_url("pembelian/referensi_suratjalan"); ?>/'+id;
+      $.getJSON(url, function(data){
+        $('#pbinv_totaltagihan').text(data.pbptn_totaltagihan);
+        $('#pbinv_terbilang').text(data.pbinv_terbilang);
+
+        info_barang(data.pbptn_id);
+      });
+    };
+
+    var clear_info = function() {
+      $('#pbinv_totaltagihan').text('-');
+      $('#pbinv_terbilang').text('-');
+
+      $('#tblInfoBarang tbody').empty();
+    };
+    
+    $('#pbinv_pbsrtjalan_id').change(function(){
+      clear_info();
+      var me = $(this);
+      var nilai = me.val() || '';
+      if(nilai == '') return;
+      get_info(nilai);
+    });
+
+    get_info($('#pbinv_pbsrtjalan_id').val());
+  })
+</script>

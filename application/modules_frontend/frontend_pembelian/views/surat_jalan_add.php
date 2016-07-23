@@ -82,6 +82,13 @@
                         <label for="uploadfile">Upload File:</label>
                         <input type="file" class="form-control-file" name="uploadfile" id="uploadfile">
                       </div> <!-- /field -->
+
+                      <div class="form-actions">
+                        <div class="pull-right">
+                          <button type="reset" class="button btn btn-default btn-large">Reset</button>
+                          <button class="button btn btn-primary btn-large">Submit</button>
+                        </div>
+                      </div>
                     </div> <!-- /form-fields -->
                 </div>
                 <!-- /widget-content -->
@@ -180,10 +187,21 @@
         info_barang(data.pbptn_id);
       });
     };
+
+    var clear_info = function() {
+      $('#pbsrtjalan_vendor').text('-');
+      $('#pbsrtjalan_totaltagihan').text('-');
+      $('#pbsrtjalan_terbilang').text('-');
+
+      $('#tblInfoBarang tbody').empty();
+    };
     
     $('#pbsrtjalan_pbkw_id').change(function(){
+      clear_info();
       var me = $(this);
-      get_info(me.val());
+      var nilai = me.val() || '';
+      if(nilai == '') return;
+      get_info(nilai);
     });
   })
 </script>

@@ -19,10 +19,6 @@
                     <th> No. </th>
                     <th> No. Invoice </th>
                     <th> Tanggal </th>
-                    <th> No. WO</th>
-                    <th> Tanggal </th>
-                    <th> No. Penawaran </th>
-                    <th> Ditujukan Ke </th>
                     <th> Total Tagihan</th>
                     <th> File </th>
                     <th class="td-actions"> Actions </th>
@@ -35,13 +31,9 @@
                       <td><?php echo ($key+1); ?></td>
                       <td><?php echo $value['pbinv_noinvoice']; ?></td>
                       <td><?php echo $value['pbinv_tanggal']; ?></td>
-                      <td><?php echo $value['pbinv_wo']; ?></td>
-                      <td><?php echo $value['pbinv_wotgl']; ?></td>
-                      <td><?php echo $value['pbinv_nopenawaran']; ?></td>
-                      <td><?php echo $value['pbinv_to']; ?></td>
-                      <td><?php echo $value['pbinv_totaltagihan']; ?></td>
+                      <td><?php echo $value['pbptn_totaltagihan']; ?></td>
                       <td><a href="<?php echo site_url('/'); ?>assets/images/<?php echo $value['uploadfile']; ?>" target="_blank">
-                          <img src="<?php echo site_url('/'); ?>assets/images/<?php echo $value['uploadfile']; ?>" width="50px">
+                          <img src="<?php echo site_url('/'); ?>assets/images/<?php echo $value['uploadfile']; ?>" width="50px" onError="this.onerror=null;this.src='http://localhost/gntr_app_devel/assets/images/noimage.png';">
                         </a></td>
 
                       <td class="td-actions"><a href="<?php echo ($module_base_url.'/invoice/edit/'.$value['pbinv_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a>

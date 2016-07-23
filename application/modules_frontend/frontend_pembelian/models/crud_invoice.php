@@ -49,7 +49,7 @@ class Crud_invoice extends CI_Model {
     }
 
     function get_all(){
-        return $this->db->get('pembelian_invoice')->result_array();
+        return $this->db->from('pembelian_invoice')->join('pembelian_permintaan', 'pbinv_pbptn_id=pbptn_id')->join('vendor', 'pbptn_vndr_id=vndr_id')->get()->result_array();
     }
 
     function posts($data){

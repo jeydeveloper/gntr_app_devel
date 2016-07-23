@@ -80,11 +80,18 @@
                       </div> <!-- /field -->
 
                       <div class="field">
-                    <label for="uploadfile">Upload File:</label>
-                      <img src="<?php echo site_url('/'); ?>assets/images/<?php echo $detail['uploadfile']; ?>" width="100px">
+                        <label for="uploadfile">Upload File:</label>
+                          <img src="<?php echo site_url('/'); ?>assets/images/<?php echo $detail['uploadfile']; ?>" width="100px">
 
-                    <input type="file" class="form-control-file" name="uploadfile" id="uploadfile">
-                  </div> <!-- /field -->
+                        <input type="file" class="form-control-file" name="uploadfile" id="uploadfile">
+                      </div> <!-- /field -->
+
+                      <div class="form-actions">
+                        <div class="pull-right">
+                          <button type="reset" class="button btn btn-default btn-large">Reset</button>
+                          <button class="button btn btn-primary btn-large">Submit</button>
+                        </div>
+                      </div>
 
                     </div> <!-- /form-fields -->
                 </div>
@@ -100,31 +107,22 @@
                 <!-- /widget-header -->
                 <div class="widget-content">
                     <div class="form-fields">
-                       <?php foreach($surat as $pmt): ?>
-                        <div class="field">
-                            <label for="pbsuratjaland_jenisbarang">Jenis Barang:</label>
-                            <select name="pbsuratjaland_jenisbarang[]" id="pbsuratjaland_jenisbarang[]" />
-                               <?php foreach($option_barang as $value): ?>
-                              <option value="<?php echo $value['value']; ?>" <?php echo ($pmt->pbsuratjaland_jenisbarang == $value['value'] ? 'selected' : ''); ?>><?php echo $value['name']; ?></option>
-                              <?php endforeach; ?>
-                            </select>
-                        </div> <!-- /field -->
-
-                        <div class="field">
-                            <label for="pbsuratjaland_jumlah">Volume:</label>
-                            <input id="pbsuratjaland_jumlah[]" name="pbsuratjaland_jumlah[]" value="<?php echo $pmt->pbsuratjaland_jumlah; ?>"/>
-                        </div> <!-- /field -->
-                        <input type="hidden" name="pbsuratjaland_id[]" value="<?php echo $pmt->pbsuratjaland_id; ?>" />
-                        <?php endforeach; ?>
-                    </div>
-                    <div id="container"></div>
-                    <!-- <a href="#" id="addRow"><i class="icon-plus-sign icon-white"></i> Tambah Barang</p></a> -->
-                    <div class="form-actions">
-                      <div class="pull-right">
-                        <button type="reset" class="button btn btn-default btn-large">Reset</button>
-                        <button class="button btn btn-primary btn-large"><a href="print_invoice.html"></a> Submit</button>
-                      </div>
-                    </div> <!-- .actions -->
+                      <table style="width:100%;" border="1" cellpadding="5" id="tblInfoBarang">
+                        <thead>
+                          <tr>
+                            <th>No</th>
+                            <th>Nama Barang</th>
+                            <th>Volume</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td colspan="3">Data is empty</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div> <!-- /form-fields -->
+                </div>
                 <!-- /widget-content -->
               </div>
               <!-- /widget -->
@@ -157,6 +155,56 @@
     $('#pbsrtjalan_pbkw_id').change(function(){
       var me = $(this);
       get_info(me.val());
+    });
+
+    get_info($('#pbsrtjalan_pbkw_id').val());
+  })
+</script>
+
+<script type="text/javascript">
+  $(function(){
+    var info_barang = function(id) {
+      var url = '<?php echo site_url("pembelian/info_barang"); ?>/'+id;
+      $.getJSON(url, function(data){
+        var txtHtml = '';
+        var cnt = 1;
+        $.each(data, function(idx, val){
+          console.log(val);
+          txtHtml += '<tr>';
+          txtHtml += '<td>'+ cnt++ +'</td>';
+          txtHtml += '<td>'+val.brjs_nama+'</td>';
+          txtHtml += '<td>'+val.pbptnd_jumlah+'</td>';
+          txtHtml += '<tr>';
+        });
+        $('#tblInfoBarang tbody').empty().append(txtHtml);
+      });
+    };
+
+    var get_info = function(id) {
+      var url = '<?php echo site_url("pembelian/referensi_kwitansi"); ?>/'+id;
+      $.getJSON(url, function(data){
+        $('#pbsrtjalan_vendor').text(data.vndr_nama);
+        $('#pbsrtjalan_totaltagihan').text(data.pbptn_totaltagihan);
+        $('#pbsrtjalan_terbilang').text(data.pbsrtjalan_terbilang);
+
+        info_barang(data.pbptn_id);
+      });
+    };
+
+    var clear_info = function() {
+      $('#pbsrtjalan_vendor').text('-');
+      $('#pbsrtjalan_totaltagihan').text('-');
+      $('#pbsrtjalan_terbilang').text('-');
+
+      $('#tblInfoBarang tbody').empty();
+    };
+    
+    $('#pbsrtjalan_pbkw_id').change(function(){
+      clear_info();
+      var me = $(this);
+      var nilai = me.val() || '';
+      if(nilai == '') return;
+      get_info(nilai);
     });
 
     get_info($('#pbsrtjalan_pbkw_id').val());
