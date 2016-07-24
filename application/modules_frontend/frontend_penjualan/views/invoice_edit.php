@@ -41,44 +41,51 @@
                       
                       
                       <div class="field">
-                        <label for="pjinv_wo">WO No:</label>
-                        <input type="text" id="pjinv_wo" name="pjinv_wo" value="<?php echo $detail['pjinv_wo']; ?>"/>
+                        <label for="ppmt_noso">PO No:</label>
+                        <p class="alert" id="ppmt_noso">-</p>
                       </div> <!-- /field -->
 
                       <div class="field">
-                        <label for="pjinv_wotgl">Tanggal:</label>  
-                        <input type="text"  class="date-picker" id="pjinv_wotgl" name="pjinv_wotgl" value="<?php echo $detail['pjinv_wotgl']; ?>" />
+                        <label for="ppmt_tanggal">Tanggal:</label>  
+                        <p class="alert" id="ppmt_tanggal">-</p>
                       </div> <!-- /field -->
 
                       <div class="field">
-                        <label for="pjinv_nopenawaran">Penawaran WO</label>
-                        <input type="text" id="pjinv_nopenawaran" name="pjinv_nopenawaran" value="<?php echo $detail['pjinv_nopenawaran']; ?>"/>
+                        <label for="ppnw_no_penawaran">Penawaran WO</label>
+                        <p class="alert" id="ppnw_no_penawaran">-</p>
                       </div> <!-- /field -->
 
                       <div class="field">
-                        <label for="pjinv_to">Ditujukan Ke:</label>  
-                        <input type="text"   id="pjinv_to" name="pjinv_to" value="<?php echo $detail['pjinv_to']; ?>" />
+                        <label for="clnt_nama">Ditujukan Ke:</label>  
+                        <p class="alert" id="clnt_nama">-</p>
                       </div> <!-- /field -->
 
                       <div class="field">
-                        <label for="pjinv_alamat">Alamat:</label>  
-                        <textarea id="pjinv_alamat" name="pjinv_alamat"><?php echo $detail['pjinv_alamat']; ?></textarea>
+                        <label for="clnt_alamat">Alamat:</label>  
+                        <p class="alert" id="clnt_alamat">-</p>
                       </div> <!-- /field -->
 
                       <div class="field">
-                        <label for="pjinv_totaltagihan">Total Tagihan:</label>
-                        <input type="text" id="pjinv_totaltagihan" name="pjinv_totaltagihan" value="<?php echo $detail['pjinv_totaltagihan']; ?>"/>
+                        <label for="ppnw_nilai_faktur">Total Tagihan:</label>
+                        <p class="alert" id="ppnw_nilai_faktur">-</p>
                       </div> <!-- /field -->
 
                       <div class="field">
-                        <label for="pjinv_terbilang">Terbilang:</label>
-                        <input type="text" id="pjinv_terbilang" name="pjinv_terbilang" value="<?php echo $detail['pjinv_terbilang']; ?>"/>
+                        <label for="terbilang">Terbilang:</label>
+                        <p class="alert" id="terbilang">-</p>
                       </div> <!-- /field -->
 
                       <div class="field">
                         <label for="pjinv_description">Deskripsi:</label>  
                         <textarea id="pjinv_description" name="pjinv_description"><?php echo $detail['pjinv_description']; ?></textarea>
                       </div> <!-- /field -->
+
+                      <div class="form-actions">
+                        <div class="pull-right">
+                          <button type="reset" class="button btn btn-default btn-large">Reset</button>
+                          <button class="button btn btn-primary btn-large">Submit</button>
+                        </div>
+                      </div>
                       
                     </div> <!-- /form-fields -->
                 </div>
@@ -94,32 +101,25 @@
                 <!-- /widget-header -->
                 <div class="widget-content">
                     <div class="form-fields">
-                       <?php foreach($invoice as $inv): ?>
-                        <div class="field">
-                            <label for="pjinvd_jenisbarang">Jenis Barang:</label>
-                            <select name="pjinvd_jenisbarang[]" id="pjinvd_jenisbarang[]" />
-                               <?php foreach($option_barang as $value): ?>
-                              <option value="<?php echo $value['value']; ?>" <?php echo ($inv->pjinvd_jenisbarang == $value['value'] ? 'selected' : ''); ?>><?php echo $value['name']; ?></option>
-                              <?php endforeach; ?>
-                            </select>
-                        </div> <!-- /field -->
-
-                        <div class="field">
-                            <label for="pjinvd_jumlah">Volume:</label>
-                            <input id="pjinvd_jumlah[]" name="pjinvd_jumlah[]" value="<?php echo $inv->pjinvd_jumlah; ?>"/>
-                        </div> <!-- /field -->
-                        <input type="hidden" name="pjinvd_id[]" value="<?php echo $inv->pjinvd_id; ?>" />
-                        <?php endforeach; ?>
-                    </div>
-                    <div id="container"></div>
-                    <!-- <a href="#" id="addRow"><i class="icon-plus-sign icon-white"></i> Tambah Barang</p></a> -->
-                    <div class="form-actions">
-                      <div class="pull-right">
-                        <button type="reset" class="button btn btn-default btn-large">Reset</button>
-                        <button class="button btn btn-primary btn-large"><a href="print_invoice.html"></a> Submit</button>
-                      </div>
-                    </div> <!-- .actions -->
-                <!-- /widget-content --> 
+                      <table style="width:100%;" border="1" cellpadding="5" id="tblInfoBarang">
+                        <thead>
+                          <tr>
+                            <th>No</th>
+                            <th>Nama Barang</th>
+                            <th>Volume</th>
+                            <th>Satuan</th>
+                            <th>Harga</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td colspan="5">Data is empty</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div> <!-- /form-fields -->
+                </div>
+                <!-- /widget-content -->
               </div>
               <!-- /widget -->
             </div>
@@ -152,4 +152,68 @@
     $html.find('[name=pjinvd_jumlah]').name="pjinvd_jumlah[]" + len;
     return $html.html();    
 }
+</script>
+
+<script type="text/javascript">
+  $(function(){
+    var info_barang = function(id) {
+      var url = '<?php echo site_url("penjualan/info_barang"); ?>/'+id;
+      $.getJSON(url, function(data){
+        var txtHtml = '';
+        var cnt = 1;
+        $.each(data, function(idx, val){
+          console.log(val);
+          txtHtml += '<tr>';
+          txtHtml += '<td>'+ cnt++ +'</td>';
+          txtHtml += '<td>'+val.ppnwd_jenisbarang+'</td>';
+          txtHtml += '<td>'+val.ppnwd_volume+'</td>';
+          txtHtml += '<td>'+val.ppnwd_satuan+'</td>';
+          txtHtml += '<td>'+val.ppnwd_hargasatuan+'</td>';
+          txtHtml += '<tr>';
+        });
+        $('#tblInfoBarang tbody').empty().append(txtHtml);
+      });
+    };
+
+    var get_info = function(id) {
+      var url = '<?php echo site_url("penjualan/referensi_permintaan"); ?>/'+id;
+      $.getJSON(url, function(data){
+        $('#ppmt_noso').text(data.ppmt_noso);
+        $('#ppmt_tanggal').text(data.ppmt_tanggal);
+        $('#ppnw_no_penawaran').text(data.ppnw_no_penawaran);
+        $('#clnt_nama').text(data.clnt_nama);
+        $('#clnt_alamat').text(data.clnt_alamat);
+        $('#ppnw_nilai_faktur').text(data.ppnw_nilai_faktur);
+        $('#terbilang').text(data.terbilang);
+
+        info_barang(data.ppnw_id);
+      });
+    };
+
+    var clear_info = function() {
+      $('#ppmt_noso').text('-');
+      $('#ppmt_tanggal').text('-');
+      $('#ppnw_no_penawaran').text('-');
+      $('#clnt_nama').text('-');
+      $('#clnt_alamat').text('-');
+      $('#ppnw_nilai_faktur').text('-');
+      $('#terbilang').text('-');
+    };
+    
+    $('#pjinv_ppmt_id').change(function(){
+      clear_info();
+      var me = $(this);
+      var nilai = me.val() || '';
+      if(nilai == '') return;
+      get_info(nilai);
+    });
+
+    get_info($('#pjinv_ppmt_id').val());
+  })
+</script>
+
+<script type="text/javascript">
+  $(function(){
+    $('.numberformat').number( true, 0, ',', '.' );
+  })
 </script>

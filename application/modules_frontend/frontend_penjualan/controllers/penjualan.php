@@ -1385,7 +1385,6 @@ class Penjualan extends MY_Frontend {
 
 	function referensi_penawaran($id) {
         $result = $this->db->from('penjualan_penawaran')->where('ppnw_id = "'.$id.'"')->get()->row_array();
-        $result['ppmt_nopo'] = $result['ppnw_no_penawaran'];
         $result['ppmt_diskon'] = $result['ppnw_diskon'];
         $result['ppmt_pajak'] = $result['ppnw_pajak'];
         $result['ppmt_biayakirim'] = add_numberformat($result['ppnw_biaya_kirim']);
@@ -1393,8 +1392,15 @@ class Penjualan extends MY_Frontend {
         echo json_encode($result);
     }
 
+    function referensi_permintaan($id) {
+        $result = $this->db->from('penjualan_permintaan')->join('penjualan_penawaran', 'ppmt_ppnw_id=ppnw_id')->join('client', 'ppmt_clnt_id=clnt_id')->where('ppmt_id = "'.$id.'"')->get()->row_array();
+        $result['terbilang'] = !empty($result['ppnw_nilai_faktur']) ? terbilang($result['ppnw_nilai_faktur']) : '-';
+        $result['ppnw_nilai_faktur'] = add_numberformat($result['ppnw_nilai_faktur']);
+        echo json_encode($result);
+    }
+
     function info_barang($id) {
-        $result = $this->db->from('pembelian_permintaan')->join('pembelian_permintaan_detail', 'pbptn_no=pbptnd_nopermintaan')->join('barang_jasa', 'pbptnd_jenisbarang=brjs_id')->where('pbptn_id = "'.$id.'"')->get()->result_array();
+        $result = $this->db->from('penjualan_penawaran')->join('penjualan_penawaran_detail', 'ppnw_no_penawaran=ppnwd_no_penawaran')->where('ppnw_id = "'.$id.'"')->get()->result_array();
         echo json_encode($result);
     }
 }

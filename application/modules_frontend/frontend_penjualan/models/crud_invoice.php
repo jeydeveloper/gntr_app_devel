@@ -49,7 +49,7 @@ class Crud_invoice extends CI_Model {
 	}
 
 	function get_all(){
-		return $this->db->get('penjualan_invoice')->result_array();
+		return $this->db->from('penjualan_invoice')->join('penjualan_permintaan', 'pjinv_ppmt_id=ppmt_id')->join('penjualan_penawaran', 'pjinv_ppnw_id=ppnw_id')->join('client', 'ppmt_clnt_id=clnt_id')->get()->result_array();
 	}
 
 	function posts($data){

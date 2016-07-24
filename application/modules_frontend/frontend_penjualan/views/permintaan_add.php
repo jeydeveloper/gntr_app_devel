@@ -59,11 +59,6 @@
                   </div> <!-- /field -->
 
                   <div class="field">
-                    <label for="email">No. PO:</label>
-                    <p class="alert" id="ppmt_nopo">-</p>
-                  </div> <!-- /field -->
-
-                  <div class="field">
                     <label for="email">Diskon:</label>
                     <p class="alert" id="ppmt_diskon">-</p>
                   </div> <!-- /field -->
@@ -131,7 +126,6 @@
     var get_info = function(id) {
       var url = '<?php echo site_url("penjualan/referensi_penawaran"); ?>/'+id;
       $.getJSON(url, function(data){
-        $('#ppmt_nopo').text(data.ppmt_nopo);
         $('#ppmt_diskon').text(data.ppmt_diskon);
         $('#ppmt_pajak').text(data.ppmt_pajak);
         $('#ppmt_biayakirim').text(data.ppmt_biayakirim);
@@ -140,7 +134,6 @@
     };
 
     var clear_info = function() {
-      $('#ppmt_nopo').text('-');
       $('#ppmt_diskon').text('-');
       $('#ppmt_pajak').text('-');
       $('#ppmt_biayakirim').text('-');

@@ -19,7 +19,7 @@
                     <th> No. </th>
                     <th> No. Invoice </th>
                     <th> Tanggal </th>
-                    <th> No. WO</th>
+                    <th> No. PO</th>
                     <th> Tanggal </th>
                     <th> No. Penawaran </th>
                     <th> Ditujukan Ke </th>
@@ -35,11 +35,11 @@
                       <td><?php echo ($key+1); ?></td>
                       <td><?php echo $value['pjinv_noinvoice']; ?></td>
                       <td><?php echo $value['pjinv_tanggal']; ?></td>
-                      <td><?php echo $value['pjinv_wo']; ?></td>
-                      <td><?php echo $value['pjinv_wotgl']; ?></td>
-                      <td><?php echo $value['pjinv_nopenawaran']; ?></td>
-                      <td><?php echo $value['pjinv_to']; ?></td>
-                      <td><?php echo $value['pjinv_totaltagihan']; ?></td>
+                      <td><?php echo $value['ppmt_noso']; ?></td>
+                      <td><?php echo $value['ppmt_tanggal']; ?></td>
+                      <td><?php echo $value['ppnw_no_penawaran']; ?></td>
+                      <td><?php echo $value['clnt_nama']; ?></td>
+                      <td><?php echo add_numberformat($value['ppnw_nilai_faktur']); ?></td>
                       <td><a href="<?php echo ($module_base_url_invoice.'/pdf/'.$value['pjinv_id']); ?>" target="_blank">View PDF</a></td>
 
                       <td class="td-actions"><a href="<?php echo ($module_base_url_invoice.'/edit/'.$value['pjinv_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a> <a href="<?php echo ($module_base_url_invoice.'/delete/'.$value['pjinv_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>
