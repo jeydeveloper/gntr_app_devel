@@ -39,8 +39,13 @@
                   
                   
                   <div class="field">
-                    <label for="phone">No. Rekening:</label>
-                    <input type="text"  id="pbktp_norekening" name="pbktp_norekening" value="" placeholder="No. Rekening"/>
+                    <label for="phone">Tranfer ke Rekening:</label>
+                    <select name="pbktp_norekening" id="pbktp_norekening" required /> 
+                      <option value="">-- Pilih --</option>
+                      <?php foreach($static_data_source['bank'] as $value): ?>
+                        <option value="<?php echo $value['value']; ?>"><?php echo $value['name']; ?></option>
+                      <?php endforeach; ?>
+                    </select>
                   </div> <!-- /field -->
                   
                   <div class="field">

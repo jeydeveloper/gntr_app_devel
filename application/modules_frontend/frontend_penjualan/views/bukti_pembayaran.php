@@ -19,7 +19,7 @@
                     <th> No. </th>
                     <th> Tanggal Transaksi </th>
                     <th> No. Transaksi </th>
-                    <th> No. Rekening </th>
+                    <th> Tranfer ke Rekening </th>
                     <th> No. Invoice </th>
                     <th> Total Tagihan </th>
                     <th> Jenis Transaksi </th>
@@ -34,7 +34,7 @@
                       <td><?php echo ($key+1); ?></td>
                       <td><?php echo $value['pbktp_tgltransaksi']; ?></td>
                       <td><?php echo $value['pbktp_notransaksi']; ?></td>
-                      <td><?php echo $value['pbktp_norekening']; ?></td>
+                      <td><?php echo (!empty($static_data_source['bank'][$value['pbktp_norekening']]) ? $static_data_source['bank'][$value['pbktp_norekening']]['name'] : '-'); ?></td>
                       <td><?php echo $value['pbktp_noinvoice']; ?></td>
                       <td><?php echo $value['pbktp_totaltagihan']; ?></td>
                       <td><?php echo $value['pbktp_jenistransaksi']; ?></td>
