@@ -46,8 +46,8 @@
                       <td><?php echo $value['ppnw_status']; ?></td>
                       <td><?php echo $value['ppnw_diskon']; ?></td>
                       <td><?php echo $value['ppnw_pajak']; ?></td>
-                      <td><?php echo $value['ppnw_biaya_kirim']; ?></td>
-                      <td><?php echo $value['ppnw_nilai_faktur']; ?></td>
+                      <td><?php echo add_numberformat($value['ppnw_biaya_kirim']); ?></td>
+                      <td><?php echo add_numberformat($value['ppnw_nilai_faktur']); ?></td>
                       <td><?php echo $value['ppnw_keterangan']; ?></td>
                        <td><a href="<?php echo ($module_base_url_penawaran.'/pdf/'.$value['ppnw_id']); ?>" target="_blank">View PDF</a></td>
                       <td class="td-actions"><a href="<?php echo ($module_base_url_penawaran.'/edit/'.$value['ppnw_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a> <a href="<?php echo ($module_base_url_penawaran.'/delete/'.$value['ppnw_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>

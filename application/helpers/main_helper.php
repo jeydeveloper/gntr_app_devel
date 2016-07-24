@@ -360,3 +360,15 @@ function terbilang($x, $style=4) {
     }     
     return $hasil;
 }
+
+function clear_numberformat($nilai) {
+	if(empty($nilai)) return 0;
+
+	return str_replace('.', '', $nilai);
+}
+
+function add_numberformat($nilai) {
+	if(empty($nilai)) return 0;
+
+	return number_format($nilai, '0', ',', '.');
+}

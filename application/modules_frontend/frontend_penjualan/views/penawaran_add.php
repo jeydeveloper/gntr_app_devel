@@ -57,12 +57,12 @@
 
                   <div class="field">
                     <label for="ppnw_biaya_kirim">Biaya Kirim</label>
-                    <input id="ppnw_biaya_kirim" name="ppnw_biaya_kirim" placeholder="Biaya Kirim" />
+                    <input class="numberformat" id="ppnw_biaya_kirim" name="ppnw_biaya_kirim" placeholder="Biaya Kirim" />
                   </div> <!-- /field -->
 
                   <div class="field">
                     <label for="ppnw_nilai_faktur">Nilai Faktur</label>
-                    <input id="ppnw_nilai_faktur" name="ppnw_nilai_faktur" placeholder="Nilai Faktur" />
+                    <input class="numberformat" id="ppnw_nilai_faktur" name="ppnw_nilai_faktur" placeholder="Nilai Faktur" />
                   </div> <!-- /field -->
 
                   <div class="field">
@@ -102,7 +102,7 @@
                       </div> <!-- /field -->
                       <div class="field">
                         <label for="ppnwd_hargasatuan">Harga Satuan:</label>
-                        <input id="ppnwd_hargasatuan[]" name="ppnwd_hargasatuan[]" value="" placeholder="Harga Satuan"/>
+                        <input class="numberformat" id="ppnwd_hargasatuan[]" name="ppnwd_hargasatuan[]" value="" placeholder="Harga Satuan"/>
                       </div> <!-- /field -->
                     </div>
                     <div id="container"></div>
@@ -167,4 +167,10 @@
             .css("background-color", "white");
     }
 });
+</script>
+
+<script type="text/javascript">
+  $(function(){
+    $('.numberformat').number( true, 0, ',', '.' );
+  })
 </script>

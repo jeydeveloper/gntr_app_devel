@@ -84,12 +84,14 @@ class Penjualan extends MY_Frontend {
 				'ppnw_status' => $this->input->post('ppnw_status'),
 				'ppnw_diskon' => $this->input->post('ppnw_diskon'),
 				'ppnw_pajak' => $this->input->post('ppnw_pajak'),
-				'ppnw_biaya_kirim' => $this->input->post('ppnw_biaya_kirim'),
-				'ppnw_nilai_faktur' => $this->input->post('ppnw_nilai_faktur'),
+				'ppnw_biaya_kirim' => clear_numberformat($this->input->post('ppnw_biaya_kirim')),
+				'ppnw_nilai_faktur' => clear_numberformat($this->input->post('ppnw_nilai_faktur')),
 				'ppnw_keterangan' => $this->input->post('ppnw_keterangan'),
 				'ppnw_entrydate' => $this->_data['datetime'],
 			);
 			$this->crud->posts_penawaran($db_data);
+
+			$last_id = $this->db->insert_id();
 
             $barang      = $this->input->post('ppnwd_jenisbarang');
             $barang2      = $this->input->post('ppnwd_jenisbarang2');
@@ -107,7 +109,7 @@ class Penjualan extends MY_Frontend {
                         'ppnwd_volume'       => $volume[$key],
                         'ppnwd_deskripsi_id' => $deskripsi[$key],
                         'ppnwd_satuan'       => $satuan[$key],
-                        'ppnwd_hargasatuan'  => $hargasatuan[$key],
+                        'ppnwd_hargasatuan'  => clear_numberformat($hargasatuan[$key]),
                       );
                         $this->crud_penawaran_detail->posts($data);
                     }
@@ -124,13 +126,16 @@ class Penjualan extends MY_Frontend {
                             'ppnwd_volume'       => $volume[$key],
                             'ppnwd_deskripsi_id' => $deskripsi[$key],
                             'ppnwd_satuan'       => $satuan[$key],
-                            'ppnwd_hargasatuan'  => $hargasatuan[$key],
+                            'ppnwd_hargasatuan'  => clear_numberformat($hargasatuan[$key]),
                           );
                            $this->crud_penawaran_detail->posts($data);
                     }
 
                 }
             }
+
+            redirect('penjualan/penawaran/pdf/'.$last_id);
+			exit();
 
 			return true;
 		} else {
@@ -190,8 +195,8 @@ class Penjualan extends MY_Frontend {
 				'ppnw_status' => $this->input->post('ppnw_status'),
 				'ppnw_diskon' => $this->input->post('ppnw_diskon'),
 				'ppnw_pajak' => $this->input->post('ppnw_pajak'),
-				'ppnw_biaya_kirim' => $this->input->post('ppnw_biaya_kirim'),
-				'ppnw_nilai_faktur' => $this->input->post('ppnw_nilai_faktur'),
+				'ppnw_biaya_kirim' => clear_numberformat($this->input->post('ppnw_biaya_kirim')),
+				'ppnw_nilai_faktur' => clear_numberformat($this->input->post('ppnw_nilai_faktur')),
 				'ppnw_keterangan' => $this->input->post('ppnw_keterangan'),
 				'ppnw_changedate' => $this->_data['datetime'],
 			);

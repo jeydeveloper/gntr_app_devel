@@ -149,3 +149,9 @@
     }
 });
 </script>
+
+<script type="text/javascript">
+  $(function(){
+    $('#ppnw_biaya_kirim, #ppnw_nilai_faktur').number( true, 0, ',', '.' );
+  })
+</script>

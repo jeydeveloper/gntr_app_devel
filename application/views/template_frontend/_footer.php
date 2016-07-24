@@ -20,6 +20,7 @@
     <script type="text/javascript" src="<?php echo $assets; ?>/js/bootstrap.js"></script>
     <script type="text/javascript" src="<?php echo $assets; ?>/js/base.js"></script>
     <script type="text/javascript" src="<?php echo $assets; ?>/js/jquery.timepicker.js"></script>
+    <script type="text/javascript" src="<?php echo $assets; ?>/js/jquery.number.min.js"></script>
     <script type="text/javascript">
         $(function(){
             $(".date-picker").datepicker({
