@@ -327,7 +327,7 @@ class Penjualan extends MY_Frontend {
                 'ppmt_tanggal'     => $this->input->post('ppmt_tanggal'),
                 'ppmt_noso'        => $this->input->post('ppmt_noso'),
                 'ppmt_nopo'        => $this->input->post('ppmt_nopo'),
-                'ppmt_uangmuka'    => $this->input->post('ppmt_uangmuka'),
+                'ppmt_uangmuka'    => clear_numberformat($this->input->post('ppmt_uangmuka')),
                 'ppmt_diskon'      => $this->input->post('ppmt_diskon'),
                 'ppmt_pajak'       => $this->input->post('ppmt_pajak'),
                 'ppmt_biayakirim'  => $this->input->post('ppmt_biayakirim'),
@@ -396,7 +396,7 @@ class Penjualan extends MY_Frontend {
 				'ppmt_tanggal'     => $this->input->post('ppmt_tanggal'),
                 'ppmt_noso'        => $this->input->post('ppmt_noso'),
                 'ppmt_nopo'        => $this->input->post('ppmt_nopo'),
-                'ppmt_uangmuka'    => $this->input->post('ppmt_uangmuka'),
+                'ppmt_uangmuka'    => clear_numberformat($this->input->post('ppmt_uangmuka')),
                 'ppmt_diskon'      => $this->input->post('ppmt_diskon'),
                 'ppmt_pajak'       => $this->input->post('ppmt_pajak'),
                 'ppmt_biayakirim'  => $this->input->post('ppmt_biayakirim'),
@@ -418,7 +418,7 @@ class Penjualan extends MY_Frontend {
 				'ppmt_tanggal'     => $this->input->post('ppmt_tanggal'),
                 'ppmt_noso'        => $this->input->post('ppmt_noso'),
                 'ppmt_nopo'        => $this->input->post('ppmt_nopo'),
-                'ppmt_uangmuka'    => $this->input->post('ppmt_uangmuka'),
+                'ppmt_uangmuka'    => clear_numberformat($this->input->post('ppmt_uangmuka')),
                 'ppmt_diskon'      => $this->input->post('ppmt_diskon'),
                 'ppmt_pajak'       => $this->input->post('ppmt_pajak'),
                 'ppmt_biayakirim'  => $this->input->post('ppmt_biayakirim'),
@@ -1382,6 +1382,21 @@ class Penjualan extends MY_Frontend {
 
 		redirect($this->_data['module_base_url_bukti_pembayaran']);
 	}
+
+	function referensi_penawaran($id) {
+        $result = $this->db->from('penjualan_penawaran')->where('ppnw_id = "'.$id.'"')->get()->row_array();
+        $result['ppmt_nopo'] = $result['ppnw_no_penawaran'];
+        $result['ppmt_diskon'] = $result['ppnw_diskon'];
+        $result['ppmt_pajak'] = $result['ppnw_pajak'];
+        $result['ppmt_biayakirim'] = add_numberformat($result['ppnw_biaya_kirim']);
+        $result['ppmt_nilaifaktur'] = add_numberformat($result['ppnw_nilai_faktur']);
+        echo json_encode($result);
+    }
+
+    function info_barang($id) {
+        $result = $this->db->from('pembelian_permintaan')->join('pembelian_permintaan_detail', 'pbptn_no=pbptnd_nopermintaan')->join('barang_jasa', 'pbptnd_jenisbarang=brjs_id')->where('pbptn_id = "'.$id.'"')->get()->result_array();
+        echo json_encode($result);
+    }
 }
 
 ?>

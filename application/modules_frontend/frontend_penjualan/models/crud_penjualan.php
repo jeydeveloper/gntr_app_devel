@@ -101,7 +101,7 @@ class Crud_penjualan extends CI_Model {
 	}
 
 	function get_all_permintaan(){
-		return $this->db->get('penjualan_permintaan')->result_array();
+		return $this->db->from('penjualan_permintaan')->join('penjualan_penawaran', 'ppmt_ppnw_id=ppnw_id')->get()->result_array();
 	}
 
 	function posts_permintaan($data){

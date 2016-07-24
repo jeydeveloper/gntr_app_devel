@@ -22,7 +22,7 @@
                 <thead>
                   <tr>
                     <th> No </th>
-                    <th> No. SO </th>
+                    <th> No. Permintaan </th>
                     <th> Nama Pelanggan </th>
                     <th> Status </th>
                     <th> No. PO </th>
@@ -44,16 +44,16 @@
                       <td><?php echo $value['ppmt_noso']; ?></td>
                       <td><?php echo $value['clnt_nama']; ?></td>
                       <td><?php echo $value['ppmt_status']; ?></td>
-                      <td><?php echo $value['ppmt_nopo']; ?></td>
-                      <td><?php echo $value['ppmt_diskon']; ?></td>
-                      <td><?php echo $value['ppmt_pajak']; ?></td>
-                      <td><?php echo $value['ppmt_biayakirim']; ?></td>
-                      <td><?php echo $value['ppmt_nilaifaktur']; ?></td>
-                      <td><?php echo $value['ppmt_uangmuka']; ?></td>
+                      <td><?php echo $value['ppnw_no_penawaran']; ?></td>
+                      <td><?php echo $value['ppnw_diskon']; ?></td>
+                      <td><?php echo $value['ppnw_pajak']; ?></td>
+                      <td><?php echo add_numberformat($value['ppnw_biaya_kirim']); ?></td>
+                      <td><?php echo add_numberformat($value['ppnw_nilai_faktur']); ?></td>
+                      <td><?php echo add_numberformat($value['ppmt_uangmuka']); ?></td>
                       <td><?php echo $value['ppmt_keterangan']; ?></td>
                       <td>
                         <a href="<?php echo site_url('/'); ?>assets/images/<?php echo $value['ppmt_fileupload']; ?>" target="_blank">
-                          <img src="<?php echo site_url('/'); ?>assets/images/<?php echo $value['ppmt_fileupload']; ?>" width="50px">
+                          <img src="<?php echo site_url('/'); ?>assets/images/<?php echo $value['ppmt_fileupload']; ?>" width="50px" onError="this.onerror=null;this.src='http://localhost/gntr_app_devel/assets/images/noimage.png';">
                         </a>
                       </td>
                       <td class="td-actions"><a href="<?php echo ($module_base_url_permintaan.'/edit/'.$value['ppmt_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a> <a href="<?php echo ($module_base_url_permintaan.'/delete/'.$value['ppmt_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>

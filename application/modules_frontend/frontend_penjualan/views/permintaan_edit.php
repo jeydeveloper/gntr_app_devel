@@ -28,13 +28,13 @@
                   </div> <!-- /field -->
 
                   <div class="field">
-                    <label for="name">Tanggal:</label>
-                    <input type="text" name="ppmt_tanggal" name="ppmt_tanggal" class="date-picker" value="<?php echo $detail['ppmt_tanggal']; ?>" />
+                    <label for="ppmt_noso">No Permintaan</label>
+                    <input type="text" name="ppmt_noso" placeholder="No Permintaan" value="<?php echo $detail['ppmt_noso']; ?>" />
                   </div> <!-- /field -->
 
                   <div class="field">
-                    <label for="address">No. SO:</label>
-                    <input type="text"  name="ppmt_noso" value="<?php echo $detail['ppmt_noso']; ?>" />
+                    <label for="name">Tanggal:</label>
+                    <input type="text" name="ppmt_tanggal" name="ppmt_tanggal" class="date-picker" value="<?php echo $detail['ppmt_tanggal']; ?>" />
                   </div> <!-- /field -->
 
 
@@ -61,32 +61,32 @@
 
                   <div class="field">
                     <label for="email">No. PO:</label>
-                    <input type="text"  name="ppmt_nopo" value="<?php echo $detail['ppmt_nopo']; ?>"/>
+                    <p class="alert" id="ppmt_nopo">-</p>
                   </div> <!-- /field -->
 
                   <div class="field">
                     <label for="email">Diskon:</label>
-                    <input type="text"  name="ppmt_diskon" value="<?php echo $detail['ppmt_diskon']; ?>"/>
+                    <p class="alert" id="ppmt_diskon">-</p>
                   </div> <!-- /field -->
 
                   <div class="field">
                     <label for="email">Pajak:</label>
-                    <input type="text"  name="ppmt_pajak" value="<?php echo $detail['ppmt_pajak']; ?>"/>
+                    <p class="alert" id="ppmt_pajak">-</p>
                   </div> <!-- /field -->
 
                   <div class="field">
                     <label for="email">Biaya Kirim:</label>
-                    <input type="text" name="ppmt_biayakirim" value="<?php echo $detail['ppmt_biayakirim']; ?>"/>
+                    <p class="alert" id="ppmt_biayakirim">-</p>
                   </div> <!-- /field -->
 
                   <div class="field">
                     <label for="ppmt_nilaifaktur">Nilai Faktur:</label>
-                    <input type="text" name="ppmt_nilaifaktur" value="<?php echo $detail['ppmt_nilaifaktur']; ?>"/>
+                    <p class="alert" id="ppmt_nilaifaktur">-</p>
                   </div> <!-- /field -->
 
                   <div class="field">
                     <label for="email">Uang Muka:</label>
-                    <input type="text" name="ppmt_uangmuka" value="<?php echo $detail['ppmt_biayakirim']; ?>"/>
+                    <input class="numberformat" type="text" name="ppmt_uangmuka" value="<?php echo $detail['ppmt_uangmuka']; ?>"/>
                   </div> <!-- /field -->
 
                   <div class="field">
@@ -124,3 +124,42 @@
   </div>
   <!-- /main-inner --> 
 </div>
+
+<script type="text/javascript">
+  $(function(){
+    var get_info = function(id) {
+      var url = '<?php echo site_url("penjualan/referensi_penawaran"); ?>/'+id;
+      $.getJSON(url, function(data){
+        $('#ppmt_nopo').text(data.ppmt_nopo);
+        $('#ppmt_diskon').text(data.ppmt_diskon);
+        $('#ppmt_pajak').text(data.ppmt_pajak);
+        $('#ppmt_biayakirim').text(data.ppmt_biayakirim);
+        $('#ppmt_nilaifaktur').text(data.ppmt_nilaifaktur);
+      });
+    };
+
+    var clear_info = function() {
+      $('#ppmt_nopo').text('-');
+      $('#ppmt_diskon').text('-');
+      $('#ppmt_pajak').text('-');
+      $('#ppmt_biayakirim').text('-');
+      $('#ppmt_nilaifaktur').text('-');
+    };
+    
+    $('#ppmt_ppnw_id').change(function(){
+      clear_info();
+      var me = $(this);
+      var nilai = me.val() || '';
+      if(nilai == '') return;
+      get_info(nilai);
+    });
+
+    get_info($('#ppmt_ppnw_id').val());
+  })
+</script>
+
+<script type="text/javascript">
+  $(function(){
+    $('.numberformat').number( true, 0, ',', '.' );
+  })
+</script>
