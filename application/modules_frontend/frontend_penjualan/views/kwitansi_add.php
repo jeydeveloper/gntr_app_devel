@@ -34,40 +34,33 @@
                   </div> <!-- /field -->
 
                   <div class="field">
-                    <label for="pjkw_dari">Terima Dari: </label>
-                    <input id="pjkw_dari" name="pjkw_dari" placeholder="Sudah terima dari" />
+                    <label for="clnt_nama">Terima Dari: </label>
+                    <p class="alert" id="clnt_nama">-</p>
                   </div> <!-- /field -->
 
                    <div class="field">
-                    <label for="pjkw_alamat">Pembayaran: </label>
-                    <textarea id="pjkw_alamat" name="pjkw_alamat" placeholder="Untuk Pembayaran">
-
-                    </textarea>
+                    <label for="clnt_alamat">Alamat: </label>
+                    <p class="alert" id="clnt_alamat">-</p>
                   </div> <!-- /field -->
 
                   <div class="field">
-                    <label for="pjkw_notlpn">No Telp.: </label>
-                    <input id="pjkw_notlpn" name="pjkw_notlpn" placeholder="Alamat"/>
+                    <label for="clnt_telpon">No Telp.: </label>
+                    <p class="alert" id="clnt_telpon">-</p>
                   </div> <!-- /field -->
 
                   <div class="field">
-                    <label for="pjkw_total">Total:</label>
-                    <input id="pjkw_total" name="pjkw_total" placeholder="Total" />
+                    <label for="ppnw_nilai_faktur">Total:</label>
+                    <p class="alert" id="ppnw_nilai_faktur">-</p>
                   </div> <!-- /field -->
+                  
                   <div class="field">
-                    <label for="pjkw_norek">No Rekening: </label>
-                    <input id="pjkw_norek" name="pjkw_norek" placeholder="Nama Bank" />
-                  </div> <!-- /field -->
-
-                  <div class="field">
-                    <label for="pjkw_an">Rek. Atas Nama: </label>
-                    <input id="pjkw_an" name="pjkw_an" placeholder="Atas nama" />
-                  </div> <!-- /field -->
-
-
-                  <div class="field">
-                    <label for="pjkw_bank">Nama Bank</label>
-                    <input id="pjkw_bank" name="pjkw_bank" placeholder="Nama Bank" />
+                    <label for="pjkw_bank">Transfer ke Bank: </label>
+                    <select name="pjkw_bank" id="pjkw_bank" required /> 
+                      <option value="">-- Pilih --</option>
+                      <?php foreach($static_data_source['bank'] as $value): ?>
+                        <option value="<?php echo $value['value']; ?>"><?php echo $value['name']; ?></option>
+                      <?php endforeach; ?>
+                    </select>
                   </div> <!-- /field -->
 
                   <div class="field" style="display: none;">
@@ -101,3 +94,38 @@
   </div>
   <!-- /main-inner -->
 </div>
+
+<script type="text/javascript">
+  $(function(){
+    var get_info = function(id) {
+      var url = '<?php echo site_url("penjualan/referensi_invoice"); ?>/'+id;
+      $.getJSON(url, function(data){
+        $('#clnt_nama').text(data.clnt_nama);
+        $('#clnt_alamat').text(data.clnt_alamat);
+        $('#clnt_telpon').text(data.clnt_telpon);
+        $('#ppnw_nilai_faktur').text(data.ppnw_nilai_faktur);
+      });
+    };
+
+    var clear_info = function() {
+      $('#clnt_nama').text('-');
+      $('#clnt_alamat').text('-');
+      $('#clnt_telpon').text('-');
+      $('#ppnw_nilai_faktur').text('-');
+    };
+    
+    $('#pjkw_pjinv_id').change(function(){
+      clear_info();
+      var me = $(this);
+      var nilai = me.val() || '';
+      if(nilai == '') return;
+      get_info(nilai);
+    });
+  })
+</script>
+
+<script type="text/javascript">
+  $(function(){
+    $('.numberformat').number( true, 0, ',', '.' );
+  })
+</script>

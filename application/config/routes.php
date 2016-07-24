@@ -175,6 +175,7 @@ $route['pembelian/referensi_tandaterima/(:any)'] = "frontend_pembelian/pembelian
 //route penjualan referensi
 $route['penjualan/referensi_penawaran/(:any)'] = "frontend_penjualan/penjualan/referensi_penawaran/$1";
 $route['penjualan/referensi_permintaan/(:any)'] = "frontend_penjualan/penjualan/referensi_permintaan/$1";
+$route['penjualan/referensi_invoice/(:any)'] = "frontend_penjualan/penjualan/referensi_invoice/$1";
 
 //route pembelian info barang
 $route['pembelian/info_barang/(:any)'] = "frontend_pembelian/pembelian/info_barang/$1";

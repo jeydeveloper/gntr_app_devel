@@ -49,7 +49,7 @@ class Crud_kwitansi extends CI_Model {
 	}
 
 	function get_all(){
-		return $this->db->get('penjualan_kwitansi')->result_array();
+		return $this->db->from('penjualan_kwitansi')->join('penjualan_permintaan', 'pjkw_ppmt_id=ppmt_id')->join('penjualan_penawaran', 'pjkw_ppnw_id=ppnw_id')->join('client', 'ppmt_clnt_id=clnt_id')->get()->result_array();
 	}
 
 	function posts($data){
