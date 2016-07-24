@@ -1405,6 +1405,12 @@ class Penjualan extends MY_Frontend {
         echo json_encode($result);
     }
 
+    function referensi_kwitansi($id) {
+        $result = $this->db->from('penjualan_kwitansi')->join('penjualan_penawaran', 'pjkw_ppnw_id=ppnw_id')->where('pjkw_id = "'.$id.'"')->get()->row_array();
+        $result['ppnw_nilai_faktur'] = add_numberformat($result['ppnw_nilai_faktur']);
+        echo json_encode($result);
+    }
+
     function info_barang($id) {
         $result = $this->db->from('penjualan_penawaran')->join('penjualan_penawaran_detail', 'ppnw_no_penawaran=ppnwd_no_penawaran')->where('ppnw_id = "'.$id.'"')->get()->result_array();
         echo json_encode($result);

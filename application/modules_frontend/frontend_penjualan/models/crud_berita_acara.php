@@ -49,7 +49,7 @@ class Crud_berita_acara extends CI_Model {
 	}
 
 	function get_all(){
-		return $this->db->get('penjualan_beritaacara')->result_array();
+		return $this->db->from('penjualan_beritaacara')->join('penjualan_permintaan', 'pbcr_ppmt_id=ppmt_id')->join('penjualan_penawaran', 'pbcr_ppnw_id=ppnw_id')->join('client', 'ppmt_clnt_id=clnt_id')->get()->result_array();
 	}
 
 	function posts($data){

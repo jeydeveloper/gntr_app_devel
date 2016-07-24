@@ -38,8 +38,8 @@
                     <tr>
                       <td><?php echo ($key+1); ?></td>
                       <td><?php echo $value['pbcr_noproyek']; ?></td>
-                      <td><?php echo $value['pbcr_tagihan']; ?></td>
-                      <td><?php echo $value['pbcr_nilaitagihan']; ?></td>
+                      <td><?php echo $value['clnt_nama']; ?></td>
+                      <td><?php echo add_numberformat($value['ppnw_nilai_faktur']); ?></td>
                       <td><?php echo $value['pbcr_lampiran']; ?></td>
                       <td><?php echo $value['pbcr_menerima']; ?></td>
                       <td><a href="<?php echo ($module_base_url_berita_acara.'/pdf/'.$value['pbcr_id']); ?>" target="_blank">View PDF</a></td>
