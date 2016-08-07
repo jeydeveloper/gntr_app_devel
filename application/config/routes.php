@@ -258,6 +258,17 @@ $route['penjualan/berita-acara/edit/(:any)'] = "frontend_penjualan/penjualan/edi
 $route['penjualan/berita-acara/delete/(:any)'] = "frontend_penjualan/penjualan/delete_berita_acara/$1";
 $route['penjualan/berita-acara/pdf/(:any)'] = "frontend_penjualan/penjualan/pdf_berita_acara/$1";
 
+$route['penjualan/berita-acara-insentif-hari-raya'] = "frontend_penjualan/beritaacara/insentif_hari_raya";
+$route['penjualan/berita-acara-absen-tagihan-ot'] = "frontend_penjualan/beritaacara/tagihan_ot";
+$route['penjualan/berita-acara-absen-gajian'] = "frontend_penjualan/beritaacara/absen_gajian";
+$route['penjualan/berita-acara-absen-tagihan'] = "frontend_penjualan/beritaacara/absen_tagihan";
+$route['penjualan/berita-acara-slip-gaji'] = "frontend_penjualan/beritaacara/slip_gaji";
+$route['penjualan/berita-acara-rekap'] = "frontend_penjualan/beritaacara/rekap";
+$route['penjualan/berita-acara-kasbon-operator'] = "frontend_penjualan/beritaacara/kasbon_operator";
+$route['penjualan/berita-acara-ops'] = "frontend_penjualan/beritaacara/ops";
+$route['penjualan/berita-acara-bpjs'] = "frontend_penjualan/beritaacara/bpjs";
+$route['penjualan/berita-acara-aplikasi-setoran'] = "frontend_penjualan/beritaacara/aplikasi_setoran";
+
 //route tenda terima penjualan
 $route['penjualan/tanda-terima'] = "frontend_penjualan/penjualan/tanda_terima";
 $route['penjualan/tanda-terima/add'] = "frontend_penjualan/penjualan/add_tanda_terima";

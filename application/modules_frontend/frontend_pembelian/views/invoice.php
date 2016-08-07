@@ -31,7 +31,7 @@
                       <td><?php echo ($key+1); ?></td>
                       <td><?php echo $value['pbinv_noinvoice']; ?></td>
                       <td><?php echo $value['pbinv_tanggal']; ?></td>
-                      <td><?php echo $value['pbptn_totaltagihan']; ?></td>
+                      <td><?php echo add_numberformat($value['pbptn_totaltagihan']); ?></td>
                       <td><a href="<?php echo site_url('/'); ?>assets/images/<?php echo $value['uploadfile']; ?>" target="_blank">
                           <img src="<?php echo site_url('/'); ?>assets/images/<?php echo $value['uploadfile']; ?>" width="50px" onError="this.onerror=null;this.src='http://localhost/gntr_app_devel/assets/images/noimage.png';">
                         </a></td>

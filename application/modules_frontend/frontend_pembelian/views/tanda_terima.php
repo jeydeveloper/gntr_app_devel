@@ -31,7 +31,7 @@
                     <tr>
                       <td><?php echo ($key+1); ?></td>
                       <td><?php echo $value['pbttr_tagihan']; ?></td>
-                      <td><?php echo $value['pbptn_totaltagihan']; ?></td>
+                      <td><?php echo add_numberformat($value['pbptn_totaltagihan']); ?></td>
                       <td><?php echo $value['pbttr_lampiran']; ?></td>
                       <td><?php echo $value['pbttr_menerima']; ?></td>
                       <td>
