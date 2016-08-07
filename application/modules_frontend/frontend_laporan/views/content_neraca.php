@@ -14,7 +14,7 @@
       <div class="row">
         <div class="span12">
           <div class="widget">
-            <div class="widget-header"> <i class="icon-bookmark"></i>
+            <div class="widget-header"> <i class="icon-bookmark"></i> 
               <h3>Laporan Neraca Keuangan</h3>
             </div>
             <!-- /widget-header -->
