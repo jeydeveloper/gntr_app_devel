@@ -61,19 +61,100 @@
                           <i class="shortcut-icon icon-tag"></i>
                           <span class="shortcut-label"><a href="print_general_report.html" class="el-fil">General Report</a><br/></span>
                           <div class="filter">
-                            <input placeholder="Tanggal Mulai" name="" id="" value="" /> - <input placeholder="Tanggal Akhir" name="" id="" value="" /> <input type="submit" value="Submit" />
+                            <select style="width:initial;padding:3px;">
+                              <option value="">---Pilih Bulan----</option>
+                              <?php foreach($static_data_source['daftar_bulan'] as $key => $value): ?>
+                              <option value="<?php echo $key; ?>"><?php echo $value; ?></option>
+                              <?php endforeach; ?>
+                            </select> - 
+                            <select style="width:initial;padding:3px;">
+                              <option value="">---Pilih Bulan----</option>
+                              <?php foreach($static_data_source['daftar_bulan'] as $key => $value): ?>
+                              <option value="<?php echo $key; ?>"><?php echo $value; ?></option>
+                              <?php endforeach; ?>
+                            </select>
+                            <?php $year_now = date('Y'); ?>
+                            <select style="width:initial;padding:3px;">
+                              <option value="">---Pilih Tahun----</option>
+                              <?php for($i=$static_data_source['report_tahun']['before'];$i>0;$i--): ?>
+                              <?php $res_year = $year_now - $i; ?>
+                              <option value="<?php echo $res_year; ?>"><?php echo $res_year; ?></option>
+                              <?php endfor; ?>
+
+                              <option value="<?php echo $year_now; ?>"><?php echo $year_now; ?></option>
+
+                              <?php for($i=1;$i<=$static_data_source['report_tahun']['after'];$i++): ?>
+                              <?php $res_year = $year_now + $i; ?>
+                              <option value="<?php echo $res_year; ?>"><?php echo $res_year; ?></option>
+                              <?php endfor; ?>
+                            </select>
+                            <button style="vertical-align: top;padding: 3px;">Submit</button>
                           </div>
 
                           <i class="shortcut-icon icon-tag"></i>
                           <span class="shortcut-label"><a href="#" class="el-fil">Grafik Perbandingan Akun</a><br/></span>
                           <div class="filter">
-                            <input placeholder="Tanggal Mulai" name="" id="" value="" /> - <input placeholder="Tanggal Akhir" name="" id="" value="" /> <input type="submit" value="Submit" />
+                            <select style="width:initial;padding:3px;">
+                              <option value="">---Pilih Bulan----</option>
+                              <?php foreach($static_data_source['daftar_bulan'] as $key => $value): ?>
+                              <option value="<?php echo $key; ?>"><?php echo $value; ?></option>
+                              <?php endforeach; ?>
+                            </select> - 
+                            <select style="width:initial;padding:3px;">
+                              <option value="">---Pilih Bulan----</option>
+                              <?php foreach($static_data_source['daftar_bulan'] as $key => $value): ?>
+                              <option value="<?php echo $key; ?>"><?php echo $value; ?></option>
+                              <?php endforeach; ?>
+                            </select>
+                            <?php $year_now = date('Y'); ?>
+                            <select style="width:initial;padding:3px;">
+                              <option value="">---Pilih Tahun----</option>
+                              <?php for($i=$static_data_source['report_tahun']['before'];$i>0;$i--): ?>
+                              <?php $res_year = $year_now - $i; ?>
+                              <option value="<?php echo $res_year; ?>"><?php echo $res_year; ?></option>
+                              <?php endfor; ?>
+
+                              <option value="<?php echo $year_now; ?>"><?php echo $year_now; ?></option>
+
+                              <?php for($i=1;$i<=$static_data_source['report_tahun']['after'];$i++): ?>
+                              <?php $res_year = $year_now + $i; ?>
+                              <option value="<?php echo $res_year; ?>"><?php echo $res_year; ?></option>
+                              <?php endfor; ?>
+                            </select>
+                            <button style="vertical-align: top;padding: 3px;">Submit</button>
                           </div>
 
                           <i class="shortcut-icon icon-tag"></i>
                           <span class="shortcut-label"><a href="#" class="el-fil">Grafik Pendapatan dan Beban</a><br/></span>
                           <div class="filter">
-                            <input placeholder="Tanggal Mulai" name="" id="" value="" /> - <input placeholder="Tanggal Akhir" name="" id="" value="" /> <input type="submit" value="Submit" />
+                            <select style="width:initial;padding:3px;">
+                              <option value="">---Pilih Bulan----</option>
+                              <?php foreach($static_data_source['daftar_bulan'] as $key => $value): ?>
+                              <option value="<?php echo $key; ?>"><?php echo $value; ?></option>
+                              <?php endforeach; ?>
+                            </select> - 
+                            <select style="width:initial;padding:3px;">
+                              <option value="">---Pilih Bulan----</option>
+                              <?php foreach($static_data_source['daftar_bulan'] as $key => $value): ?>
+                              <option value="<?php echo $key; ?>"><?php echo $value; ?></option>
+                              <?php endforeach; ?>
+                            </select>
+                            <?php $year_now = date('Y'); ?>
+                            <select style="width:initial;padding:3px;">
+                              <option value="">---Pilih Tahun----</option>
+                              <?php for($i=$static_data_source['report_tahun']['before'];$i>0;$i--): ?>
+                              <?php $res_year = $year_now - $i; ?>
+                              <option value="<?php echo $res_year; ?>"><?php echo $res_year; ?></option>
+                              <?php endfor; ?>
+
+                              <option value="<?php echo $year_now; ?>"><?php echo $year_now; ?></option>
+
+                              <?php for($i=1;$i<=$static_data_source['report_tahun']['after'];$i++): ?>
+                              <?php $res_year = $year_now + $i; ?>
+                              <option value="<?php echo $res_year; ?>"><?php echo $res_year; ?></option>
+                              <?php endfor; ?>
+                            </select>
+                            <button style="vertical-align: top;padding: 3px;">Submit</button>
                           </div>
                         </div>
                       </div>
@@ -90,13 +171,103 @@
                       <div class="accordion-inner">
                         <div>
                           <i class="shortcut-icon icon-tag"></i>
-                          <span class="shortcut-label"><a href="#">Penjualan per Client</a></span><br/>
+                          <span class="shortcut-label"><a href="#" class="el-fil">Penjualan per Client</a><br/></span>
+                          <div class="filter">
+                            <select style="width:initial;padding:3px;">
+                              <option value="">---Pilih Bulan----</option>
+                              <?php foreach($static_data_source['daftar_bulan'] as $key => $value): ?>
+                              <option value="<?php echo $key; ?>"><?php echo $value; ?></option>
+                              <?php endforeach; ?>
+                            </select> - 
+                            <select style="width:initial;padding:3px;">
+                              <option value="">---Pilih Bulan----</option>
+                              <?php foreach($static_data_source['daftar_bulan'] as $key => $value): ?>
+                              <option value="<?php echo $key; ?>"><?php echo $value; ?></option>
+                              <?php endforeach; ?>
+                            </select>
+                            <?php $year_now = date('Y'); ?>
+                            <select style="width:initial;padding:3px;">
+                              <option value="">---Pilih Tahun----</option>
+                              <?php for($i=$static_data_source['report_tahun']['before'];$i>0;$i--): ?>
+                              <?php $res_year = $year_now - $i; ?>
+                              <option value="<?php echo $res_year; ?>"><?php echo $res_year; ?></option>
+                              <?php endfor; ?>
+
+                              <option value="<?php echo $year_now; ?>"><?php echo $year_now; ?></option>
+
+                              <?php for($i=1;$i<=$static_data_source['report_tahun']['after'];$i++): ?>
+                              <?php $res_year = $year_now + $i; ?>
+                              <option value="<?php echo $res_year; ?>"><?php echo $res_year; ?></option>
+                              <?php endfor; ?>
+                            </select>
+                            <button style="vertical-align: top;padding: 3px;">Submit</button>
+                          </div>
 
                           <i class="shortcut-icon icon-tag"></i>
-                          <span class="shortcut-label"><a href="#">Grafik Penjualan Barang</a></span><br/>
+                          <span class="shortcut-label"><a href="#" class="el-fil">Grafik Penjualan Barang</a><br/></span>
+                          <div class="filter">
+                            <select style="width:initial;padding:3px;">
+                              <option value="">---Pilih Bulan----</option>
+                              <?php foreach($static_data_source['daftar_bulan'] as $key => $value): ?>
+                              <option value="<?php echo $key; ?>"><?php echo $value; ?></option>
+                              <?php endforeach; ?>
+                            </select> - 
+                            <select style="width:initial;padding:3px;">
+                              <option value="">---Pilih Bulan----</option>
+                              <?php foreach($static_data_source['daftar_bulan'] as $key => $value): ?>
+                              <option value="<?php echo $key; ?>"><?php echo $value; ?></option>
+                              <?php endforeach; ?>
+                            </select>
+                            <?php $year_now = date('Y'); ?>
+                            <select style="width:initial;padding:3px;">
+                              <option value="">---Pilih Tahun----</option>
+                              <?php for($i=$static_data_source['report_tahun']['before'];$i>0;$i--): ?>
+                              <?php $res_year = $year_now - $i; ?>
+                              <option value="<?php echo $res_year; ?>"><?php echo $res_year; ?></option>
+                              <?php endfor; ?>
+
+                              <option value="<?php echo $year_now; ?>"><?php echo $year_now; ?></option>
+
+                              <?php for($i=1;$i<=$static_data_source['report_tahun']['after'];$i++): ?>
+                              <?php $res_year = $year_now + $i; ?>
+                              <option value="<?php echo $res_year; ?>"><?php echo $res_year; ?></option>
+                              <?php endfor; ?>
+                            </select>
+                            <button style="vertical-align: top;padding: 3px;">Submit</button>
+                          </div>
 
                           <i class="shortcut-icon icon-tag"></i>
-                          <span class="shortcut-label"><a href="#">Grafik Penjualan Client</a></span><br/>
+                          <span class="shortcut-label"><a href="#" class="el-fil">Grafik Penjualan Client</a><br/></span>
+                          <div class="filter">
+                            <select style="width:initial;padding:3px;">
+                              <option value="">---Pilih Bulan----</option>
+                              <?php foreach($static_data_source['daftar_bulan'] as $key => $value): ?>
+                              <option value="<?php echo $key; ?>"><?php echo $value; ?></option>
+                              <?php endforeach; ?>
+                            </select> - 
+                            <select style="width:initial;padding:3px;">
+                              <option value="">---Pilih Bulan----</option>
+                              <?php foreach($static_data_source['daftar_bulan'] as $key => $value): ?>
+                              <option value="<?php echo $key; ?>"><?php echo $value; ?></option>
+                              <?php endforeach; ?>
+                            </select>
+                            <?php $year_now = date('Y'); ?>
+                            <select style="width:initial;padding:3px;">
+                              <option value="">---Pilih Tahun----</option>
+                              <?php for($i=$static_data_source['report_tahun']['before'];$i>0;$i--): ?>
+                              <?php $res_year = $year_now - $i; ?>
+                              <option value="<?php echo $res_year; ?>"><?php echo $res_year; ?></option>
+                              <?php endfor; ?>
+
+                              <option value="<?php echo $year_now; ?>"><?php echo $year_now; ?></option>
+
+                              <?php for($i=1;$i<=$static_data_source['report_tahun']['after'];$i++): ?>
+                              <?php $res_year = $year_now + $i; ?>
+                              <option value="<?php echo $res_year; ?>"><?php echo $res_year; ?></option>
+                              <?php endfor; ?>
+                            </select>
+                            <button style="vertical-align: top;padding: 3px;">Submit</button>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -112,13 +283,103 @@
                       <div class="accordion-inner">
                         <div>
                           <i class="shortcut-icon icon-tag"></i>
-                          <span class="shortcut-label"><a href="#">Pembelian per Vendor</a></span><br/>
+                          <span class="shortcut-label"><a href="#" class="el-fil">Pembelian per Vendor</a><br/></span>
+                          <div class="filter">
+                            <select style="width:initial;padding:3px;">
+                              <option value="">---Pilih Bulan----</option>
+                              <?php foreach($static_data_source['daftar_bulan'] as $key => $value): ?>
+                              <option value="<?php echo $key; ?>"><?php echo $value; ?></option>
+                              <?php endforeach; ?>
+                            </select> - 
+                            <select style="width:initial;padding:3px;">
+                              <option value="">---Pilih Bulan----</option>
+                              <?php foreach($static_data_source['daftar_bulan'] as $key => $value): ?>
+                              <option value="<?php echo $key; ?>"><?php echo $value; ?></option>
+                              <?php endforeach; ?>
+                            </select>
+                            <?php $year_now = date('Y'); ?>
+                            <select style="width:initial;padding:3px;">
+                              <option value="">---Pilih Tahun----</option>
+                              <?php for($i=$static_data_source['report_tahun']['before'];$i>0;$i--): ?>
+                              <?php $res_year = $year_now - $i; ?>
+                              <option value="<?php echo $res_year; ?>"><?php echo $res_year; ?></option>
+                              <?php endfor; ?>
+
+                              <option value="<?php echo $year_now; ?>"><?php echo $year_now; ?></option>
+
+                              <?php for($i=1;$i<=$static_data_source['report_tahun']['after'];$i++): ?>
+                              <?php $res_year = $year_now + $i; ?>
+                              <option value="<?php echo $res_year; ?>"><?php echo $res_year; ?></option>
+                              <?php endfor; ?>
+                            </select>
+                            <button style="vertical-align: top;padding: 3px;">Submit</button>
+                          </div>
 
                           <i class="shortcut-icon icon-tag"></i>
-                          <span class="shortcut-label"><a href="#">Grafik Pembelian Barang</a></span><br/>
+                          <span class="shortcut-label"><a href="#" class="el-fil">Grafik Pembelian Barang</a><br/></span>
+                          <div class="filter">
+                            <select style="width:initial;padding:3px;">
+                              <option value="">---Pilih Bulan----</option>
+                              <?php foreach($static_data_source['daftar_bulan'] as $key => $value): ?>
+                              <option value="<?php echo $key; ?>"><?php echo $value; ?></option>
+                              <?php endforeach; ?>
+                            </select> - 
+                            <select style="width:initial;padding:3px;">
+                              <option value="">---Pilih Bulan----</option>
+                              <?php foreach($static_data_source['daftar_bulan'] as $key => $value): ?>
+                              <option value="<?php echo $key; ?>"><?php echo $value; ?></option>
+                              <?php endforeach; ?>
+                            </select>
+                            <?php $year_now = date('Y'); ?>
+                            <select style="width:initial;padding:3px;">
+                              <option value="">---Pilih Tahun----</option>
+                              <?php for($i=$static_data_source['report_tahun']['before'];$i>0;$i--): ?>
+                              <?php $res_year = $year_now - $i; ?>
+                              <option value="<?php echo $res_year; ?>"><?php echo $res_year; ?></option>
+                              <?php endfor; ?>
+
+                              <option value="<?php echo $year_now; ?>"><?php echo $year_now; ?></option>
+
+                              <?php for($i=1;$i<=$static_data_source['report_tahun']['after'];$i++): ?>
+                              <?php $res_year = $year_now + $i; ?>
+                              <option value="<?php echo $res_year; ?>"><?php echo $res_year; ?></option>
+                              <?php endfor; ?>
+                            </select>
+                            <button style="vertical-align: top;padding: 3px;">Submit</button>
+                          </div>
 
                           <i class="shortcut-icon icon-tag"></i>
-                          <span class="shortcut-label"><a href="#">Grafik Pembelian Vendor</a></span><br/>
+                          <span class="shortcut-label"><a href="#" class="el-fil">Grafik Pembelian Vendor</a><br/></span>
+                          <div class="filter">
+                            <select style="width:initial;padding:3px;">
+                              <option value="">---Pilih Bulan----</option>
+                              <?php foreach($static_data_source['daftar_bulan'] as $key => $value): ?>
+                              <option value="<?php echo $key; ?>"><?php echo $value; ?></option>
+                              <?php endforeach; ?>
+                            </select> - 
+                            <select style="width:initial;padding:3px;">
+                              <option value="">---Pilih Bulan----</option>
+                              <?php foreach($static_data_source['daftar_bulan'] as $key => $value): ?>
+                              <option value="<?php echo $key; ?>"><?php echo $value; ?></option>
+                              <?php endforeach; ?>
+                            </select>
+                            <?php $year_now = date('Y'); ?>
+                            <select style="width:initial;padding:3px;">
+                              <option value="">---Pilih Tahun----</option>
+                              <?php for($i=$static_data_source['report_tahun']['before'];$i>0;$i--): ?>
+                              <?php $res_year = $year_now - $i; ?>
+                              <option value="<?php echo $res_year; ?>"><?php echo $res_year; ?></option>
+                              <?php endfor; ?>
+
+                              <option value="<?php echo $year_now; ?>"><?php echo $year_now; ?></option>
+
+                              <?php for($i=1;$i<=$static_data_source['report_tahun']['after'];$i++): ?>
+                              <?php $res_year = $year_now + $i; ?>
+                              <option value="<?php echo $res_year; ?>"><?php echo $res_year; ?></option>
+                              <?php endfor; ?>
+                            </select>
+                            <button style="vertical-align: top;padding: 3px;">Submit</button>
+                          </div>
                         </div>
                       </div>
                     </div>
