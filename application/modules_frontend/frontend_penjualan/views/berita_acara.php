@@ -43,7 +43,7 @@
                       <td><?php echo $value['pbcr_lampiran']; ?></td>
                       <td><?php echo $value['pbcr_menerima']; ?></td>
                       <td><a href="<?php echo ($module_base_url_berita_acara.'/pdf/'.$value['pbcr_id']); ?>" target="_blank">View PDF</a></td>
-                      <td class="td-actions"><a href="<?php echo ($module_base_url_berita_acara.'/edit/'.$value['pbcr_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a> <a href="<?php echo ($module_base_url_berita_acara.'/delete/'.$value['pbcr_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>
+                      <td class="td-actions"><a href="<?php echo ($module_base_url_berita_acara.'/edit/'.$value['pbcr_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a> <a href="<?php echo ($module_base_url_berita_acara.'/delete/'.$value['pbcr_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a> <a href="<?php echo site_url('penjualan/berita-acara-insentif-hari-raya'); ?>" class="btn btn-small btn-warning" title="edit">detail</a></td>
                     </tr>
                     <?php endforeach; ?>
                   <?php else: ?>
