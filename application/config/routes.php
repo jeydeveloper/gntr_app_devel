@@ -132,6 +132,7 @@ $route['bpu/edit/(:any)'] = "frontend_bpu/bpu/edit/$1";
 $route['bpu/delete/(:any)'] = "frontend_bpu/bpu/delete/$1";
 
 $route['laporan'] = "frontend_laporan/laporan";
+$route['laporan/neraca'] = "frontend_laporan/laporan/neraca";
 
 //route karyawan
 $route['karyawan'] = "frontend_karyawan/karyawan";

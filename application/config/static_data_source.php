@@ -252,3 +252,23 @@ $config["static_data_source"]['role_access'] = array(
 		'name' => 'Lain-lain',
 	),
 );
+
+$config["static_data_source"]['daftar_bulan'] = array(
+	1 => 'Januari',
+	2 => 'Februari',
+	3 => 'Maret',
+	4 => 'April',
+	5 => 'Mei',
+	6 => 'Juni',
+	7 => 'Juli',
+	8 => 'Agustus',
+	8 => 'September',
+	10 => 'Oktober',
+	11 => 'November',
+	12 => 'Desember',
+);
+
+$config["static_data_source"]['report_tahun'] = array(
+	'before' => 1,
+	'after' => 1
+);
