@@ -22,6 +22,17 @@
     <script type="text/javascript" src="<?php echo $assets; ?>/js/jquery.timepicker.js"></script>
     <script type="text/javascript" src="<?php echo $assets; ?>/js/jquery.number.min.js"></script>
     <script type="text/javascript" src="<?php echo $assets; ?>/js/tableHeadFixer.js"></script>
+    <!-- Data tables JS -->
+    <script type="text/javascript" src="<?php echo $assets; ?>/js/datatable/datatable.js"></script>
+    <script type="text/javascript" src="<?php echo $assets; ?>/js/datatable/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="<?php echo $assets; ?>/js/datatable/jszip.min.js"></script>
+    <script type="text/javascript" src="<?php echo $assets; ?>/js/datatable/pdfmake.min.js"></script>
+    <script type="text/javascript" src="<?php echo $assets; ?>/js/datatable/vfs_fonts.js"></script>
+    <script type="text/javascript" src="<?php echo $assets; ?>/js/datatable/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="<?php echo $assets; ?>/js/datatable/datatable-bootstrap.js"></script>
+    <script type="text/javascript" src="<?php echo $assets; ?>/js/datatable/fnStandingRedraw.js"></script>
+
+<script type="text/javascript" src="<?php echo $assets; ?>/js/datatable/buttons.colVis.min.js"></script>
     <script type="text/javascript">
         $(function(){
             $(".date-picker").datepicker({

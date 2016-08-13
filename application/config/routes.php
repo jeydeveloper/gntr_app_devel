@@ -270,6 +270,8 @@ $route['penjualan/berita-acara-ops'] = "frontend_penjualan/beritaacara/ops";
 $route['penjualan/berita-acara-bpjs'] = "frontend_penjualan/beritaacara/bpjs";
 $route['penjualan/berita-acara-aplikasi-setoran'] = "frontend_penjualan/beritaacara/aplikasi_setoran";
 
+$route['penjualan/berita-acara-peserta'] = "frontend_penjualan/beritaacara/peserta";
+
 //route tenda terima penjualan
 $route['penjualan/tanda-terima'] = "frontend_penjualan/penjualan/tanda_terima";
 $route['penjualan/tanda-terima/add'] = "frontend_penjualan/penjualan/add_tanda_terima";

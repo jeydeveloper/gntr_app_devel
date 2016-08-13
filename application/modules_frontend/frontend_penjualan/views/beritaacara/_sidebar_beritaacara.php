@@ -5,6 +5,12 @@
   <!-- /widget-header -->
   <div class="widget-content">
     <div class="shortcuts"> 
+      <a href="<?php echo site_url('penjualan/berita-acara-peserta'); ?>" class="shortcut" style="width: 100%;">
+        <i class="shortcut-icon icon-list-alt"></i>
+        <span class="shortcut-label">Peserta</span> 
+      </a>
+    </div>
+    <div class="shortcuts"> 
       <a href="<?php echo site_url('penjualan/berita-acara-insentif-hari-raya'); ?>" class="shortcut" style="width: 100%;">
         <i class="shortcut-icon icon-list-alt"></i>
         <span class="shortcut-label">Insentif Hari Raya</span> 
