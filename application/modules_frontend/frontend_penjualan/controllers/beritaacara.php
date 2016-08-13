@@ -78,9 +78,24 @@ class Beritaacara extends MY_Frontend {
 	}
 
 	function peserta() {
+		$sl_opt = '';
+		foreach ($this->_data['static_data_source']['group_peserta'] as $key => $value) {
+			$sl_opt .= '<option value="'.$key.'">'.$value.'</option>';
+		}
+		$this->_data['list_karyawan'] = $this->db->where('kary_void = 0')->get('karyawan')->result_array();
+		$this->_data['list_group'] = $sl_opt;
+
 		$this->template->set('title', 'Peserta | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
 		$this->template->load('template_frontend/main', 'beritaacara/list_peserta', $this->_data);
+	}
+
+	function save_peserta() {
+		
+	}
+
+	function load_peserta() {
+		
 	}
 }
 

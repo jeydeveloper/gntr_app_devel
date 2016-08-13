@@ -56,40 +56,21 @@ ol, ul {
                   </tr>
                 </thead>
                 <tbody>
+                  <?php foreach($list_karyawan as $value): ?>
                   <tr>
-                    <td>Peserta 1</td>
-                    <td>Staff</td>
+                    <td><?php echo $value['kary_nama']; ?></td>
+                    <td><?php echo (!empty($static_data_source['kary_jabatan'][$value['kary_jabatan_id']]) ? $static_data_source['kary_jabatan'][$value['kary_jabatan_id']]['name'] : '-'); ?></td>
                     <td>
                       <div>
                         <select name="sl_group" id="sl_group">
                           <option value="">--Pilih Group--</option>
-                          <option value="group_1">Group 1</option>
-                          <option value="group_2">Group 2</option>
-                          <option value="group_3">Group 3</option>
-                          <option value="group_4">Group 4</option>
-                          <option value="group_5">Group 5</option>
+                          <?php echo $list_group; ?>
                         </select>
                         <button class="btn_submit">Submit</button>
                       </div>
                     </td>
                   </tr>
-                  <tr>
-                    <td>Peserta 2</td>
-                    <td>Staff</td>
-                    <td>
-                      <div>
-                        <select name="sl_group" id="sl_group">
-                          <option value="">--Pilih Group--</option>
-                          <option value="group_1">Group 1</option>
-                          <option value="group_2">Group 2</option>
-                          <option value="group_3">Group 3</option>
-                          <option value="group_4">Group 4</option>
-                          <option value="group_5">Group 5</option>
-                        </select>
-                        <button class="btn_submit">Submit</button>
-                      </div>
-                    </td>
-                  </tr>
+                  <?php endforeach; ?>
                 </tbody>
               </table>
             </div>

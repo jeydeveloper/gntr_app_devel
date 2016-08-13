@@ -272,3 +272,16 @@ $config["static_data_source"]['report_tahun'] = array(
 	'before' => 1,
 	'after' => 1
 );
+
+$config["static_data_source"]['group_peserta'] = array(
+	'group_1' => 'Group 1',
+	'group_2' => 'Group 2',
+	'group_3' => 'Group 3',
+	'group_4' => 'Group 4',
+	'group_5' => 'Group 5',
+	'group_6' => 'Group 6',
+	'group_7' => 'Group 7',
+	'group_8' => 'Group 8',
+	'group_9' => 'Group 9',
+	'group_10' => 'Group 10',
+);
