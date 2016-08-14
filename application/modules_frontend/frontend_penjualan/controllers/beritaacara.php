@@ -127,16 +127,28 @@ class Beritaacara extends MY_Frontend {
 		$baps_kary_id = $this->input->post('baps_kary_id');
 		$baps_group = $this->input->post('baps_group');
 
-		$data = array(
-			'baps_pbcr_id' => $baps_pbcr_id,
-			'baps_kary_id' => $baps_kary_id,
-			'baps_group' => $baps_group,
-			'baps_entryuser' => $this->session->userdata('username'),
-			'baps_entrydata' => $this->_data['datetime'],
-		);
+		$res = $this->db->where('baps_pbcr_id = "'.$baps_pbcr_id.'" AND baps_kary_id = "'.$baps_kary_id.'"')->get('beritaacara_peserta')->row_array();
 
-		$this->db->insert('beritaacara_peserta', $data);
-		
+		if(!empty($res)) {
+			$data = array(
+				'baps_group' => $baps_group,
+				'baps_changeuser' => $this->session->userdata('username'),
+				'baps_changedate' => $this->_data['datetime'],
+			);
+
+			$this->db->where('baps_pbcr_id = "'.$baps_pbcr_id.'" AND baps_kary_id = "'.$baps_kary_id.'"')->update('beritaacara_peserta', $data);
+		} else {
+			$data = array(
+				'baps_pbcr_id' => $baps_pbcr_id,
+				'baps_kary_id' => $baps_kary_id,
+				'baps_group' => $baps_group,
+				'baps_entryuser' => $this->session->userdata('username'),
+				'baps_entrydate' => $this->_data['datetime'],
+			);
+
+			$this->db->insert('beritaacara_peserta', $data);
+		}
+
 		echo json_encode($ret);
 	}
 
@@ -152,21 +164,25 @@ class Beritaacara extends MY_Frontend {
 		$tr_data = '';
 		if(!empty($data)) {
 			foreach ($data as $key => $value) {
+				$no = 1;
 				$tr_data .= '<tbody>';
 				$tr_data .= '<tr>';
 				$tr_data .= '<td rowspan="'.count($data[$key]).'">'.$key.'</td>';
 				$first = true;
 				foreach ($value as $key2 => $value2) {
 					if($first) {
+						$tr_data .= '<td>'.($no < 10 ? ('0'.$no) : $no).'</td>';
 						$tr_data .= '<td>'.$value2['kary_nama'].'</td>';
 						$tr_data .= '</tr>';
 
 						$first = false;
 					} else {
 						$tr_data .= '<tr>';
+						$tr_data .= '<td>'.($no < 10 ? ('0'.$no) : $no).'</td>';
 						$tr_data .= '<td>'.$value2['kary_nama'].'</td>';
 						$tr_data .= '</tr>';
 					}
+					$no++;
 				}
 				$tr_data .= '</tbody>';
 			}
@@ -183,6 +199,7 @@ $output = <<<EOF
 	<thead>
 		<tr>
 			<th>Group</th>
+			<th width="10%">No</th>
 			<th>Nama</th>
 		</tr>
 	</thead>
