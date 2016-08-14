@@ -10,10 +10,28 @@
     z-index: 10000;
     border-radius: 0 0 0.5em 0.5em;
 }
-.wdclm{width:120px;}
+.wdclm{width:125px;}
 .wdclm.no{width:50px;}
 ol, ul {
   list-style: none;
+}
+
+#peserta_beritaacara table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#peserta_beritaacara td, #peserta_beritaacara th {
+  padding: 8px;
+  border: 1px solid #dddddd;
+}
+
+#peserta_beritaacara tbody:nth-child(odd) {
+  background: #f9f9f9;
+}
+
+#peserta_beritaacara tbody:hover td[rowspan], #peserta_beritaacara tr:hover td {
+   background: #f2f2f2; 
 }
 </style>
 
@@ -33,251 +51,8 @@ ol, ul {
             </div>
             <div style="padding:10px;background:white;border: 1px solid #D5D5D5;">PERIODE  : Januari 2016</div>
             <!-- /widget-header -->
-            <div class="widget-content" style="height:500px;">
-              <table class="table table-striped table-bordered sticky-header" id="fixTable">
-                <thead>
-                  <tr>
-                    <th><div class="wdclm">Group</div></th>
-                    <th><div class="wdclm no">No.</div></th>
-                    <th><div class="wdclm">Nama</div></th>
-                    <th><div class="wdclm">Insentif - 16 Juli '15'</div></th>
-                    <th><div class="wdclm">Insentif - 17 Juli '15'</div></th>
-                    <th><div class="wdclm">Insentif - 18 Juli '15'</div></th>
-                    <th><div class="wdclm">Insentif - 20 Juli '15'</div></th>
-                    <th><div class="wdclm">Insentif - 21 Juli '15'</div></th>
-                    <th><div class="wdclm">Total Hari</div></th>
-                    <th><div class="wdclm">Perhari</div></th>
-                    <th><div class="wdclm">Jumlah</div></th>
-                    <th><div class="wdclm">Keterangan</div></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Group 1</td>
-                    <td>01</td>
-                    <td>FEBRI. DW</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td>&nbsp;</td>
-                    <td>02</td>
-                    <td>MULYADI</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td>&nbsp;</td>
-                    <td>03</td>
-                    <td>MUKTAR</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td>&nbsp;</td>
-                    <td>04</td>
-                    <td>MURSALI</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td>Group 2</td>
-                    <td>01</td>
-                    <td>FEBRI. DW</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td>&nbsp;</td>
-                    <td>02</td>
-                    <td>MULYADI</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td>&nbsp;</td>
-                    <td>03</td>
-                    <td>MUKTAR</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td>&nbsp;</td>
-                    <td>04</td>
-                    <td>MURSALI</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td>Group 3</td>
-                    <td>01</td>
-                    <td>FEBRI. DW</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td>&nbsp;</td>
-                    <td>02</td>
-                    <td>MULYADI</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td>&nbsp;</td>
-                    <td>03</td>
-                    <td>MUKTAR</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td>&nbsp;</td>
-                    <td>04</td>
-                    <td>MURSALI</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td>Group 4</td>
-                    <td>01</td>
-                    <td>FEBRI. DW</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td>&nbsp;</td>
-                    <td>02</td>
-                    <td>MULYADI</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td>&nbsp;</td>
-                    <td>03</td>
-                    <td>MUKTAR</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td>&nbsp;</td>
-                    <td>04</td>
-                    <td>MURSALI</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
+            <div class="widget-content" style="min-height:500px;" id="peserta_beritaacara">
+              <?php echo $list_peserta; ?>
             </div>
             <div style="padding:10px;background:white;border: 1px solid #D5D5D5;">
               <p>NOTE : OVERTIME HARI BESAR</p>
@@ -315,6 +90,6 @@ ol, ul {
 
 <script>
   $(document).ready(function() {
-    $("#fixTable").tableHeadFixer({"head" : true, "left" : 3}); 
+    $("#fixTable").tableHeadFixer(); 
   });
 </script>

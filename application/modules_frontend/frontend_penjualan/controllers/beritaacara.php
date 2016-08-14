@@ -20,6 +20,84 @@ class Beritaacara extends MY_Frontend {
 	function insentif_hari_raya($pbcr_id) {
 		$this->_data['pbcr_id'] = $pbcr_id;
 
+		$baps_pbcr_id = $pbcr_id;
+
+		$data = $this->peserta_beritaacara($baps_pbcr_id);
+
+		$tr_data = '';
+		if(!empty($data)) {
+			foreach ($data as $key => $value) {
+				$no = 1;
+				$tr_data .= '<tbody>';
+				$tr_data .= '<tr>';
+				$tr_data .= '<td rowspan="'.count($data[$key]).'">'.$key.'</td>';
+				$first = true;
+				foreach ($value as $key2 => $value2) {
+					if($first) {
+						$tr_data .= '<td>'.($no < 10 ? ('0'.$no) : $no).'</td>';
+						$tr_data .= '<td>'.$value2['kary_nama'].'</td>';
+						$tr_data .= '<td></td>';
+						$tr_data .= '<td></td>';
+						$tr_data .= '<td></td>';
+						$tr_data .= '<td></td>';
+						$tr_data .= '<td></td>';
+						$tr_data .= '<td></td>';
+						$tr_data .= '<td></td>';
+						$tr_data .= '<td></td>';
+						$tr_data .= '<td></td>';
+						$tr_data .= '</tr>';
+
+						$first = false;
+					} else {
+						$tr_data .= '<tr>';
+						$tr_data .= '<td>'.($no < 10 ? ('0'.$no) : $no).'</td>';
+						$tr_data .= '<td>'.$value2['kary_nama'].'</td>';
+						$tr_data .= '<td></td>';
+						$tr_data .= '<td></td>';
+						$tr_data .= '<td></td>';
+						$tr_data .= '<td></td>';
+						$tr_data .= '<td></td>';
+						$tr_data .= '<td></td>';
+						$tr_data .= '<td></td>';
+						$tr_data .= '<td></td>';
+						$tr_data .= '<td></td>';
+						$tr_data .= '</tr>';
+					}
+					$no++;
+				}
+				$tr_data .= '</tbody>';
+			}
+		}
+
+				if(empty($tr_data)) {
+			$tr_data .= '<tr>';
+			$tr_data .= '<td colspan="12">Data masih kosong</td>';
+			$tr_data .= '</tr>';
+		}
+
+$output = <<<EOF
+<table id="fixTable">
+	<thead>
+		<tr>
+			<th><div class="wdclm">Group</div></th>
+            <th><div class="wdclm no">No.</div></th>
+            <th><div class="wdclm">Nama</div></th>
+            <th><div class="wdclm">Insentif - 16 Juli '15'</div></th>
+            <th><div class="wdclm">Insentif - 17 Juli '15'</div></th>
+            <th><div class="wdclm">Insentif - 18 Juli '15'</div></th>
+            <th><div class="wdclm">Insentif - 20 Juli '15'</div></th>
+            <th><div class="wdclm">Insentif - 21 Juli '15'</div></th>
+            <th><div class="wdclm">Total Hari</div></th>
+            <th><div class="wdclm">Perhari</div></th>
+            <th><div class="wdclm">Jumlah</div></th>
+            <th><div class="wdclm">Keterangan</div></th>
+		</tr>
+	</thead>
+	$tr_data
+</table>
+EOF;
+		$this->_data['list_peserta'] = $output;
+
 		$this->template->set('title', 'Insentif Hari Raya | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
 		$this->template->load('template_frontend/main', 'beritaacara/list_insentif_hari_raya', $this->_data);
@@ -168,11 +246,7 @@ class Beritaacara extends MY_Frontend {
 	function load_peserta($pbcr_id) {
 		$baps_pbcr_id = $pbcr_id;
 
-		$res = $this->db->where('baps_pbcr_id = "'.$baps_pbcr_id.'"')->join('karyawan', 'baps_kary_id=kary_id')->order_by('baps_group')->get('beritaacara_peserta')->result_array();
-		$data = array();
-		foreach ($res as $value) {
-			$data[$value['baps_group']][$value['baps_kary_id']] = $value;
-		}
+		$data = $this->peserta_beritaacara($baps_pbcr_id);
 
 		$tr_data = '';
 		if(!empty($data)) {
@@ -220,6 +294,16 @@ $output = <<<EOF
 </table>
 EOF;
 		echo $output;
+	}
+
+	private function peserta_beritaacara($pbcr_id) {
+		$res = $this->db->where('baps_pbcr_id = "'.$pbcr_id.'"')->join('karyawan', 'baps_kary_id=kary_id')->order_by('baps_group')->get('beritaacara_peserta')->result_array();
+		$data = array();
+		foreach ($res as $value) {
+			$data[$value['baps_group']][$value['baps_kary_id']] = $value;
+		}
+
+		return $data;
 	}
 }
 
