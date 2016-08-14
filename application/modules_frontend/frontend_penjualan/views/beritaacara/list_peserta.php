@@ -97,6 +97,7 @@ button:disabled{cursor: not-allowed;}
                         <div class="peserta_edit" style="<?php echo (!empty($list_beritaacara[$value['kary_id']]) ? '' : 'display:none;'); ?>">
                           <span class="lbl_group"><?php echo $list_beritaacara[$value['kary_id']]; ?></span>
                           <button class="btn_edit">EDIT</button>
+                          <button class="btn_delete">DELETE</button>
                         </div>
                       </td>
                     </tr>
@@ -105,7 +106,7 @@ button:disabled{cursor: not-allowed;}
                 </table>
               </div>
               <div style="padding:10px;">
-                <h3>Daftar Peserta Berita Acara</h3>
+                <h3>Daftar Peserta</h3>
                 <hr/>
                 <div id="peserta_beritaacara">&nbsp;</div>
               </div>
@@ -162,6 +163,20 @@ button:disabled{cursor: not-allowed;}
 
         var txt = prt.find('.lbl_group').text();
         prt.find('#baps_group').val(txt);
+      });
+
+      $('.btn_delete').click(function(e){
+        e.preventDefault();
+        var me = $(this);
+        var prt = me.closest('tr');
+        var frm = prt.find('form');
+        var url = '<?php echo site_url("penjualan/berita-acara-peserta/delete"); ?>';
+        $.post(url, frm.serialize(), function(data){
+          $("#peserta_beritaacara").load("<?php echo site_url('penjualan/berita-acara-peserta/load-peserta/'.$pbcr_id); ?>");
+          prt.find('.peserta_edit').hide();
+          prt.find('.peserta_add').show();
+          prt.find('#baps_group').val('');
+        });
       });
 
       $("#peserta_beritaacara").load("<?php echo site_url('penjualan/berita-acara-peserta/load-peserta/'.$pbcr_id); ?>");

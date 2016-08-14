@@ -152,6 +152,19 @@ class Beritaacara extends MY_Frontend {
 		echo json_encode($ret);
 	}
 
+	function delete_peserta() {
+		$ret = array(
+			'err_msg' => ''
+		);
+
+		$baps_pbcr_id = $this->input->post('baps_pbcr_id');
+		$baps_kary_id = $this->input->post('baps_kary_id');
+
+		$this->db->where('baps_pbcr_id = "'.$baps_pbcr_id.'" AND baps_kary_id = "'.$baps_kary_id.'"')->delete('beritaacara_peserta');
+
+		echo json_encode($ret);
+	}
+
 	function load_peserta($pbcr_id) {
 		$baps_pbcr_id = $pbcr_id;
 

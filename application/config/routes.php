@@ -273,7 +273,7 @@ $route['penjualan/berita-acara-aplikasi-setoran/(:any)'] = "frontend_penjualan/b
 $route['penjualan/berita-acara-peserta/detail/(:any)'] = "frontend_penjualan/beritaacara/peserta/$1";
 $route['penjualan/berita-acara-peserta/load-peserta/(:any)'] = "frontend_penjualan/beritaacara/load_peserta/$1";
 $route['penjualan/berita-acara-peserta/add'] = "frontend_penjualan/beritaacara/save_peserta";
-$route['penjualan/berita-acara-peserta/delete/(:any)/(:any)'] = "frontend_penjualan/beritaacara/delete_peserta/$1/$2";
+$route['penjualan/berita-acara-peserta/delete'] = "frontend_penjualan/beritaacara/delete_peserta";
 
 //route tenda terima penjualan
 $route['penjualan/tanda-terima'] = "frontend_penjualan/penjualan/tanda_terima";
