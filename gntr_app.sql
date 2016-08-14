@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 20, 2016 at 07:16 AM
+-- Generation Time: Aug 14, 2016 at 09:57 AM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.16
 
@@ -17,10 +17,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `gntr_app_new`
+-- Database: `gntr_app`
 --
-CREATE DATABASE IF NOT EXISTS `gntr_app_new` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `gntr_app_new`;
+CREATE DATABASE IF NOT EXISTS `gntr_app` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `gntr_app`;
 
 -- --------------------------------------------------------
 
@@ -39,21 +39,6 @@ CREATE TABLE IF NOT EXISTS `gntrapp_adminuserlevels` (
   `aulv_changedate` datetime DEFAULT NULL,
   PRIMARY KEY (`aulv_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
-
---
--- Dumping data for table `gntrapp_adminuserlevels`
---
-
-INSERT INTO `gntrapp_adminuserlevels` (`aulv_id`, `aulv_name`, `aulv_role_access`, `aulv_void`, `aulv_entryuser`, `aulv_entrydate`, `aulv_changeuser`, `aulv_changedate`) VALUES
-(1, 'Admin', 'a:15:{s:8:"pengguna";a:4:{s:6:"create";s:1:"1";s:4:"read";s:1:"1";s:6:"update";s:1:"1";s:6:"delete";s:1:"1";}s:11:"wajib-pajak";a:4:{s:6:"create";s:1:"1";s:4:"read";s:1:"1";s:6:"update";s:1:"1";s:6:"delete";s:1:"1";}s:10:"user-level";a:4:{s:6:"create";s:1:"1";s:4:"read";s:1:"1";s:6:"update";s:1:"1";s:6:"delete";s:1:"1";}s:10:"departemen";a:4:{s:6:"create";s:1:"1";s:4:"read";s:1:"1";s:6:"update";s:1:"1";s:6:"delete";s:1:"1";}s:19:"daftar-aktiva-tetap";a:4:{s:6:"create";s:1:"1";s:4:"read";s:1:"1";s:6:"update";s:1:"1";s:6:"delete";s:1:"1";}s:19:"kas-bank-penerimaan";a:4:{s:6:"create";s:1:"1";s:4:"read";s:1:"1";s:6:"update";s:1:"1";s:6:"delete";s:1:"1";}s:19:"kas-bank-pembayaran";a:4:{s:6:"create";s:1:"1";s:4:"read";s:1:"1";s:6:"update";s:1:"1";s:6:"delete";s:1:"1";}s:15:"grafik-bank-bca";a:4:{s:6:"create";s:1:"1";s:4:"read";s:1:"1";s:6:"update";s:1:"1";s:6:"delete";s:1:"1";}s:11:"daftar-akun";a:4:{s:6:"create";s:1:"1";s:4:"read";s:1:"1";s:6:"update";s:1:"1";s:6:"delete";s:1:"1";}s:9:"mata-uang";a:4:{s:6:"create";s:1:"1";s:4:"read";s:1:"1";s:6:"update";s:1:"1";s:6:"delete";s:1:"1";}s:7:"project";a:4:{s:6:"create";s:1:"1";s:4:"read";s:1:"1";s:6:"update";s:1:"1";s:6:"delete";s:1:"1";}s:6:"vendor";a:4:{s:6:"create";s:1:"1";s:4:"read";s:1:"1";s:6:"update";s:1:"1";s:6:"delete";s:1:"1";}s:6:"client";a:4:{s:6:"create";s:1:"1";s:4:"read";s:1:"1";s:6:"update";s:1:"1";s:6:"delete";s:1:"1";}s:11:"barang-jasa";a:4:{s:6:"create";s:1:"1";s:4:"read";s:1:"1";s:6:"update";s:1:"1";s:6:"delete";s:1:"1";}s:9:"lain-lain";a:4:{s:6:"create";s:1:"1";s:4:"read";s:1:"1";s:6:"update";s:1:"1";s:6:"delete";s:1:"1";}}', 0, '', '2016-04-09 13:30:47', '', '2016-06-19 03:04:12'),
-(2, 'Supervisors', 'a:3:{s:8:"pengguna";a:4:{s:6:"create";s:1:"1";s:4:"read";s:1:"1";s:6:"update";s:1:"1";s:6:"delete";s:1:"1";}s:11:"wajib-pajak";a:4:{s:6:"create";s:1:"1";s:4:"read";s:1:"1";s:6:"update";s:1:"1";s:6:"delete";s:1:"1";}s:10:"departemen";a:4:{s:6:"create";s:1:"1";s:4:"read";s:1:"1";s:6:"update";s:1:"1";s:6:"delete";s:1:"1";}}', 0, '', '2016-04-09 13:30:56', '', '2016-06-19 02:52:12'),
-(3, 'Demo', '', 1, '', '2016-04-09 13:31:05', '', '2016-04-09 06:31:10'),
-(4, 'Test', '', 1, '', '2016-04-09 13:31:48', '', '2016-04-09 06:31:52'),
-(5, 'Demos', 'a:2:{s:8:"pengguna";a:4:{s:6:"create";s:1:"1";s:4:"read";s:1:"1";s:6:"update";s:1:"1";s:6:"delete";s:1:"1";}s:19:"kas-bank-pembayaran";a:4:{s:6:"create";s:1:"1";s:4:"read";s:1:"1";s:6:"update";s:1:"1";s:6:"delete";s:1:"1";}}', 0, '', '2016-04-09 21:10:29', '', '2016-06-19 02:47:07'),
-(6, 'dadasd', '', 1, '', '2016-04-10 03:55:59', '', '2016-04-09 20:56:01'),
-(7, 'Demo', 'a:1:{s:10:"departemen";a:4:{s:6:"create";s:1:"1";s:4:"read";s:1:"1";s:6:"update";s:1:"1";s:6:"delete";s:1:"1";}}', 1, '', '2016-06-19 09:32:58', '', '2016-06-19 02:33:07'),
-(8, 'Tamu', 'a:2:{s:19:"daftar-aktiva-tetap";a:4:{s:6:"create";s:1:"1";s:4:"read";s:1:"1";s:6:"update";s:1:"1";s:6:"delete";s:1:"1";}s:19:"kas-bank-penerimaan";a:4:{s:6:"create";s:1:"1";s:4:"read";s:1:"1";s:6:"update";s:1:"1";s:6:"delete";s:1:"1";}}', 1, '', '2016-06-19 09:48:31', '', '2016-06-19 02:53:33'),
-(9, 'Tamu', 'a:2:{s:15:"grafik-bank-bca";a:4:{s:6:"create";s:1:"1";s:4:"read";s:1:"1";s:6:"update";s:1:"1";s:6:"delete";s:1:"1";}s:7:"project";a:4:{s:6:"create";s:1:"1";s:4:"read";s:1:"1";s:6:"update";s:1:"1";s:6:"delete";s:1:"1";}}', 1, '', '2016-06-19 09:53:48', '', '2016-06-19 02:54:06');
 
 -- --------------------------------------------------------
 
@@ -75,19 +60,6 @@ CREATE TABLE IF NOT EXISTS `gntrapp_adminusers` (
   `admusr_changedate` datetime DEFAULT NULL,
   PRIMARY KEY (`admusr_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
-
---
--- Dumping data for table `gntrapp_adminusers`
---
-
-INSERT INTO `gntrapp_adminusers` (`admusr_id`, `admusr_username`, `admusr_userpasswd`, `admusr_aulv_id`, `admusr_user_status`, `admusr_void`, `admusr_lastactivity`, `admusr_entryuser`, `admusr_entrydate`, `admusr_changeuser`, `admusr_changedate`) VALUES
-(1, 'superadmin', 'ac43724f16e9241d990427ab7c8f4228', NULL, 'y', 0, '2016-07-20 06:37:42', '', '0000-00-00 00:00:00', '', '2016-06-24 15:17:46'),
-(2, 'demo', 'ac43724f16e9241d990427ab7c8f4228', 5, 'y', 1, '2016-04-23 12:57:58', '', '2016-04-10 09:51:37', '', '2016-04-23 10:57:58'),
-(3, 'Test', '101a6ec9f938885df0a44f20458d2eb4', 3, 'y', 1, '0000-00-00 00:00:00', '', '2016-04-10 03:01:11', '', '2016-04-09 20:01:11'),
-(4, 'Hehe', '196b0f14eba66e10fba74dbf9e99c22f', 5, 'y', 1, '0000-00-00 00:00:00', '', '2016-04-10 03:04:50', '', '2016-04-09 20:04:50'),
-(5, 'ggfdfg', '6c0cbf5029aed0af395ac4b864c6b095', 5, 'n', 1, '0000-00-00 00:00:00', '', '2016-04-10 03:56:35', '', '2016-04-09 20:56:35'),
-(6, 'GUntur', '827ccb0eea8a706c4c34a16891f84e7b', 1, 'y', 1, '0000-00-00 00:00:00', '', '2016-07-16 08:41:02', '', '2016-04-10 02:49:29'),
-(7, 'demo', 'ac43724f16e9241d990427ab7c8f4228', 1, 'y', 1, '0000-00-00 00:00:00', '', '2016-07-16 08:41:03', '', '2016-04-23 10:53:22');
 
 -- --------------------------------------------------------
 
@@ -115,14 +87,6 @@ CREATE TABLE IF NOT EXISTS `gntrapp_aktivatetap` (
   PRIMARY KEY (`dakt_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
---
--- Dumping data for table `gntrapp_aktivatetap`
---
-
-INSERT INTO `gntrapp_aktivatetap` (`dakt_id`, `dakt_kode`, `dakt_keterangan`, `dakt_tipe`, `dakt_harga`, `dakt_tanggalpakai`, `dakt_tanggalbeli`, `dakt_qty`, `dakt_umurbulan`, `dakt_persensusut`, `dakt_pajak`, `dakt_void`, `dakt_entryuser`, `dakt_entrydate`, `dakt_changeuser`, `dakt_changedate`) VALUES
-(1, 'AKTV-001', 'dsdas', 'fdsfds', 100, '2016-01-11', '2015-01-09', 5, 12, 10, 16, 1, '', '2016-04-12 02:16:55', '', '2016-07-16 08:40:56'),
-(2, 'AKTV-002', '', '', 0, '0000-00-00', '0000-00-00', 0, 0, 0, 0, 1, '', '2016-04-12 02:19:57', '', '2016-04-12 02:20:00');
-
 -- --------------------------------------------------------
 
 --
@@ -143,18 +107,6 @@ CREATE TABLE IF NOT EXISTS `gntrapp_akun` (
   `akun_changedate` datetime NOT NULL,
   PRIMARY KEY (`akun_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
-
---
--- Dumping data for table `gntrapp_akun`
---
-
-INSERT INTO `gntrapp_akun` (`akun_id`, `akun_nomor`, `akun_nama`, `akun_tipe_id`, `akun_saldo`, `akun_parent`, `akun_void`, `akun_entryuser`, `akun_entrydate`, `akun_changeuser`, `akun_changedate`) VALUES
-(1, '1201', 'Aktiva Tetap', 2, 1000000, 0, 0, '', '2016-04-25 18:00:45', '', '2016-04-25 19:04:16'),
-(2, '001', 'Tanah', 2, 500000, 1, 1, '', '2016-04-25 18:25:23', '', '2016-07-16 08:44:50'),
-(3, '1001', 'Kas', 1, 3000000, 0, 0, '', '2016-04-25 19:03:14', '', '2016-04-25 19:04:22'),
-(4, '001', 'Bank Mandiri', 1, 2000000, 3, 1, '', '2016-04-25 19:03:51', '', '2016-07-16 08:44:54'),
-(5, '002', 'Air', 2, 1, 1, 1, '', '2016-05-01 06:57:54', '', '2016-07-16 08:44:51'),
-(6, '1001', 'Aktiva Tetap', 2, 0, 0, 0, '', '2016-07-16 08:45:17', '', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -180,16 +132,24 @@ CREATE TABLE IF NOT EXISTS `gntrapp_barang_jasa` (
   PRIMARY KEY (`brjs_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `gntrapp_barang_jasa`
+-- Table structure for table `gntrapp_beritaacara_peserta`
 --
 
-INSERT INTO `gntrapp_barang_jasa` (`brjs_id`, `brjs_kategori_id`, `brjs_jenis_id`, `brjs_nama`, `brjs_volume`, `brjs_satuan_id`, `brjs_harga_satuan`, `brjs_over_project`, `brjs_vndr_id`, `brjs_void`, `brjs_entryuser`, `brjs_entrydate`, `brjs_changeuser`, `brjs_changedate`) VALUES
-(1, 1, 1, 'Barang 1', '1', 3, 1000, 600, 3, 1, '', '2016-04-21 20:30:37', '', '2016-07-16 08:40:20'),
-(2, 2, 0, 'Jasa 1', '', 0, 0, 0, 3, 1, '', '2016-04-21 21:06:02', '', '2016-04-21 21:06:29'),
-(3, 1, 2, 'Truk', '1', 1, 20000, 0, 3, 1, '', '2016-06-05 14:48:18', '', '2016-07-16 08:40:23'),
-(4, 1, 1, 'Aspal Curah', 'As', 1, 10500000, 0, 4, 0, '', '2016-07-16 09:07:37', '', '0000-00-00 00:00:00'),
-(5, 1, 1, 'Klem Lampu Pju Tl 5 Mm', '1', 1, 296, 0, 6, 0, '', '2016-07-16 09:08:42', '', '0000-00-00 00:00:00');
+CREATE TABLE IF NOT EXISTS `gntrapp_beritaacara_peserta` (
+  `baps_id` int(11) NOT NULL AUTO_INCREMENT,
+  `baps_pbcr_id` int(11) NOT NULL,
+  `baps_kary_id` int(11) NOT NULL,
+  `baps_group` varchar(100) NOT NULL,
+  `baps_void` tinyint(4) NOT NULL,
+  `baps_entryuser` varchar(100) NOT NULL,
+  `baps_entrydata` datetime NOT NULL,
+  `baps_changeuser` varchar(100) NOT NULL,
+  `baps_changedate` datetime NOT NULL,
+  PRIMARY KEY (`baps_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 -- --------------------------------------------------------
 
@@ -212,13 +172,6 @@ CREATE TABLE IF NOT EXISTS `gntrapp_bpu` (
   `bpu_changedate` datetime NOT NULL,
   PRIMARY KEY (`bpu_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Dumping data for table `gntrapp_bpu`
---
-
-INSERT INTO `gntrapp_bpu` (`bpu_id`, `bpu_request_by`, `bpu_nama`, `bpu_harga`, `bpu_terbilang`, `bpu_approved_by`, `bpu_proj_id`, `bpu_void`, `bpu_entryuser`, `bpu_entrydate`, `bpu_changeuser`, `bpu_changedate`) VALUES
-(1, 'superadmin', 'Transport Ke Inggris', 16000000, 'Enam Belas Juta Rupiah', '', 0, 1, '', '2016-04-23 07:01:15', '', '2016-07-16 08:39:50');
 
 -- --------------------------------------------------------
 
@@ -245,7 +198,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_bukti_pembayaran` (
   `bp_entrydate` datetime DEFAULT NULL,
   `bp_changedate` datetime DEFAULT NULL,
   PRIMARY KEY (`bp_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -269,17 +222,6 @@ CREATE TABLE IF NOT EXISTS `gntrapp_client` (
   PRIMARY KEY (`clnt_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
---
--- Dumping data for table `gntrapp_client`
---
-
-INSERT INTO `gntrapp_client` (`clnt_id`, `clnt_nama`, `clnt_alamat`, `clnt_contact_person`, `clnt_telpon`, `clnt_email`, `clnt_status`, `clnt_void`, `clnt_entryuser`, `clnt_entrydate`, `clnt_changeuser`, `clnt_changedate`) VALUES
-(1, 'Client 1', 'Alamat 1', '0813', '022', 'client1@mail.com', 1, 1, '', '2016-04-21 17:38:57', '', '2016-04-21 17:39:59'),
-(2, 'Client 2', 'Alamat 2', '0813', '022', 'client2@mail.com', 1, 1, '', '2016-04-21 17:40:20', '', '2016-07-16 08:40:32'),
-(3, 'Client 3', 'xx', '085217614244', '085217614244', 'silabanrosianna@gmail.com', 1, 1, '', '2016-05-28 08:23:33', '', '2016-07-16 08:40:33'),
-(4, 'PT. CLIENT JAKARTA', 'Jl. Pondok Indah Jakarta Selatan', 'Ronaldo', '081612121313', 'ronaldo@client-jakarta.com', 1, 0, '', '2016-07-16 08:57:35', '', '0000-00-00 00:00:00'),
-(5, 'PT. CLIENT BANJARMASIN', 'JL. Raya Banjarmasin Kalimantan Selatan', 'Endang', '089912121313', 'endang@client-banjarmasin.co.id', 1, 0, '', '2016-07-16 08:58:35', '', '0000-00-00 00:00:00');
-
 -- --------------------------------------------------------
 
 --
@@ -299,15 +241,6 @@ CREATE TABLE IF NOT EXISTS `gntrapp_departemen` (
   `dprt_changedate` datetime NOT NULL,
   PRIMARY KEY (`dprt_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
-
---
--- Dumping data for table `gntrapp_departemen`
---
-
-INSERT INTO `gntrapp_departemen` (`dprt_id`, `dprt_nama`, `dprt_manager`, `dprt_tugas`, `dprt_status`, `dprt_void`, `dprt_entryuser`, `dprt_entrydate`, `dprt_changeuser`, `dprt_changedate`) VALUES
-(1, 'Departemen 1', 'Alex', 'Banyak', 0, 0, '', '2016-04-12 01:30:00', '', '2016-04-12 01:38:40'),
-(2, 'Departemen 2', 'Budi', 'Lumayan', 0, 1, '', '2016-04-12 01:36:28', '', '2016-04-12 01:36:31'),
-(3, 'sdsad', 'asdas', 'asda', 1, 1, '', '2016-05-28 08:09:08', '', '2016-05-28 08:09:13');
 
 -- --------------------------------------------------------
 
@@ -335,13 +268,6 @@ CREATE TABLE IF NOT EXISTS `gntrapp_invoice` (
   PRIMARY KEY (`inv_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
---
--- Dumping data for table `gntrapp_invoice`
---
-
-INSERT INTO `gntrapp_invoice` (`inv_id`, `inv_tanggal`, `inv_noinvoice`, `inv_wo`, `inv_wotgl`, `inv_nopenawaran`, `inv_to`, `inv_alamat`, `inv_description`, `inv_total`, `inv_pph`, `inv_ppn`, `inv_totaltagihan`, `inv_terbilang`, `inv_entrydate`, `inv_changedate`) VALUES
-(1, '2016-05-17', '0103/INV-XII/2015', 'PO-0660-JIND/PBM-001', '2016-06-09', 'SPH-0105/SAB-IX/2015', 'PT. JGC INDONESIA', 'Jl. TB. Simatupang No. 7-B, Cilandak\r\nJakarta Selatan 12430, Indonesia\r\nPhone : 62 - 21-2997.6500. Fax: 62-21-2997.6599\r\nE-mail : indo@jgc-indonesia.com', 'Sewa 1 Unit Backhoe Loader, 1 Unit Vibro &amp; Dump Truck 7m3 + Mob Demob', '50800000', '1016000', '5080000', '54864000', 'Lima Puluh Empat Juta Delapan Ratus Enam Puluh Empat Ribu Rupiah', '2016-05-29 17:07:57', '2016-05-29 20:57:24');
-
 -- --------------------------------------------------------
 
 --
@@ -361,15 +287,6 @@ CREATE TABLE IF NOT EXISTS `gntrapp_invoice_detail` (
   `inv_changedate` datetime DEFAULT NULL,
   PRIMARY KEY (`invd_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
-
---
--- Dumping data for table `gntrapp_invoice_detail`
---
-
-INSERT INTO `gntrapp_invoice_detail` (`invd_id`, `invd_noinvoice`, `invd_jenisbarang`, `invd_jumlah`, `invd_satuan`, `invd_hargasatuan`, `invd_total`, `inv_description`, `inv_entrydate`, `inv_changedate`) VALUES
-(1, '0103/INV-XII/2015', 'Blackhoe Loader', '50', 'Hours', '398000', '19900000', NULL, '2016-05-29 17:23:04', '2016-05-29 17:23:04'),
-(2, '0103/INV-XII/2015', 'Mob - Demob', '1', 'Lot', '2500000', '2500000', NULL, '2016-05-29 17:27:45', '2016-05-29 17:27:45'),
-(3, '0103/INV-XII/2015', 'Vibro Roller 18 ton', '50', 'Hours', '400000', '50000000', NULL, '2016-05-29 17:28:29', '2016-05-30 01:44:44');
 
 -- --------------------------------------------------------
 
@@ -396,14 +313,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_karyawan` (
   `kary_changeuser` varchar(100) NOT NULL,
   `kary_changedate` datetime NOT NULL,
   PRIMARY KEY (`kary_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Dumping data for table `gntrapp_karyawan`
---
-
-INSERT INTO `gntrapp_karyawan` (`kary_id`, `kary_nik`, `kary_nama`, `kary_alamat`, `kary_tempat_lahir`, `kary_tanggal_lahir`, `kary_telpon`, `kary_posisi_id`, `kary_jabatan_id`, `kary_tipe_id`, `kary_status_nikah_id`, `kary_status_kontrak_id`, `kary_void`, `kary_entryuser`, `kary_entrydate`, `kary_changeuser`, `kary_changedate`) VALUES
-(1, '1234', 'Alexis', 'Kemang', 'Brazil', '1990-02-15', '021', 1, 1, 2, 1, 1, 1, '', '2016-04-23 04:53:33', '', '2016-07-16 08:43:56');
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 -- --------------------------------------------------------
 
@@ -431,13 +341,6 @@ CREATE TABLE IF NOT EXISTS `gntrapp_karyawan_gaji` (
   PRIMARY KEY (`kygj_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
---
--- Dumping data for table `gntrapp_karyawan_gaji`
---
-
-INSERT INTO `gntrapp_karyawan_gaji` (`kygj_id`, `kygj_kary_id`, `kygj_gaji_pokok`, `kygj_tunjangan`, `kygj_lembur`, `kygj_uang_makan`, `kygj_transport`, `kygj_bonus`, `kygj_pinjaman`, `kygj_lain_lain`, `kygj_total`, `kygj_void`, `kygj_entryuser`, `kygj_entrydate`, `kygj_changeuser`, `kygj_changedate`) VALUES
-(1, 1, 1, 2, 3, 4, 5, 6, 7, 9, 37, 0, '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00');
-
 -- --------------------------------------------------------
 
 --
@@ -457,15 +360,6 @@ CREATE TABLE IF NOT EXISTS `gntrapp_matauang` (
   `mtua_changedate` datetime NOT NULL,
   PRIMARY KEY (`mtua_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
-
---
--- Dumping data for table `gntrapp_matauang`
---
-
-INSERT INTO `gntrapp_matauang` (`mtua_id`, `mtua_nama`, `mtua_nilaitukar`, `mtua_negara`, `mtua_simbol`, `mtua_void`, `mtua_entryuser`, `mtua_entrydate`, `mtua_changeuser`, `mtua_changedate`) VALUES
-(1, 'USD', 13595, 'Amerika Serikat', 'US$', 0, '', '2016-04-17 06:44:47', '', '2016-04-17 06:48:37'),
-(2, 'asal', 100, 'demo', 'dm', 1, '', '2016-04-17 06:49:11', '', '2016-04-17 06:49:13'),
-(3, 'Rupiah', 0, 'Indonesia', 'Rp', 0, '', '2016-07-15 14:28:58', '', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -492,7 +386,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_pembelian_invoice` (
   `pbinv_entrydate` datetime DEFAULT NULL,
   `pbinv_changedate` datetime DEFAULT NULL,
   PRIMARY KEY (`pbinv_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -536,13 +430,6 @@ CREATE TABLE IF NOT EXISTS `gntrapp_pembelian_kwitansi` (
   PRIMARY KEY (`pbkw_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
---
--- Dumping data for table `gntrapp_pembelian_kwitansi`
---
-
-INSERT INTO `gntrapp_pembelian_kwitansi` (`pbkw_id`, `pbkw_pbptn_id`, `pbkw_no`, `pbkw_dari`, `pbkw_total`, `pbkw_bank`, `pbkw_norek`, `pbkw_an`, `pbkw_alamat`, `pbkw_notlpn`, `pbkw_tipe_pembayaran`, `pbkw_transfer_from_bank`, `pbkw_entrydate`, `pbkw_changedate`, `uploadfile`) VALUES
-(1, 1, 'KW-001', '0', '0', 'CIMB', '123456', 'Hasan', '0', '0', 1, 1, NULL, NULL, NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -575,13 +462,6 @@ CREATE TABLE IF NOT EXISTS `gntrapp_pembelian_permintaan` (
   PRIMARY KEY (`pbptn_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
---
--- Dumping data for table `gntrapp_pembelian_permintaan`
---
-
-INSERT INTO `gntrapp_pembelian_permintaan` (`pbptn_id`, `pbptn_clnt_id`, `pbptn_vndr_id`, `pbptn_mtua_id`, `pbptn_tanggal`, `pbptn_no`, `pbptn_halaman`, `pbptn_matauang`, `pbptn_vendor`, `pbptn_proposalno`, `pbptn_projectcode`, `pbptn_buyer`, `pbptn_catatan`, `pbptn_terms`, `pbptn_tanggalditerima`, `pbptn_diterimaoleh`, `pbptn_namapenerima`, `pbptn_tanggalterima`, `pbptn_totaltagihan`, `pbptn_terbilang`, `pbptn_entrydate`, `pbptn_changedate`) VALUES
-(1, 4, 4, 3, '2016-07-20', 'PER-001', '0', '0', '0', 'VP-001', 'PC-001', '0', 'Ini', 'Biasa', '2016-07-20', '0', 'Adi', '2016-07-20', '1500250', '0', NULL, NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -598,14 +478,6 @@ CREATE TABLE IF NOT EXISTS `gntrapp_pembelian_permintaan_detail` (
   `pbptnd_brjs_id` int(10) DEFAULT NULL,
   PRIMARY KEY (`pbptnd_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Dumping data for table `gntrapp_pembelian_permintaan_detail`
---
-
-INSERT INTO `gntrapp_pembelian_permintaan_detail` (`pbptnd_id`, `pbptnd_nopermintaan`, `pbptnd_jenisbarang`, `pbptnd_jumlah`, `pbptnd_entrydate`, `pbptnd_changedate`, `pbptnd_brjs_id`) VALUES
-(1, 'PER-001', '4', '1', NULL, NULL, NULL),
-(2, 'PER-001', '5', '2', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -655,7 +527,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_pembelian_suratjalan` (
   `pbsrtjalan_entrydate` datetime DEFAULT NULL,
   `pbsrtjalan_changedate` datetime DEFAULT NULL,
   PRIMARY KEY (`pbsrtjalan_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -685,7 +557,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_pembelian_tandaterima` (
   `pbttr_entrydate` datetime DEFAULT NULL,
   `pbttr_changedate` datetime DEFAULT NULL,
   PRIMARY KEY (`pbttr_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -709,13 +581,6 @@ CREATE TABLE IF NOT EXISTS `gntrapp_penerimaan` (
   PRIMARY KEY (`pnrm_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
---
--- Dumping data for table `gntrapp_penerimaan`
---
-
-INSERT INTO `gntrapp_penerimaan` (`pnrm_id`, `pnrm_bank_id`, `pnrm_tanggal`, `pnrm_akun_id`, `pnrm_nama`, `pnrm_jumlah`, `pnrm_keterangan`, `pnrm_void`, `pnrm_entryuser`, `pnrm_entrydate`, `pnrm_changeuser`, `pnrm_changedate`) VALUES
-(1, 2, '2016-04-14', 2, 'Jual Tanah', 250000, 'test', 1, '', '2016-04-25 20:21:02', '', '2016-07-16 08:40:41');
-
 -- --------------------------------------------------------
 
 --
@@ -737,15 +602,6 @@ CREATE TABLE IF NOT EXISTS `gntrapp_pengeluaran` (
   `pgln_changedate` datetime NOT NULL,
   PRIMARY KEY (`pgln_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
-
---
--- Dumping data for table `gntrapp_pengeluaran`
---
-
-INSERT INTO `gntrapp_pengeluaran` (`pgln_id`, `pgln_bank_id`, `pgln_tanggal`, `pgln_akun_id`, `pgln_nama`, `pgln_jumlah`, `pgln_keterangan`, `pgln_void`, `pgln_entryuser`, `pgln_entrydate`, `pgln_changeuser`, `pgln_changedate`) VALUES
-(1, 2, '2016-05-05', 2, 'Beli Tanah', 100000, '', 1, '', '2016-05-05 10:13:11', '', '2016-07-16 08:40:45'),
-(2, 1, '2016-05-04', 2, 'Beli tanah lagi', 50000, '', 1, '', '2016-05-05 10:20:20', '', '2016-07-16 08:40:46'),
-(3, 2, '2016-05-05', 5, 'Beli Air', 125000, '', 1, '', '2016-05-05 10:32:09', '', '2016-07-16 08:40:47');
 
 -- --------------------------------------------------------
 
@@ -777,7 +633,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_penjualan_beritaacara` (
   `pbcr_entrydate` datetime DEFAULT NULL,
   `pbcr_changedate` datetime DEFAULT NULL,
   PRIMARY KEY (`pbcr_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -808,7 +664,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_penjualan_bukti_pembayaran` (
   `pbktp_entrydate` datetime DEFAULT NULL,
   `pbktp_changedate` datetime DEFAULT NULL,
   PRIMARY KEY (`pbktp_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -833,7 +689,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_penjualan_invoice` (
   `pjinv_entrydate` datetime DEFAULT NULL,
   `pjinv_changedate` datetime DEFAULT NULL,
   PRIMARY KEY (`pjinv_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -851,19 +707,6 @@ CREATE TABLE IF NOT EXISTS `gntrapp_penjualan_invoice_detail` (
   `pjinvd_brjs_id` int(10) DEFAULT NULL,
   PRIMARY KEY (`pjinvd_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
-
---
--- Dumping data for table `gntrapp_penjualan_invoice_detail`
---
-
-INSERT INTO `gntrapp_penjualan_invoice_detail` (`pjinvd_id`, `pjinvd_invid`, `pjinvd_jenisbarang`, `pjinvd_jumlah`, `pjinvd_entrydate`, `pjinvd_changedate`, `pjinvd_brjs_id`) VALUES
-(1, '0103/INV-XII/2015', '1', '10', '2016-06-08 05:43:23', '2016-06-08 07:10:55', NULL),
-(2, '0103/INV-XII/2015', '3', '3', '2016-06-08 05:43:23', '2016-06-08 07:11:04', NULL),
-(5, '0103/INV-XII/2016', '1', '202', '2016-06-08 05:46:08', '2016-06-08 05:46:08', NULL),
-(6, '0103/INV-XII/2016', '3', '20', '2016-06-08 05:46:08', '2016-06-08 05:46:08', NULL),
-(8, 'sdadas', '3', '10', '2016-06-08 07:11:50', '2016-06-08 07:11:50', NULL),
-(9, 'INV-004', '1', '12', NULL, NULL, NULL),
-(10, 'INV-004', '3', '15', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -888,7 +731,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_penjualan_kwitansi` (
   `pjkw_changedate` datetime DEFAULT NULL,
   `uploadfile` varchar(250) DEFAULT NULL,
   PRIMARY KEY (`pjkw_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -914,27 +757,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_penjualan_penawaran` (
   `ppnw_changeuser` varchar(100) NOT NULL,
   `ppnw_changedate` datetime NOT NULL,
   PRIMARY KEY (`ppnw_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
-
---
--- Dumping data for table `gntrapp_penjualan_penawaran`
---
-
-INSERT INTO `gntrapp_penjualan_penawaran` (`ppnw_id`, `ppnw_no_penawaran`, `ppnw_no_pemesanan`, `ppnw_tanggal`, `ppnw_clnt_id`, `ppnw_status`, `ppnw_diskon`, `ppnw_pajak`, `ppnw_biaya_kirim`, `ppnw_nilai_faktur`, `ppnw_keterangan`, `ppnw_void`, `ppnw_entryuser`, `ppnw_entrydate`, `ppnw_changeuser`, `ppnw_changedate`) VALUES
-(1, 'PNW-001', 'PMSN-001', '0000-00-00', 2, 1, 1000, 2000, 3000, 4000, 'test', 1, '', '2016-05-06 06:02:13', '', '2016-06-12 10:41:17'),
-(2, 'PNW-002', 'PMSN-002', '0000-00-00', 2, 1, 1000, 2000, 3000, 4000, 'Lagi', 1, '', '2016-05-06 06:15:20', '', '2016-05-06 06:17:37'),
-(3, '2', '', '0000-00-00', 3, 2, 12, 1222, 12222, 1345, 'ss', 1, '', '2016-05-28 08:24:17', '', '2016-06-12 10:41:19'),
-(4, 'PNW01', '', '2016-06-30', 2, 2, 10, 10, 1000, 1450000, 'Perbaikan Talang Air Finishgood &amp; Perbaikan Dinding', 1, '', '2016-06-12 09:32:25', '', '2016-07-16 08:38:01'),
-(5, 'PNW02', '', '0000-00-00', 3, 1, 20, 10, 345000, 128000000, 'Perbaikan Dinding', 1, '', '2016-06-12 09:36:47', '', '2016-06-12 10:41:22'),
-(6, 'PNW4', '', '0000-00-00', 2, 1, 10, 10, 25000, 125000000, 'Perbaikan Dinding', 1, '', '2016-06-12 09:40:05', '', '2016-06-12 09:43:15'),
-(7, 'PNW04', '', '0000-00-00', 2, 2, 0, 10, 25000, 2500000, 'Perbaikan Talang Air Finishgood', 1, '', '2016-06-12 09:45:47', '', '2016-06-12 09:46:24'),
-(8, 'PNW04', '', '0000-00-00', 3, 1, 0, 10, 23000, 45000000, 'Perbaikan dinding', 1, '', '2016-06-12 09:53:02', '', '2016-06-12 10:05:51'),
-(9, 'PNW04', '', '2016-06-22', 3, 1, 10, 10, 45000, 3500000, 'Perbaikan dinding', 1, '', '2016-06-12 10:07:19', '', '2016-07-16 08:38:03'),
-(10, 'PNW04', '', '0000-00-00', 3, 1, 10, 10, 45000, 3500000, 'Perbaikan dinding', 1, '', '2016-06-12 10:07:40', '', '2016-06-12 10:11:20'),
-(11, '4324', '', '0000-00-00', 3, 1, 342, 3432, 234234, 23432, 'sgdfsgsdf', 1, '', '2016-06-12 10:08:59', '', '2016-06-12 10:11:07'),
-(12, 'efw', '', '0000-00-00', 3, 2, 0, 0, 0, 0, '', 1, '', '2016-06-12 10:09:54', '', '2016-06-12 10:11:04'),
-(13, '453', '', '0000-00-00', 0, 0, 0, 0, 0, 0, '', 0, '', '2016-06-12 10:10:46', '', '0000-00-00 00:00:00'),
-(14, 'PNW-001-16-7-2016', '', '2016-07-16', 5, 2, 0, 0, 0, 100, 'Cash', 0, '', '2016-07-16 09:15:33', '', '0000-00-00 00:00:00');
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
 -- --------------------------------------------------------
 
@@ -953,18 +776,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_penjualan_penawaran_detail` (
   `ppnwd_entrydate` datetime DEFAULT NULL,
   `ppnwd_changedate` datetime DEFAULT NULL,
   PRIMARY KEY (`ppnwd_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
-
---
--- Dumping data for table `gntrapp_penjualan_penawaran_detail`
---
-
-INSERT INTO `gntrapp_penjualan_penawaran_detail` (`ppnwd_id`, `ppnwd_no_penawaran`, `ppnwd_deskripsi_id`, `ppnwd_jenisbarang`, `ppnwd_volume`, `ppnwd_satuan`, `ppnwd_hargasatuan`, `ppnwd_entrydate`, `ppnwd_changedate`) VALUES
-(1, 'PNW01', '', 'Barang 1', '10', 'Pcs', '25000', '2016-06-12 14:32:26', '2016-06-12 15:38:23'),
-(2, 'PNW01', '', 'Truk', '15', 'lot', '2500000', '2016-06-12 14:32:26', '2016-06-12 15:38:23'),
-(15, 'PNW04', '', '--Pilih--', '2', 'Lot', '2500000', '2016-06-12 15:07:40', '2016-06-12 17:05:36'),
-(16, 'PNW-001-16-7-2016', 'Pengerjaan Klem Lampu', 'Klem Lampu Pju Tl 5 Mm', '2', 'Pcs', '296.000', NULL, NULL),
-(17, 'PNW-001-16-7-2016', 'Cash', 'Klem Lampu Pju Tl 5 Mm', '', '', '', NULL, NULL);
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
 
 -- --------------------------------------------------------
 
@@ -991,20 +803,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_penjualan_permintaan` (
   `ppmt_changedate` datetime DEFAULT NULL,
   `ppmt_fileupload` varchar(250) DEFAULT NULL,
   PRIMARY KEY (`ppmt_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
-
---
--- Dumping data for table `gntrapp_penjualan_permintaan`
---
-
-INSERT INTO `gntrapp_penjualan_permintaan` (`ppmt_id`, `ppmt_ppnw_id`, `ppmt_tanggal`, `ppmt_clnt_id`, `ppmt_void`, `ppmt_noso`, `ppmt_status`, `ppmt_nopo`, `ppmt_diskon`, `ppmt_pajak`, `ppmt_biayakirim`, `ppmt_nilaifaktur`, `ppmt_uangmuka`, `ppmt_keterangan`, `ppmt_entrydate`, `ppmt_changedate`, `ppmt_fileupload`) VALUES
-(1, 0, '2016-06-30', 0, 0, '12312', '', '34534', '12%', '10%', '12000', '12345000', '0', 'xx', '2016-06-06 10:49:53', '2016-06-06 15:49:53', NULL),
-(2, 9, '2016-07-30', 3, 1, '564564', '2', '4564', '12%', '10%', '12000', '12000000', '12000', 'proses cepat ya', '2016-06-06 10:55:44', '2016-07-16 08:38:46', 'file_e281fb1.png'),
-(3, 0, '2016-08-31', 2, 1, '4564', '1', '34', '13%', '10%', '12000', '4500', '3000', 'cc 1', '2016-06-06 11:03:32', '2016-06-07 16:37:16', NULL),
-(4, 0, '2016-08-25', 2, 1, '439576', '2', '123', '50%', '10%', '12000', '35000', '100000', 'proses cepat', '2016-06-07 16:39:17', '2016-06-07 18:43:00', NULL),
-(11, 4, '2016-06-30', 3, 1, '123`', '2', '123', '30%', '10%', '12000', '1200', '12000', 'cek xx', '2016-06-07 18:31:11', '2016-07-16 08:38:48', 'file_87aa681.jpg'),
-(12, 9, '2016-06-15', 3, 1, '2913', '2', '12', '', '10%', '12000', '12000000', '12000', 'cek', '2016-06-07 18:51:20', '2016-07-16 08:38:49', 'file_98e6cb3.jpg'),
-(13, 9, '2016-07-08', 3, 1, 'SO-002', '1', 'PO-002', '5', '5', '1234', '567', '12345', 'sadsad', '2016-07-08 06:57:15', '2016-07-16 08:38:50', NULL);
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 -- --------------------------------------------------------
 
@@ -1035,7 +834,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_penjualan_tandaterima` (
   `pttr_entrydate` datetime DEFAULT NULL,
   `pttr_changedate` datetime DEFAULT NULL,
   PRIMARY KEY (`pttr_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -1053,14 +852,6 @@ CREATE TABLE IF NOT EXISTS `gntrapp_profile` (
   `prf_changedate` datetime NOT NULL,
   PRIMARY KEY (`prf_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Dumping data for table `gntrapp_profile`
---
-
-INSERT INTO `gntrapp_profile` (`prf_id`, `prf_meta`, `prf_value`, `prf_entryuser`, `prf_entrydate`, `prf_changeuser`, `prf_changedate`) VALUES
-(1, 'Pribadi', 'a:8:{s:4:"npwp";s:4:"1234";s:4:"nama";s:12:"Nama Pribadi";s:6:"alamat";s:14:"Alamat Pribadi";s:4:"kota";s:12:"Kota Pribadi";s:7:"telepon";s:5:"08888";s:3:"fax";s:5:"08899";s:5:"email";s:17:"email@pribadi.com";s:11:"jenis_usaha";s:19:"Jenis Usaha Pribadi";}', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
-(2, 'Usaha', 'a:3:{s:4:"nama";s:16:"Nama Badan Usaha";s:4:"npwp";s:4:"5678";s:10:"keterangan";s:22:"Keterangan Badan Usaha";}', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -1089,15 +880,6 @@ CREATE TABLE IF NOT EXISTS `gntrapp_project` (
   PRIMARY KEY (`proj_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
---
--- Dumping data for table `gntrapp_project`
---
-
-INSERT INTO `gntrapp_project` (`proj_id`, `proj_clnt_id`, `proj_vndr_id`, `proj_nama`, `proj_nilai`, `proj_jangka_waktu`, `proj_cp_client`, `proj_telpon_client`, `proj_cp_vendor`, `proj_telpon_vendor`, `proj_list_barang`, `proj_status`, `proj_void`, `proj_entryuser`, `proj_entrydate`, `proj_changeuser`, `proj_changedate`) VALUES
-(1, 2, 3, 'Test 1', 10000, 'dasd', 'gsg', 'dasdas', 'dasdas', 'dadas', '1', 2, 1, '', '2016-06-18 16:04:59', '', '2016-07-16 08:40:13'),
-(2, 0, 0, 'dasdsa', 0, 'fsfsd', 'fsfs', 'fsdfsdf', 'fsdfsd', 'fsdfsd', 'sdassdf', 1, 1, '', '2016-06-18 16:07:54', '', '2016-06-18 16:07:59'),
-(3, 5, 6, 'Konsntruksi Penerangan Jalan', 2000, '1 Bulan', 'Sartini', '081324245353', 'Anto', '081934345252', '5', 2, 0, '', '2016-07-16 09:11:13', '', '0000-00-00 00:00:00');
-
 -- --------------------------------------------------------
 
 --
@@ -1116,14 +898,6 @@ CREATE TABLE IF NOT EXISTS `gntrapp_saham` (
   `sham_changedate` datetime NOT NULL,
   PRIMARY KEY (`sham_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Dumping data for table `gntrapp_saham`
---
-
-INSERT INTO `gntrapp_saham` (`sham_id`, `sham_nama`, `sham_alamat`, `sham_persentase`, `sham_void`, `sham_entryuser`, `sham_entrydate`, `sham_changeuser`, `sham_changedate`) VALUES
-(1, 'Andre Lestari', 'Bekasix', 20, 1, '', '2016-04-17 07:04:57', '', '2016-07-16 08:39:55'),
-(2, 'test', 'aja', 10, 1, '', '2016-04-17 07:07:54', '', '2016-04-17 07:07:56');
 
 -- --------------------------------------------------------
 
@@ -1159,15 +933,6 @@ CREATE TABLE IF NOT EXISTS `gntrapp_surat_jalan` (
   PRIMARY KEY (`sj_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
---
--- Dumping data for table `gntrapp_surat_jalan`
---
-
-INSERT INTO `gntrapp_surat_jalan` (`sj_id`, `sj_tanggal`, `sj_no`, `sj_halaman`, `sj_matauang`, `sj_vendor`, `sj_vendorproposalno`, `sj_projectcode`, `sj_buyer`, `sj_jenisbarang`, `sj_deskripsi`, `sj_jumlah`, `sj_satuan`, `sj_hargasatuan`, `sj_total`, `sj_catatan`, `sj_lampiran`, `sj_termspembayaran`, `sj_tglpenerimaan`, `sj_diterimaoleh`, `sj_namapenerima`, `sj_tgl`, `pp_entrydate`, `pp_changedate`) VALUES
-(1, '2016-05-27', '1', 'asda', '', '', '0', '', '', '', '', '', '', 0, 0, '', '', '', '0000-00-00', '', '', '0000-00-00', '2016-05-29 05:15:57', '2016-05-29 06:33:40'),
-(5, '2016-05-31', '12', 'asda', '$', 'ab', '0', 'asda', 'asda', '', '', '', '', 0, 0, '', '', '', '0000-00-00', 'Rosianna', 'Anna', '0000-00-00', '2016-05-29 05:17:00', '2016-05-29 06:36:11'),
-(7, '2016-05-28', 'SDFGH90', '12', '$', 'PT MAJU MUNDUR', '123', '243', 'Anna Silaban', 'Honda Mobilio', '', '1', '125000000', 130000000, 125000000, '', '', '', '0000-00-00', 'Santi', 'Anna Silaban', '2016-05-31', '2016-05-29 06:55:46', '2016-05-29 06:55:46');
-
 -- --------------------------------------------------------
 
 --
@@ -1189,21 +954,6 @@ CREATE TABLE IF NOT EXISTS `gntrapp_vendor` (
   `vndr_changedate` datetime NOT NULL,
   PRIMARY KEY (`vndr_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
-
---
--- Dumping data for table `gntrapp_vendor`
---
-
-INSERT INTO `gntrapp_vendor` (`vndr_id`, `vndr_nama`, `vndr_alamat`, `vndr_contact_person`, `vndr_telpon`, `vndr_email`, `vndr_status`, `vndr_void`, `vndr_entryuser`, `vndr_entrydate`, `vndr_changeuser`, `vndr_changedate`) VALUES
-(1, 'Vendor 1', 'Alamat 1', '0812', '021345', 'vendor1@mail.com', 1, 1, '', '2016-04-21 17:29:11', '', '2016-04-21 17:33:12'),
-(2, 'Vendor 2', 'Alamat 2', '0812', '021345', 'vendor2@mail.com', 0, 1, '', '2016-04-21 17:33:36', '', '2016-07-16 08:40:03'),
-(3, 'Vendor 3', 'Alamat 3', '0814', '6789', 'vendor3@mail.com', 1, 1, '', '2016-04-21 20:54:44', '', '2016-07-16 08:40:04'),
-(4, 'PT. VENDOR 1', 'Jl. Jeruk', 'Heriyanto', '081245457272', 'heriyanto@vendor1.com', 1, 0, '', '2016-07-16 08:48:05', '', '0000-00-00 00:00:00'),
-(5, 'PT. VENDOR 2', 'Jl. Semangka', 'Tony Sucipto', '081987876565', 'tony@vendor2.com', 1, 0, '', '2016-07-16 08:48:39', '', '0000-00-00 00:00:00'),
-(6, 'PT. VENDOR 3', 'Jl. Apel', 'Wahyu Hidayat', '081342421515', 'wahyu.hidayat@vendor3.com', 1, 0, '', '2016-07-16 08:49:20', '', '0000-00-00 00:00:00'),
-(7, 'PT. VENDOR 4', 'Jl. Mangga', 'Feriyanto', '081134340101', 'feriyanto@vendor4.com', 1, 0, '', '2016-07-16 08:51:00', '', '0000-00-00 00:00:00'),
-(8, 'PT. VENDOR JAKARTA', 'Jl. Raya Jakarta Utara', 'Gunawan', '081709092323', 'gunawan@vendor-jakarta.com', 1, 0, '', '2016-07-16 08:52:06', '', '0000-00-00 00:00:00'),
-(9, 'PT. VENDOR PALEMBANG', 'Jl. Raya Palembang Sumatera Selatan', 'Ibnu', '081562628181', 'ibnu@vendor-palembang.com', 1, 0, '', '2016-07-16 08:53:15', '', '0000-00-00 00:00:00');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

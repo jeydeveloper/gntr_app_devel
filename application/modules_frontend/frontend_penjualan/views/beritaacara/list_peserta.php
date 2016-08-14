@@ -29,6 +29,8 @@ ol, ul {
   width: inherit;
   padding: 4px;
 }
+
+button:disabled{cursor: not-allowed;}
 </style>
 
 <div class="main">
@@ -46,7 +48,7 @@ ol, ul {
               <h3>List Peserta</h3>
             </div>
             <!-- /widget-header -->
-            <div class="widget-content" style="height:500px;">
+            <div class="widget-content" style="min-height:500px;">
               <table class="table table-striped table-bordered sticky-header" id="mytable">
                 <thead>
                   <tr>
@@ -61,18 +63,30 @@ ol, ul {
                     <td><?php echo $value['kary_nama']; ?></td>
                     <td><?php echo (!empty($static_data_source['kary_jabatan'][$value['kary_jabatan_id']]) ? $static_data_source['kary_jabatan'][$value['kary_jabatan_id']]['name'] : '-'); ?></td>
                     <td>
-                      <div>
-                        <select name="sl_group" id="sl_group">
-                          <option value="">--Pilih Group--</option>
-                          <?php echo $list_group; ?>
-                        </select>
-                        <button class="btn_submit">Submit</button>
+                      <div class="peserta_add" style="<?php echo (!empty($list_beritaacara[$value['kary_id']]) ? 'display:none;' : ''); ?>">
+                        <form class="frm">
+                          <input type="hidden" name="baps_pbcr_id" value="<?php echo $pbcr_id; ?>">
+                          <input type="hidden" name="baps_kary_id" value="<?php echo $value['kary_id']; ?>">
+                          <select name="baps_group" id="baps_group">
+                            <option value="">--Pilih Group--</option>
+                            <?php echo $list_group; ?>
+                          </select>
+                          <button class="btn_submit">Submit</button>
+                        </form>
+                      </div>
+                      <div class="peserta_edit" style="<?php echo (!empty($list_beritaacara[$value['kary_id']]) ? '' : 'display:none;'); ?>">
+                        <span><?php echo $list_beritaacara[$value['kary_id']]; ?></span>
+                        <button class="btn_edit">EDIT</button>
                       </div>
                     </td>
                   </tr>
                   <?php endforeach; ?>
                 </tbody>
               </table>
+              <div style="padding:10px;">
+                <h3>Daftar Peserta Berita Acara</h3>
+                <div id="peserta_beritaacara">&nbsp;</div>
+              </div>
             </div>
             <!-- /widget-content --> 
           </div>
@@ -100,5 +114,18 @@ ol, ul {
       });
 
       $('.dataTables_filter input').attr("placeholder", "Search...");
+
+      $('.btn_submit').click(function(e){
+        e.preventDefault();
+        var me = $(this);
+        var prt = me.closest('form');
+        var url = '<?php echo site_url("penjualan/berita-acara-peserta/add"); ?>';
+        $.post(url, prt.serialize(), function(data){
+          console.log(data);
+        });
+      });
+
+      $("#peserta_beritaacara").load("<?php echo site_url('penjualan/berita-acara-peserta/load-peserta/'.$pbcr_id); ?>");
+      //console.log("<?php echo site_url('penjualan/berita-acara-peserta/load-peserta/'.$pbcr_id); ?>");
   } );
 </script>
