@@ -152,6 +152,7 @@ class Beritaacara extends MY_Frontend {
 		$tr_data = '';
 		if(!empty($data)) {
 			foreach ($data as $key => $value) {
+				$tr_data .= '<tbody>';
 				$tr_data .= '<tr>';
 				$tr_data .= '<td rowspan="'.count($data[$key]).'">'.$key.'</td>';
 				$first = true;
@@ -167,6 +168,7 @@ class Beritaacara extends MY_Frontend {
 						$tr_data .= '</tr>';
 					}
 				}
+				$tr_data .= '</tbody>';
 			}
 		}
 
@@ -177,16 +179,14 @@ class Beritaacara extends MY_Frontend {
 		}
 
 $output = <<<EOF
-<table class="table table-striped table-bordered sticky-header" width="100%">
+<table>
 	<thead>
 		<tr>
 			<th>Group</th>
 			<th>Nama</th>
 		</tr>
 	</thead>
-	<tbody>
-		$tr_data
-	</tbody>
+	$tr_data
 </table>
 EOF;
 		echo $output;

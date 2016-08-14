@@ -17,7 +17,6 @@ ol, ul {
 }
 
 #mytable_wrapper{
-  width: 98%;
   margin: 10px auto;
 }
 
@@ -31,6 +30,24 @@ ol, ul {
 }
 
 button:disabled{cursor: not-allowed;}
+
+#peserta_beritaacara table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#peserta_beritaacara td, #peserta_beritaacara th {
+  padding: 8px;
+  border: 1px solid #dddddd;
+}
+
+#peserta_beritaacara tbody:nth-child(odd) {
+  background: #f9f9f9;
+}
+
+#peserta_beritaacara tbody:hover td[rowspan], #peserta_beritaacara tr:hover td {
+   background: #f2f2f2; 
+}
 </style>
 
 <div class="main">
@@ -49,42 +66,47 @@ button:disabled{cursor: not-allowed;}
             </div>
             <!-- /widget-header -->
             <div class="widget-content" style="min-height:500px;">
-              <table class="table table-striped table-bordered sticky-header" id="mytable">
-                <thead>
-                  <tr>
-                    <th>Nama</th>
-                    <th>Jabatan</th>
-                    <th>action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php foreach($list_karyawan as $value): ?>
-                  <tr>
-                    <td><?php echo $value['kary_nama']; ?></td>
-                    <td><?php echo (!empty($static_data_source['kary_jabatan'][$value['kary_jabatan_id']]) ? $static_data_source['kary_jabatan'][$value['kary_jabatan_id']]['name'] : '-'); ?></td>
-                    <td>
-                      <div class="peserta_add" style="<?php echo (!empty($list_beritaacara[$value['kary_id']]) ? 'display:none;' : ''); ?>">
-                        <form class="frm">
-                          <input type="hidden" name="baps_pbcr_id" value="<?php echo $pbcr_id; ?>">
-                          <input type="hidden" name="baps_kary_id" value="<?php echo $value['kary_id']; ?>">
-                          <select name="baps_group" id="baps_group">
-                            <option value="">--Pilih Group--</option>
-                            <?php echo $list_group; ?>
-                          </select>
-                          <button class="btn_submit">Submit</button>
-                        </form>
-                      </div>
-                      <div class="peserta_edit" style="<?php echo (!empty($list_beritaacara[$value['kary_id']]) ? '' : 'display:none;'); ?>">
-                        <span><?php echo $list_beritaacara[$value['kary_id']]; ?></span>
-                        <button class="btn_edit">EDIT</button>
-                      </div>
-                    </td>
-                  </tr>
-                  <?php endforeach; ?>
-                </tbody>
-              </table>
+              <div style="padding:10px;">
+                <h3>Pilih Peserta</h3>
+                <hr/>
+                <table class="table table-striped table-bordered sticky-header" id="mytable">
+                  <thead>
+                    <tr>
+                      <th>Nama</th>
+                      <th>Jabatan</th>
+                      <th>action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php foreach($list_karyawan as $value): ?>
+                    <tr>
+                      <td><?php echo $value['kary_nama']; ?></td>
+                      <td><?php echo (!empty($static_data_source['kary_jabatan'][$value['kary_jabatan_id']]) ? $static_data_source['kary_jabatan'][$value['kary_jabatan_id']]['name'] : '-'); ?></td>
+                      <td>
+                        <div class="peserta_add" style="<?php echo (!empty($list_beritaacara[$value['kary_id']]) ? 'display:none;' : ''); ?>">
+                          <form class="frm">
+                            <input type="hidden" name="baps_pbcr_id" value="<?php echo $pbcr_id; ?>">
+                            <input type="hidden" name="baps_kary_id" value="<?php echo $value['kary_id']; ?>">
+                            <select name="baps_group" id="baps_group">
+                              <option value="">--Pilih Group--</option>
+                              <?php echo $list_group; ?>
+                            </select>
+                            <button class="btn_submit">Submit</button>
+                          </form>
+                        </div>
+                        <div class="peserta_edit" style="<?php echo (!empty($list_beritaacara[$value['kary_id']]) ? '' : 'display:none;'); ?>">
+                          <span class="lbl_group"><?php echo $list_beritaacara[$value['kary_id']]; ?></span>
+                          <button class="btn_edit">EDIT</button>
+                        </div>
+                      </td>
+                    </tr>
+                    <?php endforeach; ?>
+                  </tbody>
+                </table>
+              </div>
               <div style="padding:10px;">
                 <h3>Daftar Peserta Berita Acara</h3>
+                <hr/>
                 <div id="peserta_beritaacara">&nbsp;</div>
               </div>
             </div>
@@ -118,14 +140,30 @@ button:disabled{cursor: not-allowed;}
       $('.btn_submit').click(function(e){
         e.preventDefault();
         var me = $(this);
-        var prt = me.closest('form');
+        var prt = me.closest('tr');
+        var frm = prt.find('form');
         var url = '<?php echo site_url("penjualan/berita-acara-peserta/add"); ?>';
-        $.post(url, prt.serialize(), function(data){
-          console.log(data);
+        $.post(url, frm.serialize(), function(data){
+          $("#peserta_beritaacara").load("<?php echo site_url('penjualan/berita-acara-peserta/load-peserta/'.$pbcr_id); ?>");
+          var txt = prt.find('#baps_group').val();
+          prt.find('.lbl_group').text(txt);
+
+          prt.find('.peserta_add').hide();
+          prt.find('.peserta_edit').show();
         });
       });
 
+      $('.btn_edit').click(function(e){
+        e.preventDefault();
+        var me = $(this);
+        var prt = me.closest('tr');
+        prt.find('.peserta_edit').hide();
+        prt.find('.peserta_add').show();
+
+        var txt = prt.find('.lbl_group').text();
+        prt.find('#baps_group').val(txt);
+      });
+
       $("#peserta_beritaacara").load("<?php echo site_url('penjualan/berita-acara-peserta/load-peserta/'.$pbcr_id); ?>");
-      //console.log("<?php echo site_url('penjualan/berita-acara-peserta/load-peserta/'.$pbcr_id); ?>");
   } );
 </script>
