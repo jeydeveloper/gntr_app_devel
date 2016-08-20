@@ -245,7 +245,7 @@
                     <tr>
                     <?php
                     $originalDate = $detail['bp_entrydate'];
-                    $newDate      = date("d F Y", strtotime($originalDate));
+                    $newDate      = date("d F Y");
                     ?>
                         <td  style="text-align: right;">
                         Jakarta, <?php echo $newDate; ?><br /><br /><br /><br />
