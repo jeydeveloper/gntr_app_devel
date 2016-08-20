@@ -231,7 +231,7 @@
                     <tr>
                         <td>
                         <ol>
-                            <li>Nilai penawaran harga matrial tersebut : Rp. <strong>Rp <?php echo number_format($detail->ppnw_nilai_faktur,2,",","."); ?></strong></li>
+                            <li>Nilai penawaran pekerjaan tersebut : Rp. <strong>Rp <?php echo number_format($detail->ppnw_nilai_faktur,2,",","."); ?></strong></li>
                             <li>Penawaran tersebut berikut dengan matrialnya</li>
                             <li>Harga tersebut belum termasuk pajak PPN 10%</li>
                             <li>Waktu pelaksanaan 14 ( Empat Belas&nbsp;) hari sejak dikeluarkannya SPK atau WO</li>
