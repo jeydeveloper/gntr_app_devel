@@ -40,7 +40,7 @@
                     <?php endforeach; ?>
                   <?php else: ?>
                     <tr>
-                      <td colspan="9" style="background: red;color: white;">Module ini belum terisi!</td>
+                      <td colspan="7" style="background: red;color: white;">Module ini belum terisi!</td>
                     </tr>
                   <?php endif; ?>
                 </tbody>
