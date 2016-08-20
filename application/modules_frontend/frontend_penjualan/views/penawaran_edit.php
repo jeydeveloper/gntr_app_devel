@@ -84,7 +84,7 @@
                       </div> <!-- /field -->
                       <div class="field">
                           <label for="ppnwd_jenisbarang">Jenis Barang:</label>
-                          <select name="ppnwd_jenisbarang[]" id="ppnwd_jenisbarang[]" />
+                          <select class="ppnwd_jenisbarang" name="ppnwd_jenisbarang[]" id="ppnwd_jenisbarang[]" />
                                <option>--Pilih--</option>
                                <?php foreach($option_barang as $value): ?>
 
