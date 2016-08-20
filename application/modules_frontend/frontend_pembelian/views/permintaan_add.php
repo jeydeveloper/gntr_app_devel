@@ -84,27 +84,6 @@
                         <label for="pbptn_catatan">Terms Pembayaran:</label>
                         <textarea id="pbptn_catatan" name="pbptn_catatan" value="" placeholder="Terms Pembayaran"></textarea>
                       </div> <!-- /field -->
-
-
-                      <div class="field">
-                        <label for="pbptn_tanggalditerima">Tanggal Penerimaan</label>
-                        <input type="text"  class="date-picker" id="pbptn_tanggalditerima" name="pbptn_tanggalditerima" value="" placeholder="Tanggal Penerimaan" />
-                      </div> <!-- /field -->
-
-                      <div class="field">
-                        <label for="pbptn_namapenerima">Nama Penerima:</label>
-                        <input type="text" id="pbptn_namapenerima" name="pbptn_namapenerima" value="" placeholder="Nama Penerima"/>
-                      </div> <!-- /field -->
-
-                      <div class="field">
-                        <label for="pbptn_tanggalterima">Tanggal</label>
-                        <input type="text"  class="date-picker" id="pbptn_tanggalterima" name="pbptn_tanggalterima" value="" placeholder="Tanggal" />
-                      </div> <!-- /field -->
-
-                      <div class="field">
-                        <label for="pbptn_totaltagihan">Total Tagihan</label>
-                        <input type="text" id="pbptn_totaltagihan" name="pbptn_totaltagihan" value="" placeholder="Total Tagihan" />
-                      </div> <!-- /field -->
                     </div> <!-- /form-fields -->
                 </div>
                 <!-- /widget-content -->

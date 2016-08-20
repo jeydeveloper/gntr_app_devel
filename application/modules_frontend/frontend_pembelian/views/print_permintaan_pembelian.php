@@ -166,9 +166,8 @@
   <table style="width:100%; margin-top: 25px;" border="0" cellspacing="0" cellpadding="0">
         <tr>
             <td style="width:30%;">
-                <h3>Vendor: <?php echo $detail['pbptn_vendor']; ?></h3><br />
+                <h3>Vendor: <?php echo $detail['vndr_nama']; ?></h3><br />
                 Vendor Proposal No: <?php echo $detail['pbptn_proposalno']; ?><br />
-                Project Code: <?php echo $detail['pbptn_proposalno']; ?><br />
             </td>
              <td style="width:20%;">
                 &nbsp;
@@ -188,14 +187,6 @@
                             <tr>
                                 <td>Tanggal :</td>
                                 <td><?php echo $newDate;?></td>
-                            </tr>
-                            <tr>
-                                <td>Halaman :</td>
-                                <td><?php echo $detail['pbptn_halaman']; ?></td>
-                            </tr>
-                            <tr>
-                                <td>Buyer :</td>
-                                <td><?php echo $detail['pbptn_buyer']; ?></td>
                             </tr>
                         </tbody>
                     </table>
@@ -224,10 +215,6 @@
 					</tr>
         		</thead>
         		<tbody>
-                    <tr>
-                        <td colspan="2"><?php echo $detail['pbptn_catatan']; ?></td>
-                        <td colspan="4"></td>
-                    </tr>
                     <?php $sum = 0; ?>
                     <?php foreach($details as $key => $value): ?>
         			<tr>
@@ -267,10 +254,18 @@
         			</tr>
         			<tr>
         				<td colspan="5" class="numeric">GRAND TOTAL</td>
-        				<td class="numeric">Rp <?php echo number_format($detail['pbptn_totaltagihan'],2,",","."); ?></td>
+        				<td class="numeric">Rp <?php echo number_format(($sum+$pph+$ppn),2,",","."); ?></td>
         			</tr>
                     <tr>
-                        <td colspan="6">Terbilang<br/># <?php echo $detail['pbptn_terbilang']; ?> #</td>
+                        <td colspan="6">Terbilang :<br/># <?php echo terbilang(($sum+$pph+$ppn)); ?> #</td>
+                    </tr>
+                    <tr>
+                        <td colspan="6">
+                            <div>
+                                <p>Catatan :</p>
+                                <p><?php echo $detail['pbptn_catatan']; ?></p>
+                            </div>
+                        </td>
                     </tr>
         		</tbody>
         	</table>

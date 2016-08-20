@@ -45,7 +45,7 @@ class Crud_pembelian extends CI_Model {
     //--------------end---------------
 
     function get_row(){
-        return $this->db->get('pembelian_permintaan')->row_array();
+        return $this->db->join('vendor', 'vndr_id = pbptn_vndr_id')->get('pembelian_permintaan')->row_array();
     }
 
     function get_all(){
