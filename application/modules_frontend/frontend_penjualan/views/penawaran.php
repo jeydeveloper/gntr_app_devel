@@ -30,7 +30,7 @@
                     <th> Pajak </th>
                     <th> Biaya Kirim </th>
                     <th> Nilai Faktur </th>
-                    <th> Keterangan</th>
+                    <th> Perihal</th>
                     <th> PDF</th>
                     <th class="td-actions">Actions</th>
                   </tr>
