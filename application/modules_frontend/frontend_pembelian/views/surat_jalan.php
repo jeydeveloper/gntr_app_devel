@@ -36,7 +36,7 @@
                       <td><?php echo $value['pbsrtjalan_no']; ?></td>
                       <td><?php echo $value['pbsrtjalan_tanggal']; ?></td>
                       <td><?php echo $value['vndr_nama']; ?></td>
-                      <td><?php echo add_numberformat($value['pbptn_totaltagihan']); ?></td>
+                      <td><?php echo (!empty($total[$value['pbsrtjalan_pbptn_id']]) ? add_numberformat($total[$value['pbsrtjalan_pbptn_id']]) : ''); ?></td>
                       <td>
                         <?php if(!empty($img_url)): ?>
                         <a href="<?php echo $img_url; ?>" target="_blank">

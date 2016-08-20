@@ -215,7 +215,7 @@ class Pembelian extends MY_Frontend {
 
 	function kwitansi() {
         $this->_data['result'] = $this->crud_kwitansi->order_by('pbkw_id', 'asc')->get_all();
-        
+
         $this->_data['total'] = $this->total_permintaan();
 
 		$this->template->set('title', 'Kwitansi Pembelian | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
@@ -398,6 +398,8 @@ class Pembelian extends MY_Frontend {
 
 	function surat_jalan() {
         $this->_data['result'] = $this->crud_suratjalan->order_by('pbsrtjalan_id', 'asc')->get_all();
+
+        $this->_data['total'] = $this->total_permintaan();
 
 		$this->template->set('title', 'Surat Jalan Pembelian | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
@@ -1259,6 +1261,9 @@ class Pembelian extends MY_Frontend {
 
     function referensi_kwitansi($id) {
         $result = $this->db->from('pembelian_kwitansi')->join('pembelian_permintaan', 'pbkw_pbptn_id=pbptn_id')->join('vendor', 'pbptn_vndr_id=vndr_id')->where('pbkw_id = "'.$id.'"')->get()->row_array();
+        $tmp = $this->total_permintaan($result['pbptn_id']);
+        $result['pbptn_totaltagihan'] = (!empty($tmp[$result['pbptn_id']]) ? add_numberformat($tmp[$result['pbptn_id']]) : 0);
+        
         $result['pbsrtjalan_terbilang'] = !empty($result['pbptn_totaltagihan']) ? terbilang($result['pbptn_totaltagihan']) : '-';
         echo json_encode($result);
     }
