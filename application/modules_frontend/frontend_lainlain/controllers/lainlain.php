@@ -22,8 +22,17 @@ class Lainlain extends MY_Frontend {
 		$this->_data['result'] = $this->crud->where('sham_void = 0')->order_by('sham_id', 'asc')->get_all();
 		$this->_data['persentase'] = array();
 
-		foreach ($this->_data['result'] as $key => $value) {
-			$this->_data['persentase'][$value['sham_id']] = round(($value['sham_persentase']/$res_total['total']) * 100);
+		if(!empty($this->_data['result'])) {
+			$sum = 0;
+			$cnt = count($this->_data['result']) - 1;
+			foreach ($this->_data['result'] as $key => $value) {
+				if($cnt == $key) {
+					$this->_data['persentase'][$value['sham_id']] = 100 - $sum;
+					break;
+				}
+				$this->_data['persentase'][$value['sham_id']] = round(($value['sham_persentase']/$res_total['total']) * 100);
+				$sum += $this->_data['persentase'][$value['sham_id']];
+			}
 		}
 
 		$this->template->set('title', 'Lain-lain | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
