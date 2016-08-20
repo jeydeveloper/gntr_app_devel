@@ -33,7 +33,7 @@
                     <tr>
                       <td><?php echo ($key+1); ?></td>
                       <td><?php echo $value['vndr_nama']; ?></td>
-                      <td><?php echo add_numberformat($value['pbptn_totaltagihan']); ?></td>
+                      <td><?php echo (!empty($total[$value['pbkw_pbptn_id']]) ? add_numberformat($total[$value['pbkw_pbptn_id']]) : ''); ?></td>
                       <td>
                           <?php echo $value['pbkw_bank']; ?><br />
                           No. Rekening: <?php echo $value['pbkw_norek']; ?><br />

@@ -215,6 +215,9 @@ class Pembelian extends MY_Frontend {
 
 	function kwitansi() {
         $this->_data['result'] = $this->crud_kwitansi->order_by('pbkw_id', 'asc')->get_all();
+        
+        $this->_data['total'] = $this->total_permintaan();
+
 		$this->template->set('title', 'Kwitansi Pembelian | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
 		$this->template->load('template_frontend/main', 'kwitansi', $this->_data);
