@@ -37,8 +37,17 @@
                 <div class="form-fields">
                   
                   <div class="field">
-                    <label for="sham_persentase">Persentase</label>
-                    <input id="sham_persentase" name="sham_persentase" placeholder="Persentase" value="<?php echo $detail['sham_persentase']; ?>" required />
+                    <label for="sham_persentase">Jumlah Saham</label>
+                    <input class="numberformat" id="sham_persentase" name="sham_persentase" placeholder="Jumlah Saham" value="<?php echo $detail['sham_persentase']; ?>" required />
+                  </div> <!-- /field -->
+                                
+                </div> <!-- /form-fields -->
+
+                <div class="form-fields">
+                  
+                  <div class="field">
+                    <label for="terbilang">Terbilang</label>
+                    <p class="alert" id="terbilang">-</p>
                   </div> <!-- /field -->
                                 
                 </div> <!-- /form-fields -->
@@ -65,3 +74,45 @@
   <!-- /main-inner --> 
 </div>
 <!-- /main -->
+
+<script type="text/javascript">
+  $(function(){
+    $('.numberformat').number( true, 0, ',', '.' );
+  })
+</script>
+
+<script type="text/javascript">
+  $(function(){
+    var get_info = function(id) {
+      if(id == '') {
+        $('#terbilang').text('-');
+        return true;
+      }
+
+      var url = '<?php echo site_url("lain-lain/terbilang"); ?>/'+id;
+      $.getJSON(url, function(data){
+        $('#terbilang').text(data.terbilang);
+      });
+    };
+
+    var delay = (function(){
+      var timer = 0;
+      return function(callback, ms){
+        clearTimeout (timer);
+        timer = setTimeout(callback, ms);
+      };
+    })();
+
+    $('#sham_persentase').keyup(function() {
+        delay(function(){
+          var me = $('#sham_persentase');
+          get_info(me.val());
+        }, 500 );
+    });
+
+    delay(function(){
+      var me = $('#sham_persentase');
+      get_info(me.val());
+    }, 500 );
+  })
+</script>

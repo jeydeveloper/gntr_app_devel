@@ -16,7 +16,14 @@ class Lainlain extends MY_Frontend {
 	}
 
 	function index() {
+		$res_total = $this->db->select('SUM(sham_persentase) as total', false)->where('sham_void = 0')->get('saham')->row_array();
+
 		$this->_data['result'] = $this->crud->where('sham_void = 0')->order_by('sham_id', 'asc')->get_all();
+		$this->_data['persentase'] = array();
+
+		foreach ($this->_data['result'] as $key => $value) {
+			$this->_data['persentase'][$value['sham_id']] = round(($value['sham_persentase']/$res_total['total']) * 100);
+		}
 
 		$this->template->set('title', 'Lain-lain | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
@@ -47,7 +54,7 @@ class Lainlain extends MY_Frontend {
 			$db_data = array(
 				'sham_nama' => $this->input->post('sham_nama'),
 				'sham_alamat' => $this->input->post('sham_alamat'),
-				'sham_persentase' => $this->input->post('sham_persentase'),
+				'sham_persentase' => clear_numberformat($this->input->post('sham_persentase')),
 				'sham_entrydate' => $this->_data['datetime'],
 			);
 			$this->crud->posts($db_data);
@@ -97,7 +104,7 @@ class Lainlain extends MY_Frontend {
 			$db_data = array(
 				'sham_nama' => $this->input->post('sham_nama'),
 				'sham_alamat' => $this->input->post('sham_alamat'),
-				'sham_persentase' => $this->input->post('sham_persentase'),
+				'sham_persentase' => clear_numberformat($this->input->post('sham_persentase')),
 				'sham_changedate' => $this->_data['datetime'],
 			);
 			$this->crud->where('sham_id = "'.$this->input->post('sham_id').'"')->puts($db_data);
@@ -108,6 +115,11 @@ class Lainlain extends MY_Frontend {
 			return false;
 		}
 	}
+
+	function terbilang($id) {
+        $result['terbilang'] = !empty($id) ? terbilang($id) : '-';
+        echo json_encode($result);
+    }
 }
 
 ?>

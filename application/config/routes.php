@@ -126,6 +126,7 @@ $route['lain-lain'] = "frontend_lainlain/lainlain";
 $route['lain-lain/add'] = "frontend_lainlain/lainlain/add";
 $route['lain-lain/edit/(:any)'] = "frontend_lainlain/lainlain/edit/$1";
 $route['lain-lain/delete/(:any)'] = "frontend_lainlain/lainlain/delete/$1";
+$route['lain-lain/terbilang/(:any)'] = "frontend_lainlain/lainlain/terbilang/$1";
 
 //route BPU
 $route['bpu'] = "frontend_bpu/bpu";
