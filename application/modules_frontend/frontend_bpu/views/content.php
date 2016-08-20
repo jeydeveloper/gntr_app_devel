@@ -17,7 +17,6 @@
                 <thead>
                   <tr>
                     <th width="30"> No. </th>
-                    <th> Request By </th>
                     <th> Nama </th>
                     <th> Besaran (harga) </th>
                     <th> Terbilang </th>
@@ -31,7 +30,6 @@
                     <?php foreach($result as $key => $value): ?>
                     <tr>
                       <td><?php echo ($key+1); ?></td>
-                      <td><?php echo $value['bpu_request_by']; ?></td>
                       <td><?php echo $value['bpu_nama']; ?></td>
                       <td style="text-align:right;"><?php echo number_format_rupiah($value['bpu_harga']); ?></td>
                       <td><?php echo (!empty($value['bpu_harga']) ? terbilang($value['bpu_harga']) : '-'); ?></td>
