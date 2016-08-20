@@ -62,8 +62,8 @@
                   </div> <!-- /field -->
 
                   <div class="field">
-                    <label for="ppnw_nilai_faktur">Nilai Faktur</label>
-                    <input id="ppnw_nilai_faktur" name="ppnw_nilai_faktur" placeholder="Nilai Faktur" value="<?php echo $detail['ppnw_nilai_faktur']; ?>" />
+                    <label for="ppnw_nilai_faktur">Nilai Pekerjaan</label>
+                    <input id="ppnw_nilai_faktur" name="ppnw_nilai_faktur" placeholder="Nilai Pekerjaan" value="<?php echo $detail['ppnw_nilai_faktur']; ?>" />
                   </div> <!-- /field -->
 
                   <div class="field">

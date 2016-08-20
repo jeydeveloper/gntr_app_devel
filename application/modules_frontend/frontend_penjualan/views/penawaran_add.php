@@ -61,8 +61,8 @@
                   </div> <!-- /field -->
 
                   <div class="field">
-                    <label for="ppnw_nilai_faktur">Nilai Faktur</label>
-                    <input class="numberformat" id="ppnw_nilai_faktur" name="ppnw_nilai_faktur" placeholder="Nilai Faktur" />
+                    <label for="ppnw_nilai_faktur">Nilai Pekerjaan</label>
+                    <input class="numberformat" id="ppnw_nilai_faktur" name="ppnw_nilai_faktur" placeholder="Nilai Pekerjaan" />
                   </div> <!-- /field -->
 
                   <div class="field">
