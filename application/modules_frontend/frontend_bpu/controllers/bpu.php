@@ -52,6 +52,7 @@ class Bpu extends MY_Frontend {
 				'bpu_request_by' => $this->session->userdata('username'),
 				'bpu_harga' => clear_numberformat($this->input->post('bpu_harga')),
 				'bpu_proj_id' => $this->input->post('bpu_proj_id'),
+				'bpu_approved_by' => $this->input->post('bpu_approved_by'),
 				'bpu_entrydate' => $this->_data['datetime'],
 			);
 			$this->crud->posts($db_data);
@@ -105,6 +106,7 @@ class Bpu extends MY_Frontend {
 				'bpu_request_by' => $this->session->userdata('username'),
 				'bpu_harga' => clear_numberformat($this->input->post('bpu_harga')),
 				'bpu_proj_id' => $this->input->post('bpu_proj_id'),
+				'bpu_approved_by' => $this->input->post('bpu_approved_by'),
 				'bpu_changedate' => $this->_data['datetime'],
 			);
 			$this->crud->where('bpu_id = "'.$this->input->post('bpu_id').'"')->puts($db_data);

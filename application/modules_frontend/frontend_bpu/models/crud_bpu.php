@@ -49,7 +49,7 @@ class Crud_bpu extends CI_Model {
 	}
 
 	function get_all(){
-		return $this->db->get('bpu')->result_array();
+		return $this->db->join('project', 'proj_id = bpu_proj_id')->get('bpu')->result_array();
 	}
 
 	function posts($data){

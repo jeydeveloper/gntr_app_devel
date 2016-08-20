@@ -36,7 +36,7 @@
                       <td style="text-align:right;"><?php echo number_format_rupiah($value['bpu_harga']); ?></td>
                       <td><?php echo (!empty($value['bpu_harga']) ? terbilang($value['bpu_harga']) : '-'); ?></td>
                       <td><?php echo (!empty($value['bpu_approved_by']) ? $value['bpu_approved_by'] : '-'); ?></td>
-                      <td><?php echo (!empty($value['bpu_proj_id']) ? $value['bpu_proj_id'] : '-'); ?></td>
+                      <td><?php echo (!empty($value['proj_nama']) ? $value['proj_nama'] : '-'); ?></td>
                       <td class="td-actions"><a href="<?php echo ($module_base_url.'/edit/'.$value['bpu_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a> <a href="<?php echo ($module_base_url.'/delete/'.$value['bpu_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>
                     </tr>
                     <?php endforeach; ?>

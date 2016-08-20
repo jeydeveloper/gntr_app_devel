@@ -41,6 +41,11 @@
                       <?php endforeach; ?>
                     </select>
                   </div> <!-- /field -->
+
+                  <div class="field">
+                    <label for="bpu_approved_by">Approved By</label>
+                    <input id="bpu_approved_by" name="bpu_approved_by" placeholder="Approved By" value="<?php echo $detail['bpu_approved_by']; ?>" />
+                  </div> <!-- /field -->
                                 
                 </div> <!-- /form-fields -->
                 
