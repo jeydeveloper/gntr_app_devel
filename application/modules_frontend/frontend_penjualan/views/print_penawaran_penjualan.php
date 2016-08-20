@@ -248,7 +248,7 @@
             <table border="0" cellpadding="1" cellspacing="1" style="width:100%">
                 <tbody>
                     <tr>
-                        <td>Dengan disampaikannya surat Surat Penawaran ini, maka kami menyatakan sanggup dan tunduk pada semua peraturan yang tertuang dalam peraturan Kerja dilingkungan PT. Andalan Furnindo.</td>
+                        <td>Dengan disampaikannya surat Surat Penawaran ini, maka kami menyatakan sanggup dan tunduk pada semua peraturan yang tertuang dalam peraturan Kerja dilingkungan <?php echo $detail->clnt_nama; ?>.</td>
                     </tr>
                 </tbody>
             </table>
