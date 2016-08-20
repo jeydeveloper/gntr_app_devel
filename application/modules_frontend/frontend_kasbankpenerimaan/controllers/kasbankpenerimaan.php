@@ -46,7 +46,6 @@ class Kasbankpenerimaan extends MY_Frontend {
 		$this->form_validation->set_rules('pnrm_nama', 'Nama', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
 		$this->form_validation->set_rules('pnrm_bank_id', 'Bank', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
 		$this->form_validation->set_rules('pnrm_tanggal', 'Tanggal', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
-		$this->form_validation->set_rules('pnrm_akun_id', 'Akun', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
 		$this->form_validation->set_rules('pnrm_jumlah', 'Jumlah', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|xss_clean');
 		$this->form_validation->set_rules('pnrm_keterangan', 'Keterangan', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|xss_clean');
 
@@ -55,8 +54,7 @@ class Kasbankpenerimaan extends MY_Frontend {
 				'pnrm_nama' => $this->input->post('pnrm_nama'),
 				'pnrm_bank_id' => $this->input->post('pnrm_bank_id'),
 				'pnrm_tanggal' => $this->input->post('pnrm_tanggal'),
-				'pnrm_akun_id' => $this->input->post('pnrm_akun_id'),
-				'pnrm_jumlah' => $this->input->post('pnrm_jumlah'),
+				'pnrm_jumlah' => clear_numberformat($this->input->post('pnrm_jumlah')),
 				'pnrm_keterangan' => $this->input->post('pnrm_keterangan'),
 				'pnrm_entrydate' => $this->_data['datetime'],
 			);
@@ -104,7 +102,6 @@ class Kasbankpenerimaan extends MY_Frontend {
 		$this->form_validation->set_rules('pnrm_nama', 'Nama', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
 		$this->form_validation->set_rules('pnrm_bank_id', 'Bank', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
 		$this->form_validation->set_rules('pnrm_tanggal', 'Tanggal', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
-		$this->form_validation->set_rules('pnrm_akun_id', 'Akun', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
 		$this->form_validation->set_rules('pnrm_jumlah', 'Jumlah', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|xss_clean');
 		$this->form_validation->set_rules('pnrm_keterangan', 'Keterangan', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|xss_clean');
 
@@ -113,8 +110,7 @@ class Kasbankpenerimaan extends MY_Frontend {
 				'pnrm_nama' => $this->input->post('pnrm_nama'),
 				'pnrm_bank_id' => $this->input->post('pnrm_bank_id'),
 				'pnrm_tanggal' => $this->input->post('pnrm_tanggal'),
-				'pnrm_akun_id' => $this->input->post('pnrm_akun_id'),
-				'pnrm_jumlah' => $this->input->post('pnrm_jumlah'),
+				'pnrm_jumlah' => clear_numberformat($this->input->post('pnrm_jumlah')),
 				'pnrm_keterangan' => $this->input->post('pnrm_keterangan'),
 				'pnrm_changedate' => $this->_data['datetime'],
 			);
@@ -126,6 +122,11 @@ class Kasbankpenerimaan extends MY_Frontend {
 			return false;
 		}
 	}
+
+	function terbilang($id) {
+        $result['terbilang'] = !empty($id) ? terbilang($id) : '-';
+        echo json_encode($result);
+    }
 }
 
 ?>

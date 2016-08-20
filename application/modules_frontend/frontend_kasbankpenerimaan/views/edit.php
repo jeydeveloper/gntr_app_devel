@@ -38,18 +38,13 @@
                   </div> <!-- /field -->
 
                   <div class="field">
-                    <label for="pnrm_akun_id">Akun</label>
-                    <select name="pnrm_akun_id" id="pnrm_akun_id" required /> 
-                      <option value="">-- Pilih --</option>
-                      <?php foreach($data_source['akun'] as $value): ?>
-                        <option value="<?php echo $value['value']; ?>" <?php echo ($detail['pnrm_akun_id'] == $value['value'] ? 'selected' : ''); ?>><?php echo $value['name']; ?></option>
-                      <?php endforeach; ?>
-                    </select>
+                    <label for="pnrm_jumlah">Jumlah</label>
+                    <input class="numberformat" id="pnrm_jumlah" name="pnrm_jumlah" placeholder="Jumlah" value="<?php echo $detail['pnrm_jumlah']; ?>" required />
                   </div> <!-- /field -->
 
                   <div class="field">
-                    <label for="pnrm_jumlah">Jumlah</label>
-                    <input id="pnrm_jumlah" name="pnrm_jumlah" placeholder="Jumlah" value="<?php echo $detail['pnrm_jumlah']; ?>" required />
+                    <label for="terbilang">Terbilang</label>
+                    <p class="alert" id="terbilang">-</p>
                   </div> <!-- /field -->
 
                   <div class="field">
@@ -81,3 +76,45 @@
   <!-- /main-inner --> 
 </div>
 <!-- /main -->
+
+<script type="text/javascript">
+  $(function(){
+    $('.numberformat').number( true, 0, ',', '.' );
+  })
+</script>
+
+<script type="text/javascript">
+  $(function(){
+    var get_info = function(id) {
+      if(id == '') {
+        $('#terbilang').text('-');
+        return true;
+      }
+
+      var url = '<?php echo site_url("kas-bank-penerimaan/terbilang"); ?>/'+id;
+      $.getJSON(url, function(data){
+        $('#terbilang').text(data.terbilang);
+      });
+    };
+
+    var delay = (function(){
+      var timer = 0;
+      return function(callback, ms){
+        clearTimeout (timer);
+        timer = setTimeout(callback, ms);
+      };
+    })();
+
+    $('#pnrm_jumlah').keyup(function() {
+        delay(function(){
+          var me = $('#pnrm_jumlah');
+          get_info(me.val());
+        }, 500 );
+    });
+
+    delay(function(){
+      var me = $('#pnrm_jumlah');
+      get_info(me.val());
+    }, 500 );
+  })
+</script>
