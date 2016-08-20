@@ -37,16 +37,7 @@ class Pembelian extends MY_Frontend {
 	function permintaan() {
         $this->_data['result'] = $this->crud_pembelian->order_by('pbptn_id', 'asc')->get_all();
 
-        $details  = $this->crud_permintaan_detail->join2();
-        $this->_data['total'] = array();
-        foreach ($details as $key => $value) {
-            if(empty($this->_data['total'][$value['pbptn_id']])) $this->_data['total'][$value['pbptn_id']] = 0;
-            $this->_data['total'][$value['pbptn_id']] += $value['pbptnd_jumlah'] * $value['brjs_harga_satuan'];
-        }
-
-        foreach ($this->_data['total'] as $key => $value) {
-            $this->_data['total'][$key] += ($value * 0.02) + ($value * 0.1);
-        }
+        $this->_data['total'] = $this->total_permintaan();
 
 		$this->template->set('title', 'Permintaan Pembelian | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
@@ -1258,6 +1249,8 @@ class Pembelian extends MY_Frontend {
 
     function referensi($id) {
         $result = $this->db->from('pembelian_permintaan')->join('vendor', 'pbptn_vndr_id=vndr_id')->where('pbptn_id = "'.$id.'"')->get()->row_array();
+        $tmp = $this->total_permintaan($result['pbptn_id']);
+        $result['pbptn_totaltagihan'] = (!empty($tmp[$result['pbptn_id']]) ? add_numberformat($tmp[$result['pbptn_id']]) : 0);
         echo json_encode($result);
     }
 
@@ -1287,6 +1280,26 @@ class Pembelian extends MY_Frontend {
     function info_barang($id) {
         $result = $this->db->from('pembelian_permintaan')->join('pembelian_permintaan_detail', 'pbptn_no=pbptnd_nopermintaan')->join('barang_jasa', 'pbptnd_jenisbarang=brjs_id')->where('pbptn_id = "'.$id.'"')->get()->result_array();
         echo json_encode($result);
+    }
+
+    private function total_permintaan($id ='') {
+        if(!empty($id)) {
+            $details  = $this->crud_permintaan_detail->where('pbptn_id = "'.$id.'"')->join2();
+        } else {
+            $details  = $this->crud_permintaan_detail->join2();
+        }
+        
+        $total = array();
+        foreach ($details as $key => $value) {
+            if(empty($total[$value['pbptn_id']])) $total[$value['pbptn_id']] = 0;
+            $total[$value['pbptn_id']] += $value['pbptnd_jumlah'] * $value['brjs_harga_satuan'];
+        }
+
+        foreach ($total as $key => $value) {
+            $total[$key] += ($value * 0.02) + ($value * 0.1);
+        }
+
+        return $total;
     }
 }
 
