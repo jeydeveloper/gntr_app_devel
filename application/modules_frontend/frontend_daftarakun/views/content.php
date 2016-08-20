@@ -19,7 +19,6 @@
                     <th> No. Akun</th>
                     <th> Nama</th>
                     <th> Tipe</th>
-                    <th> Saldo</th>
                     <th class="td-actions">Action</th>
                   </tr>
                 </thead>
@@ -45,7 +44,6 @@
                         <td><?php echo (!empty($parent[$value['akun_parent']]) ? ('&nbsp;&nbsp;&nbsp;' . $parent[$value['akun_parent']] . '-') : ''); ?><?php echo $value['akun_nomor']; ?></td>
                         <td><?php echo $value['akun_nama']; ?></td>
                         <td><?php echo (!empty($static_data_source['akun_tipe'][$value['akun_tipe_id']]) ? $static_data_source['akun_tipe'][$value['akun_tipe_id']]['name'] : '-'); ?></td>
-                        <td style="text-align: right;"><?php echo number_format_rupiah($saldo); ?></td>
                         <td class="td-actions"><a href="<?php echo ($module_base_url.'/edit/'.$value['akun_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a> <a href="<?php echo ($module_base_url.'/delete/'.$value['akun_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>
                       </tr>
                       <?php endif; ?>
@@ -69,7 +67,6 @@
                             <td><?php echo (!empty($parent[$value['akun_parent']]) ? ('&nbsp;&nbsp;&nbsp;' . $parent[$value['akun_parent']] . '-') : ''); ?><?php echo $value['akun_nomor']; ?></td>
                             <td><?php echo $value['akun_nama']; ?></td>
                             <td><?php echo (!empty($static_data_source['akun_tipe'][$value['akun_tipe_id']]) ? $static_data_source['akun_tipe'][$value['akun_tipe_id']]['name'] : '-'); ?></td>
-                            <td style="text-align: right;"><?php echo number_format_rupiah($saldo); ?></td>
                             <td class="td-actions"><a href="<?php echo ($module_base_url.'/edit/'.$value['akun_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a> <a href="<?php echo ($module_base_url.'/delete/'.$value['akun_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>
                           </tr>
                         <?php endforeach; ?>
