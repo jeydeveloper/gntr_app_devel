@@ -54,7 +54,7 @@
 
                   <div class="field">
                     <label for="proj_nilai">Nilai Proyek</label>
-                    <input id="proj_nilai" name="proj_nilai" placeholder="Nilai Proyek" value="<?php echo $detail['proj_nilai']; ?>" required />
+                    <input class="numberformat" id="proj_nilai" name="proj_nilai" placeholder="Nilai Proyek" value="<?php echo $detail['proj_nilai']; ?>" required />
                   </div> <!-- /field -->
 
                   <div class="field">
@@ -115,3 +115,9 @@
   <!-- /main-inner --> 
 </div>
 <!-- /main -->
+
+<script type="text/javascript">
+  $(function(){
+    $('.numberformat').number( true, 0, ',', '.' );
+  })
+</script>

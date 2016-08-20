@@ -40,7 +40,7 @@
                       <td><?php echo $value['clnt_nama']; ?></td>
                       <td><?php echo $value['brjs_nama']; ?></td>
                       <td><?php echo $value['vndr_nama']; ?></td>
-                      <td><?php echo $value['proj_nilai']; ?></td>
+                      <td><?php echo add_numberformat($value['proj_nilai']); ?></td>
                       <td><?php echo $value['proj_jangka_waktu']; ?></td>
                       <td><?php echo $value['proj_cp_client']; ?></td>
                       <td><?php echo $value['proj_telpon_client']; ?></td>
