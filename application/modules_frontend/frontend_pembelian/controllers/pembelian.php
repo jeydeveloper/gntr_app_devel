@@ -655,10 +655,13 @@ class Pembelian extends MY_Frontend {
         redirect($this->_data['module_base_url'].'/surat-jalan');
     }
 	function invoice() {
-       $this->_data['result'] = $this->crud_invoice->get_all();
-		$this->template->set('title', 'Invoice Pembelian | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
-		$this->template->set('assets', $this->_data['assets']);
-		$this->template->load('template_frontend/main', 'invoice', $this->_data);
+        $this->_data['result'] = $this->crud_invoice->get_all();
+
+        $this->_data['total'] = $this->total_permintaan();
+
+    	$this->template->set('title', 'Invoice Pembelian | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
+    	$this->template->set('assets', $this->_data['assets']);
+    	$this->template->load('template_frontend/main', 'invoice', $this->_data);
 	}
 
 	function add_invoice() {
@@ -1270,7 +1273,10 @@ class Pembelian extends MY_Frontend {
 
     function referensi_suratjalan($id) {
         $result = $this->db->from('pembelian_suratjalan')->join('pembelian_permintaan', 'pbsrtjalan_pbptn_id=pbptn_id')->join('vendor', 'pbptn_vndr_id=vndr_id')->where('pbsrtjalan_id = "'.$id.'"')->get()->row_array();
-        $result['pbinv_terbilang'] = !empty($result['pbptn_totaltagihan']) ? terbilang($result['pbptn_totaltagihan']) : '-';
+        $tmp = $this->total_permintaan($result['pbptn_id']);
+        $result['pbptn_totaltagihan'] = (!empty($tmp[$result['pbptn_id']]) ? add_numberformat($tmp[$result['pbptn_id']]) : 0);
+
+        $result['pbinv_terbilang'] = !empty($result['pbptn_totaltagihan']) ? terbilang(clear_numberformat($result['pbptn_totaltagihan'])) : '-';
         echo json_encode($result);
     }
 
