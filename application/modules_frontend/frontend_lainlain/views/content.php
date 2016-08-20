@@ -39,6 +39,12 @@
                       <td class="td-actions"><a href="<?php echo ($module_base_url.'/edit/'.$value['sham_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a> <a href="<?php echo ($module_base_url.'/delete/'.$value['sham_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>
                     </tr>
                     <?php endforeach; ?>
+
+                    <tr>
+                      <td colspan="4">Total saham saat ini adalah : </td>
+                      <td style="text-align: right;font-weight:bold;font-size:20px;"><?php echo number_format_rupiah($total); ?></td>
+                      <td class="td-actions"></td>
+                    </tr>
                   <?php else: ?>
                     <tr>
                       <td colspan="6" style="background: red;color: white;">Module ini belum terisi!</td>

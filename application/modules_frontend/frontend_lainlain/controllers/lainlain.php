@@ -17,6 +17,7 @@ class Lainlain extends MY_Frontend {
 
 	function index() {
 		$res_total = $this->db->select('SUM(sham_persentase) as total', false)->where('sham_void = 0')->get('saham')->row_array();
+		$this->_data['total'] = $res_total['total'];
 
 		$this->_data['result'] = $this->crud->where('sham_void = 0')->order_by('sham_id', 'asc')->get_all();
 		$this->_data['persentase'] = array();
