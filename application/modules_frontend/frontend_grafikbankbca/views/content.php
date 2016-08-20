@@ -36,9 +36,6 @@
                             </canvas>
                             <!-- /bar-chart -->
                         </div>
-                        <div style="text-align:right; margin-top:10px;">
-                            <a href="buku_bank_bca.html" class="button btn btn-primary btn-large">Buku Rekening <?php echo (!empty($static_data_source['bank'][$select_bank_id]) ? $static_data_source['bank'][$select_bank_id]['name'] : ''); ?></a>
-                        </div>
                         <!-- /widget-content -->
                     </div>
                     <!-- /widget -->
