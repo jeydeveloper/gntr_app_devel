@@ -215,9 +215,6 @@
                       <tr>
                         <td style="text-align: left;">No : <?php echo $detail['pbttr_no']; ?></td>
                     </tr>
-                      <tr>
-                        <td style="text-align: left;">No Proyek : <?php echo $detail['pbttr_noproyek']; ?></td>
-                    </tr>
                 </table>
             </td>
 
@@ -285,7 +282,7 @@
                         </tr>
                         <?php
                             $originalDateBPKC   = $detail['pbttr_tglbpkc'];
-                            $newDateBPKC        = date("d F Y", strtotime($originalDateBPKC));
+                            $newDateBPKC        = ($originalDateBPKC != '0000-00-00') ? date("d F Y", strtotime($originalDateBPKC)) : '';
                         ?>
                         <tr>
                             <td>Tanggal</td>
