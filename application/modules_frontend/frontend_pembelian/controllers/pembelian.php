@@ -1263,8 +1263,8 @@ class Pembelian extends MY_Frontend {
         $result = $this->db->from('pembelian_kwitansi')->join('pembelian_permintaan', 'pbkw_pbptn_id=pbptn_id')->join('vendor', 'pbptn_vndr_id=vndr_id')->where('pbkw_id = "'.$id.'"')->get()->row_array();
         $tmp = $this->total_permintaan($result['pbptn_id']);
         $result['pbptn_totaltagihan'] = (!empty($tmp[$result['pbptn_id']]) ? add_numberformat($tmp[$result['pbptn_id']]) : 0);
-        
-        $result['pbsrtjalan_terbilang'] = !empty($result['pbptn_totaltagihan']) ? terbilang($result['pbptn_totaltagihan']) : '-';
+
+        $result['pbsrtjalan_terbilang'] = !empty($result['pbptn_totaltagihan']) ? terbilang(clear_numberformat($result['pbptn_totaltagihan'])) : '-';
         echo json_encode($result);
     }
 
