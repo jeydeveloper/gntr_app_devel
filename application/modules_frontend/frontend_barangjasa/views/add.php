@@ -1,3 +1,26 @@
+<style type="text/css">
+.form-fields input[type="radio"] {
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 3px 0;
+    line-height: normal;
+    cursor: pointer;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    border: 0 \9;
+}
+
+.rd-inline label{
+  padding-left: 20px;display:inline-block;margin-right:10px;
+}
+
+.rd-inline label input[type="radio"] {
+  position: absolute;margin-left: -20px;
+}
+</style>
+
 <div class="main">
   <div class="main-inner">
     <div class="container">
@@ -44,7 +67,10 @@
 
                   <div class="field">
                     <label for="brjs_over_project">Over Project</label>
-                    <input id="brjs_over_project" name="brjs_over_project" placeholder="Nama" />
+                    <div class="rd-inline">
+                      <label><input type="radio" name="brjs_over_project" value="1" /> Tidak</label>
+                      <label><input type="radio" name="brjs_over_project" value="0" /> Ya</label>
+                    </div>
                   </div> <!-- /field -->
 
                   <div class="field">
