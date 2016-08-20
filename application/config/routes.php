@@ -98,6 +98,8 @@ $route['project'] = "frontend_project/project";
 $route['project/add'] = "frontend_project/project/add";
 $route['project/edit/(:any)'] = "frontend_project/project/edit/$1";
 $route['project/delete/(:any)'] = "frontend_project/project/delete/$1";
+$route['project/referensi_vendor/(:any)'] = "frontend_project/project/referensi_vendor/$1";
+$route['project/referensi_client/(:any)'] = "frontend_project/project/referensi_client/$1";
 
 //route vendor
 $route['vendor'] = "frontend_vendor/vendor";

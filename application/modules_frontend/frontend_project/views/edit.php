@@ -64,22 +64,22 @@
 
                   <div class="field">
                     <label for="proj_cp_client">CP Client</label>
-                    <input id="proj_cp_client" name="proj_cp_client" placeholder="CP Client" value="<?php echo $detail['proj_cp_client']; ?>" required />
+                    <p class="alert" id="proj_cp_client">-</p>
                   </div> <!-- /field -->
 
                   <div class="field">
                     <label for="proj_telpon_client">Telpon Client</label>
-                    <input id="proj_telpon_client" name="proj_telpon_client" placeholder="Telpon Client" value="<?php echo $detail['proj_telpon_client']; ?>" required />
+                    <p class="alert" id="proj_telpon_client">-</p>
                   </div> <!-- /field -->
 
                   <div class="field">
                     <label for="proj_cp_vendor">CP Vendor</label>
-                    <input id="proj_cp_vendor" name="proj_cp_vendor" placeholder="CP Vendor" value="<?php echo $detail['proj_cp_vendor']; ?>" required />
+                    <p class="alert" id="proj_cp_vendor">-</p>
                   </div> <!-- /field -->
 
                   <div class="field">
                     <label for="proj_telpon_vendor">Telpon Vendor</label>
-                    <input id="proj_telpon_vendor" name="proj_telpon_vendor" placeholder="Telpon Vendor" value="<?php echo $detail['proj_telpon_vendor']; ?>" required />
+                    <p class="alert" id="proj_telpon_vendor">-</p>
                   </div> <!-- /field -->
 
                   <div class="field">
@@ -119,5 +119,38 @@
 <script type="text/javascript">
   $(function(){
     $('.numberformat').number( true, 0, ',', '.' );
+  })
+</script>
+
+<script type="text/javascript">
+  $(function(){
+    var get_info = function(id) {
+      var url = '<?php echo site_url("project/referensi_vendor"); ?>/'+id;
+      $.getJSON(url, function(data){
+        $('#proj_cp_vendor').text(data.vndr_contact_person);
+        $('#proj_telpon_vendor').text(data.vndr_telpon);
+      });
+    };
+    
+    $('#proj_vndr_id').change(function(){
+      var me = $(this);
+      get_info(me.val());
+    });
+
+    var get_info_client = function(id) {
+      var url = '<?php echo site_url("project/referensi_client"); ?>/'+id;
+      $.getJSON(url, function(data){
+        $('#proj_cp_client').text(data.clnt_contact_person);
+        $('#proj_telpon_client').text(data.clnt_telpon);
+      });
+    };
+    
+    $('#proj_clnt_id').change(function(){
+      var me = $(this);
+      get_info_client(me.val());
+    });
+
+    get_info($('#proj_vndr_id').val());
+    get_info_client($('#proj_clnt_id').val());
   })
 </script>

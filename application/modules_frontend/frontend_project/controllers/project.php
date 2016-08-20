@@ -52,10 +52,6 @@ class Project extends MY_Frontend {
 		$this->form_validation->set_rules('proj_nama', 'Nama', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
 		$this->form_validation->set_rules('proj_nilai', 'Nilai', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
 		$this->form_validation->set_rules('proj_jangka_waktu', 'Jangka Waktu', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
-		$this->form_validation->set_rules('proj_cp_client', 'CP Client', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
-		$this->form_validation->set_rules('proj_telpon_client', 'Telpon Client', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
-		$this->form_validation->set_rules('proj_cp_vendor', 'CP Vendor', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
-		$this->form_validation->set_rules('proj_telpon_vendor', 'Telpon Vendor', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
 		$this->form_validation->set_rules('proj_list_barang', 'List Barang', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
 		$this->form_validation->set_rules('proj_status', 'Status', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
 
@@ -66,10 +62,6 @@ class Project extends MY_Frontend {
 				'proj_nama' => $this->input->post('proj_nama'),
 				'proj_nilai' => clear_numberformat($this->input->post('proj_nilai')),
 				'proj_jangka_waktu' => $this->input->post('proj_jangka_waktu'),
-				'proj_cp_client' => $this->input->post('proj_cp_client'),
-				'proj_telpon_client' => $this->input->post('proj_telpon_client'),
-				'proj_cp_vendor' => $this->input->post('proj_cp_vendor'),
-				'proj_telpon_vendor' => $this->input->post('proj_telpon_vendor'),
 				'proj_list_barang' => $this->input->post('proj_list_barang'),
 				'proj_status' => $this->input->post('proj_status'),
 				'proj_entrydate' => $this->_data['datetime'],
@@ -122,10 +114,6 @@ class Project extends MY_Frontend {
 		$this->form_validation->set_rules('proj_nama', 'Nama', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
 		$this->form_validation->set_rules('proj_nilai', 'Nilai', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
 		$this->form_validation->set_rules('proj_jangka_waktu', 'Jangka Waktu', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
-		$this->form_validation->set_rules('proj_cp_client', 'CP Client', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
-		$this->form_validation->set_rules('proj_telpon_client', 'Telpon Client', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
-		$this->form_validation->set_rules('proj_cp_vendor', 'CP Vendor', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
-		$this->form_validation->set_rules('proj_telpon_vendor', 'Telpon Vendor', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
 		$this->form_validation->set_rules('proj_list_barang', 'List Barang', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
 		$this->form_validation->set_rules('proj_status', 'Status', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
 
@@ -136,10 +124,6 @@ class Project extends MY_Frontend {
 				'proj_nama' => $this->input->post('proj_nama'),
 				'proj_nilai' => clear_numberformat($this->input->post('proj_nilai')),
 				'proj_jangka_waktu' => $this->input->post('proj_jangka_waktu'),
-				'proj_cp_client' => $this->input->post('proj_cp_client'),
-				'proj_telpon_client' => $this->input->post('proj_telpon_client'),
-				'proj_cp_vendor' => $this->input->post('proj_cp_vendor'),
-				'proj_telpon_vendor' => $this->input->post('proj_telpon_vendor'),
 				'proj_list_barang' => $this->input->post('proj_list_barang'),
 				'proj_status' => $this->input->post('proj_status'),
 				'proj_changedate' => $this->_data['datetime'],
@@ -152,6 +136,16 @@ class Project extends MY_Frontend {
 			return false;
 		}
 	}
+
+	function referensi_vendor($id) {
+        $result = $this->db->from('vendor')->where('vndr_id = "'.$id.'"')->get()->row_array();
+        echo json_encode($result);
+    }
+
+    function referensi_client($id) {
+        $result = $this->db->from('client')->where('clnt_id = "'.$id.'"')->get()->row_array();
+        echo json_encode($result);
+    }
 }
 
 ?>
