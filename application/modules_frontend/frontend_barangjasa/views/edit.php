@@ -33,16 +33,6 @@
                   </div> <!-- /field -->
 
                   <div class="field">
-                    <label for="brjs_jenis_id">Jenis</label>
-                    <select name="brjs_jenis_id" id="brjs_jenis_id" /> 
-                      <option value="">-- Pilih --</option>
-                      <?php foreach($static_data_source['barjas_jenis'] as $value): ?>
-                        <option value="<?php echo $value['value']; ?>" <?php echo ($detail['brjs_jenis_id'] == $value['value'] ? 'selected' : ''); ?>><?php echo $value['name']; ?></option>
-                      <?php endforeach; ?>
-                    </select>
-                  </div> <!-- /field -->
-
-                  <div class="field">
                     <label for="brjs_volume">Volume</label>
                     <input id="brjs_volume" name="brjs_volume" placeholder="Volume" value="<?php echo $detail['brjs_volume']; ?>" />
                   </div> <!-- /field -->
