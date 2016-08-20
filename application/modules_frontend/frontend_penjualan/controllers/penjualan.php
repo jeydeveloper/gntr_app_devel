@@ -99,6 +99,9 @@ class Penjualan extends MY_Frontend {
             $deskripsi   = $this->input->post('ppnwd_deskripsi_id');
             $satuan      = $this->input->post('ppnwd_satuan');
             $hargasatuan = $this->input->post('ppnwd_hargasatuan');
+
+            $this->db->where('ppnwd_no_penawaran = "'.$this->input->post('ppnw_no_penawaran').'"')->delete('penjualan_penawaran_detail');
+
             if(!empty($barang)){
                 foreach($barang as $key=>$val)
                 {
@@ -209,6 +212,9 @@ class Penjualan extends MY_Frontend {
             $satuan      = $this->input->post('ppnwd_satuan');
             $hargasatuan = $this->input->post('ppnwd_hargasatuan');
             $detailID = $this->input->post('ppnwd_id');
+
+            $this->db->where('ppnwd_no_penawaran = "'.$this->input->post('ppnw_no_penawaran').'"')->delete('penjualan_penawaran_detail');
+            
             if(!empty($barang)){
                 foreach($barang as $key=>$val)
                 {
