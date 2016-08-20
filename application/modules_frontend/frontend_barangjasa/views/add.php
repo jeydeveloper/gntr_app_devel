@@ -39,7 +39,7 @@
 
                   <div class="field">
                     <label for="brjs_harga_satuan">Harga Satuan</label>
-                    <input id="brjs_harga_satuan" name="brjs_harga_satuan" placeholder="Harga Satuan" />
+                    <input class="numberformat" id="brjs_harga_satuan" name="brjs_harga_satuan" placeholder="Harga Satuan" />
                   </div> <!-- /field -->
 
                   <div class="field">
@@ -81,3 +81,9 @@
   <!-- /main-inner --> 
 </div>
 <!-- /main -->
+
+<script type="text/javascript">
+  $(function(){
+    $('.numberformat').number( true, 0, ',', '.' );
+  })
+</script>
