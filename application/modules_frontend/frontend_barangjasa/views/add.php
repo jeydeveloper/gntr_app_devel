@@ -33,8 +33,8 @@
                   </div> <!-- /field -->
 
                   <div class="field">
-                    <label for="brjs_volume">Volume</label>
-                    <input id="brjs_volume" name="brjs_volume" placeholder="Volume" />
+                    <label for="brjs_volume">Satuan</label>
+                    <input id="brjs_volume" name="brjs_volume" placeholder="Satuan" />
                   </div> <!-- /field -->
 
                   <div class="field">
