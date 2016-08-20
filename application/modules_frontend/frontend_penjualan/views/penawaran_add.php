@@ -66,8 +66,8 @@
                   </div> <!-- /field -->
 
                   <div class="field">
-                    <label for="ppnw_keterangan">Keterangan</label>
-                    <textarea id="ppnw_keterangan" name="ppnw_keterangan" placeholder="Keterangan"></textarea>
+                    <label for="ppnw_keterangan">Perihal</label>
+                    <textarea id="ppnw_keterangan" name="ppnw_keterangan" placeholder="Perihal"></textarea>
                   </div> <!-- /field -->
 
                 </div> <!-- /form-fields -->
