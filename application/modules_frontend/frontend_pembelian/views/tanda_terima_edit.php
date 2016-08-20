@@ -79,7 +79,7 @@
                     <label for="note">Lampiran</label>
                     <div class="rd-inline">
                       <label class="checkbox-inline"><input type="checkbox" name="pbttr_lampiran" value="Kwitansi Asli">Kwitansi Asli</label>
-                      <label class="checkbox-inline"><input type="checkbox" name="pbttr_lampiran" value="Invoice Asli">nvoice Asli</label>
+                      <label class="checkbox-inline"><input type="checkbox" name="pbttr_lampiran" value="Invoice Asli">Invoice Asli</label>
                       <label class="checkbox-inline"><input type="checkbox" name="pbttr_lampiran" value="Faktur Pajak Asli">Faktur Pajak Asli</label>
                       <label class="checkbox-inline"><input type="checkbox" name="pbttr_lampiran" value="Surat Jalan Asli">Surat Jalan Asli</label>
                       <label class="checkbox-inline"><input type="checkbox" name="pbttr_lampiran" value="Tanda Terima Asli + Quality Control Approval">Tanda Terima Asli + Quality Control Approval</label>
