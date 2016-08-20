@@ -104,6 +104,7 @@ class Pembelian extends MY_Frontend {
              $barang = $this->input->post('pbptnd_jenisbarang');
              $jumlah = $this->input->post('pbptnd_jumlah');
 
+            $this->db->where('pbptnd_nopermintaan = "'.$this->input->post('pbptn_no').'"')->delete('pembelian_permintaan_detail');
 
             foreach($barang as $key=>$val)
             {
@@ -178,16 +179,16 @@ class Pembelian extends MY_Frontend {
              $jumlah = $this->input->post('pbptnd_jumlah');
              $invd_id = $this->input->post('pbptnd_id');
 
+            $this->db->where('pbptnd_nopermintaan = "'.$this->input->post('pbptn_no').'"')->delete('pembelian_permintaan_detail');
+
             foreach($barang as $key=>$val)
             {
                $data = array(
+                'pbptnd_nopermintaan' => $this->input->post('pbptn_no'),
                 'pbptnd_jenisbarang' => $val,
                 'pbptnd_jumlah' => $jumlah[$key],
               );
-                $this->crud_permintaan_detail->where('pbptnd_nopermintaan = "'.$this->input->post('pbptn_no').'"')
-                                          ->where('pbptnd_jenisbarang > 0')
-                                          ->where('pbptnd_id = "'.$invd_id[$key].'"')
-                                          ->puts($data);
+               $this->crud_permintaan_detail->posts($data);
             }
             return true;
         } else {
