@@ -910,6 +910,9 @@ class Pembelian extends MY_Frontend {
 
 	function tanda_terima() {
         $this->_data['result'] = $this->crud_tanda_terima->order_by('pbttr_id', 'asc')->get_all();
+
+        $this->_data['total'] = $this->total_permintaan();
+
 		$this->template->set('title', 'Tanda Terima Pembelian | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
 		$this->template->load('template_frontend/main', 'tanda_terima', $this->_data);
@@ -1282,6 +1285,9 @@ class Pembelian extends MY_Frontend {
 
     function referensi_invoice($id) {
         $result = $this->db->from('pembelian_invoice')->join('pembelian_permintaan', 'pbinv_pbptn_id=pbptn_id')->join('vendor', 'pbptn_vndr_id=vndr_id')->where('pbinv_id = "'.$id.'"')->get()->row_array();
+        $tmp = $this->total_permintaan($result['pbptn_id']);
+        $result['pbptn_totaltagihan'] = (!empty($tmp[$result['pbptn_id']]) ? add_numberformat($tmp[$result['pbptn_id']]) : 0);
+        
         echo json_encode($result);
     }
 
