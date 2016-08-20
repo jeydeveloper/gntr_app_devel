@@ -78,19 +78,19 @@
                   <div class="field">
                     <label for="note">Lampiran</label>
                     <div class="rd-inline">
-                      <label class="checkbox-inline"><input type="checkbox" name="pbttr_lampiran" value="Kwitansi Asli">Kwitansi Asli</label>
-                      <label class="checkbox-inline"><input type="checkbox" name="pbttr_lampiran" value="Invoice Asli">Invoice Asli</label>
-                      <label class="checkbox-inline"><input type="checkbox" name="pbttr_lampiran" value="Faktur Pajak Asli">Faktur Pajak Asli</label>
-                      <label class="checkbox-inline"><input type="checkbox" name="pbttr_lampiran" value="Surat Jalan Asli">Surat Jalan Asli</label>
-                      <label class="checkbox-inline"><input type="checkbox" name="pbttr_lampiran" value="Tanda Terima Asli + Quality Control Approval">Tanda Terima Asli + Quality Control Approval</label>
-                      <label class="checkbox-inline"><input type="checkbox" name="pbttr_lampiran" value="Purchase Order Asli/SPK">Purchase Order Asli/SPK</label>
+                      <label class="checkbox-inline"><input type="checkbox" name="pbttr_lampiran[]" value="Kwitansi Asli" <?php echo (!empty($detail['pbttr_lampiran'][0]) ? 'checked' : ''); ?>>Kwitansi Asli</label>
+                      <label class="checkbox-inline"><input type="checkbox" name="pbttr_lampiran[]" value="Invoice Asli" <?php echo (!empty($detail['pbttr_lampiran'][1]) ? 'checked' : ''); ?>>Invoice Asli</label>
+                      <label class="checkbox-inline"><input type="checkbox" name="pbttr_lampiran[]" value="Faktur Pajak Asli" <?php echo (!empty($detail['pbttr_lampiran'][2]) ? 'checked' : ''); ?>>Faktur Pajak Asli</label>
+                      <label class="checkbox-inline"><input type="checkbox" name="pbttr_lampiran[]" value="Surat Jalan Asli" <?php echo (!empty($detail['pbttr_lampiran'][3]) ? 'checked' : ''); ?>>Surat Jalan Asli</label>
+                      <label class="checkbox-inline"><input type="checkbox" name="pbttr_lampiran[]" value="Tanda Terima Asli + Quality Control Approval" <?php echo (!empty($detail['pbttr_lampiran'][4]) ? 'checked' : ''); ?>>Tanda Terima Asli + Quality Control Approval</label>
+                      <label class="checkbox-inline"><input type="checkbox" name="pbttr_lampiran[]" value="Purchase Order Asli/SPK" <?php echo (!empty($detail['pbttr_lampiran'][5]) ? 'checked' : ''); ?>>Purchase Order Asli/SPK</label>
                     </div>
                   </div> <!-- /field -->
 
                   <div class="field">
                     <label for="note">Lampiran</label>
                     <div class="rd-inline">
-                      <label class="checkbox-inline"><input type="checkbox" value="">Dikembalikan, untuk dimasukkan kembali tanggal<input id="pbttr_tglkembali" class="date-picker" name="ppbttr_tglkembali" value="<?php echo $detail['pbttr_tglkembali']; ?>"  />karena lampiran tidak lengkap</label>
+                      <label class="checkbox-inline"><input type="checkbox" value="" <?php echo (!empty($detail['pbttr_tglkembali']) ? 'checked' : ''); ?>>Dikembalikan, untuk dimasukkan kembali tanggal<input id="pbttr_tglkembali" class="date-picker" name="pbttr_tglkembali" value="<?php echo $detail['pbttr_tglkembali']; ?>"  />karena lampiran tidak lengkap</label>
                     </div>
                   </div> <!-- /field -->
 

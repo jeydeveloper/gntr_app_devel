@@ -910,6 +910,10 @@ class Pembelian extends MY_Frontend {
 
 	function tanda_terima() {
         $this->_data['result'] = $this->crud_tanda_terima->order_by('pbttr_id', 'asc')->get_all();
+        foreach ($this->_data['result'] as $key => $value) {
+            $this->_data['result'][$key]['pbttr_lampiran'] = !empty($this->_data['result'][$key]['pbttr_lampiran']) ? unserialize($this->_data['result'][$key]['pbttr_lampiran']) : array();
+            $this->_data['result'][$key]['pbttr_lampiran'] = join(', ', $this->_data['result'][$key]['pbttr_lampiran']);
+        }
 
         $this->_data['total'] = $this->total_permintaan();
 
@@ -971,7 +975,7 @@ class Pembelian extends MY_Frontend {
                 'pbttr_tagihan' => $this->input->post('pbttr_tagihan'),
                 'pbttr_mtuang' => $this->input->post('pbttr_mtuang'),
                 'pbttr_nilaitagihan' => $this->input->post('pbttr_nilaitagihan'),
-                'pbttr_lampiran' => $this->input->post('pbttr_lampiran'),
+                'pbttr_lampiran' => serialize($this->input->post('pbttr_lampiran')),
                 'pbttr_tglkembali' => $this->input->post('pbttr_tglkembali'),
                 'pbttr_nobpkc' => $this->input->post('pbttr_nobpkc'),
                 'pbttr_tglbpkc' => $this->input->post('pbttr_tglbpkc'),
@@ -996,6 +1000,7 @@ class Pembelian extends MY_Frontend {
             $this->_data['detail'] = $_POST;
         } else {
             $this->_data['detail'] = $this->crud_tanda_terima->where('pbttr_id = "'.$id.'"')->get_row();
+            $this->_data['detail']['pbttr_lampiran'] = !empty($this->_data['detail']['pbttr_lampiran']) ? unserialize($this->_data['detail']['pbttr_lampiran']) : array();
         }
 
         $this->_data['option_referensi'] = $this->crud_invoice->get_option_info_detail();
@@ -1015,6 +1020,13 @@ class Pembelian extends MY_Frontend {
     function pdf_tanda_terima($id){
         require_once APPPATH.'third_party/dompdf/dompdf_config.inc.php';
         $this->_data['detail']  = $this->crud_tanda_terima->where('pbttr_id = "'.$id.'"')->get_row();
+        $tmp = $this->total_permintaan($this->_data['detail']['pbttr_pbptn_id']);
+        $this->_data['detail']['pbttr_nilaitagihan'] = !empty($tmp[$this->_data['detail']['pbttr_pbptn_id']]) ? $tmp[$this->_data['detail']['pbttr_pbptn_id']] : 0;
+        $this->_data['detail']['pbttr_mtuang'] = 'Rp';
+
+        $tmp = !empty($this->_data['detail']['pbttr_lampiran']) ? unserialize($this->_data['detail']['pbttr_lampiran']) : array();
+        $this->_data['detail']['pbttr_lampiran'] = join(', ', $tmp);
+
         $this->load->view('print_tandaterima_pembelian',  $this->_data);
         $html = $this->output->get_output();
         $this->load->library('dompdf_gen');
@@ -1070,7 +1082,7 @@ class Pembelian extends MY_Frontend {
                 'pbttr_tagihan' => $this->input->post('pbttr_tagihan'),
                 'pbttr_mtuang' => $this->input->post('pbttr_mtuang'),
                 'pbttr_nilaitagihan' => $this->input->post('pbttr_nilaitagihan'),
-                'pbttr_lampiran' => $this->input->post('pbttr_lampiran'),
+                'pbttr_lampiran' => serialize($this->input->post('pbttr_lampiran')),
                 'pbttr_tglkembali' => $this->input->post('pbttr_tglkembali'),
                 'pbttr_nobpkc' => $this->input->post('pbttr_nobpkc'),
                 'pbttr_tglbpkc' => $this->input->post('pbttr_tglbpkc'),
@@ -1096,7 +1108,7 @@ class Pembelian extends MY_Frontend {
                 'pbttr_tagihan' => $this->input->post('pbttr_tagihan'),
                 'pbttr_mtuang' => $this->input->post('pbttr_mtuang'),
                 'pbttr_nilaitagihan' => $this->input->post('pbttr_nilaitagihan'),
-                'pbttr_lampiran' => $this->input->post('pbttr_lampiran'),
+                'pbttr_lampiran' => serialize($this->input->post('pbttr_lampiran')),
                 'pbttr_tglkembali' => $this->input->post('pbttr_tglkembali'),
                 'pbttr_nobpkc' => $this->input->post('pbttr_nobpkc'),
                 'pbttr_tglbpkc' => $this->input->post('pbttr_tglbpkc'),
@@ -1287,7 +1299,7 @@ class Pembelian extends MY_Frontend {
         $result = $this->db->from('pembelian_invoice')->join('pembelian_permintaan', 'pbinv_pbptn_id=pbptn_id')->join('vendor', 'pbptn_vndr_id=vndr_id')->where('pbinv_id = "'.$id.'"')->get()->row_array();
         $tmp = $this->total_permintaan($result['pbptn_id']);
         $result['pbptn_totaltagihan'] = (!empty($tmp[$result['pbptn_id']]) ? add_numberformat($tmp[$result['pbptn_id']]) : 0);
-        
+
         echo json_encode($result);
     }
 
