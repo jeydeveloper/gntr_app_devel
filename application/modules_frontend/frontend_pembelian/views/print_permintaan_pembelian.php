@@ -221,12 +221,7 @@
         				<td><?php echo ($key+1); ?></td>
         				<td><?php echo $value->brjs_nama; ?></td>
         				<td class="numeric"><?php echo $value->pbptnd_jumlah; ?></td>
-                        <?php foreach($static_data_source['barjas_satuan'] as $satuan): ?>
-                            <?php if($value->brjs_satuan_id == $satuan['value']) {?>
-                                <td><?php echo $satuan['name'] ?></td>
-                            <?php } ?>
-                       <?php endforeach; ?>
-
+                        <td><?php echo $value->brjs_volume; ?></td>
         				<td class="numeric">Rp <?php echo number_format($value->brjs_harga_satuan,2,",","."); ?></td>
         				<?php
                             $jumlahharga = $value->pbptnd_jumlah * $value->brjs_harga_satuan;
