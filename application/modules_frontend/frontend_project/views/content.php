@@ -23,10 +23,6 @@
                     <th> Vendor</th>
                     <th> Nilai Proyek</th>
                     <th> Jangka Waktu Proyek</th>
-                    <th> Contact Person Client</th>
-                    <th> Telpon Client</th>
-                    <th> Contact Person Vendor</th>
-                    <th> Telpon Vendor</th>
                     <th> Status</th>
                     <th class="td-actions">Action</th>
                   </tr>
@@ -42,10 +38,6 @@
                       <td><?php echo $value['vndr_nama']; ?></td>
                       <td><?php echo add_numberformat($value['proj_nilai']); ?></td>
                       <td><?php echo $value['proj_jangka_waktu']; ?></td>
-                      <td><?php echo $value['clnt_contact_person']; ?></td>
-                      <td><?php echo $value['clnt_telpon']; ?></td>
-                      <td><?php echo $value['vndr_contact_person']; ?></td>
-                      <td><?php echo $value['vndr_telpon']; ?></td>
                       <td><?php echo (!empty($static_data_source['status_project'][$value['proj_status']]) ? $static_data_source['status_project'][$value['proj_status']]['name'] : '-'); ?></td>
                       <td class="td-actions"><a href="<?php echo ($module_base_url.'/edit/'.$value['proj_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a> <a href="<?php echo ($module_base_url.'/delete/'.$value['proj_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>
                     </tr>
