@@ -79,6 +79,11 @@
                         <textarea id="pbptn_catatan" name="pbptn_catatan"><?php echo $detail['pbptn_catatan']; ?></textarea>
                       </div> <!-- /field -->
 
+                      <div class="field">
+                        <label for="pbptn_namapenerima">Nama Penerima:</label>
+                        <input type="text" id="pbptn_namapenerima" name="pbptn_namapenerima" value="<?php echo $detail['pbptn_namapenerima']; ?>"/>
+                      </div> <!-- /field -->
+
                     </div> <!-- /form-fields -->
                 </div>
                 <!-- /widget-content -->

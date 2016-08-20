@@ -84,6 +84,11 @@
                         <label for="pbptn_catatan">Terms Pembayaran:</label>
                         <textarea id="pbptn_catatan" name="pbptn_catatan" value="" placeholder="Terms Pembayaran"></textarea>
                       </div> <!-- /field -->
+
+                      <div class="field">
+                        <label for="pbptn_namapenerima">Nama Penerima:</label>
+                        <input type="text" id="pbptn_namapenerima" name="pbptn_namapenerima" value="" placeholder="Nama Penerima"/>
+                      </div> <!-- /field -->
                     </div> <!-- /form-fields -->
                 </div>
                 <!-- /widget-content -->

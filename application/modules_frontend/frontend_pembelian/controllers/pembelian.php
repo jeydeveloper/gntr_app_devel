@@ -37,6 +37,17 @@ class Pembelian extends MY_Frontend {
 	function permintaan() {
         $this->_data['result'] = $this->crud_pembelian->order_by('pbptn_id', 'asc')->get_all();
 
+        $details  = $this->crud_permintaan_detail->join2();
+        $this->_data['total'] = array();
+        foreach ($details as $key => $value) {
+            if(empty($this->_data['total'][$value['pbptn_id']])) $this->_data['total'][$value['pbptn_id']] = 0;
+            $this->_data['total'][$value['pbptn_id']] += $value['pbptnd_jumlah'] * $value['brjs_harga_satuan'];
+        }
+
+        foreach ($this->_data['total'] as $key => $value) {
+            $this->_data['total'][$key] += ($value * 0.02) + ($value * 0.1);
+        }
+
 		$this->template->set('title', 'Permintaan Pembelian | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
 		$this->template->load('template_frontend/main', 'permintaan', $this->_data);

@@ -73,4 +73,14 @@ class Crud_permintaan_detail extends CI_Model {
                 ->get()
                 ->result();
     }
+
+    function join2(){
+        return $this->db
+                ->select('pbptn_id, pembelian_permintaan_detail.*, barang_jasa.*')
+                ->from('pembelian_permintaan_detail')
+                ->join('pembelian_permintaan', 'pembelian_permintaan.pbptn_no = pembelian_permintaan_detail.pbptnd_nopermintaan','left')
+                ->join('barang_jasa', 'pembelian_permintaan_detail.pbptnd_jenisbarang = barang_jasa.brjs_id', 'left' )
+                ->get()
+                ->result_array();
+    }
 }

@@ -37,7 +37,7 @@
                       <td><?php echo $value['vndr_nama']; ?></td>
                       <td><?php echo $value['pbptn_proposalno']; ?></td>
                       <td><?php echo $value['pbptn_projectcode']; ?></td>
-                      <td><?php echo add_numberformat($value['pbptn_totaltagihan']); ?></td>
+                      <td><?php echo add_numberformat($total[$value['pbptn_id']]); ?></td>
                       <td><a href="<?php echo ($module_base_url.'/permintaan/pdf/'.$value['pbptn_id']); ?>" target="_blank">View PDF</a></td>
 
                       <td class="td-actions"><a href="<?php echo ($module_base_url.'/permintaan/edit/'.$value['pbptn_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a>

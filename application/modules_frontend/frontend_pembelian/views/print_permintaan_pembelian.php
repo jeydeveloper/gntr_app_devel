@@ -284,7 +284,7 @@
                 <table style="width: 100%" border="0" cellspacing="0" cellpadding="0">
                     <tr>
                     <?php
-                    $originalDate = $detail['pbptn_tanggalterima'];
+                    $originalDate = $detail['pbptn_tanggal'];
                     $newDate      = date("d F Y", strtotime($originalDate));
                     ?>
                         <td  style="text-align: center;">
