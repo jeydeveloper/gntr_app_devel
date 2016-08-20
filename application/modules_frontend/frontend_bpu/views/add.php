@@ -24,12 +24,12 @@
 
                   <div class="field">
                     <label for="bpu_harga">Harga</label>
-                    <input id="bpu_harga" name="bpu_harga" placeholder="Harga" required />
+                    <input class="numberformat" id="bpu_harga" name="bpu_harga" placeholder="Harga" required />
                   </div> <!-- /field -->
 
                   <div class="field">
                     <label for="bpu_terbilang">Terbilang</label>
-                    <input id="bpu_terbilang" name="bpu_terbilang" placeholder="Terbilang" required />
+                    <p class="alert" id="bpu_terbilang">-</p>
                   </div> <!-- /field -->
 
                   <div class="field">
@@ -66,3 +66,45 @@
   <!-- /main-inner --> 
 </div>
 <!-- /main -->
+
+<script type="text/javascript">
+  $(function(){
+    $('.numberformat').number( true, 0, ',', '.' );
+  })
+</script>
+
+<script type="text/javascript">
+  $(function(){
+    var get_info = function(id) {
+      if(id == '') {
+        $('#bpu_terbilang').text('-');
+        return true;
+      }
+
+      var url = '<?php echo site_url("bpu/terbilang"); ?>/'+id;
+      $.getJSON(url, function(data){
+        $('#bpu_terbilang').text(data.terbilang);
+      });
+    };
+
+    var delay = (function(){
+      var timer = 0;
+      return function(callback, ms){
+        clearTimeout (timer);
+        timer = setTimeout(callback, ms);
+      };
+    })();
+
+    $('#bpu_harga').keyup(function() {
+        delay(function(){
+          var me = $('#bpu_harga');
+          get_info(me.val());
+        }, 500 );
+    });
+
+    delay(function(){
+      var me = $('#bpu_harga');
+      get_info(me.val());
+    }, 500 );
+  })
+</script>

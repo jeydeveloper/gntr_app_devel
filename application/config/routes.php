@@ -132,6 +132,7 @@ $route['bpu'] = "frontend_bpu/bpu";
 $route['bpu/add'] = "frontend_bpu/bpu/add";
 $route['bpu/edit/(:any)'] = "frontend_bpu/bpu/edit/$1";
 $route['bpu/delete/(:any)'] = "frontend_bpu/bpu/delete/$1";
+$route['bpu/terbilang/(:any)'] = "frontend_bpu/bpu/terbilang/$1";
 
 $route['laporan'] = "frontend_laporan/laporan";
 $route['laporan/neraca'] = "frontend_laporan/laporan/neraca";

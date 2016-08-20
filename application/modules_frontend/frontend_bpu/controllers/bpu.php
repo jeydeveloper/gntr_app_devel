@@ -44,15 +44,13 @@ class Bpu extends MY_Frontend {
 
 		$this->form_validation->set_rules('bpu_nama', 'Nama', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
 		$this->form_validation->set_rules('bpu_harga', 'Harga', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
-		$this->form_validation->set_rules('bpu_terbilang', 'Terbilang', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
 		$this->form_validation->set_rules('bpu_proj_id', 'Project', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|xss_clean');
 
 		if($this->form_validation->run()) {
 			$db_data = array(
 				'bpu_nama' => $this->input->post('bpu_nama'),
 				'bpu_request_by' => $this->session->userdata('username'),
-				'bpu_harga' => $this->input->post('bpu_harga'),
-				'bpu_terbilang' => $this->input->post('bpu_terbilang'),
+				'bpu_harga' => clear_numberformat($this->input->post('bpu_harga')),
 				'bpu_proj_id' => $this->input->post('bpu_proj_id'),
 				'bpu_entrydate' => $this->_data['datetime'],
 			);
@@ -99,15 +97,13 @@ class Bpu extends MY_Frontend {
 		$this->form_validation->set_rules('bpu_id', 'ID', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
 		$this->form_validation->set_rules('bpu_nama', 'Level', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
 		$this->form_validation->set_rules('bpu_harga', 'Harga', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
-		$this->form_validation->set_rules('bpu_terbilang', 'Terbilang', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|required|xss_clean');
 		$this->form_validation->set_rules('bpu_proj_id', 'Project', 'trim|htmlspecialchars|encode_php_tags|prep_for_form|xss_clean');
 
 		if($this->form_validation->run()) {
 			$db_data = array(
 				'bpu_nama' => $this->input->post('bpu_nama'),
 				'bpu_request_by' => $this->session->userdata('username'),
-				'bpu_harga' => $this->input->post('bpu_harga'),
-				'bpu_terbilang' => $this->input->post('bpu_terbilang'),
+				'bpu_harga' => clear_numberformat($this->input->post('bpu_harga')),
 				'bpu_proj_id' => $this->input->post('bpu_proj_id'),
 				'bpu_changedate' => $this->_data['datetime'],
 			);
@@ -119,6 +115,11 @@ class Bpu extends MY_Frontend {
 			return false;
 		}
 	}
+
+	function terbilang($id) {
+        $result['terbilang'] = !empty($id) ? terbilang($id) : '-';
+        echo json_encode($result);
+    }
 }
 
 ?>
