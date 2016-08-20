@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Surat Jalan</title>
+    <title>Bukti Pembayaran</title>
     <style type="text/css" media="all">
         * {
             box-sizing: border-box;
@@ -194,27 +194,27 @@
                     <tr>
                             <td style="text-align: left;  width: 20%;">NOMOR REKENING</td>
                              <td style="text-align: left; width: 5%;" >:</td>
-                            <td style="text-align: left;"><?php echo $detail['bp_norekening']; ?></td>
+                            <td style="text-align: left;"><?php echo $detail['pbkw_norek']; ?></td>
                     </tr>
                     <tr>
                             <td style="text-align: left;  width: 20%;">NAMA REKENING</td>
                              <td style="text-align: left; width: 5%;" >:</td>
-                            <td style="text-align: left; text-transform: uppercase;"><?php echo $detail['bp_namarekening']; ?></td>
+                            <td style="text-align: left; text-transform: uppercase;"><?php echo $detail['pbkw_an']; ?></td>
                     </tr>
                     <tr>
                             <td style="text-align: left;  width: 20%;">NOMOR INVOICE</td>
                              <td style="text-align: left; width: 5%;" >:</td>
-                            <td style="text-align: left;"><?php echo $detail['bp_noinvoice']; ?></td>
+                            <td style="text-align: left;"><?php echo $detail['pbinv_noinvoice']; ?></td>
                     </tr>
                     <tr>
                             <td style="text-align: left;  width: 20%;">TOTAL TAGIHAN</td>
                              <td style="text-align: left; width: 5%;" >:</td>
-                            <td style="text-align: left;"><?php echo $detail['bp_tagihan']; ?></td>
+                            <td style="text-align: left;"><?php echo $totaltagihan; ?></td>
                     </tr>
                     <tr>
                             <td style="text-align: left;  width: 20%;">TERBILANG</td>
                              <td style="text-align: left; width: 5%;" >:</td>
-                            <td style="text-align: left; text-transform: uppercase;"><?php echo $detail['bp_terbilang']; ?></td>
+                            <td style="text-align: left; text-transform: uppercase;"><?php echo $terbilang; ?></td>
                     </tr>
                     <tr>
                             <td style="text-align: left;  width: 20%;">JAM TRANSAKSI</td>

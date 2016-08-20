@@ -1186,7 +1186,13 @@ class Pembelian extends MY_Frontend {
        function pdf_bukti_pembayaran($id){
 
         require_once APPPATH.'third_party/dompdf/dompdf_config.inc.php';
-        $this->_data['detail'] = $this->crud_buktipembayaran->where('bp_id = "'.$id.'"')->get_row();
+        $this->_data['detail'] = $this->db->join('pembelian_invoice', 'pbinv_id = bp_pbinv_id')->join('pembelian_kwitansi', 'pbkw_id = bp_pbkw_id')->where('bp_id = "'.$id.'"')->get('gntrapp_bukti_pembayaran')->row_array();
+
+        $tmp = $this->total_permintaan($this->_data['detail']['bp_pbptn_id']);
+        $this->_data['totaltagihan'] = (!empty($tmp[$this->_data['detail']['bp_pbptn_id']]) ? add_numberformat($tmp[$this->_data['detail']['bp_pbptn_id']]) : 0);
+
+        $this->_data['terbilang'] = !empty($this->_data['totaltagihan']) ? terbilang(clear_numberformat($this->_data['totaltagihan'])) : '-';
+
          // Load all views as normal
         $this->load->view('print_bukti_pembayaran',  $this->_data);
         // Get output html
@@ -1305,7 +1311,10 @@ class Pembelian extends MY_Frontend {
 
     function referensi_tandaterima($id) {
         $result = $this->db->from('pembelian_tandaterima')->join('pembelian_invoice', 'pbttr_pbinv_id=pbinv_id')->join('pembelian_kwitansi', 'pbttr_pbkw_id=pbkw_id')->join('pembelian_permintaan', 'pbttr_pbptn_id=pbptn_id')->join('vendor', 'pbptn_vndr_id=vndr_id')->where('pbttr_id = "'.$id.'"')->get()->row_array();
-        $result['terbilang'] = !empty($result['pbptn_totaltagihan']) ? terbilang($result['pbptn_totaltagihan']) : '-';
+        $tmp = $this->total_permintaan($result['pbptn_id']);
+        $result['pbptn_totaltagihan'] = (!empty($tmp[$result['pbptn_id']]) ? add_numberformat($tmp[$result['pbptn_id']]) : 0);
+
+        $result['terbilang'] = !empty($result['pbptn_totaltagihan']) ? terbilang(clear_numberformat($result['pbptn_totaltagihan'])) : '-';
         echo json_encode($result);
     }
 
