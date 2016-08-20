@@ -101,11 +101,13 @@
                       </div> <!-- /field -->
                        <div class="field">
                         <label for="ppnwd_satuan">Satuan:</label>
-                        <input id="ppnwd_satuan[]" name="ppnwd_satuan[]" value="<?php echo $det->ppnwd_satuan; ?>" placeholder="Satuan"/>
+                        <p class="alert ppnwd_satuan_text"><?php echo $det->ppnwd_satuan; ?></p>
+                        <input class="ppnwd_satuan" id="ppnwd_satuan[]" name="ppnwd_satuan[]" value="<?php echo $det->ppnwd_satuan; ?>" placeholder="Satuan" style="display:none;" />
                       </div> <!-- /field -->
                       <div class="field">
                         <label for="ppnwd_hargasatuan">Harga Satuan:</label>
-                        <input id="ppnwd_hargasatuan[]" name="ppnwd_hargasatuan[]" value="<?php echo $det->ppnwd_hargasatuan; ?>" placeholder="Harga Satuan"/>
+                        <p class="alert ppnwd_hargasatuan_text"><?php echo number_format($det->ppnwd_hargasatuan, 0, ',', '.'); ?></p>
+                        <input class="ppnwd_hargasatuan" id="ppnwd_hargasatuan[]" name="ppnwd_hargasatuan[]" value="<?php echo $det->ppnwd_hargasatuan; ?>" placeholder="Harga Satuan" style="display:none;" />
                       </div> <!-- /field -->
                     </div>
                     <input type="hidden" name="ppnwd_id[]" value="<?php echo $det->ppnwd_id; ?>" />
@@ -154,4 +156,26 @@
   $(function(){
     $('#ppnw_biaya_kirim, #ppnw_nilai_faktur').number( true, 0, ',', '.' );
   })
+</script>
+
+<script type="text/javascript">
+$(document).ready(function () {
+  var get_info = function(id, me) {
+    var url = '<?php echo site_url("barang-jasa/data_barang"); ?>/'+id;
+    var me = me;
+    $.getJSON(url, {param : id}, function(data){
+      var prt = me.closest('.form-fields');
+      prt.find('.ppnwd_satuan_text').text(data.brjs_volume);
+      prt.find('.ppnwd_satuan').val(data.brjs_volume);
+
+      prt.find('.ppnwd_hargasatuan_text').text(data.ppnwd_hargasatuan_text);
+      prt.find('.ppnwd_hargasatuan').val(data.brjs_harga_satuan);
+    });
+  };
+
+  $('.ppnwd_jenisbarang').change(function(){
+    var me = $(this);
+    get_info(me.val(), me);
+  });
+});
 </script>

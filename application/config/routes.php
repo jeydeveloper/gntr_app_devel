@@ -120,6 +120,7 @@ $route['barang-jasa'] = "frontend_barangjasa/barangjasa";
 $route['barang-jasa/add'] = "frontend_barangjasa/barangjasa/add";
 $route['barang-jasa/edit/(:any)'] = "frontend_barangjasa/barangjasa/edit/$1";
 $route['barang-jasa/delete/(:any)'] = "frontend_barangjasa/barangjasa/delete/$1";
+$route['barang-jasa/data_barang/(:any)'] = "frontend_barangjasa/barangjasa/data_barang/$1";
 
 $route['proyek-dashboard'] = "frontend_proyekdashboard/proyekdashboard";
 

@@ -82,7 +82,7 @@
                       </div> <!-- /field -->
                       <div class="field">
                           <label for="ppnwd_jenisbarang">Jenis Barang:</label>
-                          <select name="ppnwd_jenisbarang[]" id="ppnwd_jenisbarang[]" />
+                          <select class="ppnwd_jenisbarang" name="ppnwd_jenisbarang[]" id="ppnwd_jenisbarang[]" />
                             <option>-- Pilih --</option>
                             <?php foreach($option_barang as $value): ?>
                               <option value="<?php echo $value['name']; ?>"><?php echo $value['name']; ?></option>
@@ -98,11 +98,13 @@
                       </div> <!-- /field -->
                        <div class="field">
                         <label for="ppnwd_satuan">Satuan:</label>
-                        <input id="ppnwd_satuan[]" name="ppnwd_satuan[]" value="" placeholder="Satuan"/>
+                        <p class="alert ppnwd_satuan_text">-</p>
+                        <input class="ppnwd_satuan" id="ppnwd_satuan[]" name="ppnwd_satuan[]" value="" placeholder="Satuan" style="display:none;" />
                       </div> <!-- /field -->
                       <div class="field">
                         <label for="ppnwd_hargasatuan">Harga Satuan:</label>
-                        <input class="numberformat" id="ppnwd_hargasatuan[]" name="ppnwd_hargasatuan[]" value="" placeholder="Harga Satuan"/>
+                        <p class="alert ppnwd_hargasatuan_text">-</p>
+                        <input class="ppnwd_hargasatuan" class="numberformat" id="ppnwd_hargasatuan[]" name="ppnwd_hargasatuan[]" value="" placeholder="Harga Satuan" style="display:none;" />
                       </div> <!-- /field -->
                     </div>
                     <div id="container"></div>
@@ -131,13 +133,37 @@
 </div>
 <script type="text/javascript">
   $(document).ready(function () {
+    var get_info = function(id, me) {
+      var url = '<?php echo site_url("barang-jasa/data_barang"); ?>/'+id;
+      var me = me;
+      $.getJSON(url, {param : id}, function(data){
+        var prt = me.closest('.form-fields');
+        prt.find('.ppnwd_satuan_text').text(data.brjs_volume);
+        prt.find('.ppnwd_satuan').val(data.brjs_volume);
+
+        prt.find('.ppnwd_hargasatuan_text').text(data.ppnwd_hargasatuan_text);
+        prt.find('.ppnwd_hargasatuan').val(data.brjs_harga_satuan);
+      });
+    };
+
      $('<div/>', {
          'class' : 'extraPerson form-fields', html: GetHtml()
      }).appendTo('#container');
+
+     $('.ppnwd_jenisbarang').change(function(){
+      var me = $(this);
+      get_info(me.val(), me);
+    });
+     
      $('#addRow').click(function () {
            $('<div/>', {
                'class' : 'extraPerson form-fields', html: GetHtml()
      }).hide().appendTo('#container').slideDown('slow');
+
+    $('.ppnwd_jenisbarang').change(function(){
+      var me = $(this);
+      get_info(me.val(), me);
+    });
 
      });
  })
@@ -151,6 +177,11 @@
     $html.find('[name=ppnwd_deskripsi_id]').name="ppnwd_deskripsi_id[]" + len;
     $html.find('[name=ppnwd_satuan]').name="ppnwd_satuan[]" + len;
     $html.find('[name=ppnwd_hargasatuan]').name="ppnwd_hargasatuan[]" + len;
+
+    $html.find('.ppnwd_satuan_text').text('-');
+    $html.find('[name=ppnwd_satuan]').val('');
+    $html.find('.ppnwd_hargasatuan_text').text('-');
+    $html.find('[name=ppnwd_hargasatuan]').val('');
     return $html.html();
 }
 </script>

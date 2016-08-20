@@ -131,6 +131,12 @@ class Barangjasa extends MY_Frontend {
 			return false;
 		}
 	}
+
+	function data_barang($id) {
+        $result = $this->db->where('brjs_nama = "'.$_GET['param'].'"')->get('barang_jasa')->row_array();
+        $result['ppnwd_hargasatuan_text'] = number_format($result['brjs_harga_satuan'], 0, ',', '.');
+        echo json_encode($result);
+    }
 }
 
 ?>
