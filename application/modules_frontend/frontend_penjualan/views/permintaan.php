@@ -26,10 +26,6 @@
                     <th> Nama Pelanggan </th>
                     <th> Status </th>
                     <th> No. PO </th>
-                    <th> Diskon </th>
-                    <th> Pajak </th>
-                    <th> Biaya Kirim </th>
-                    <th> Nilai Faktur </th>
                     <th> Uang Muka </th>
                     <th> Keterangan</th>
                     <th> File </th>
@@ -43,12 +39,8 @@
                       <td><?php echo ($key+1); ?></td>
                       <td><?php echo $value['ppmt_noso']; ?></td>
                       <td><?php echo $value['clnt_nama']; ?></td>
-                      <td><?php echo $value['ppmt_status']; ?></td>
+                      <td><?php echo (!empty($static_data_source['status_penjualan'][$value['ppmt_status']]) ? $static_data_source['status_penjualan'][$value['ppmt_status']]['name'] : ''); ?></td>
                       <td><?php echo $value['ppnw_no_penawaran']; ?></td>
-                      <td><?php echo $value['ppnw_diskon']; ?></td>
-                      <td><?php echo $value['ppnw_pajak']; ?></td>
-                      <td><?php echo add_numberformat($value['ppnw_biaya_kirim']); ?></td>
-                      <td><?php echo add_numberformat($value['ppnw_nilai_faktur']); ?></td>
                       <td><?php echo add_numberformat($value['ppmt_uangmuka']); ?></td>
                       <td><?php echo $value['ppmt_keterangan']; ?></td>
                       <td>
@@ -61,7 +53,7 @@
                     <?php endforeach; ?>
                   <?php else: ?>
                     <tr>
-                      <td colspan="13" style="background: red;color: white;">Module ini belum terisi!</td>
+                      <td colspan="9" style="background: red;color: white;">Module ini belum terisi!</td>
                     </tr>
                   <?php endif; ?>
                 </tbody>
