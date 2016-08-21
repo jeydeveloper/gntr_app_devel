@@ -340,7 +340,8 @@ def("DOMPDF_ENABLE_REMOTE", false);
  * The debug output log
  * @var string
  */
-def("DOMPDF_LOG_OUTPUT_FILE", DOMPDF_FONT_DIR."log.htm");
+//def("DOMPDF_LOG_OUTPUT_FILE", DOMPDF_FONT_DIR."log.htm");
+def("DOMPDF_LOG_OUTPUT_FILE", "");
 
 /**
  * A ratio applied to the fonts height to be more like browsers' line height
