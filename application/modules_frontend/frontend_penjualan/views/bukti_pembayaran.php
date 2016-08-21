@@ -35,8 +35,8 @@
                       <td><?php echo $value['pbktp_tgltransaksi']; ?></td>
                       <td><?php echo $value['pbktp_notransaksi']; ?></td>
                       <td><?php echo (!empty($static_data_source['bank'][$value['pbktp_norekening']]) ? $static_data_source['bank'][$value['pbktp_norekening']]['name'] : '-'); ?></td>
-                      <td><?php echo $value['pbktp_noinvoice']; ?></td>
-                      <td><?php echo $value['pbktp_totaltagihan']; ?></td>
+                      <td><?php echo $value['pjinv_noinvoice']; ?></td>
+                      <td><?php echo (!empty($total[$value['pbktp_ppnw_id']]) ? add_numberformat($total[$value['pbktp_ppnw_id']]) : ''); ?></td>
                       <td><?php echo $value['pbktp_jenistransaksi']; ?></td>
                       <td>
                         <a href="<?php echo site_url('/'); ?>assets/images/<?php echo $value['pbktp_uploadfile']; ?>" target="_blank">

@@ -49,7 +49,7 @@ class Crud_bukti_pembayaran extends CI_Model {
 	}
 
 	function get_all(){
-		return $this->db->get('penjualan_bukti_pembayaran')->result_array();
+		return $this->db->join('penjualan_invoice', 'pbktp_pjinv_id = pjinv_id')->get('penjualan_bukti_pembayaran')->result_array();
 	}
 
 	function posts($data){

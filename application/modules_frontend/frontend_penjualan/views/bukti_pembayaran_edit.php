@@ -57,17 +57,17 @@
 
                   <div class="field">
                     <label for="pbktp_noinvoice">No. Invoice</label>
-                    <input type="text" id="pbktp_noinvoice" name="pbktp_noinvoice" value="<?php echo $detail['pbktp_noinvoice']; ?>" />
+                    <p class="alert" id="pbktp_noinvoice">-</p>
                   </div> <!-- /field -->
                   
                   <div class="field">
                     <label for="pbktp_totaltagihan">Total Tagihan</label>
-                    <input type="text" id="pbktp_totaltagihan" name="pbktp_totaltagihan" value="<?php echo $detail['pbktp_totaltagihan']; ?>" />
+                    <p class="alert" id="pbktp_totaltagihan">-</p>
                   </div> <!-- /field -->
 
                   <div class="field">
                     <label for="pbktp_terbilang">Terbilang</label>
-                    <textarea id="pbktp_terbilang" name="pbktp_terbilang"><?php echo $detail['pbktp_terbilang']; ?></textarea>
+                    <p class="alert" id="pbktp_terbilang">-</p>
                   </div> <!-- /field -->
 
                   <div class="field">
@@ -120,3 +120,23 @@
   </div>
   <!-- /main-inner --> 
 </div>
+
+<script type="text/javascript">
+  $(function(){
+    var get_info = function(id) {
+      var url = '<?php echo site_url("penjualan/referensi_tandaterima"); ?>/'+id;
+      $.getJSON(url, function(data){
+        $('#pbktp_noinvoice').text(data.pjinv_noinvoice);
+        $('#pbktp_totaltagihan').text(data.pbktp_totaltagihan);
+        $('#pbktp_terbilang').text(data.terbilang);
+      });
+    };
+    
+    $('#pbktp_pttr_id').change(function(){
+      var me = $(this);
+      get_info(me.val());
+    });
+
+    get_info($('#pbktp_pttr_id').val());
+  })
+</script>

@@ -1229,6 +1229,8 @@ class Penjualan extends MY_Frontend {
 
     function bukti_pembayaran() {
         $this->_data['result'] = $this->crud_bukti_pembayaran->order_by('pbktp_id', 'asc')->get_all();
+        $this->_data['total'] = $this->total_penawaran();
+        
         $this->template->set('title', 'Bukti Pembayaran Penjualan | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
         $this->template->set('assets', $this->_data['assets']);
         $this->template->load('template_frontend/main', 'bukti_pembayaran', $this->_data);
@@ -1438,6 +1440,15 @@ class Penjualan extends MY_Frontend {
         $result = $this->db->from('penjualan_beritaacara')->where('pbcr_id = "'.$id.'"')->get()->row_array();
         $tmp = $this->total_penawaran($result['pbcr_ppnw_id']);
         $result['pttr_nilaitagihan'] = (!empty($tmp[$result['pbcr_ppnw_id']]) ? add_numberformat($tmp[$result['pbcr_ppnw_id']]) : 0);
+        echo json_encode($result);
+    }
+
+    function referensi_tandaterima($id) {
+        $result = $this->db->from('penjualan_tandaterima')->join('penjualan_invoice', 'pttr_pjinv_id = pjinv_id')->where('pttr_id = "'.$id.'"')->get()->row_array();
+        $tmp = $this->total_penawaran($result['pttr_ppnw_id']);
+        $result['pbktp_totaltagihan'] = (!empty($tmp[$result['pttr_ppnw_id']]) ? add_numberformat($tmp[$result['pttr_ppnw_id']]) : 0);
+
+        $result['terbilang'] = !empty($result['pbktp_totaltagihan']) ? terbilang(clear_numberformat($result['pbktp_totaltagihan'])) : '-';
         echo json_encode($result);
     }
 
