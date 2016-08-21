@@ -49,7 +49,7 @@ class Crud_tanda_terima extends CI_Model {
 	}
 
 	function get_all(){
-		return $this->db->get('penjualan_tandaterima')->result_array();
+		return $this->db->join('penjualan_beritaacara', 'pbcr_id = pttr_pbcr_id')->get('penjualan_tandaterima')->result_array();
 	}
 
 	function posts($data){

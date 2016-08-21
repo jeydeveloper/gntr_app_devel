@@ -63,9 +63,9 @@
                   <div class="field">
                     <label for="phone">Tagihan Dari</label>
                     <div class="rd-inline">
-                      <label class="checkbox-inline"><input type="checkbox" name="pbttr_tghndari" value="Subcontractor">Subcontractor</label>
-                      <label class="checkbox-inline"><input type="checkbox" name="pbttr_tghndari" value="Supplier">Supplier</label>
-                      <label class="checkbox-inline"><input type="checkbox" name="pbttr_tghndari" value="Lain Lain">Lain Lain</label>
+                      <label class="checkbox-inline"><input type="radio" name="pbttr_tghndari" value="Subcontractor" <?php echo ((!empty($detail['pbttr_tghndari']) AND $detail['pbttr_tghndari'] == 'Subcontractor') ? 'checked' : ''); ?>>Subcontractor</label>
+                      <label class="checkbox-inline"><input type="radio" name="pbttr_tghndari" value="Supplier" <?php echo ((!empty($detail['pbttr_tghndari']) AND $detail['pbttr_tghndari'] == 'Supplier') ? 'checked' : ''); ?>>Supplier</label>
+                      <label class="checkbox-inline"><input type="radio" name="pbttr_tghndari" value="Lain Lain" <?php echo ((!empty($detail['pbttr_tghndari']) AND $detail['pbttr_tghndari'] == 'Lain Lain') ? 'checked' : ''); ?>>Lain Lain</label>
                     </div>
                     <input id="pbttr_tagihan" name="pbttr_tagihan" value="<?php echo $detail['pbttr_tagihan']; ?>"/>
                   </div> <!-- /field -->

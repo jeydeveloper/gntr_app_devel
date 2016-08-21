@@ -1032,6 +1032,14 @@ class Penjualan extends MY_Frontend {
 
 	function tanda_terima() {
 		$this->_data['result'] = $this->crud_tanda_terima->order_by('pttr_id', 'asc')->get_all();
+
+		foreach ($this->_data['result'] as $key => $value) {
+            $this->_data['result'][$key]['pttr_lampiran'] = !empty($this->_data['result'][$key]['pttr_lampiran']) ? unserialize($this->_data['result'][$key]['pttr_lampiran']) : array();
+            $this->_data['result'][$key]['pttr_lampiran'] = join(', ', $this->_data['result'][$key]['pttr_lampiran']);
+        }
+
+        $this->_data['total'] = $this->total_penawaran();
+
 		$this->template->set('title', 'Tanda Terima Penjualan | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
 		$this->template->load('template_frontend/main', 'tanda_terima', $this->_data);
@@ -1091,7 +1099,7 @@ class Penjualan extends MY_Frontend {
 				'pttr_tagihan' => $this->input->post('pttr_tagihan'),
 				'pttr_mtuang' => $this->input->post('pttr_mtuang'),
 				'pttr_nilaitagihan' => $this->input->post('pttr_nilaitagihan'),
-				'pttr_lampiran' => $this->input->post('pttr_lampiran'),
+				'pttr_lampiran' => serialize($this->input->post('pttr_lampiran')),
 				'pttr_tglkembali' => $this->input->post('pttr_tglkembali'),
 				'pttr_nobpkc' => $this->input->post('pttr_nobpkc'),
 				'pttr_tglbpkc' => $this->input->post('pttr_tglbpkc'),
@@ -1117,6 +1125,7 @@ class Penjualan extends MY_Frontend {
             $this->_data['detail'] = $_POST;
         } else {
             $this->_data['detail'] = $this->crud_tanda_terima->where('pttr_id = "'.$id.'"')->get_row();
+            $this->_data['detail']['pttr_lampiran'] = !empty($this->_data['detail']['pttr_lampiran']) ? unserialize($this->_data['detail']['pttr_lampiran']) : array();
         }
 
         $this->_data['option_referensi'] = $this->crud_berita_acara->get_option_info_detail();
@@ -1166,7 +1175,7 @@ class Penjualan extends MY_Frontend {
 				'pttr_tagihan' => $this->input->post('pttr_tagihan'),
 				'pttr_mtuang' => $this->input->post('pttr_mtuang'),
 				'pttr_nilaitagihan' => $this->input->post('pttr_nilaitagihan'),
-				'pttr_lampiran' => $this->input->post('pttr_lampiran'),
+				'pttr_lampiran' => serialize($this->input->post('pttr_lampiran')),
 				'pttr_tglkembali' => $this->input->post('pttr_tglkembali'),
 				'pttr_nobpkc' => $this->input->post('pttr_nobpkc'),
 				'pttr_tglbpkc' => $this->input->post('pttr_tglbpkc'),
@@ -1192,7 +1201,7 @@ class Penjualan extends MY_Frontend {
 				'pttr_tagihan' => $this->input->post('pttr_tagihan'),
 				'pttr_mtuang' => $this->input->post('pttr_mtuang'),
 				'pttr_nilaitagihan' => $this->input->post('pttr_nilaitagihan'),
-				'pttr_lampiran' => $this->input->post('pttr_lampiran'),
+				'pttr_lampiran' => serialize($this->input->post('pttr_lampiran')),
 				'pttr_tglkembali' => $this->input->post('pttr_tglkembali'),
 				'pttr_nobpkc' => $this->input->post('pttr_nobpkc'),
 				'pttr_tglbpkc' => $this->input->post('pttr_tglbpkc'),
@@ -1422,6 +1431,13 @@ class Penjualan extends MY_Frontend {
     function referensi_kwitansi($id) {
         $result = $this->db->from('penjualan_kwitansi')->join('penjualan_penawaran', 'pjkw_ppnw_id=ppnw_id')->where('pjkw_id = "'.$id.'"')->get()->row_array();
         $result['ppnw_nilai_faktur'] = add_numberformat($result['ppnw_nilai_faktur']);
+        echo json_encode($result);
+    }
+
+    function referensi_beritaacara($id) {
+        $result = $this->db->from('penjualan_beritaacara')->where('pbcr_id = "'.$id.'"')->get()->row_array();
+        $tmp = $this->total_penawaran($result['pbcr_ppnw_id']);
+        $result['pttr_nilaitagihan'] = (!empty($tmp[$result['pbcr_ppnw_id']]) ? add_numberformat($tmp[$result['pbcr_ppnw_id']]) : 0);
         echo json_encode($result);
     }
 

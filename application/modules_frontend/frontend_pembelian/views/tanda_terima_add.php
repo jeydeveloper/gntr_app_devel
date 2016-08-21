@@ -62,9 +62,9 @@
                   <div class="field">
                     <label for="phone">Tagihan Dari</label>
                     <div class="rd-inline">
-                      <label class="checkbox-inline"><input type="checkbox" name="pbttr_tghndari" value="Subcontractor">Subcontractor</label>
-                      <label class="checkbox-inline"><input type="checkbox" name="pbttr_tghndari" value="Supplier">Supplier</label>
-                      <label class="checkbox-inline"><input type="checkbox" name="pbttr_tghndari" value="Lain Lain">Lain Lain</label>
+                      <label class="checkbox-inline"><input type="radio" name="pbttr_tghndari" value="Subcontractor">Subcontractor</label>
+                      <label class="checkbox-inline"><input type="radio" name="pbttr_tghndari" value="Supplier">Supplier</label>
+                      <label class="checkbox-inline"><input type="radio" name="pbttr_tghndari" value="Lain Lain">Lain Lain</label>
                     </div>
                     <input id="pbcr_tagihan" name="pbttr_tagihan" value="" placeholder="Tagihan Dari" />
                   </div> <!-- /field -->

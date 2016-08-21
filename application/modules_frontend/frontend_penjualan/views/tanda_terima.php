@@ -37,9 +37,9 @@
                     <?php foreach($result as $key => $value): ?>
                     <tr>
                       <td><?php echo ($key+1); ?></td>
-                      <td><?php echo $value['pttr_noproyek']; ?></td>
+                      <td><?php echo $value['pbcr_noproyek']; ?></td>
                       <td><?php echo $value['pttr_tagihan']; ?></td>
-                      <td><?php echo $value['pttr_nilaitagihan']; ?></td>
+                      <td><?php echo (!empty($total[$value['pttr_ppnw_id']]) ? add_numberformat($total[$value['pttr_ppnw_id']]) : ''); ?></td>
                       <td><?php echo $value['pttr_lampiran']; ?></td>
                       <td><?php echo $value['pttr_menerima']; ?></td>
                       <td>
