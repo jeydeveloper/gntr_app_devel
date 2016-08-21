@@ -85,7 +85,7 @@
                           <select class="ppnwd_jenisbarang" name="ppnwd_jenisbarang[]" id="ppnwd_jenisbarang[]" />
                             <option>-- Pilih --</option>
                             <?php foreach($option_barang as $value): ?>
-                              <option value="<?php echo $value['name']; ?>"><?php echo $value['name']; ?></option>
+                              <option value="<?php echo $value['value']; ?>"><?php echo $value['name']; ?></option>
                             <?php endforeach; ?>
                           </select>
                           <input type="checkbox" class="ba" /><label for="ppnwd_jenisbarang2">Tambah Manual Jenis Barang:</label>
@@ -136,7 +136,7 @@
     var get_info = function(id, me) {
       var url = '<?php echo site_url("barang-jasa/data_barang"); ?>/'+id;
       var me = me;
-      $.getJSON(url, {param : id}, function(data){
+      $.getJSON(url, function(data){
         var prt = me.closest('.form-fields');
         prt.find('.ppnwd_satuan_text').text(data.brjs_volume);
         prt.find('.ppnwd_satuan').val(data.brjs_volume);

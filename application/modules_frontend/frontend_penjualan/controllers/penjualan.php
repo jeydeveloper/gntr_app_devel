@@ -102,13 +102,15 @@ class Penjualan extends MY_Frontend {
 
             $this->db->where('ppnwd_no_penawaran = "'.$this->input->post('ppnw_no_penawaran').'"')->delete('penjualan_penawaran_detail');
 
+            $detail_barangjasa = $this->crud_barangjasa->get_option_info();
+
             if(!empty($barang)){
                 foreach($barang as $key=>$val)
                 {
                     if($val != ''){
                         $data = array(
                         'ppnwd_no_penawaran' => $this->input->post('ppnw_no_penawaran'),
-                        'ppnwd_jenisbarang'  => $val,
+                        'ppnwd_jenisbarang'  => (!empty($detail_barangjasa[$val]) ? $detail_barangjasa[$val] : ''),
                         'ppnwd_volume'       => $volume[$key],
                         'ppnwd_deskripsi_id' => $deskripsi[$key],
                         'ppnwd_satuan'       => $satuan[$key],
@@ -125,7 +127,7 @@ class Penjualan extends MY_Frontend {
                     if($val2 != ''){
                            $data = array(
                             'ppnwd_no_penawaran' => $this->input->post('ppnw_no_penawaran'),
-                            'ppnwd_jenisbarang'  => $val2,
+                            'ppnwd_jenisbarang'  => (!empty($detail_barangjasa[$val2]) ? $detail_barangjasa[$val2] : ''),
                             'ppnwd_volume'       => $volume[$key],
                             'ppnwd_deskripsi_id' => $deskripsi[$key],
                             'ppnwd_satuan'       => $satuan[$key],
@@ -214,6 +216,8 @@ class Penjualan extends MY_Frontend {
             $detailID = $this->input->post('ppnwd_id');
 
             $this->db->where('ppnwd_no_penawaran = "'.$this->input->post('ppnw_no_penawaran').'"')->delete('penjualan_penawaran_detail');
+
+            $detail_barangjasa = $this->crud_barangjasa->get_option_info();
             
             if(!empty($barang)){
                 foreach($barang as $key=>$val)
@@ -221,15 +225,13 @@ class Penjualan extends MY_Frontend {
                     if($val != ''){
                         $data = array(
                         'ppnwd_no_penawaran' => $this->input->post('ppnw_no_penawaran'),
-                        'ppnwd_jenisbarang'  => $val,
+                        'ppnwd_jenisbarang'  => (!empty($detail_barangjasa[$val]) ? $detail_barangjasa[$val] : ''),
                         'ppnwd_volume'       => $volume[$key],
                         'ppnwd_deskripsi_id' => $deskripsi[$key],
                         'ppnwd_satuan'       => $satuan[$key],
                         'ppnwd_hargasatuan'  => $hargasatuan[$key],
                       );
-                         $this->crud_penawaran_detail
-                                          ->where('ppnwd_id = "'.$detailID[$key].'"')
-                                          ->puts($data);
+                         $this->crud_penawaran_detail->posts($data);
                     }
 
                 }
@@ -240,15 +242,13 @@ class Penjualan extends MY_Frontend {
                     if($val2 != ''){
                            $data = array(
                             'ppnwd_no_penawaran' => $this->input->post('ppnw_no_penawaran'),
-                            'ppnwd_jenisbarang'  => $val2,
+                            'ppnwd_jenisbarang'  => (!empty($detail_barangjasa[$val2]) ? $detail_barangjasa[$val2] : ''),
                             'ppnwd_volume'       => $volume[$key],
                             'ppnwd_deskripsi_id' => $deskripsi[$key],
                             'ppnwd_satuan'       => $satuan[$key],
                             'ppnwd_hargasatuan'  => $hargasatuan[$key],
                           );
-                         $this->crud_penawaran_detail
-                                          ->where('ppnwd_id = "'.$detailID[$key].'"')
-                                          ->puts($data);
+                         $this->crud_penawaran_detail->posts($data);
                     }
 
                 }

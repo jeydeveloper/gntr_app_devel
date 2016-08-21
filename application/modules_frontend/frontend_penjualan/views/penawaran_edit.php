@@ -80,7 +80,7 @@
 
                     <div class="field">
                         <label for="ppnwd_deskripsi_id">Deskripsi:</label>
-                        <input id="ppnwd_deskripsi_id[]" name="ppnwd_deskripsi_id[]" value="" placeholder="Deskripsi"/>
+                        <input id="ppnwd_deskripsi_id[]" name="ppnwd_deskripsi_id[]" placeholder="Deskripsi" value="<?php echo $det->ppnwd_deskripsi_id; ?>"/>
                       </div> <!-- /field -->
                       <div class="field">
                           <label for="ppnwd_jenisbarang">Jenis Barang:</label>
@@ -88,7 +88,7 @@
                                <option>--Pilih--</option>
                                <?php foreach($option_barang as $value): ?>
 
-                              <option value="<?php echo $value['name']; ?>" <?php echo ($det->ppnwd_jenisbarang == $value['name'] ? 'selected' : ''); ?>><?php echo $value['name']; ?></option>
+                              <option value="<?php echo $value['value']; ?>" <?php echo ($det->ppnwd_jenisbarang == $value['name'] ? 'selected' : ''); ?>><?php echo $value['name']; ?></option>
                               <?php endforeach; ?>
                             </select>
                           <input type="checkbox" class="ba" /><label for="ppnwd_jenisbarang2">Tambah Manual Jenis Barang:</label>
@@ -163,7 +163,7 @@ $(document).ready(function () {
   var get_info = function(id, me) {
     var url = '<?php echo site_url("barang-jasa/data_barang"); ?>/'+id;
     var me = me;
-    $.getJSON(url, {param : id}, function(data){
+    $.getJSON(url, function(data){
       var prt = me.closest('.form-fields');
       prt.find('.ppnwd_satuan_text').text(data.brjs_volume);
       prt.find('.ppnwd_satuan').val(data.brjs_volume);
