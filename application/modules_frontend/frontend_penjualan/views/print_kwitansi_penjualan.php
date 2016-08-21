@@ -187,7 +187,7 @@
                                                 <tr>
                                                     <td width="15%"><span style="border-bottom:1px solid;">Banyaknya Uang</span><br/><span>Amount Received</span></td>
                                                     <td width="5%" class="delimiter">:</td>
-                                                    <td><div class="blck" style="border-bottom:thin dotted black;">Rp <?php echo number_format($detail['pjkw_total'],2,",","."); ?></div></td>
+                                                    <td><div class="blck" style="border-bottom:thin dotted black;">Rp <?php echo number_format($total,2,",","."); ?></div></td>
                                                 </tr>
                                             </table>
                                         </td>

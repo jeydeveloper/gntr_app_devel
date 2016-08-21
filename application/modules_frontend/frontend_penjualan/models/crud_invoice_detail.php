@@ -83,4 +83,14 @@ class Crud_invoice_detail extends CI_Model {
                 ->get()
                 ->result();
     }
+
+    function join3(){
+        return $this->db
+                ->select('penjualan_penawaran.*, penjualan_penawaran_detail.*, barang_jasa.*')
+                ->from('penjualan_penawaran_detail')
+                ->join('penjualan_penawaran', 'penjualan_penawaran_detail.ppnwd_no_penawaran = penjualan_penawaran.ppnw_no_penawaran','left')
+                ->join('barang_jasa', 'penjualan_penawaran_detail.ppnwd_jenisbarang_id = barang_jasa.brjs_id', 'left' )
+                ->get()
+                ->result_array();
+    }
 }

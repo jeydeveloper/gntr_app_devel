@@ -815,6 +815,9 @@ class Penjualan extends MY_Frontend {
         require_once APPPATH.'third_party/dompdf/dompdf_config.inc.php';
         $this->_data['detail']  = $this->db->where('pjkw_id = "'.$id.'"')->join('penjualan_penawaran', 'ppnw_id = pjkw_ppnw_id')->join('client', 'clnt_id = ppnw_clnt_id')->get('penjualan_kwitansi')->row_array();
 
+        $tmp = $this->total_penawaran($this->_data['detail']['ppnw_id']);
+        $this->_data['total'] = !empty($tmp[$this->_data['detail']['ppnw_id']]) ? $tmp[$this->_data['detail']['ppnw_id']] : 0;
+
         $this->load->view('print_kwitansi_penjualan',  $this->_data);
         $html = $this->output->get_output();
         $this->load->library('dompdf_gen');
@@ -1425,6 +1428,26 @@ class Penjualan extends MY_Frontend {
     function info_barang($id) {
         $result = $this->db->from('penjualan_penawaran')->join('penjualan_penawaran_detail', 'ppnw_no_penawaran=ppnwd_no_penawaran')->where('ppnw_id = "'.$id.'"')->get()->result_array();
         echo json_encode($result);
+    }
+
+    private function total_penawaran($id ='') {
+        if(!empty($id)) {
+            $details  = $this->crud_invoice_detail->where('ppnw_id = "'.$id.'"')->join3();
+        } else {
+            $details  = $this->crud_invoice_detail->join3();
+        }
+        
+        $total = array();
+        foreach ($details as $key => $value) {
+            if(empty($total[$value['ppnw_id']])) $total[$value['ppnw_id']] = 0;
+            $total[$value['ppnw_id']] += $value['ppnwd_volume'] * $value['brjs_harga_satuan'];
+        }
+
+        foreach ($total as $key => $value) {
+            $total[$key] += ($value * 0.02) + ($value * 0.1);
+        }
+
+        return $total;
     }
 }
 
