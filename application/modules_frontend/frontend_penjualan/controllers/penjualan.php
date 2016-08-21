@@ -623,8 +623,9 @@ class Penjualan extends MY_Frontend {
 
     function pdf_invoice($id){
         require_once APPPATH.'third_party/dompdf/dompdf_config.inc.php';
-        $this->_data['detail']  = $this->crud_invoice->where('pjinv_id = "'.$id.'"')->get_row();
-        $this->_data['details']  = $this->crud_invoice_detail->where('penjualan_penawaran.ppnw_id = "'.$this->_data['detail']['pjinv_ppnw_id'].'"')->join();
+        //$this->_data['detail']  = $this->crud_invoice->where('pjinv_id = "'.$id.'"')->get_row();
+        $this->_data['detail']  = $this->db->where('pjinv_id = "'.$id.'"')->join('penjualan_penawaran', 'ppnw_id = pjinv_ppnw_id')->join('penjualan_permintaan', 'ppmt_id = pjinv_ppmt_id')->join('client', 'clnt_id = ppnw_clnt_id')->get('penjualan_invoice')->row_array();
+        $this->_data['details']  = $this->crud_invoice_detail->where('penjualan_penawaran.ppnw_id = "'.$this->_data['detail']['pjinv_ppnw_id'].'"')->join2();
 
         $this->load->view('print_invoice_penjualan',  $this->_data);
         $html = $this->output->get_output();

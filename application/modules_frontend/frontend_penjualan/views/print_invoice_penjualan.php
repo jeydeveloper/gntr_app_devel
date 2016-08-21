@@ -166,8 +166,8 @@
   <table style="width:100%; margin-top: 80px;" border="0" cellspacing="0" cellpadding="0">
         <tr>
             <td style="width:30%;">
-                <h3><?php echo $detail['pjinv_to']; ?></h3><br />
-                <?php echo $detail['pjinv_alamat']; ?><br />
+                <h3><?php echo $detail['clnt_nama']; ?></h3><br />
+                <?php echo $detail['clnt_alamat']; ?><br />
             </td>
              <td style="width:20%;">
                 &nbsp;
@@ -176,9 +176,10 @@
                 <div class="rgt" style="position: relative; left: 220px;">
                     <table  border="0" cellspacing="0" cellpadding="0">
                         <?php
-                            $originalDate   = $detail['pjinv_tanggal'];
+                            $originalDate   = $detail['ppmt_tanggal'];
                             $newDate        = date("d F Y", strtotime($originalDate));
-                            $originalWODate = $detail['pjinv_wotgl'];;
+                            
+                            $originalWODate = $detail['ppnw_tanggal'];;
                             $newWoDate      = date("d F Y", strtotime($originalWODate));
                         ?>
                         <tbody>
@@ -191,8 +192,8 @@
                                 <td><?php echo $newDate;?></td>
                             </tr>
                             <tr>
-                                <td>WO No :</td>
-                                <td><?php echo $detail['pjinv_wo']; ?></td>
+                                <td>PO No :</td>
+                                <td><?php echo $detail['ppmt_noso']; ?></td>
                             </tr>
                             <tr>
                                 <td>Tanggal :</td>
@@ -200,7 +201,7 @@
                             </tr>
                             <tr>
                                 <td>Penawaran NO : </td>
-                                <td><?php echo $detail['pjinv_nopenawaran']; ?></td>
+                                <td><?php echo $detail['ppnw_no_penawaran']; ?></td>
                             </tr>
                         </tbody>
                     </table>
