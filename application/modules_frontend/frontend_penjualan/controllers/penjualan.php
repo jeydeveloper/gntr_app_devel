@@ -111,6 +111,7 @@ class Penjualan extends MY_Frontend {
                         $data = array(
                         'ppnwd_no_penawaran' => $this->input->post('ppnw_no_penawaran'),
                         'ppnwd_jenisbarang'  => (!empty($detail_barangjasa[$val]) ? $detail_barangjasa[$val] : ''),
+                        'ppnwd_jenisbarang_id'  => $val,
                         'ppnwd_volume'       => $volume[$key],
                         'ppnwd_deskripsi_id' => $deskripsi[$key],
                         'ppnwd_satuan'       => $satuan[$key],
@@ -128,6 +129,7 @@ class Penjualan extends MY_Frontend {
                            $data = array(
                             'ppnwd_no_penawaran' => $this->input->post('ppnw_no_penawaran'),
                             'ppnwd_jenisbarang'  => (!empty($detail_barangjasa[$val2]) ? $detail_barangjasa[$val2] : ''),
+                            'ppnwd_jenisbarang_id'  => $val2,
                             'ppnwd_volume'       => $volume[$key],
                             'ppnwd_deskripsi_id' => $deskripsi[$key],
                             'ppnwd_satuan'       => $satuan[$key],
@@ -226,6 +228,7 @@ class Penjualan extends MY_Frontend {
                         $data = array(
                         'ppnwd_no_penawaran' => $this->input->post('ppnw_no_penawaran'),
                         'ppnwd_jenisbarang'  => (!empty($detail_barangjasa[$val]) ? $detail_barangjasa[$val] : ''),
+                        'ppnwd_jenisbarang_id'  => $val,
                         'ppnwd_volume'       => $volume[$key],
                         'ppnwd_deskripsi_id' => $deskripsi[$key],
                         'ppnwd_satuan'       => $satuan[$key],
@@ -243,6 +246,7 @@ class Penjualan extends MY_Frontend {
                            $data = array(
                             'ppnwd_no_penawaran' => $this->input->post('ppnw_no_penawaran'),
                             'ppnwd_jenisbarang'  => (!empty($detail_barangjasa[$val2]) ? $detail_barangjasa[$val2] : ''),
+                            'ppnwd_jenisbarang_id'  => $val2,
                             'ppnwd_volume'       => $volume[$key],
                             'ppnwd_deskripsi_id' => $deskripsi[$key],
                             'ppnwd_satuan'       => $satuan[$key],
@@ -620,7 +624,7 @@ class Penjualan extends MY_Frontend {
     function pdf_invoice($id){
         require_once APPPATH.'third_party/dompdf/dompdf_config.inc.php';
         $this->_data['detail']  = $this->crud_invoice->where('pjinv_id = "'.$id.'"')->get_row();
-        $this->_data['details']  = $this->crud_invoice_detail->where('penjualan_invoice.pjinv_id = "'.$id.'"')->join();
+        $this->_data['details']  = $this->crud_invoice_detail->where('penjualan_penawaran.ppnw_id = "'.$this->_data['detail']['pjinv_ppnw_id'].'"')->join();
 
         $this->load->view('print_invoice_penjualan',  $this->_data);
         $html = $this->output->get_output();

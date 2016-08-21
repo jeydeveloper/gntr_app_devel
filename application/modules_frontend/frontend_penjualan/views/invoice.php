@@ -18,9 +18,7 @@
                   <tr>
                     <th> No. </th>
                     <th> No. Invoice </th>
-                    <th> Tanggal </th>
                     <th> No. PO</th>
-                    <th> Tanggal </th>
                     <th> No. Penawaran </th>
                     <th> Ditujukan Ke </th>
                     <th> Total Tagihan</th>
@@ -34,9 +32,7 @@
                     <tr>
                       <td><?php echo ($key+1); ?></td>
                       <td><?php echo $value['pjinv_noinvoice']; ?></td>
-                      <td><?php echo $value['pjinv_tanggal']; ?></td>
                       <td><?php echo $value['ppmt_noso']; ?></td>
-                      <td><?php echo $value['ppmt_tanggal']; ?></td>
                       <td><?php echo $value['ppnw_no_penawaran']; ?></td>
                       <td><?php echo $value['clnt_nama']; ?></td>
                       <td><?php echo add_numberformat($value['ppnw_nilai_faktur']); ?></td>
@@ -47,7 +43,7 @@
                     <?php endforeach; ?>
                   <?php else: ?>
                     <tr>
-                      <td colspan="13" style="background: red;color: white;">Module ini belum terisi!</td>
+                      <td colspan="8" style="background: red;color: white;">Module ini belum terisi!</td>
                     </tr>
                   <?php endif; ?>
                 </tbody>

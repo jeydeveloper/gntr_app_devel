@@ -238,7 +238,7 @@
         			<tr>
         				<td><?php echo ($key+1); ?></td>
         				<td><?php echo $value->brjs_nama; ?></td>
-        				<td class="numeric"><?php echo $value->pjinvd_jumlah; ?></td>
+        				<td class="numeric"><?php echo $value->ppnwd_volume; ?></td>
                         <?php foreach($static_data_source['barjas_satuan'] as $satuan): ?>
                             <?php if($value->brjs_satuan_id == $satuan['value']) {?>
                                 <td><?php echo $satuan['name'] ?></td>
@@ -247,15 +247,12 @@
 
         				<td class="numeric">Rp <?php echo number_format($value->brjs_harga_satuan,2,",","."); ?></td>
         				<?php
-                            $jumlahharga = $value->pjinvd_jumlah * $value->brjs_harga_satuan;
+                            $jumlahharga = $value->ppnwd_volume * $value->brjs_harga_satuan;
                         ?>
                         <td class="numeric">Rp <?php echo number_format($jumlahharga,2,",","."); ?></td>
         			</tr>
                     <?php $sum+= $jumlahharga; ?>
                     <?php endforeach; ?>
-                        <?php
-                            $total = $value->pjinvd_jumlah * $value->brjs_harga_satuan;
-                        ?>
         			<tr>
         				<td colspan="5" class="remove-bottom-border numeric">Total</td>
         				<td class="numeric">Rp <?php echo number_format($sum,2,",","."); ?></td>
@@ -272,10 +269,10 @@
         			</tr>
         			<tr>
         				<td colspan="5" class="numeric">TOTAL TAGIHAN</td>
-        				<td class="numeric">Rp <?php echo number_format($detail['pjinv_totaltagihan'],2,",","."); ?></td>
+        				<td class="numeric">Rp <?php echo number_format(($sum + $pph + $ppn),2,",","."); ?></td>
         			</tr>
                     <tr>
-                        <td colspan="6">Terbilang<br/># <?php echo $detail['pjinv_terbilang']; ?> #</td>
+                        <td colspan="6">Terbilang<br/># <?php echo terbilang(($sum + $pph + $ppn)); ?> #</td>
                     </tr>
         		</tbody>
         	</table>
