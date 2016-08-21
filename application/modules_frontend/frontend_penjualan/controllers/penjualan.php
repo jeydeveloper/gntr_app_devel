@@ -1019,7 +1019,7 @@ class Penjualan extends MY_Frontend {
 
     function pdf_berita_acara($id){
         require_once APPPATH.'third_party/dompdf/dompdf_config.inc.php';
-        $this->_data['detail']  = $this->crud_berita_acara->where('pbcr_id = "'.$id.'"')->get_row();
+        $this->_data['detail']  = $this->db->where('pbcr_id = "'.$id.'"')->join('penjualan_permintaan', 'ppmt_id = pbcr_ppmt_id')->get('penjualan_beritaacara')->row_array();
 
         $this->load->view('print_berita_acara_penjualan',  $this->_data);
         $html = $this->output->get_output();

@@ -343,8 +343,7 @@ $sekarang = $hari." tanggal ".$tgl." bulan ".$bln." ".$thn;
                     <tr>
                         <td>
                         <ol>
-                            <li>Bahwa, sebelumnya PIHAK PERTAMA dan Pihak KEDUA telah mengadakan suatu kerja sama Pelaksanaan Pekerjaan <?php echo $detail['pbcr_deskripsi']; ?> berdasarkan Perjanjian Work Order atau
-                              Perintah Kerja Nomor 160200009/ RW160100058 tanggal <?php echo $originalDate; ?> (&quot;<strong>Perjanjian</strong>&quot;).</li>
+                            <li>Bahwa, sebelumnya PIHAK PERTAMA dan Pihak KEDUA telah mengadakan suatu kerja sama Pelaksanaan Pekerjaan <?php echo $detail['pbcr_deskripsi']; ?> berdasarkan Purchase Order Nomor <?php echo $detail['ppmt_noso']; ?> tanggal <?php echo $detail['ppmt_tanggal']; ?>.</li>
                             <li>Bahwa, Perjanjian tersebut telah menempatkan PIHAK PERTAMA sebagai Pemberi Kerja dan PIHAK KEDUA sebagai Pelaksana Kerja.</li>
                             <li>Bahwa, Perjanjian tersebut telah mewajibkan PIHAK KEDUA sebagai Pelaksana Kerja untuk melakukan pekerjaan dan menyerahkan hasil pekerjaan tersebut kepada PIHAK PERTAMA sebagai Pemberi Kerja, yaitu berupa Pekerjaan <?php echo $detail['pbcr_deskripsi']; ?> dan dilamprkan bukti hasil pekerjaan.</li>
                         </ol>
