@@ -813,7 +813,7 @@ class Penjualan extends MY_Frontend {
 
     function pdf_kwitansi($id){
         require_once APPPATH.'third_party/dompdf/dompdf_config.inc.php';
-        $this->_data['detail']  = $this->crud_kwitansi->where('pjkw_id = "'.$id.'"')->get_row();
+        $this->_data['detail']  = $this->db->where('pjkw_id = "'.$id.'"')->join('penjualan_penawaran', 'ppnw_id = pjkw_ppnw_id')->join('client', 'clnt_id = ppnw_clnt_id')->get('penjualan_kwitansi')->row_array();
 
         $this->load->view('print_kwitansi_penjualan',  $this->_data);
         $html = $this->output->get_output();

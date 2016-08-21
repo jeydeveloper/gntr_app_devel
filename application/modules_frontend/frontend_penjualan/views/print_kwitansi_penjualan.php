@@ -149,10 +149,10 @@
             <td style="width:50%;">
                <img class="img-responsive" src="assets/frontend/img/logo4.png">
             </td>
-            <td style="width:30%;">
+            <td style="width:10%;">
                &nbsp;
             </td>
-           <td style="width:20%;">
+           <td style="width:40%;">
                 <table style="width: 60%" border="0" cellspacing="0" cellpadding="0">
                     <tr>
                         <td  style="text-align: left;">
@@ -172,7 +172,7 @@
 
         </tr>
 </table>
-<table style="width:100%; margin-top: 80px;" border="0" cellspacing="10" cellpadding="10">
+<table style="width:100%;" border="0" cellspacing="10" cellpadding="10">
                         <tr>
                             <td>
                                 <table class="border blck no-b">
@@ -182,7 +182,7 @@
                                                 <tr>
                                                     <td width="15%"><span style="border-bottom:1px solid;">Sudah Terima Dari</span><br/><span>Received From</span></td>
                                                     <td width="5%" class="delimiter">:</td>
-                                                    <td><div class="blck" style="border-bottom:thin dotted black;"><?php echo $detail['pjkw_dari']; ?></div></td>
+                                                    <td><div class="blck" style="border-bottom:thin dotted black;"><?php echo $detail['clnt_nama']; ?></div></td>
                                                 </tr>
                                                 <tr>
                                                     <td width="15%"><span style="border-bottom:1px solid;">Banyaknya Uang</span><br/><span>Amount Received</span></td>
@@ -198,7 +198,7 @@
                                                 <tr>
                                                     <td width="15%"><span style="border-bottom:1px solid;">Untuk Pembayaran</span><br/><span>In Payment Of</span></td>
                                                     <td width="5%" class="delimiter">:</td>
-                                                    <td><div class="blck" style="border-bottom:thin dotted black;"><?php echo $detail['pjkw_alamat']; ?></div></td>
+                                                    <td><div class="blck" style="border-bottom:thin dotted black;"><?php echo $detail['ppnw_keterangan']; ?></div></td>
                                                 </tr>
                                                 <tr>
                                                     <td colspan="2">&nbsp;</td>
@@ -217,7 +217,7 @@
                                                 <tr>
                                                     <td width="15%"><span style="border-bottom:1px solid;">Catatan</span><br/><span>Notes :</span></td>
                                                     <td width="5%" class="delimiter">:</td>
-                                                    <td><div class="blck" style="border-bottom:thin dotted black;"><ol style="padding:10px;"><li>Mohon pembayaran ditransfer ke rekening bank berikut ini :<br/><?php echo $detail['pjkw_bank']; ?><br/>A/C <?php echo $detail['pjkw_norek']; ?><br/>a.n. <?php echo $detail['pjkw_an']; ?></li><li>Pembayaran baru dianggap sah setelah cek/giro telah dicairkan.</li></ol></div></td>
+                                                    <td><div class="blck" style="border-bottom:thin dotted black;"><ol style="padding:10px;"><li>Mohon pembayaran ditransfer ke rekening bank berikut ini :<br/><?php echo (!empty($static_data_source['bank'][$detail['pjkw_bank']]) ? $static_data_source['bank'][$detail['pjkw_bank']]['name'] : ''); ?><br/>A/C ......................................................<br/>a.n. ......................................................</li><li>Pembayaran baru dianggap sah setelah cek/giro telah dicairkan.</li></ol></div></td>
                                                 </tr>
                                             </table>
                                         </td>
@@ -227,7 +227,7 @@
                         </tr>
 </table>
 
-<table style="width:100%; margin-top: 80px;" border="0" cellspacing="0" cellpadding="0">
+<table style="width:100%;" border="0" cellspacing="0" cellpadding="0">
         <tr>
             <td style="width:50%; font-style: italic;">
                 PT. PUTRA BAHARI MANDIRI<br />
@@ -242,7 +242,7 @@
                     <tr>
                     <?php
                     $originalDate = $detail['pjkw_entrydate'];
-                    $newDate      = date("d F Y", strtotime($originalDate));
+                    $newDate      = date("d F Y");
                     ?>
                         <td  style="text-align: center;">
                         <p>Bekasi, <?php echo $newDate; ?><br/></p>
