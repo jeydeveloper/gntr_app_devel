@@ -163,7 +163,7 @@
 
         </tr>
 </table>
-  <table style="width:100%; margin-top: 80px;" border="0" cellspacing="0" cellpadding="0">
+  <table style="width:100%;" border="0" cellspacing="0" cellpadding="0">
         <tr>
             <td style="width:30%;">
                 <h3><?php echo $detail['clnt_nama']; ?></h3><br />
@@ -178,7 +178,7 @@
                         <?php
                             $originalDate   = $detail['ppmt_tanggal'];
                             $newDate        = date("d F Y", strtotime($originalDate));
-                            
+
                             $originalWODate = $detail['ppnw_tanggal'];;
                             $newWoDate      = date("d F Y", strtotime($originalWODate));
                         ?>
@@ -230,10 +230,6 @@
 					</tr>
         		</thead>
         		<tbody>
-                    <tr>
-                        <td colspan="2"><?php echo $detail['pjinv_description']; ?></td>
-                        <td colspan="4"></td>
-                    </tr>
                     <?php $sum = 0; ?>
                     <?php foreach($details as $key => $value): ?>
         			<tr>
@@ -269,12 +265,20 @@
         				<td class="numeric">Rp <?php echo number_format(($sum + $pph + $ppn),2,",","."); ?></td>
         			</tr>
                     <tr>
-                        <td colspan="6">Terbilang<br/># <?php echo terbilang(($sum + $pph + $ppn)); ?> #</td>
+                        <td colspan="6">Terbilang :<br/># <?php echo terbilang(($sum + $pph + $ppn)); ?> #</td>
+                    </tr>
+                    <tr>
+                        <td colspan="6">
+                            <div>
+                                <p>Keterangan :</p>
+                                <p><?php echo $detail['pjinv_description']; ?></p>
+                            </div>
+                        </td>
                     </tr>
         		</tbody>
         	</table>
         </div><br><br><br>
-        <table style="width:100%; margin-top: 80px;" border="0" cellspacing="0" cellpadding="0">
+        <table style="width:100%;" border="0" cellspacing="0" cellpadding="0">
         <tr>
             <td style="width:50%; font-style: italic;">
                 PT. PUTRA BAHARI MANDIRI<br />
