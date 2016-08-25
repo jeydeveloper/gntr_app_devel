@@ -21,6 +21,12 @@ class MY_Frontend extends MY_Controller {
 		$frontend 				= $this->config->item('frontend');
 		$this->_data['assets'] 	= site_url($frontend['assets']);
 
+		$this->_data['role_access'] = array();
+		if($this->session->userdata('role_id')) {
+			$tmp = $this->db->select('aulv_role_access')->where('aulv_id = "'.$this->session->userdata('role_id').'"')->get('adminuserlevels')->row_array();
+			$this->_data['role_access'] = unserialize($tmp['aulv_role_access']);
+		}
+
 		$this->_data['static_data_source'] = $this->config->item('static_data_source');
 	}
 }

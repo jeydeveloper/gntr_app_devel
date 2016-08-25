@@ -236,20 +236,26 @@ $config["static_data_source"]['role_access'] = array(
 	'mata-uang' => array(
 		'name' => 'Mata Uang',
 	),
-	'project' => array(
-		'name' => 'Project',
+	'proyek-dashboard' => array(
+		'name' => 'Proyek',
 	),
-	'vendor' => array(
-		'name' => 'Vendor',
+	'karyawan' => array(
+		'name' => 'Karyawan',
 	),
-	'client' => array(
-		'name' => 'Client',
+	'laporan' => array(
+		'name' => 'Laporan',
 	),
-	'barang-jasa' => array(
-		'name' => 'Barang / Jasa',
+	'bpu' => array(
+		'name' => 'BPU',
 	),
 	'lain-lain' => array(
 		'name' => 'Lain-lain',
+	),
+	'penjualan' => array(
+		'name' => 'Penjualan',
+	),
+	'pembelian' => array(
+		'name' => 'Pembelian',
 	),
 );
 
