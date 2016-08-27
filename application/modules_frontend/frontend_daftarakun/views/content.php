@@ -19,7 +19,9 @@
                     <th> No. Akun</th>
                     <th> Nama</th>
                     <th> Tipe</th>
+                    <?php if(($this->session->userdata('userid') == 1) OR ((!empty($role_access['daftar-akun']['update'])) OR (!empty($role_access['daftar-akun']['delete'])))): ?>
                     <th class="td-actions">Action</th>
+                    <?php endif; ?>
                   </tr>
                 </thead>
                 <tbody>
@@ -44,7 +46,16 @@
                         <td><?php echo (!empty($parent[$value['akun_parent']]) ? ('&nbsp;&nbsp;&nbsp;' . $parent[$value['akun_parent']] . '-') : ''); ?><?php echo $value['akun_nomor']; ?></td>
                         <td><?php echo $value['akun_nama']; ?></td>
                         <td><?php echo (!empty($static_data_source['akun_tipe'][$value['akun_tipe_id']]) ? $static_data_source['akun_tipe'][$value['akun_tipe_id']]['name'] : '-'); ?></td>
-                        <td class="td-actions"><a href="<?php echo ($module_base_url.'/edit/'.$value['akun_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a> <a href="<?php echo ($module_base_url.'/delete/'.$value['akun_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>
+                        <?php if(($this->session->userdata('userid') == 1) OR ((!empty($role_access['daftar-akun']['update'])) OR (!empty($role_access['daftar-akun']['delete'])))): ?>
+                        <td class="td-actions">
+                          <?php if(($this->session->userdata('userid') == 1) OR (!empty($role_access['daftar-akun']['update']))): ?>
+                          <a href="<?php echo ($module_base_url.'/edit/'.$value['akun_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a> 
+                          <?php endif; ?>
+                          <?php if(($this->session->userdata('userid') == 1) OR (!empty($role_access['daftar-akun']['delete']))): ?>
+                          <a href="<?php echo ($module_base_url.'/delete/'.$value['akun_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a>
+                          <?php endif; ?>
+                        </td>
+                        <?php endif; ?>
                       </tr>
                       <?php endif; ?>
 
@@ -67,7 +78,16 @@
                             <td><?php echo (!empty($parent[$value['akun_parent']]) ? ('&nbsp;&nbsp;&nbsp;' . $parent[$value['akun_parent']] . '-') : ''); ?><?php echo $value['akun_nomor']; ?></td>
                             <td><?php echo $value['akun_nama']; ?></td>
                             <td><?php echo (!empty($static_data_source['akun_tipe'][$value['akun_tipe_id']]) ? $static_data_source['akun_tipe'][$value['akun_tipe_id']]['name'] : '-'); ?></td>
-                            <td class="td-actions"><a href="<?php echo ($module_base_url.'/edit/'.$value['akun_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a> <a href="<?php echo ($module_base_url.'/delete/'.$value['akun_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>
+                            <?php if(($this->session->userdata('userid') == 1) OR ((!empty($role_access['daftar-akun']['update'])) OR (!empty($role_access['daftar-akun']['delete'])))): ?>
+                            <td class="td-actions">
+                              <?php if(($this->session->userdata('userid') == 1) OR (!empty($role_access['daftar-akun']['update']))): ?>
+                              <a href="<?php echo ($module_base_url.'/edit/'.$value['akun_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a> 
+                              <?php endif; ?>
+                              <?php if(($this->session->userdata('userid') == 1) OR (!empty($role_access['daftar-akun']['delete']))): ?>
+                              <a href="<?php echo ($module_base_url.'/delete/'.$value['akun_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a>
+                              <?php endif; ?>
+                            </td>
+                            <?php endif; ?>
                           </tr>
                         <?php endforeach; ?>
                       <?php endif; ?>

@@ -22,7 +22,9 @@
                     <th> Tanggal </th>
                     <th> Jumlah </th>
                     <th> Keterangan </th>
+                    <?php if(($this->session->userdata('userid') == 1) OR ((!empty($role_access['kas-bank-pembayaran']['update'])) OR (!empty($role_access['kas-bank-pembayaran']['delete'])))): ?>
                     <th class="td-actions"> Action</th>
+                    <?php endif; ?>
                   </tr>
                 </thead>
                 <tbody>
@@ -35,7 +37,16 @@
                       <td><?php echo $value['pgln_tanggal']; ?></td>
                       <td style="text-align: right;"><?php echo number_format_rupiah($value['pgln_jumlah']); ?></td>
                       <td><?php echo $value['pgln_keterangan']; ?></td>
-                      <td class="td-actions"><a href="<?php echo ($module_base_url.'/edit/'.$value['pgln_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a> <a href="<?php echo ($module_base_url.'/delete/'.$value['pgln_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>
+                      <?php if(($this->session->userdata('userid') == 1) OR ((!empty($role_access['kas-bank-pembayaran']['update'])) OR (!empty($role_access['kas-bank-pembayaran']['delete'])))): ?>
+                      <td class="td-actions">
+                        <?php if(($this->session->userdata('userid') == 1) OR (!empty($role_access['kas-bank-pembayaran']['update']))): ?>
+                        <a href="<?php echo ($module_base_url.'/edit/'.$value['pgln_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a> 
+                        <?php endif; ?>
+                        <?php if(($this->session->userdata('userid') == 1) OR (!empty($role_access['kas-bank-pembayaran']['delete']))): ?>
+                        <a href="<?php echo ($module_base_url.'/delete/'.$value['pgln_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a>
+                        <?php endif; ?>
+                      </td>
+                      <?php endif; ?>
                     </tr>
                     <?php endforeach; ?>
                   <?php else: ?>
