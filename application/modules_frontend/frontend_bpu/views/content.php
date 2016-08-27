@@ -22,7 +22,9 @@
                     <th> Terbilang </th>
                     <th> Approved By </th>
                     <th> Project </th>
+                    <?php if(($this->session->userdata('userid') == 1) OR ((!empty($role_access['bpu']['update'])) OR (!empty($role_access['bpu']['delete'])))): ?>
                     <th class="td-actions"> Action</th>
+                    <?php endif; ?>
                   </tr>
                 </thead>
                 <tbody>
@@ -35,7 +37,16 @@
                       <td><?php echo (!empty($value['bpu_harga']) ? terbilang($value['bpu_harga']) : '-'); ?></td>
                       <td><?php echo (!empty($value['bpu_approved_by']) ? $value['bpu_approved_by'] : '-'); ?></td>
                       <td><?php echo (!empty($value['proj_nama']) ? $value['proj_nama'] : '-'); ?></td>
-                      <td class="td-actions"><a href="<?php echo ($module_base_url.'/edit/'.$value['bpu_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a> <a href="<?php echo ($module_base_url.'/delete/'.$value['bpu_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>
+                      <?php if(($this->session->userdata('userid') == 1) OR ((!empty($role_access['bpu']['update'])) OR (!empty($role_access['bpu']['delete'])))): ?>
+                      <td class="td-actions">
+                        <?php if(($this->session->userdata('userid') == 1) OR (!empty($role_access['bpu']['update']))): ?>
+                        <a href="<?php echo ($module_base_url.'/edit/'.$value['bpu_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a> 
+                        <?php endif; ?>
+                        <?php if(($this->session->userdata('userid') == 1) OR (!empty($role_access['bpu']['delete']))): ?>
+                        <a href="<?php echo ($module_base_url.'/delete/'.$value['bpu_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a>
+                        <?php endif; ?>
+                      </td>
+                      <?php endif; ?>
                     </tr>
                     <?php endforeach; ?>
                   <?php else: ?>
