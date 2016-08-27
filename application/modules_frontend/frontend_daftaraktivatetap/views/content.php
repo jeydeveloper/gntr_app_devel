@@ -27,7 +27,9 @@
                     <th> Umur Bulan Aktiva </th>
                     <th> %Penyusut/Tahun </th>
                     <th> Pajak </th>
+                    <?php if(($this->session->userdata('userid') == 1) OR ((!empty($role_access['daftar-aktiva-tetap']['update'])) OR (!empty($role_access['daftar-aktiva-tetap']['delete'])))): ?>
                     <th class="td-actions"> </th>
+                    <?php endif; ?>
                   </tr>
                 </thead>
                 <tbody>
@@ -45,7 +47,16 @@
                       <td><?php echo $value['dakt_umurbulan']; ?></td>
                       <td><?php echo $value['dakt_persensusut']; ?></td>
                       <td><?php echo $value['dakt_pajak']; ?></td>
-                      <td class="td-actions"><a href="<?php echo ($module_base_url.'/edit/'.$value['dakt_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a> <a href="<?php echo ($module_base_url.'/delete/'.$value['dakt_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>
+                      <?php if(($this->session->userdata('userid') == 1) OR ((!empty($role_access['daftar-aktiva-tetap']['update'])) OR (!empty($role_access['daftar-aktiva-tetap']['delete'])))): ?>
+                      <td class="td-actions">
+                        <?php if(($this->session->userdata('userid') == 1) OR (!empty($role_access['daftar-aktiva-tetap']['update']))): ?>
+                        <a href="<?php echo ($module_base_url.'/edit/'.$value['dakt_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a> 
+                        <?php endif; ?>
+                        <?php if(($this->session->userdata('userid') == 1) OR (!empty($role_access['daftar-aktiva-tetap']['delete']))): ?>
+                        <a href="<?php echo ($module_base_url.'/delete/'.$value['dakt_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a>
+                        <?php endif; ?>
+                      </td>
+                      <?php endif; ?>
                     </tr>
                     <?php endforeach; ?>
                   <?php else: ?>
