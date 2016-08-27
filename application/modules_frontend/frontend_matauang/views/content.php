@@ -21,7 +21,9 @@
                     <th> Nilai Tukar</th>
                     <th> Negara</th>
                     <th> Simbol</th>
+                    <?php if(($this->session->userdata('userid') == 1) OR ((!empty($role_access['mata-uang']['update'])) OR (!empty($role_access['mata-uang']['delete'])))): ?>
                     <th class="td-actions">Action</th>
+                    <?php endif; ?>
                   </tr>
                 </thead>
                 <tbody>
@@ -33,7 +35,16 @@
                       <td><?php echo $value['mtua_nilaitukar']; ?></td>
                       <td><?php echo $value['mtua_negara']; ?></td>
                       <td><?php echo $value['mtua_simbol']; ?></td>
-                      <td class="td-actions"><a href="<?php echo ($module_base_url.'/edit/'.$value['mtua_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a> <a href="<?php echo ($module_base_url.'/delete/'.$value['mtua_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>
+                      <?php if(($this->session->userdata('userid') == 1) OR ((!empty($role_access['mata-uang']['update'])) OR (!empty($role_access['mata-uang']['delete'])))): ?>
+                      <td class="td-actions">
+                        <?php if(($this->session->userdata('userid') == 1) OR (!empty($role_access['mata-uang']['update']))): ?>
+                        <a href="<?php echo ($module_base_url.'/edit/'.$value['mtua_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a> 
+                        <?php endif; ?>
+                        <?php if(($this->session->userdata('userid') == 1) OR (!empty($role_access['mata-uang']['delete']))): ?>
+                        <a href="<?php echo ($module_base_url.'/delete/'.$value['mtua_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a>
+                        <?php endif; ?>
+                      </td>
+                      <?php endif; ?>
                     </tr>
                     <?php endforeach; ?>
                   <?php else: ?>
