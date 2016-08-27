@@ -11,12 +11,14 @@
       </a>
     </div>
     <!-- /shortcuts -->
+    <?php if(($this->session->userdata('userid') == 1) OR (!empty($role_access['user-level']['create']))): ?>
     <div class="shortcuts"> 
       <a href="<?php echo site_url('user-level/add'); ?>" class="shortcut" style="width: 100%;">
         <i class="shortcut-icon icon-file"></i>
         <span class="shortcut-label">New</span> 
       </a>
     </div>
+    <?php endif; ?>
     <!-- /shortcuts --> 
   </div>
   <!-- /widget-content --> 
