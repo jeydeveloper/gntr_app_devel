@@ -100,6 +100,7 @@
 
       </div>
       <!-- /row --> 
+      <?php if(($this->session->userdata('userid') == 1) OR (!empty($role_access['wajib-pajak']['update']))): ?>
       <div class="row">
         <div class="span12">
           <div class="form-actions">
@@ -110,6 +111,7 @@
           </div> <!-- .actions -->
         </div>
       </div>
+      <?php endif; ?>
       </form>
     </div>
     <!-- /container --> 

@@ -21,7 +21,9 @@
                     <th> Manager</th>
                     <th> Tugas</th>
                     <th> Status</th>
+                    <?php if(($this->session->userdata('userid') == 1) OR ((!empty($role_access['departemen']['update'])) OR (!empty($role_access['departemen']['delete'])))): ?>
                     <th class="td-actions">Action</th>
+                    <?php endif; ?>
                   </tr>
                 </thead>
                 <tbody>
@@ -33,7 +35,16 @@
                       <td><?php echo $value['dprt_manager']; ?></td>
                       <td><?php echo $value['dprt_tugas']; ?></td>
                       <td><?php echo $label_status[$value['dprt_status']]; ?></td>
-                      <td class="td-actions"><a href="<?php echo ($module_base_url.'/edit/'.$value['dprt_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a> <a href="<?php echo ($module_base_url.'/delete/'.$value['dprt_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>
+                      <?php if(($this->session->userdata('userid') == 1) OR ((!empty($role_access['departemen']['update'])) OR (!empty($role_access['departemen']['delete'])))): ?>
+                      <td class="td-actions">
+                        <?php if(($this->session->userdata('userid') == 1) OR (!empty($role_access['departemen']['update']))): ?>
+                        <a href="<?php echo ($module_base_url.'/edit/'.$value['dprt_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a> 
+                        <?php endif; ?>
+                        <?php if(($this->session->userdata('userid') == 1) OR (!empty($role_access['departemen']['delete']))): ?>
+                        <a href="<?php echo ($module_base_url.'/delete/'.$value['dprt_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a>
+                        <?php endif; ?>
+                      </td>
+                      <?php endif; ?>
                     </tr>
                     <?php endforeach; ?>
                   <?php else: ?>
