@@ -31,8 +31,11 @@
     <script type="text/javascript" src="<?php echo $assets; ?>/js/datatable/buttons.html5.min.js"></script>
     <script type="text/javascript" src="<?php echo $assets; ?>/js/datatable/datatable-bootstrap.js"></script>
     <script type="text/javascript" src="<?php echo $assets; ?>/js/datatable/fnStandingRedraw.js"></script>
+    
+    <script type="text/javascript" src="<?php echo $assets; ?>/js/charts/canvasjs.js"></script>
 
-<script type="text/javascript" src="<?php echo $assets; ?>/js/datatable/buttons.colVis.min.js"></script>
+    <script type="text/javascript" src="<?php echo $assets; ?>/js/datatable/buttons.colVis.min.js"></script>
+
     <script type="text/javascript">
         $(function(){
             $(".date-picker").datepicker({
@@ -44,10 +47,12 @@
             });
         });
     </script>
+
     <script type="text/javascript">
         $(function(){
             $('.time').timepicker({ 'scrollDefault': 'now' });
         });
-    </script
+    </script>
+
 </body>
 </html>

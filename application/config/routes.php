@@ -139,7 +139,18 @@ $route['bpu/delete/(:any)'] = "frontend_bpu/bpu/delete/$1";
 $route['bpu/terbilang/(:any)'] = "frontend_bpu/bpu/terbilang/$1";
 
 $route['laporan'] = "frontend_laporan/laporan";
-$route['laporan/neraca'] = "frontend_laporan/laporan/neraca";
+$route['laporan/keuangan_neraca'] = "frontend_laporan/laporan/keuangan_neraca";
+$route['laporan/keuangan_general_report'] = "frontend_laporan/laporan/keuangan_general_report";
+$route['laporan/keuangan_grafik_akun'] = "frontend_laporan/laporan/keuangan_grafik_akun";
+$route['laporan/keuangan_grafik_pendapatan'] = "frontend_laporan/laporan/keuangan_grafik_pendapatan";
+$route['laporan/penjualan_client'] = "frontend_laporan/laporan/penjualan_client";
+$route['laporan/penjualan_barang'] = "frontend_laporan/laporan/penjualan_barang";
+$route['laporan/penjualan_grafik_barang'] = "frontend_laporan/laporan/penjualan_grafik_barang";
+$route['laporan/penjualan_grafik_client'] = "frontend_laporan/laporan/penjualan_grafik_client";
+$route['laporan/pembelian_barang'] = "frontend_laporan/laporan/pembelian_barang";
+$route['laporan/pembelian_vendor'] = "frontend_laporan/laporan/pembelian_vendor";
+$route['laporan/pembelian_grafik_barang'] = "frontend_laporan/laporan/pembelian_grafik_barang";
+$route['laporan/pembelian_grafik_vendor'] = "frontend_laporan/laporan/pembelian_grafik_vendor";
 
 //route karyawan
 $route['karyawan'] = "frontend_karyawan/karyawan";
