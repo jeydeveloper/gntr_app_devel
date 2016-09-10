@@ -24,7 +24,13 @@
                   <p style="margin:0;">Periode : <?php echo $static_data_source['daftar_bulan'][$periode_bulan_1]; ?> - <?php echo $static_data_source['daftar_bulan'][$periode_bulan_2]; ?> <?php echo $periode_tahun; ?></p>
                 </div>
                 <div style="border: 1px solid #e5e5e5;padding:5px 10px;">
+                  <?php if(!empty($result['label'])): ?>
                   <div id="chartContainer" style="height: 400px; width: 100%;"></div>
+                  <?php else: ?>
+                  <div style="width: 100%;">
+                    <p>Belum ada transaksi penjualan di periode ini</p>
+                  </div>
+                  <?php endif; ?>
                 </div>
               </div> <!-- /controls --> 
             </div> <!-- /control-group -->
@@ -42,6 +48,7 @@
 </div>
 <!-- /main -->
 
+<?php if(!empty($result['label'])): ?>
 <script type="text/javascript">
   window.onload = function () {
     var chart = new CanvasJS.Chart("chartContainer",
@@ -66,12 +73,7 @@
         showInLegend: true,
         toolTipContent: "{y} - <strong>#percent%</strong>",
         dataPoints: [
-          { y: 4181563, legendText: "Abu Batu", indexLabel: "Abu Batu" },
-          { y: 2175498, legendText: "Alumunium", indexLabel: "Alumunium" },
-          { y: 3125844, legendText: "Armatur", exploded: true, indexLabel: "Armatur" },
-          { y: 1727161, legendText: "Jasa Manpower", indexLabel: "Jasa Manpower" },
-          { y: 4303364, legendText: "Besi Stenleess", indexLabel: "Besi Stenleess" },
-          { y: 1717786, legendText: "Batu Bata Merah Lokal", indexLabel: "Batu Bata Merah Lokal" }
+          <?php echo join(',', $result['total']); ?>
         ]
       }
       ]
@@ -79,3 +81,4 @@
     chart.render();
   }
 </script>
+<?php endif; ?>
