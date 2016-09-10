@@ -68,6 +68,29 @@ class Laporan extends MY_Frontend {
 		$this->_data['periode_bulan_1'] = $this->input->get('periode_bulan_1');
 		$this->_data['periode_bulan_2'] = $this->input->get('periode_bulan_2');
 		$this->_data['periode_tahun'] = $this->input->get('periode_tahun');
+
+		$bulan_1 = $this->_data['periode_bulan_1'] < 10 ? ('0'.$this->_data['periode_bulan_1']) : $this->_data['periode_bulan_1'];
+		$bulan_2 = $this->_data['periode_bulan_2'] < 10 ? ('0'.$this->_data['periode_bulan_2']) : $this->_data['periode_bulan_2'];
+
+		$periode_1 = $this->_data['periode_tahun'] . '-' . $bulan_1;
+		$periode_2 = $this->_data['periode_tahun'] . '-' . $bulan_2;
+
+		$result = $this->db->select('clnt_id, clnt_nama, ppnw_nilai_faktur', false)->join('penjualan_invoice', 'pjinv_ppnw_id = ppnw_id')->join('client', 'ppnw_clnt_id = clnt_id')->where('DATE_FORMAT(pjinv_tanggal, "%Y-%m") = "'.$periode_1.'" OR DATE_FORMAT(pjinv_tanggal, "%Y-%m") = "'.$periode_2.'" ')->get('penjualan_penawaran')->result_array();
+
+		$this->_data['result'] = array();
+		foreach ($result as $key => $value) {
+			$this->_data['result']['label'][$value['clnt_id']] = '"'.$value['clnt_nama'].'"';
+			if(empty($this->_data['result']['total'][$value['clnt_id']])) $this->_data['result']['total'][$value['clnt_id']] = 0;
+			
+			$this->_data['result']['total'][$value['clnt_id']] += $value['ppnw_nilai_faktur'];
+		}
+
+		if(!empty($this->_data['result']['total'])) {
+			foreach ($this->_data['result']['total'] as $key => $value) {
+				$this->_data['result']['total'][$key] = '{y: '.$value.', label: '.$this->_data['result']['label'][$key].'}';
+			}
+		}
+
 		$this->template->set('title', 'Laporan Neraca | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
 		$this->template->load('template_frontend/main', 'content_penjualan_grafik_client', $this->_data);
