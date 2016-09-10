@@ -43,7 +43,7 @@
                       <tr>
                         <td><?php echo ($key + 1); ?></td>
                         <td><?php echo $value['vndr_nama']; ?></td>
-                        <td><?php echo add_numberformat($value['pbptn_totaltagihan']); ?></td>
+                        <td><a target="_blank" href="<?php echo site_url('pembelian/permintaan/pdf/'.$value['pbptn_id']); ?>"><?php echo add_numberformat($value['pbptn_totaltagihan']); ?></a></td>
                       </tr>
                       <?php endforeach; ?>
                       <?php else: ?>

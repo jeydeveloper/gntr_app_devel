@@ -43,7 +43,7 @@
                       <tr>
                         <td><?php echo ($key + 1); ?></td>
                         <td><?php echo $value['clnt_nama']; ?></td>
-                        <td><?php echo add_numberformat($value['ppnw_nilai_faktur']); ?></td>
+                        <td><a target="_blank" href="<?php echo site_url('penjualan/invoice/pdf/'.$value['pjinv_id']); ?>"><?php echo add_numberformat($value['ppnw_nilai_faktur']); ?></a></td>
                       </tr>
                       <?php endforeach; ?>
                       <?php else: ?>
