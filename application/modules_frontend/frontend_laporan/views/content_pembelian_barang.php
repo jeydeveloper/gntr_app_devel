@@ -33,6 +33,7 @@
                     <thead>
                       <tr>
                         <th>#</th>
+                        <th>No Permintaan</th>
                         <th>Keterangan Barang</th>
                         <th>Kuantitas</th>
                         <th>Satuan</th>
@@ -40,27 +41,22 @@
                       </tr>
                     </thead>
                     <tbody>
+                      <?php if(!empty($result)): ?>
+                      <?php foreach($result as $key => $value): ?>
                       <tr>
-                        <td>1</td>
-                        <td>Besi 10mm-12mm</td>
-                        <td>100</td>
-                        <td>Batang</td>
-                        <td>Rp 1.000.000,-</td>
+                        <td><?php echo ($key + 1); ?></td>
+                        <td><?php echo $value['pbptn_no']; ?></td>
+                        <td><?php echo $value['brjs_nama']; ?></td>
+                        <td><?php echo $value['pbptnd_jumlah']; ?></td>
+                        <td><?php echo $value['brjs_volume']; ?></td>
+                        <td><a target="_blank" href="<?php echo site_url('pembelian/permintaan/pdf/'.$value['pbptn_id']); ?>"><?php echo add_numberformat($value['pbptnd_jumlah'] * $value['brjs_harga_satuan']); ?></a></td>
                       </tr>
+                      <?php endforeach; ?>
+                      <?php else: ?>
                       <tr>
-                        <td>2</td>
-                        <td>Aspal Curah</td>
-                        <td>10</td>
-                        <td>Kg</td>
-                        <td>Rp 1.050.000,-</td>
+                        <td colspan="6">Belum ada transaksi pembelian di periode ini</td>
                       </tr>
-                      <tr>
-                        <td>3</td>
-                        <td>Batu Merah Lokal</td>
-                        <td>1000</td>
-                        <td>Buah</td>
-                        <td>Rp 5.000.000,-</td>
-                      </tr>
+                      <?php endif; ?>
                     </tbody>
                   </table>
                 </div>

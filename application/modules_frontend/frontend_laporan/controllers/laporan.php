@@ -109,6 +109,15 @@ class Laporan extends MY_Frontend {
 		$this->_data['periode_bulan_1'] = $this->input->get('periode_bulan_1');
 		$this->_data['periode_bulan_2'] = $this->input->get('periode_bulan_2');
 		$this->_data['periode_tahun'] = $this->input->get('periode_tahun');
+
+		$bulan_1 = $this->_data['periode_bulan_1'] < 10 ? ('0'.$this->_data['periode_bulan_1']) : $this->_data['periode_bulan_1'];
+		$bulan_2 = $this->_data['periode_bulan_2'] < 10 ? ('0'.$this->_data['periode_bulan_2']) : $this->_data['periode_bulan_2'];
+
+		$periode_1 = $this->_data['periode_tahun'] . '-' . $bulan_1 . '-' . '01';
+		$periode_2 = $this->_data['periode_tahun'] . '-' . $bulan_2 . '-' . '31';
+
+		$this->_data['result'] = $this->db->select('pbptn_id, pbptn_no, brjs_volume, pbptnd_jumlah, brjs_nama, brjs_harga_satuan', false)->join('pembelian_invoice', 'pbinv_pbptn_id=pbptn_id')->join('pembelian_permintaan_detail', 'pbptnd_nopermintaan = pbptn_no')->join('barang_jasa', 'pbptnd_jenisbarang = brjs_id')->where('DATE_FORMAT(pbinv_tanggal, "%Y-%m-%d") BETWEEN "'.$periode_1.'" AND "'.$periode_2.'"')->get('pembelian_permintaan')->result_array();
+
 		$this->template->set('title', 'Laporan Neraca | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
 		$this->template->load('template_frontend/main', 'content_pembelian_barang', $this->_data);
@@ -125,7 +134,7 @@ class Laporan extends MY_Frontend {
 		$periode_1 = $this->_data['periode_tahun'] . '-' . $bulan_1 . '-' . '01';
 		$periode_2 = $this->_data['periode_tahun'] . '-' . $bulan_2 . '-' . '31';
 
-		$this->_data['result'] = $this->db->select('pbptn_id, pbptn_id, vndr_nama, pbptn_totaltagihan', false)->join('pembelian_invoice', 'pbinv_pbptn_id=pbptn_id')->join('vendor', 'pbptn_vndr_id=vndr_id')->where('DATE_FORMAT(pbinv_tanggal, "%Y-%m-%d") BETWEEN "'.$periode_1.'" AND "'.$periode_2.'"')->get('pembelian_permintaan')->result_array();
+		$this->_data['result'] = $this->db->select('pbptn_id, vndr_nama, pbptn_totaltagihan', false)->join('pembelian_invoice', 'pbinv_pbptn_id=pbptn_id')->join('vendor', 'pbptn_vndr_id=vndr_id')->where('DATE_FORMAT(pbinv_tanggal, "%Y-%m-%d") BETWEEN "'.$periode_1.'" AND "'.$periode_2.'"')->get('pembelian_permintaan')->result_array();
 
 		foreach ($this->_data['result'] as $key => $value) {
 			$tmp = $this->total_permintaan($value['pbptn_id']);
