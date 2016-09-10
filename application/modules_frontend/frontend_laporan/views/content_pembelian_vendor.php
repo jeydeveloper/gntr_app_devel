@@ -34,29 +34,23 @@
                       <tr>
                         <th>#</th>
                         <th>Nama Vendor</th>
-                        <th>No. Vendor</th>
                         <th>Jumlah</th>
                       </tr>
                     </thead>
                     <tbody>
+                      <?php if(!empty($result)): ?>
+                      <?php foreach($result as $key => $value): ?>
                       <tr>
-                        <td>1</td>
-                        <td>PT. Jakarta Vendor 1</td>
-                        <td>1001</td>
-                        <td>Rp 1.000.000,-</td>
+                        <td><?php echo ($key + 1); ?></td>
+                        <td><?php echo $value['vndr_nama']; ?></td>
+                        <td><?php echo add_numberformat($value['pbptn_totaltagihan']); ?></td>
                       </tr>
+                      <?php endforeach; ?>
+                      <?php else: ?>
                       <tr>
-                        <td>2</td>
-                        <td>PT. Bandung Vendor 2</td>
-                        <td>1002</td>
-                        <td>Rp 1.050.000,-</td>
+                        <td colspan="2">Belum ada transaksi pembelian di periode ini</td>
                       </tr>
-                      <tr>
-                        <td>3</td>
-                        <td>PT. Semarang Vendor 3</td>
-                        <td>1003</td>
-                        <td>Rp 5.000.000,-</td>
-                      </tr>
+                      <?php endif; ?>
                     </tbody>
                   </table>
                 </div>
