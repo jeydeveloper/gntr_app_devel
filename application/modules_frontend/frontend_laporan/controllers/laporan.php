@@ -50,6 +50,15 @@ class Laporan extends MY_Frontend {
 		$this->_data['periode_bulan_1'] = $this->input->get('periode_bulan_1');
 		$this->_data['periode_bulan_2'] = $this->input->get('periode_bulan_2');
 		$this->_data['periode_tahun'] = $this->input->get('periode_tahun');
+
+		$bulan_1 = $this->_data['periode_bulan_1'] < 10 ? ('0'.$this->_data['periode_bulan_1']) : $this->_data['periode_bulan_1'];
+		$bulan_2 = $this->_data['periode_bulan_2'] < 10 ? ('0'.$this->_data['periode_bulan_2']) : $this->_data['periode_bulan_2'];
+
+		$periode_1 = $this->_data['periode_tahun'] . '-' . $bulan_1 . '-' . '01';
+		$periode_2 = $this->_data['periode_tahun'] . '-' . $bulan_2 . '-' . '31';
+
+		$this->_data['result'] = $this->db->select('pjinv_id, ppnw_no_penawaran, ppnwd_volume, ppnwd_satuan, ppnwd_jenisbarang, ppnwd_hargasatuan', false)->join('penjualan_invoice', 'pjinv_ppnw_id = ppnw_id')->join('penjualan_penawaran_detail', 'pjinv_ppnw_id = ppnw_id')->where('DATE_FORMAT(pjinv_tanggal, "%Y-%m-%d") BETWEEN "'.$periode_1.'" AND "'.$periode_2.'"')->get('penjualan_penawaran')->result_array();
+
 		$this->template->set('title', 'Laporan Neraca | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
 		$this->template->load('template_frontend/main', 'content_penjualan_barang', $this->_data);
