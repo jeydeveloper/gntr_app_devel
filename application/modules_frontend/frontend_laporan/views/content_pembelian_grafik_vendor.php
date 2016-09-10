@@ -24,7 +24,13 @@
                   <p style="margin:0;">Periode : <?php echo $static_data_source['daftar_bulan'][$periode_bulan_1]; ?> - <?php echo $static_data_source['daftar_bulan'][$periode_bulan_2]; ?> <?php echo $periode_tahun; ?></p>
                 </div>
                 <div style="border: 1px solid #e5e5e5;padding:5px 10px;">
+                  <?php if(!empty($result['label'])): ?>
                   <div id="chartContainer" style="height: 400px; width: 100%;"></div>
+                  <?php else: ?>
+                  <div style="width: 100%;">
+                    <p>Belum ada transaksi pembelian di periode ini</p>
+                  </div>
+                  <?php endif; ?>
                 </div>
               </div> <!-- /controls --> 
             </div> <!-- /control-group -->
@@ -42,15 +48,9 @@
 </div>
 <!-- /main -->
 
+<?php if(!empty($result['label'])): ?>
 <script type="text/javascript">
   window.onload = function () {
-    CanvasJS.addCultureInfo("es", {
-      decimalSeparator: ",",// Observe ToolTip Number Format
-      digitGroupSeparator: ".", // Observe axisY labels
-      days: ["PT. Jakarta Vendor 1", "PT. Bandung Vendor 2", "PT. Medan Vendor 3", "PT. Semarang Vendor 4", "PT. Surabaya Vendor 6", "PT. Makassar Vendor 7", "PT. Pontianak Vendor 8"]
-
-    });
-
     var chart = new CanvasJS.Chart("chartContainer", {
       theme: "theme1",
       culture: "es",
@@ -65,14 +65,7 @@
       {
         type: "column",
         dataPoints: [
-        //Note: month input is 0-11 in JavaScript - 05 is June
-        { x: new Date(2013, 05, 3), y: 3275.6 },
-        { x: new Date(2013, 05, 4), y: 5250.8 },
-        { x: new Date(2013, 05, 5), y: 6255.3 },
-        { x: new Date(2013, 05, 6), y: 8275.2 },
-        { x: new Date(2013, 05, 7), y: 6378.1 },
-        { x: new Date(2013, 05, 8), y: 5258.4 },
-        { x: new Date(2013, 05, 9), y: 3514.8 }
+          <?php echo join(',', $result['total']); ?>
         ]
       }
       ]
@@ -81,3 +74,4 @@
     chart.render();
   }
 </script>
+<?php endif; ?>
