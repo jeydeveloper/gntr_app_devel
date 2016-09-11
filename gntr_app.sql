@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 14, 2016 at 09:57 AM
+-- Generation Time: Sep 11, 2016 at 06:18 AM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.16
 
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_adminusers` (
   `admusr_changeuser` varchar(100) NOT NULL,
   `admusr_changedate` datetime DEFAULT NULL,
   PRIMARY KEY (`admusr_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 -- --------------------------------------------------------
 
@@ -85,7 +85,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_aktivatetap` (
   `dakt_changeuser` varchar(100) NOT NULL,
   `dakt_changedate` datetime NOT NULL,
   PRIMARY KEY (`dakt_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 -- --------------------------------------------------------
 
@@ -106,7 +106,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_akun` (
   `akun_changeuser` varchar(100) NOT NULL,
   `akun_changedate` datetime NOT NULL,
   PRIMARY KEY (`akun_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 -- --------------------------------------------------------
 
@@ -130,7 +130,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_barang_jasa` (
   `brjs_changeuser` varchar(100) NOT NULL,
   `brjs_changedate` datetime NOT NULL,
   PRIMARY KEY (`brjs_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 -- --------------------------------------------------------
 
@@ -145,11 +145,11 @@ CREATE TABLE IF NOT EXISTS `gntrapp_beritaacara_peserta` (
   `baps_group` varchar(100) NOT NULL,
   `baps_void` tinyint(4) NOT NULL,
   `baps_entryuser` varchar(100) NOT NULL,
-  `baps_entrydata` datetime NOT NULL,
+  `baps_entrydate` datetime NOT NULL,
   `baps_changeuser` varchar(100) NOT NULL,
   `baps_changedate` datetime NOT NULL,
   PRIMARY KEY (`baps_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 -- --------------------------------------------------------
 
@@ -171,7 +171,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_bpu` (
   `bpu_changeuser` varchar(100) NOT NULL,
   `bpu_changedate` datetime NOT NULL,
   PRIMARY KEY (`bpu_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 -- --------------------------------------------------------
 
@@ -198,7 +198,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_bukti_pembayaran` (
   `bp_entrydate` datetime DEFAULT NULL,
   `bp_changedate` datetime DEFAULT NULL,
   PRIMARY KEY (`bp_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 -- --------------------------------------------------------
 
@@ -313,7 +313,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_karyawan` (
   `kary_changeuser` varchar(100) NOT NULL,
   `kary_changedate` datetime NOT NULL,
   PRIMARY KEY (`kary_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 -- --------------------------------------------------------
 
@@ -477,7 +477,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_pembelian_permintaan_detail` (
   `pbptnd_changedate` datetime DEFAULT NULL,
   `pbptnd_brjs_id` int(10) DEFAULT NULL,
   PRIMARY KEY (`pbptnd_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 -- --------------------------------------------------------
 
@@ -547,7 +547,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_pembelian_tandaterima` (
   `pbttr_tagihan` varchar(150) DEFAULT NULL,
   `pbttr_mtuang` varchar(150) DEFAULT NULL,
   `pbttr_nilaitagihan` varchar(250) DEFAULT NULL,
-  `pbttr_lampiran` varchar(250) DEFAULT NULL,
+  `pbttr_lampiran` text,
   `pbttr_tglkembali` date NOT NULL,
   `pbttr_nobpkc` varchar(250) DEFAULT NULL,
   `pbttr_tglbpkc` date NOT NULL,
@@ -579,7 +579,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_penerimaan` (
   `pnrm_changeuser` varchar(100) NOT NULL,
   `pnrm_changedate` datetime NOT NULL,
   PRIMARY KEY (`pnrm_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 -- --------------------------------------------------------
 
@@ -601,7 +601,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_pengeluaran` (
   `pgln_changeuser` varchar(100) NOT NULL,
   `pgln_changedate` datetime NOT NULL,
   PRIMARY KEY (`pgln_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 -- --------------------------------------------------------
 
@@ -706,7 +706,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_penjualan_invoice_detail` (
   `pjinvd_changedate` datetime DEFAULT NULL,
   `pjinvd_brjs_id` int(10) DEFAULT NULL,
   PRIMARY KEY (`pjinvd_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -757,7 +757,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_penjualan_penawaran` (
   `ppnw_changeuser` varchar(100) NOT NULL,
   `ppnw_changedate` datetime NOT NULL,
   PRIMARY KEY (`ppnw_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -770,13 +770,14 @@ CREATE TABLE IF NOT EXISTS `gntrapp_penjualan_penawaran_detail` (
   `ppnwd_no_penawaran` varchar(150) NOT NULL,
   `ppnwd_deskripsi_id` varchar(150) DEFAULT NULL,
   `ppnwd_jenisbarang` varchar(150) DEFAULT NULL,
+  `ppnwd_jenisbarang_id` int(11) NOT NULL,
   `ppnwd_volume` varchar(150) DEFAULT NULL,
   `ppnwd_satuan` varchar(150) DEFAULT NULL,
   `ppnwd_hargasatuan` varchar(150) DEFAULT NULL,
   `ppnwd_entrydate` datetime DEFAULT NULL,
   `ppnwd_changedate` datetime DEFAULT NULL,
   PRIMARY KEY (`ppnwd_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 -- --------------------------------------------------------
 
@@ -803,7 +804,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_penjualan_permintaan` (
   `ppmt_changedate` datetime DEFAULT NULL,
   `ppmt_fileupload` varchar(250) DEFAULT NULL,
   PRIMARY KEY (`ppmt_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -824,7 +825,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_penjualan_tandaterima` (
   `pttr_tagihan` varchar(150) DEFAULT NULL,
   `pttr_mtuang` varchar(150) DEFAULT NULL,
   `pttr_nilaitagihan` varchar(250) DEFAULT NULL,
-  `pttr_lampiran` varchar(250) DEFAULT NULL,
+  `pttr_lampiran` text,
   `pttr_tglkembali` date NOT NULL,
   `pttr_nobpkc` varchar(250) DEFAULT NULL,
   `pttr_tglbpkc` date NOT NULL,
@@ -878,7 +879,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_project` (
   `proj_changeuser` varchar(100) NOT NULL,
   `proj_changedate` datetime NOT NULL,
   PRIMARY KEY (`proj_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 -- --------------------------------------------------------
 
@@ -897,7 +898,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_saham` (
   `sham_changeuser` varchar(100) NOT NULL,
   `sham_changedate` datetime NOT NULL,
   PRIMARY KEY (`sham_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 -- --------------------------------------------------------
 
