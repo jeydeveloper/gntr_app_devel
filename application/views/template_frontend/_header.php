@@ -12,7 +12,7 @@
     <link href="<?php echo $assets; ?>/css/font-awesome.css" rel="stylesheet">
     <link href="<?php echo $assets; ?>/css/jquery-ui.css" rel="stylesheet">
     <link href="<?php echo $assets; ?>/css/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?php echo $assets; ?>/css/font-awesome-2.min.css">
     <link href="<?php echo $assets; ?>/css/pages/dashboard.css" rel="stylesheet">
     <link href="<?php echo $assets; ?>/css/sticky-footer-navbar.css" rel="stylesheet">
     <link href="<?php echo $assets; ?>/css/pages/form.css" rel="stylesheet" type="text/css">
