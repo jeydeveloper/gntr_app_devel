@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 11, 2016 at 06:18 AM
+-- Generation Time: Sep 11, 2016 at 06:29 AM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.16
 
@@ -28,6 +28,7 @@ USE `gntr_app`;
 -- Table structure for table `gntrapp_adminuserlevels`
 --
 
+DROP TABLE IF EXISTS `gntrapp_adminuserlevels`;
 CREATE TABLE IF NOT EXISTS `gntrapp_adminuserlevels` (
   `aulv_id` int(11) NOT NULL AUTO_INCREMENT,
   `aulv_name` varchar(100) CHARACTER SET latin1 NOT NULL,
@@ -46,6 +47,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_adminuserlevels` (
 -- Table structure for table `gntrapp_adminusers`
 --
 
+DROP TABLE IF EXISTS `gntrapp_adminusers`;
 CREATE TABLE IF NOT EXISTS `gntrapp_adminusers` (
   `admusr_id` int(3) NOT NULL AUTO_INCREMENT,
   `admusr_username` varchar(60) DEFAULT NULL,
@@ -67,6 +69,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_adminusers` (
 -- Table structure for table `gntrapp_aktivatetap`
 --
 
+DROP TABLE IF EXISTS `gntrapp_aktivatetap`;
 CREATE TABLE IF NOT EXISTS `gntrapp_aktivatetap` (
   `dakt_id` int(11) NOT NULL AUTO_INCREMENT,
   `dakt_kode` varchar(100) NOT NULL,
@@ -93,6 +96,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_aktivatetap` (
 -- Table structure for table `gntrapp_akun`
 --
 
+DROP TABLE IF EXISTS `gntrapp_akun`;
 CREATE TABLE IF NOT EXISTS `gntrapp_akun` (
   `akun_id` int(11) NOT NULL AUTO_INCREMENT,
   `akun_nomor` varchar(100) NOT NULL,
@@ -114,6 +118,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_akun` (
 -- Table structure for table `gntrapp_barang_jasa`
 --
 
+DROP TABLE IF EXISTS `gntrapp_barang_jasa`;
 CREATE TABLE IF NOT EXISTS `gntrapp_barang_jasa` (
   `brjs_id` int(11) NOT NULL AUTO_INCREMENT,
   `brjs_kategori_id` int(11) NOT NULL,
@@ -138,6 +143,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_barang_jasa` (
 -- Table structure for table `gntrapp_beritaacara_peserta`
 --
 
+DROP TABLE IF EXISTS `gntrapp_beritaacara_peserta`;
 CREATE TABLE IF NOT EXISTS `gntrapp_beritaacara_peserta` (
   `baps_id` int(11) NOT NULL AUTO_INCREMENT,
   `baps_pbcr_id` int(11) NOT NULL,
@@ -157,6 +163,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_beritaacara_peserta` (
 -- Table structure for table `gntrapp_bpu`
 --
 
+DROP TABLE IF EXISTS `gntrapp_bpu`;
 CREATE TABLE IF NOT EXISTS `gntrapp_bpu` (
   `bpu_id` int(11) NOT NULL AUTO_INCREMENT,
   `bpu_request_by` varchar(100) NOT NULL,
@@ -179,6 +186,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_bpu` (
 -- Table structure for table `gntrapp_bukti_pembayaran`
 --
 
+DROP TABLE IF EXISTS `gntrapp_bukti_pembayaran`;
 CREATE TABLE IF NOT EXISTS `gntrapp_bukti_pembayaran` (
   `bp_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `bp_pbttr_id` int(11) NOT NULL,
@@ -206,6 +214,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_bukti_pembayaran` (
 -- Table structure for table `gntrapp_client`
 --
 
+DROP TABLE IF EXISTS `gntrapp_client`;
 CREATE TABLE IF NOT EXISTS `gntrapp_client` (
   `clnt_id` int(11) NOT NULL AUTO_INCREMENT,
   `clnt_nama` varchar(100) NOT NULL,
@@ -228,6 +237,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_client` (
 -- Table structure for table `gntrapp_departemen`
 --
 
+DROP TABLE IF EXISTS `gntrapp_departemen`;
 CREATE TABLE IF NOT EXISTS `gntrapp_departemen` (
   `dprt_id` int(11) NOT NULL AUTO_INCREMENT,
   `dprt_nama` varchar(100) NOT NULL,
@@ -248,6 +258,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_departemen` (
 -- Table structure for table `gntrapp_invoice`
 --
 
+DROP TABLE IF EXISTS `gntrapp_invoice`;
 CREATE TABLE IF NOT EXISTS `gntrapp_invoice` (
   `inv_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `inv_tanggal` date NOT NULL,
@@ -274,6 +285,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_invoice` (
 -- Table structure for table `gntrapp_invoice_detail`
 --
 
+DROP TABLE IF EXISTS `gntrapp_invoice_detail`;
 CREATE TABLE IF NOT EXISTS `gntrapp_invoice_detail` (
   `invd_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `invd_noinvoice` varchar(150) NOT NULL,
@@ -294,6 +306,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_invoice_detail` (
 -- Table structure for table `gntrapp_karyawan`
 --
 
+DROP TABLE IF EXISTS `gntrapp_karyawan`;
 CREATE TABLE IF NOT EXISTS `gntrapp_karyawan` (
   `kary_id` int(11) NOT NULL AUTO_INCREMENT,
   `kary_nik` varchar(100) NOT NULL,
@@ -321,6 +334,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_karyawan` (
 -- Table structure for table `gntrapp_karyawan_gaji`
 --
 
+DROP TABLE IF EXISTS `gntrapp_karyawan_gaji`;
 CREATE TABLE IF NOT EXISTS `gntrapp_karyawan_gaji` (
   `kygj_id` int(11) NOT NULL AUTO_INCREMENT,
   `kygj_kary_id` int(11) NOT NULL,
@@ -347,6 +361,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_karyawan_gaji` (
 -- Table structure for table `gntrapp_matauang`
 --
 
+DROP TABLE IF EXISTS `gntrapp_matauang`;
 CREATE TABLE IF NOT EXISTS `gntrapp_matauang` (
   `mtua_id` int(11) NOT NULL AUTO_INCREMENT,
   `mtua_nama` varchar(100) NOT NULL,
@@ -367,6 +382,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_matauang` (
 -- Table structure for table `gntrapp_pembelian_invoice`
 --
 
+DROP TABLE IF EXISTS `gntrapp_pembelian_invoice`;
 CREATE TABLE IF NOT EXISTS `gntrapp_pembelian_invoice` (
   `pbinv_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `pbinv_pbsrtjalan_id` int(11) NOT NULL,
@@ -394,6 +410,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_pembelian_invoice` (
 -- Table structure for table `gntrapp_pembelian_invoice_detail`
 --
 
+DROP TABLE IF EXISTS `gntrapp_pembelian_invoice_detail`;
 CREATE TABLE IF NOT EXISTS `gntrapp_pembelian_invoice_detail` (
   `pbinvd_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `pbinvd_invid` varchar(150) NOT NULL,
@@ -411,6 +428,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_pembelian_invoice_detail` (
 -- Table structure for table `gntrapp_pembelian_kwitansi`
 --
 
+DROP TABLE IF EXISTS `gntrapp_pembelian_kwitansi`;
 CREATE TABLE IF NOT EXISTS `gntrapp_pembelian_kwitansi` (
   `pbkw_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `pbkw_pbptn_id` int(11) NOT NULL,
@@ -436,6 +454,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_pembelian_kwitansi` (
 -- Table structure for table `gntrapp_pembelian_permintaan`
 --
 
+DROP TABLE IF EXISTS `gntrapp_pembelian_permintaan`;
 CREATE TABLE IF NOT EXISTS `gntrapp_pembelian_permintaan` (
   `pbptn_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `pbptn_clnt_id` int(11) NOT NULL,
@@ -468,6 +487,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_pembelian_permintaan` (
 -- Table structure for table `gntrapp_pembelian_permintaan_detail`
 --
 
+DROP TABLE IF EXISTS `gntrapp_pembelian_permintaan_detail`;
 CREATE TABLE IF NOT EXISTS `gntrapp_pembelian_permintaan_detail` (
   `pbptnd_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `pbptnd_nopermintaan` varchar(150) NOT NULL,
@@ -485,6 +505,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_pembelian_permintaan_detail` (
 -- Table structure for table `gntrapp_pembelian_permintaan_suratjalan_detail`
 --
 
+DROP TABLE IF EXISTS `gntrapp_pembelian_permintaan_suratjalan_detail`;
 CREATE TABLE IF NOT EXISTS `gntrapp_pembelian_permintaan_suratjalan_detail` (
   `pbsuratjaland_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `pbsuratjaland_nopermintaan` varchar(150) NOT NULL,
@@ -502,6 +523,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_pembelian_permintaan_suratjalan_detail` (
 -- Table structure for table `gntrapp_pembelian_suratjalan`
 --
 
+DROP TABLE IF EXISTS `gntrapp_pembelian_suratjalan`;
 CREATE TABLE IF NOT EXISTS `gntrapp_pembelian_suratjalan` (
   `pbsrtjalan_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `pbsrtjalan_pbkw_id` int(11) NOT NULL,
@@ -535,6 +557,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_pembelian_suratjalan` (
 -- Table structure for table `gntrapp_pembelian_tandaterima`
 --
 
+DROP TABLE IF EXISTS `gntrapp_pembelian_tandaterima`;
 CREATE TABLE IF NOT EXISTS `gntrapp_pembelian_tandaterima` (
   `pbttr_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `pbttr_pbinv_id` int(11) NOT NULL,
@@ -565,6 +588,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_pembelian_tandaterima` (
 -- Table structure for table `gntrapp_penerimaan`
 --
 
+DROP TABLE IF EXISTS `gntrapp_penerimaan`;
 CREATE TABLE IF NOT EXISTS `gntrapp_penerimaan` (
   `pnrm_id` int(11) NOT NULL AUTO_INCREMENT,
   `pnrm_bank_id` int(11) NOT NULL,
@@ -587,6 +611,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_penerimaan` (
 -- Table structure for table `gntrapp_pengeluaran`
 --
 
+DROP TABLE IF EXISTS `gntrapp_pengeluaran`;
 CREATE TABLE IF NOT EXISTS `gntrapp_pengeluaran` (
   `pgln_id` int(11) NOT NULL AUTO_INCREMENT,
   `pgln_bank_id` int(11) NOT NULL,
@@ -609,6 +634,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_pengeluaran` (
 -- Table structure for table `gntrapp_penjualan_beritaacara`
 --
 
+DROP TABLE IF EXISTS `gntrapp_penjualan_beritaacara`;
 CREATE TABLE IF NOT EXISTS `gntrapp_penjualan_beritaacara` (
   `pbcr_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `pbcr_pjkw_id` int(11) NOT NULL,
@@ -641,6 +667,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_penjualan_beritaacara` (
 -- Table structure for table `gntrapp_penjualan_bukti_pembayaran`
 --
 
+DROP TABLE IF EXISTS `gntrapp_penjualan_bukti_pembayaran`;
 CREATE TABLE IF NOT EXISTS `gntrapp_penjualan_bukti_pembayaran` (
   `pbktp_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `pbktp_pttr_id` int(11) NOT NULL,
@@ -672,6 +699,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_penjualan_bukti_pembayaran` (
 -- Table structure for table `gntrapp_penjualan_invoice`
 --
 
+DROP TABLE IF EXISTS `gntrapp_penjualan_invoice`;
 CREATE TABLE IF NOT EXISTS `gntrapp_penjualan_invoice` (
   `pjinv_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `pjinv_ppmt_id` int(11) NOT NULL,
@@ -697,6 +725,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_penjualan_invoice` (
 -- Table structure for table `gntrapp_penjualan_invoice_detail`
 --
 
+DROP TABLE IF EXISTS `gntrapp_penjualan_invoice_detail`;
 CREATE TABLE IF NOT EXISTS `gntrapp_penjualan_invoice_detail` (
   `pjinvd_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `pjinvd_invid` varchar(150) NOT NULL,
@@ -714,6 +743,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_penjualan_invoice_detail` (
 -- Table structure for table `gntrapp_penjualan_kwitansi`
 --
 
+DROP TABLE IF EXISTS `gntrapp_penjualan_kwitansi`;
 CREATE TABLE IF NOT EXISTS `gntrapp_penjualan_kwitansi` (
   `pjkw_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `pjkw_pjinv_id` int(11) NOT NULL,
@@ -739,6 +769,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_penjualan_kwitansi` (
 -- Table structure for table `gntrapp_penjualan_penawaran`
 --
 
+DROP TABLE IF EXISTS `gntrapp_penjualan_penawaran`;
 CREATE TABLE IF NOT EXISTS `gntrapp_penjualan_penawaran` (
   `ppnw_id` int(11) NOT NULL AUTO_INCREMENT,
   `ppnw_no_penawaran` varchar(100) NOT NULL,
@@ -765,6 +796,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_penjualan_penawaran` (
 -- Table structure for table `gntrapp_penjualan_penawaran_detail`
 --
 
+DROP TABLE IF EXISTS `gntrapp_penjualan_penawaran_detail`;
 CREATE TABLE IF NOT EXISTS `gntrapp_penjualan_penawaran_detail` (
   `ppnwd_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `ppnwd_no_penawaran` varchar(150) NOT NULL,
@@ -785,6 +817,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_penjualan_penawaran_detail` (
 -- Table structure for table `gntrapp_penjualan_permintaan`
 --
 
+DROP TABLE IF EXISTS `gntrapp_penjualan_permintaan`;
 CREATE TABLE IF NOT EXISTS `gntrapp_penjualan_permintaan` (
   `ppmt_id` int(11) NOT NULL AUTO_INCREMENT,
   `ppmt_ppnw_id` int(11) NOT NULL,
@@ -812,6 +845,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_penjualan_permintaan` (
 -- Table structure for table `gntrapp_penjualan_tandaterima`
 --
 
+DROP TABLE IF EXISTS `gntrapp_penjualan_tandaterima`;
 CREATE TABLE IF NOT EXISTS `gntrapp_penjualan_tandaterima` (
   `pttr_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `pttr_pbcr_id` int(11) NOT NULL,
@@ -843,6 +877,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_penjualan_tandaterima` (
 -- Table structure for table `gntrapp_profile`
 --
 
+DROP TABLE IF EXISTS `gntrapp_profile`;
 CREATE TABLE IF NOT EXISTS `gntrapp_profile` (
   `prf_id` int(11) NOT NULL AUTO_INCREMENT,
   `prf_meta` varchar(100) NOT NULL,
@@ -860,6 +895,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_profile` (
 -- Table structure for table `gntrapp_project`
 --
 
+DROP TABLE IF EXISTS `gntrapp_project`;
 CREATE TABLE IF NOT EXISTS `gntrapp_project` (
   `proj_id` int(11) NOT NULL AUTO_INCREMENT,
   `proj_clnt_id` int(11) NOT NULL,
@@ -887,6 +923,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_project` (
 -- Table structure for table `gntrapp_saham`
 --
 
+DROP TABLE IF EXISTS `gntrapp_saham`;
 CREATE TABLE IF NOT EXISTS `gntrapp_saham` (
   `sham_id` int(11) NOT NULL AUTO_INCREMENT,
   `sham_nama` varchar(100) NOT NULL,
@@ -906,6 +943,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_saham` (
 -- Table structure for table `gntrapp_surat_jalan`
 --
 
+DROP TABLE IF EXISTS `gntrapp_surat_jalan`;
 CREATE TABLE IF NOT EXISTS `gntrapp_surat_jalan` (
   `sj_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `sj_tanggal` date NOT NULL,
@@ -940,6 +978,7 @@ CREATE TABLE IF NOT EXISTS `gntrapp_surat_jalan` (
 -- Table structure for table `gntrapp_vendor`
 --
 
+DROP TABLE IF EXISTS `gntrapp_vendor`;
 CREATE TABLE IF NOT EXISTS `gntrapp_vendor` (
   `vndr_id` int(11) NOT NULL AUTO_INCREMENT,
   `vndr_nama` varchar(100) NOT NULL,
