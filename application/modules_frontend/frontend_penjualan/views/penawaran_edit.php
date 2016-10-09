@@ -71,6 +71,11 @@
                     <textarea id="ppnw_keterangan" name="ppnw_keterangan" placeholder="Perihal"><?php echo $detail['ppnw_keterangan']; ?></textarea>
                   </div> <!-- /field -->
 
+                  <div class="field">
+                    <label for="email">Keterangan Print Out:</label>
+                    <textarea name="ppnw_keterangan_print_out" class="editor"><?php echo $detail['ppnw_keterangan_print_out']; ?></textarea>
+                  </div> <!-- /field -->
+
                 </div> <!-- /form-fields -->
                  <div class="widget-header"> <i class="icon-th-list"></i>
                   <h3> Detail Penawaran</h3>
@@ -177,5 +182,7 @@ $(document).ready(function () {
     var me = $(this);
     get_info(me.val(), me);
   });
+
+  $( 'textarea.editor' ).ckeditor();
 });
 </script>

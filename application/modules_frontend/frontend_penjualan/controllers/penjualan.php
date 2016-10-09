@@ -87,6 +87,7 @@ class Penjualan extends MY_Frontend {
 				'ppnw_biaya_kirim' => clear_numberformat($this->input->post('ppnw_biaya_kirim')),
 				'ppnw_nilai_faktur' => clear_numberformat($this->input->post('ppnw_nilai_faktur')),
 				'ppnw_keterangan' => $this->input->post('ppnw_keterangan'),
+				'ppnw_keterangan_print_out' => $this->input->post('ppnw_keterangan_print_out'),
 				'ppnw_entrydate' => $this->_data['datetime'],
 			);
 			$this->crud->posts_penawaran($db_data);
@@ -205,6 +206,7 @@ class Penjualan extends MY_Frontend {
 				'ppnw_biaya_kirim' => clear_numberformat($this->input->post('ppnw_biaya_kirim')),
 				'ppnw_nilai_faktur' => clear_numberformat($this->input->post('ppnw_nilai_faktur')),
 				'ppnw_keterangan' => $this->input->post('ppnw_keterangan'),
+				'ppnw_keterangan_print_out' => $this->input->post('ppnw_keterangan_print_out'),
 				'ppnw_changedate' => $this->_data['datetime'],
 			);
 			$this->crud->where('ppnw_id = "'.$this->input->post('ppnw_id').'"')->puts_penawaran($db_data);
@@ -270,6 +272,12 @@ class Penjualan extends MY_Frontend {
          require_once APPPATH.'third_party/dompdf/dompdf_config.inc.php';
         $this->_data['detail']  = $this->crud->where('penjualan_penawaran.ppnw_id = "'.$id.'"')->join_penawaran();
         $this->_data['details']  = $this->crud_penawaran_detail->where('penjualan_penawaran.ppnw_id = "'.$id.'"')->join();
+
+        $arr_parse = array(
+        	'nilai_project' => number_format($this->_data['detail']->ppnw_nilai_faktur, 2, ",", ".")
+        );
+        
+        $this->_data['detail']->ppnw_keterangan_print_out = parse_stringphp($this->_data['detail']->ppnw_keterangan_print_out, $arr_parse);
 
         $this->load->view('print_penawaran_penjualan',  $this->_data);
         $html = $this->output->get_output();

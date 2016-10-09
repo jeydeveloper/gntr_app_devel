@@ -230,14 +230,7 @@
                 <tbody>
                     <tr>
                         <td>
-                        <ol>
-                            <li>Nilai penawaran pekerjaan tersebut : Rp. <strong><?php echo number_format($detail->ppnw_nilai_faktur,2,",","."); ?></strong></li>
-                            <li>Penawaran tersebut berikut dengan matrialnya</li>
-                            <li>Harga tersebut belum termasuk pajak PPN 10%</li>
-                            <li>Waktu pelaksanaan 14 ( Empat Belas&nbsp;) hari sejak dikeluarkannya SPK atau WO</li>
-                            <li>Harga sudah termasuk Alat dan Safety pada tenaga kerja</li>
-                            <li>Pembayaran dapat dilakukan setelah pekerjaan selesai &amp; 1 Bulan setelah invoice masuk</li>
-                        </ol>
+                            <?php echo $detail->ppnw_keterangan_print_out; ?>
                         </td>
                     </tr>
                 </tbody>

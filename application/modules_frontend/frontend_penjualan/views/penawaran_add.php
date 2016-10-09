@@ -70,6 +70,11 @@
                     <textarea id="ppnw_keterangan" name="ppnw_keterangan" placeholder="Perihal"></textarea>
                   </div> <!-- /field -->
 
+                  <div class="field">
+                    <label for="email">Keterangan Print Out:</label>
+                    <textarea name="ppnw_keterangan_print_out" class="editor"></textarea>
+                  </div> <!-- /field -->
+
                 </div> <!-- /form-fields -->
                 <div class="widget-header"> <i class="icon-th-list"></i>
                   <h3> Detail Penawaran</h3>
@@ -166,6 +171,8 @@
     });
 
      });
+
+     $( 'textarea.editor' ).ckeditor();
  })
  function GetHtml()
 {

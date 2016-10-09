@@ -36,6 +36,9 @@
 
     <script type="text/javascript" src="<?php echo $assets; ?>/js/datatable/buttons.colVis.min.js"></script>
 
+    <script type="text/javascript" src="<?php echo $assets; ?>/js/ckeditor/ckeditor.js"></script>
+    <script type="text/javascript" src="<?php echo $assets; ?>/js/ckeditor/adapters/jquery.js"></script>
+
     <script type="text/javascript">
         $(function(){
             $(".date-picker").datepicker({
