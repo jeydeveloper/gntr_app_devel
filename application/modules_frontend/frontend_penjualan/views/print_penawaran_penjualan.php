@@ -374,21 +374,6 @@
                     </tr>
                 </tbody>
             </table>
-               <table border="0" cellpadding="1" cellspacing="1" style="width:100%; position:fixed; left:0; right:0; bottom: 0;" class="tbl-blue">
-                <tbody>
-                    <tr>
-                        <td>
-                        <p><strong>PT. PUTRA BAHARI MANDIRI</strong></p>
-
-                        <p>Jl. PLTGU Muara Tawar RT/RW 002/013</p>
-
-                        <p>Desa Pantaimakmur, Kecamatan Tarumajaya, Kabupaten Bekasi 17212</p>
-
-                        <p>Tlp : (021) 96414040. 081210135477 E-mail : putrabaharimandiri@gmail.com</p>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
 
             <p>&nbsp;</p>
             </td>

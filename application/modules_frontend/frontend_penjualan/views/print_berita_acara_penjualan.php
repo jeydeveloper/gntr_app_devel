@@ -6,7 +6,7 @@
             -webkit-box-sizing: border-box;
         }
         @page {
-            size: A4 landscape; /* can use also 'landscape' for orientation */
+            size: A4 portrait; /* can use also 'landscape' for orientation */
             margin: 0.2in;
             border: thin solid black;
             padding: 0.2inem;
@@ -142,6 +142,12 @@
             background: grey;
             color: white;
         }
+
+        @media print {
+          .page-break { 
+            page-break-before: always;
+          }
+        }
     </style>
 
 <table style="width:100%; " border="0" cellspacing="0" cellpadding="0">
@@ -249,7 +255,15 @@ $sekarang = $hari." tanggal ".$tgl." bulan ".$bln." ".$thn;
  <table border="0" cellpadding="1" cellspacing="1" style="width:100%">
                 <tbody>
                     <tr>
-                        <td>1.</td>
+                        <td style="vertical-align:top;">
+                            <table border="0" cellpadding="1" cellspacing="1" style="width:100%">
+                                <tbody>
+                                    <tr>
+                                        <td>1.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
                         <td>
                         <table border="0" cellpadding="1" cellspacing="1" style="width:100%">
                             <tbody>
@@ -286,7 +300,15 @@ $sekarang = $hari." tanggal ".$tgl." bulan ".$bln." ".$thn;
             <table border="0" cellpadding="1" cellspacing="1" style="width:100%">
                 <tbody>
                     <tr>
-                        <td>2.</td>
+                        <td style="vertical-align:top;">
+                            <table border="0" cellpadding="1" cellspacing="1" style="width:100%">
+                                <tbody>
+                                    <tr>
+                                        <td>2.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
                         <td>
                         <table border="0" cellpadding="1" cellspacing="1" style="width:100%">
                             <tbody>
@@ -354,7 +376,7 @@ $sekarang = $hari." tanggal ".$tgl." bulan ".$bln." ".$thn;
 
             <p>&nbsp;</p>
 
-            <table border="0" cellpadding="1" cellspacing="1" style="width:100%" class="tbl-blue">
+            <table border="0" cellpadding="1" cellspacing="1" style="width:100%; position:fixed; left:0; right:0; bottom: 0;" class="tbl-blue">
                 <tbody>
                     <tr>
                         <td>
@@ -458,24 +480,6 @@ $sekarang = $hari." tanggal ".$tgl." bulan ".$bln." ".$thn;
                         <p>&nbsp;</p>
 
                         <p>(<strong>Andri Lestari, S.Kom</strong>)</p>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <p>&nbsp;</p>
-
-            <table border="0" cellpadding="1" cellspacing="1" style="width:100%" class="tbl-blue">
-                <tbody>
-                    <tr>
-                        <td>
-                        <p>PT. PUTRA BAHARI MANDIRI</p>
-
-                        <p>Jl.PLTGU Muara Tawar RT/RW. 002/013,</p>
-
-                        <p>Desa Pantaimakmur, Kec.Tarumajaya, Bekasi 17212</p>
-
-                        <p>Tlp : (021) 96414040. 081210135477 E-mail : putrabaharimandiri@gmail.com</p>
                         </td>
                     </tr>
                 </tbody>
