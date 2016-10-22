@@ -6,7 +6,7 @@
 			-webkit-box-sizing: border-box;
 		}
         @page {
-            size: A4 portrait; /* can use also 'landscape' for orientation */
+            size: A4 landscape; /* can use also 'landscape' for orientation */
             margin: 0.2in;
             border: thin solid black;
             padding: 0.2inem;
@@ -142,12 +142,6 @@
             background: grey;
             color: white;
         }
-
-        @media print {
-          .page-break { 
-            page-break-before: always;
-          }
-        }
     </style>
 
 <table style="width:100%;" border="0" cellspacing="0" cellpadding="0">
@@ -164,7 +158,7 @@
                     $newDate      = date("d F Y", strtotime($originalDate));
             ?>
            <td style="width:25%;">
-                <table style="width: 100%" border="0" cellspacing="0" cellpadding="0">
+                <table style="width: 60%" border="0" cellspacing="0" cellpadding="0">
                     <tr>
                         <td  style="text-align: left;">
                             <span>Bekasi, <?php echo $newDate; ?></span>
@@ -275,23 +269,6 @@
                     </tr>
                 </tbody>
             </table>
-
-            <table border="0" cellpadding="1" cellspacing="1" style="width:100%; position:fixed; left:0; right:0; bottom: 0;" class="tbl-blue">
-                <tbody>
-                    <tr>
-                        <td>
-                        <p><strong>PT. PUTRA BAHARI MANDIRI</strong></p>
-
-                        <p>Jl. PLTGU Muara Tawar RT/RW 002/013</p>
-
-                        <p>Desa Pantaimakmur, Kecamatan Tarumajaya, Kabupaten Bekasi 17212</p>
-
-                        <p>Tlp : (021) 96414040. 081210135477 E-mail : putrabaharimandiri@gmail.com</p>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
             <div class="page-break"></div>
 
               <table border="0" cellpadding="1" cellspacing="1" style="width:100%">
@@ -323,6 +300,14 @@
                         <td style="text-align: center; background-color: blue; color: white;"><strong>Sat.</strong></td>
                         <td style="text-align: center; background-color: blue; color: white;"><strong>Hrg Sat. (Rp)</strong></td>
                         <td style="text-align: center; background-color: blue; color: white;"><strong>Jumlah Hrg (Rp)</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;"><strong>A</strong></td>
+                        <td style="text-align: center;"><strong>B</strong></td>
+                        <td style="text-align: center;"><strong>C</strong></td>
+                        <td style="text-align: center;"><strong>D</strong></td>
+                        <td style="text-align: center;"><strong>E</strong></td>
+                        <td style="text-align: center;"><strong>F</strong></td>
                     </tr>
                     <?php $sum = 0; ?>
                     <?php foreach($details as $key => $value): ?>
@@ -374,7 +359,7 @@
                     </tr>
                 </tbody>
             </table>
-               <table border="0" cellpadding="1" cellspacing="1" style="width:100%; position:fixed; left:0; right:0; bottom: 0;" class="tbl-blue">
+               <table border="0" cellpadding="1" cellspacing="1" style="width:100%" class="tbl-blue">
                 <tbody>
                     <tr>
                         <td>
