@@ -142,6 +142,8 @@
             background: grey;
             color: white;
         }
+
+        .print-out ol {padding: 10px;}
     </style>
 
 <table style="width:100%;" border="0" cellspacing="0" cellpadding="0">
@@ -213,11 +215,13 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <table class="blck no-border">
+                                            <table class="blck no-border print-out">
                                                 <tr>
                                                     <td width="15%"><span style="border-bottom:1px solid;">Catatan</span><br/><span>Notes :</span></td>
                                                     <td width="5%" class="delimiter">:</td>
-                                                    <td><div class="blck" style="border-bottom:thin dotted black;"><ol style="padding:10px;"><li>Mohon pembayaran ditransfer ke rekening bank berikut ini :<br/><?php echo (!empty($static_data_source['bank'][$detail['pjkw_bank']]) ? $static_data_source['bank'][$detail['pjkw_bank']]['name'] : ''); ?><br/>A/C ......................................................<br/>a.n. ......................................................</li><li>Pembayaran baru dianggap sah setelah cek/giro telah dicairkan.</li></ol></div></td>
+                                                    <td><div class="blck" style="border-bottom:thin dotted black;">
+                                                        <?php echo $detail['pjkw_keterangan_print_out']; ?>
+                                                    </div></td>
                                                 </tr>
                                             </table>
                                         </td>

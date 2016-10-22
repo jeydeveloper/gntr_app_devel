@@ -63,6 +63,11 @@
                     </select>
                   </div> <!-- /field -->
 
+                  <div class="field">
+                    <label for="email">Keterangan Print Out:</label>
+                    <textarea name="pjkw_keterangan_print_out" class="editor"></textarea>
+                  </div> <!-- /field -->
+
                   <div class="field" style="display: none;">
                     <label for="pjkw_uploadfile">Upload File:</label>
                     <input type="file" class="form-control-file" name="uploadfile" id="uploadfile">
@@ -121,6 +126,8 @@
       if(nilai == '') return;
       get_info(nilai);
     });
+
+    $( 'textarea.editor' ).ckeditor();
   })
 </script>
 

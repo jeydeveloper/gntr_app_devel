@@ -728,6 +728,7 @@ class Penjualan extends MY_Frontend {
 				'pjkw_norek' => $this->input->post('pjkw_norek'),
 				'pjkw_an' => $this->input->post('pjkw_an'),
 				'pjkw_bank' => $this->input->post('pjkw_bank'),
+				'pjkw_keterangan_print_out' => $this->input->post('pjkw_keterangan_print_out'),
 				'uploadfile'  => $filename,
 			);
 			$this->crud_kwitansi->posts($db_data);
@@ -799,6 +800,7 @@ class Penjualan extends MY_Frontend {
 				'pjkw_an' => $this->input->post('pjkw_an'),
 				'pjkw_bank' => $this->input->post('pjkw_bank'),
 				'pjkw_changedate'  => $this->_data['datetime'],
+				'pjkw_keterangan_print_out' => $this->input->post('pjkw_keterangan_print_out'),
 				'uploadfile'  => $filename,
 			);
 			$this->crud_kwitansi->where('pjkw_id = "'.$this->input->post('pjkw_id').'"')->puts($db_data);
@@ -819,6 +821,7 @@ class Penjualan extends MY_Frontend {
 				'pjkw_norek' => $this->input->post('pjkw_norek'),
 				'pjkw_an' => $this->input->post('pjkw_an'),
 				'pjkw_bank' => $this->input->post('pjkw_bank'),
+				'pjkw_keterangan_print_out' => $this->input->post('pjkw_keterangan_print_out'),
 				'pjkw_changedate'  => $this->_data['datetime'],
 			);
 			$this->crud_kwitansi->where('pjkw_id = "'.$this->input->post('pjkw_id').'"')->puts($db_data);

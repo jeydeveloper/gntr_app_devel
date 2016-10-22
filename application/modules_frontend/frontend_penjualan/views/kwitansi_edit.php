@@ -63,6 +63,11 @@
                     </select>
                   </div> <!-- /field -->
 
+                  <div class="field">
+                    <label for="email">Keterangan Print Out:</label>
+                    <textarea name="pjkw_keterangan_print_out" class="editor"><?php echo $detail['pjkw_keterangan_print_out']; ?></textarea>
+                  </div> <!-- /field -->
+
                   <div class="field" style="display: none;">
                     <label for="uploadfile">Upload File:</label>
                       <img src="<?php echo site_url('/'); ?>assets/images/<?php echo $detail['uploadfile']; ?>" width="100px">
@@ -123,6 +128,8 @@
     });
 
     get_info($('#pjkw_pjinv_id').val());
+
+    $( 'textarea.editor' ).ckeditor();
   })
 </script>
 
