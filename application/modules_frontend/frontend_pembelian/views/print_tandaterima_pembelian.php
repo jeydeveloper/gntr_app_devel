@@ -300,18 +300,33 @@
                 <td class="hlf-blck">
                     <table class="no-border">
                         <tr>
-                            <td>5. No. BPKC</td>
-                            <td class="delimiter">:</td>
-                            <td><?php echo $detail['pbttr_nobpkc']; ?></td>
-                        </tr>
-                        <?php
-                            $originalDateBPKC   = $detail['pbttr_tglbpkc'];
-                            $newDateBPKC        = ($originalDateBPKC != '0000-00-00') ? date("d F Y", strtotime($originalDateBPKC)) : '';
-                        ?>
-                        <tr>
-                            <td>Tanggal</td>
-                            <td class="delimiter">:</td>
-                            <td><?php echo $newDateBPKC; ?></td>
+                            <td class="hlf-blck">
+                                <table class="no-border">
+                                    <tr>
+                                        <td>5. Penyerah</td>
+                                        <td class="delimiter">:</td>
+                                        <td>.............</td>
+                                    </tr>
+                                    <?php
+                                        $originalDateterima   = $detail['pbttr_tglterima'];
+                                        $newDateterima        = date("d F Y", strtotime($originalDateterima));
+                                    ?>
+                                    <tr>
+                                        <td>Tanggal</td>
+                                        <td class="delimiter">:</td>
+                                        <td><?php echo $newDateterima; ?></td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td class="hlf-blck vrt-top">
+                                <table class="no-border">
+                                    <tr>
+                                        <td>Paraf</td>
+                                        <td class="delimiter">:</td>
+                                        <td>.............</td>
+                                    </tr>
+                                </table>
+                            </td>
                         </tr>
                     </table>
                 </td>
@@ -321,7 +336,7 @@
                             <td class="hlf-blck">
                                 <table class="no-border">
                                     <tr>
-                                        <td>6. Yang menerima</td>
+                                        <td>6. Penerima</td>
                                         <td class="delimiter">:</td>
                                         <td><?php echo $detail['pbttr_menerima']; ?></td>
                                     </tr>
