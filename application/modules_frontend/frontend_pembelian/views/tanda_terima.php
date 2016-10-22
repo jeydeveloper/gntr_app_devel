@@ -21,7 +21,7 @@
                     <th> Nilai Tagihan </th>
                     <th> Lampiran </th>
                     <th> Yang menerima </th>
-                    <th> PDF </th>
+                    <th> PRINT </th>
                     <th class="td-actions"><div style="width:150px;">Actions</div></th>
                   </tr>
                 </thead>
@@ -35,7 +35,7 @@
                       <td><?php echo $value['pbttr_lampiran']; ?></td>
                       <td><?php echo $value['pbttr_menerima']; ?></td>
                       <td>
-                        <a href="<?php echo ($module_base_url.'/tanda-terima/pdf/'.$value['pbttr_id']); ?>" target="_blank">View PDF</a>
+                        <a href="<?php echo ($module_base_url.'/tanda-terima/pdf/'.$value['pbttr_id']); ?>" target="_blank">View</a>
                       </td>
                       <td class="td-actions"><a href="<?php echo ($module_base_url.'/tanda-terima/edit/'.$value['pbttr_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a>
                       <a href="<?php echo ($module_base_url.'/tanda-terima/delete/'.$value['pbttr_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>

@@ -194,6 +194,7 @@ class Pembelian extends MY_Frontend {
     }
 
     function pdf_permintaan($id){
+        /*
         require_once APPPATH.'third_party/dompdf/dompdf_config.inc.php';
         $this->_data['detail']  = $this->crud_pembelian->where('pbptn_id = "'.$id.'"')->get_row();
         $this->_data['details']  = $this->crud_permintaan_detail->where('pembelian_permintaan.pbptn_id = "'.$id.'"')->join();
@@ -205,6 +206,12 @@ class Pembelian extends MY_Frontend {
         $this->dompdf->render();
         $this->dompdf->stream("permintaan_pembelian".$id.".pdf",array('Attachment'=>0));
         // $this->dompdf->stream("invoice_penjualan_".$id.".pdf");
+        */
+
+        $this->_data['detail']  = $this->crud_pembelian->where('pbptn_id = "'.$id.'"')->get_row();
+        $this->_data['details']  = $this->crud_permintaan_detail->where('pembelian_permintaan.pbptn_id = "'.$id.'"')->join();
+
+        $this->load->view('print_permintaan_pembelian',  $this->_data);
     }
 
 	function grafik_permintaan() {
@@ -1018,6 +1025,7 @@ class Pembelian extends MY_Frontend {
     }
 
     function pdf_tanda_terima($id){
+        /*
         require_once APPPATH.'third_party/dompdf/dompdf_config.inc.php';
         $this->_data['detail']  = $this->crud_tanda_terima->where('pbttr_id = "'.$id.'"')->get_row();
         $tmp = $this->total_permintaan($this->_data['detail']['pbttr_pbptn_id']);
@@ -1034,6 +1042,17 @@ class Pembelian extends MY_Frontend {
         $this->dompdf->render();
         $this->dompdf->stream("invoice_pembelian.pdf",array('Attachment'=>0));
         // $this->dompdf->stream("invoice_penjualan_".$id.".pdf");
+        */
+
+        $this->_data['detail']  = $this->crud_tanda_terima->where('pbttr_id = "'.$id.'"')->get_row();
+        $tmp = $this->total_permintaan($this->_data['detail']['pbttr_pbptn_id']);
+        $this->_data['detail']['pbttr_nilaitagihan'] = !empty($tmp[$this->_data['detail']['pbttr_pbptn_id']]) ? $tmp[$this->_data['detail']['pbttr_pbptn_id']] : 0;
+        $this->_data['detail']['pbttr_mtuang'] = 'Rp';
+
+        $tmp = !empty($this->_data['detail']['pbttr_lampiran']) ? unserialize($this->_data['detail']['pbttr_lampiran']) : array();
+        $this->_data['detail']['pbttr_lampiran'] = join(', ', $tmp);
+
+        $this->load->view('print_tandaterima_pembelian',  $this->_data);
     }
 
 
@@ -1184,7 +1203,7 @@ class Pembelian extends MY_Frontend {
     }
 
        function pdf_bukti_pembayaran($id){
-
+        /*
         require_once APPPATH.'third_party/dompdf/dompdf_config.inc.php';
         $this->_data['detail'] = $this->db->join('pembelian_invoice', 'pbinv_id = bp_pbinv_id')->join('pembelian_kwitansi', 'pbkw_id = bp_pbkw_id')->where('bp_id = "'.$id.'"')->get('gntrapp_bukti_pembayaran')->row_array();
 
@@ -1206,6 +1225,17 @@ class Pembelian extends MY_Frontend {
         $this->dompdf->render();
         $this->dompdf->stream("bukti_pembayaran".$id.".pdf",array('Attachment'=>0));
         // $this->dompdf->stream("bukti_pembayaran".$id.".pdf");
+        */
+
+        $this->_data['detail'] = $this->db->join('pembelian_invoice', 'pbinv_id = bp_pbinv_id')->join('pembelian_kwitansi', 'pbkw_id = bp_pbkw_id')->where('bp_id = "'.$id.'"')->get('gntrapp_bukti_pembayaran')->row_array();
+
+        $tmp = $this->total_permintaan($this->_data['detail']['bp_pbptn_id']);
+        $this->_data['totaltagihan'] = (!empty($tmp[$this->_data['detail']['bp_pbptn_id']]) ? add_numberformat($tmp[$this->_data['detail']['bp_pbptn_id']]) : 0);
+
+        $this->_data['terbilang'] = !empty($this->_data['totaltagihan']) ? terbilang(clear_numberformat($this->_data['totaltagihan'])) : '-';
+
+         // Load all views as normal
+        $this->load->view('print_bukti_pembayaran',  $this->_data);
     }
 
 	function edit_bukti_pembayaran($id) {

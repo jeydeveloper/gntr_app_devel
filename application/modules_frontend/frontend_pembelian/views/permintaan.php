@@ -23,7 +23,7 @@
                     <th> No. Proposal </th>
                     <th> Project Code </th>
                     <th> Total Tagihan</th>
-                    <th> PDF </th>
+                    <th> PRINT </th>
                     <th class="td-actions"> Actions </th>
                   </tr>
                 </thead>
@@ -38,7 +38,7 @@
                       <td><?php echo $value['pbptn_proposalno']; ?></td>
                       <td><?php echo $value['pbptn_projectcode']; ?></td>
                       <td><?php echo add_numberformat($total[$value['pbptn_id']]); ?></td>
-                      <td><a href="<?php echo ($module_base_url.'/permintaan/pdf/'.$value['pbptn_id']); ?>" target="_blank">View PDF</a></td>
+                      <td><a href="<?php echo ($module_base_url.'/permintaan/pdf/'.$value['pbptn_id']); ?>" target="_blank">View</a></td>
 
                       <td class="td-actions"><a href="<?php echo ($module_base_url.'/permintaan/edit/'.$value['pbptn_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a>
                       <a href="<?php echo ($module_base_url.'/permintaan/delete/'.$value['pbptn_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>

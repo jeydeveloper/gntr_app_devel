@@ -1,6 +1,6 @@
 <html>
 <head>
-    <link href="assets/css/font-awesome.css" rel="stylesheet">
+    <link href="<?php echo site_url('assets'); ?>/css/font-awesome.css" rel="stylesheet">
     <style type="text/css" media="all">
         * {
             box-sizing: border-box;
@@ -45,7 +45,7 @@
         }
 
         table, th, td {
-            border: 1px solid black;
+            /*border: 1px solid black;*/
         }
 
         div, tr {
@@ -191,7 +191,7 @@
 <table style="width:100%;" border="0" cellspacing="0" cellpadding="0">
         <tr>
             <td style="width:30%;">
-               <img class="img-responsive" src="assets/frontend/img/logo4.png">
+               <img class="img-responsive" src="<?php echo site_url('assets'); ?>/frontend/img/logo4.png">
             </td>
             <td style="width:30%;">
                <h2>TANDA TERIMA</h2>
@@ -228,7 +228,13 @@
                         <table class="blck no-border">
                             <tbody>
                                 <tr>
-                                    <td class="vrt-top">1. Tagihan dari</td>
+                                    <td class="vrt-top">
+                                        <table class="no-border">
+                                            <tr>
+                                                <td>1. Tagihan dari</td>
+                                            </tr>
+                                        </table>
+                                    </td>
                                     <td>
                                         <table class="no-border">
                                             <tr>
@@ -238,7 +244,13 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="vrt-top">2. Nilai tagihan</td>
+                                    <td class="vrt-top">
+                                        <table class="no-border">
+                                            <tr>
+                                                <td>2. Nilai tagihan</td>
+                                            </tr>
+                                        </table>
+                                    </td>
                                     <td>
                                         <table class="no-border">
                                             <tr>
@@ -248,7 +260,13 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="vrt-top">3. Lampiran</td>
+                                    <td class="vrt-top">
+                                        <table class="no-border">
+                                            <tr>
+                                                <td>3. Lampiran</td>
+                                            </tr>
+                                        </table>
+                                    </td>
                                     <td>
                                         <table class="no-border">
                                             <tr>
@@ -258,7 +276,13 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="vrt-top">4. Keterangan</td>
+                                    <td class="vrt-top">
+                                        <table class="no-border">
+                                            <tr>
+                                                <td>4. Keterangan</td>
+                                            </tr>
+                                        </table>
+                                    </td>
                                     <td>
                                         <table class="no-border">
                                             <tr>

@@ -157,7 +157,7 @@
     <table style="width:100%;">
         <tr>
             <td style="width:50%;">
-               <img class="img-responsive" src="assets/frontend/img/logo4.png">
+               <img class="img-responsive" src="<?php echo site_url('assets'); ?>/frontend/img/logo4.png">
             </td>
            <td style="width:50%;">
                 <table style="width: 100%">
