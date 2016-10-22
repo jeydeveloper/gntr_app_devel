@@ -43,7 +43,7 @@
 		}
 
 		table, th, td {
-		    border: 1px solid black;
+		    /*border: 1px solid black;*/
 		}
 
 		div, tr {
@@ -147,13 +147,13 @@
 <table style="width:100%; " border="0" cellspacing="0" cellpadding="0">
         <tr>
             <td style="width:50%;">
-               <img class="img-responsive" src="assets/frontend/img/logo4.png">
+               <img class="img-responsive" src="<?php echo site_url('assets'); ?>/frontend/img/logo4.png">
             </td>
            <td style="width:50%;">
-                <table style="width: 60%" border="0" cellspacing="0" cellpadding="0">
+                <table style="width: 100%" border="0" cellspacing="0" cellpadding="0">
                     <tr>
                         <td  style="text-align: right;">
-                            <div class="box grey rgt cntr pd10" style="position: relative; left: 220px;">
+                            <div class="box grey rgt cntr pd10">
                             <p>INVOICE</p>
                             </div>
                         </td>
@@ -172,8 +172,8 @@
              <td style="width:20%;">
                 &nbsp;
             </td>
-           <td style="width:50%;">
-                <div class="rgt" style="position: relative; left: 220px;">
+           <td style="width:100%;">
+                <div class="rgt">
                     <table  border="0" cellspacing="0" cellpadding="0">
                         <?php
                             $originalDate   = $detail['ppmt_tanggal'];
@@ -218,7 +218,7 @@
 
         </div>
         <div class="row">
-        	<table class="blck">
+        	<table border="1" class="blck">
         		<thead>
 					<tr class="header-color">
 						<th>No</th>

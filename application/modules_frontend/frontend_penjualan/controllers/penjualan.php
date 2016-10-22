@@ -269,6 +269,7 @@ class Penjualan extends MY_Frontend {
 	}
 
     function pdf_penawaran($id){
+    	/*
          require_once APPPATH.'third_party/dompdf/dompdf_config.inc.php';
         $this->_data['detail']  = $this->crud->where('penjualan_penawaran.ppnw_id = "'.$id.'"')->join_penawaran();
         $this->_data['details']  = $this->crud_penawaran_detail->where('penjualan_penawaran.ppnw_id = "'.$id.'"')->join();
@@ -286,6 +287,18 @@ class Penjualan extends MY_Frontend {
         $this->dompdf->render();
         $this->dompdf->stream("penawaran_penjualan_".$id.".pdf",array('Attachment'=>0));
         // $this->dompdf->stream("invoice_penjualan_".$id.".pdf");
+        */
+
+        $this->_data['detail']  = $this->crud->where('penjualan_penawaran.ppnw_id = "'.$id.'"')->join_penawaran();
+        $this->_data['details']  = $this->crud_penawaran_detail->where('penjualan_penawaran.ppnw_id = "'.$id.'"')->join();
+
+        $arr_parse = array(
+        	'nilai_project' => number_format($this->_data['detail']->ppnw_nilai_faktur, 2, ",", ".")
+        );
+        
+        $this->_data['detail']->ppnw_keterangan_print_out = parse_stringphp($this->_data['detail']->ppnw_keterangan_print_out, $arr_parse);
+
+        $this->load->view('print_penawaran_penjualan',  $this->_data);
     }
 
 	function permintaan() {
@@ -630,6 +643,7 @@ class Penjualan extends MY_Frontend {
 	}
 
     function pdf_invoice($id){
+    	/*
         require_once APPPATH.'third_party/dompdf/dompdf_config.inc.php';
         //$this->_data['detail']  = $this->crud_invoice->where('pjinv_id = "'.$id.'"')->get_row();
         $this->_data['detail']  = $this->db->where('pjinv_id = "'.$id.'"')->join('penjualan_penawaran', 'ppnw_id = pjinv_ppnw_id')->join('penjualan_permintaan', 'ppmt_id = pjinv_ppmt_id')->join('client', 'clnt_id = ppnw_clnt_id')->get('penjualan_invoice')->row_array();
@@ -642,6 +656,12 @@ class Penjualan extends MY_Frontend {
         $this->dompdf->render();
         $this->dompdf->stream("invoice".$id.".pdf",array('Attachment'=>0));
         // $this->dompdf->stream("invoice_penjualan_".$id.".pdf");
+        */
+
+        $this->_data['detail']  = $this->db->where('pjinv_id = "'.$id.'"')->join('penjualan_penawaran', 'ppnw_id = pjinv_ppnw_id')->join('penjualan_permintaan', 'ppmt_id = pjinv_ppmt_id')->join('client', 'clnt_id = ppnw_clnt_id')->get('penjualan_invoice')->row_array();
+        $this->_data['details']  = $this->crud_invoice_detail->where('penjualan_penawaran.ppnw_id = "'.$this->_data['detail']['pjinv_ppnw_id'].'"')->join2();
+
+        $this->load->view('print_invoice_penjualan',  $this->_data);
     }
 
 	function kwitansi() {
@@ -820,6 +840,7 @@ class Penjualan extends MY_Frontend {
 	}
 
     function pdf_kwitansi($id){
+    	/*
         require_once APPPATH.'third_party/dompdf/dompdf_config.inc.php';
         $this->_data['detail']  = $this->db->where('pjkw_id = "'.$id.'"')->join('penjualan_penawaran', 'ppnw_id = pjkw_ppnw_id')->join('client', 'clnt_id = ppnw_clnt_id')->get('penjualan_kwitansi')->row_array();
 
@@ -833,6 +854,13 @@ class Penjualan extends MY_Frontend {
         $this->dompdf->render();
         $this->dompdf->stream("kwitansi_penjualan_".$id.".pdf",array('Attachment'=>0));
         // $this->dompdf->stream("invoice_penjualan_".$id.".pdf");
+        */
+        $this->_data['detail']  = $this->db->where('pjkw_id = "'.$id.'"')->join('penjualan_penawaran', 'ppnw_id = pjkw_ppnw_id')->join('client', 'clnt_id = ppnw_clnt_id')->get('penjualan_kwitansi')->row_array();
+
+        $tmp = $this->total_penawaran($this->_data['detail']['ppnw_id']);
+        $this->_data['total'] = !empty($tmp[$this->_data['detail']['ppnw_id']]) ? $tmp[$this->_data['detail']['ppnw_id']] : 0;
+
+        $this->load->view('print_kwitansi_penjualan',  $this->_data);
     }
 
 	function berita_acara() {
@@ -1026,6 +1054,7 @@ class Penjualan extends MY_Frontend {
 	}
 
     function pdf_berita_acara($id){
+    	/*
         require_once APPPATH.'third_party/dompdf/dompdf_config.inc.php';
         $this->_data['detail']  = $this->db->where('pbcr_id = "'.$id.'"')->join('penjualan_permintaan', 'ppmt_id = pbcr_ppmt_id')->get('penjualan_beritaacara')->row_array();
 
@@ -1036,6 +1065,11 @@ class Penjualan extends MY_Frontend {
         $this->dompdf->render();
         $this->dompdf->stream("print_berita_acara".$id.".pdf",array('Attachment'=>0));
         // $this->dompdf->stream("invoice_penjualan_".$id.".pdf");
+        */
+
+        $this->_data['detail']  = $this->db->where('pbcr_id = "'.$id.'"')->join('penjualan_permintaan', 'ppmt_id = pbcr_ppmt_id')->get('penjualan_beritaacara')->row_array();
+
+        $this->load->view('print_berita_acara_penjualan',  $this->_data);
     }
 
 	function tanda_terima() {

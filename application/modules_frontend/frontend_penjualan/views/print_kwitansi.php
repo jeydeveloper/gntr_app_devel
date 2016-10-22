@@ -1,6 +1,6 @@
 <html>
 <head>
-    <link href="assets/css/font-awesome.css" rel="stylesheet">
+    <link href="<?php echo site_url('assets'); ?>/css/font-awesome.css" rel="stylesheet">
     <style type="text/css" media="all">
         * {
             box-sizing: border-box;
@@ -45,7 +45,7 @@
         }
 
         table, th, td {
-            border: 1px solid black;
+            /*border: 1px solid black;*/
         }
 
         div, tr {
@@ -211,7 +211,7 @@
                             <td>
                                 <div class="row blck ovrlw rltv">
                                     <div class="lft ovrlw">
-                                        <div class="pd10 lft cntr"><img src="assets/img/logo4.png"></div>
+                                        <div class="pd10 lft cntr"><img src="<?php echo site_url('assets'); ?>/img/logo4.png"></div>
                                     </div>
                                     <div class="rgt">
                                         <table class="no-border">

@@ -43,7 +43,7 @@
         }
 
         table, th, td {
-            border: 1px solid black;
+            /*border: 1px solid black;*/
         }
 
         div, tr {
@@ -147,7 +147,7 @@
 <table style="width:100%; " border="0" cellspacing="0" cellpadding="0">
         <tr>
             <td style="width:50%;">
-               <img class="img-responsive" src="assets/frontend/img/logo4.png">
+               <img class="img-responsive" src="<?php echo site_url('assets'); ?>/frontend/img/logo4.png">
             </td>
 
         </tr>
@@ -377,7 +377,7 @@ $sekarang = $hari." tanggal ".$tgl." bulan ".$bln." ".$thn;
             <table border="0" cellpadding="1" cellspacing="1" style="width:100%">
                 <tbody>
                     <tr>
-                        <td><img class="img-responsive" src="assets/frontend/img/logo4.png"></td>
+                        <td><img class="img-responsive" src="<?php echo site_url('assets'); ?>/frontend/img/logo4.png"></td>
                     </tr>
                 </tbody>
             </table>
