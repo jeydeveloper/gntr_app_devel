@@ -6,7 +6,7 @@
             -webkit-box-sizing: border-box;
         }
         @page {
-            size: A4 landscape; /* can use also 'landscape' for orientation */
+            size: A4 portrait; /* can use also 'landscape' for orientation */
             margin: 0.2in;
             border: thin solid black;
             padding: 0.2inem;
