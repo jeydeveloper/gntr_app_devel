@@ -240,8 +240,8 @@
                         Tlp. (021)<br />
                         Email : putrabaharimandiri@yahoo.co.id<br />
             </td>
-            <td style="width:30%; font-style: italic;">&nbsp;</td>
-           <td style="width:20%;">
+            <td style="width:25%; font-style: italic;">&nbsp;</td>
+           <td style="width:25%;">
                 <table style="width: 100%" border="0" cellspacing="0" cellpadding="0">
                     <tr>
                     <?php
