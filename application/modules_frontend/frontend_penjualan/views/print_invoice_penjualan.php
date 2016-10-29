@@ -1,13 +1,15 @@
 
     <style type="text/css" media="all">
-    	* {
-			box-sizing: border-box;
-			-moz-box-sizing: border-box;
-			-webkit-box-sizing: border-box;
-		}
+        * {
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+
+            font-size: 12px;
+        }
         @page {
-            size: A4 landscape; /* can use also 'landscape' for orientation */
-            margin: 0.2in;
+            size: A4 portrait; /* can use also 'landscape' for orientation */
+            margin: 0.2in 0.2in 0.2in 0.6in;
             border: thin solid black;
             padding: 0.2inem;
 
@@ -18,6 +20,7 @@
             @top-center {
                 content: element(header);
             }
+            font-size: 12px;
         }
 
         #page-header {
@@ -31,61 +34,59 @@
         }
 
         .page-number:before {
-            content: counter(page);
+            content: counter(page); 
         }
 
         .page-count:before {
-            content: counter(pages);
+            content: counter(pages);  
         }
 
         table {
-		    border-collapse: collapse;
-		}
-
-		table, th, td {
-		    /*border: 1px solid black;*/
-		}
-
-		div, tr {
-			-webkit-print-color-adjust: exact;
-		}
-
-		th, td {
-		    padding: 5px;
-		    text-align: left;
-		}
-
-		.remove-bottom-border {
-			border-bottom: 1px solid white;
-		}
-
-        .remove-bottom-border.add-bottom {
-            border-bottom: 1px solid black;
+            border-collapse: collapse;
         }
 
-		tr.header-color th {
-			text-align:center;
-			background-color:blue;
-			color:white;
-		}
+        table, th, td {
+            /*border: 1px solid black;*/
+        }
 
-		.row {
-			display: block;
-			margin-bottom:20px;
-		}
+        div, tr {
+            -webkit-print-color-adjust: exact; 
+        }
 
-		.ovrlw {
-			overflow:hidden;
-		}
+        th, td {
+            padding: 5px;
+            text-align: left;
+        }
 
-		.brdr {
-			border: 1px solid;
-			padding: 5px;
-		}
+        .remove-bottom-border {
+            border-bottom: 1px solid white;
+        }
 
-		p, ul, ol, h3 {
-			margin: 0;
-		}
+        .remove-bottom-border.add-bottom {
+            border-bottom: 1px solid black;   
+        }
+
+        tr.header-color th {
+            text-align:center;
+        }
+
+        .row {
+            display: block;
+            margin-bottom:20px;
+        }
+
+        .ovrlw {
+            overflow:hidden;            
+        }
+
+        .brdr {
+            border: 1px solid;
+            padding: 5px; 
+        }
+
+        p, ul, ol, h3 {
+            margin: 0;
+        }
 
         .ftr {
             border:1px solid;
@@ -139,15 +140,29 @@
         }
 
         .box.grey {
-            background: grey;
-            color: white;
         }
     </style>
+
+<table border="0" cellpadding="1" cellspacing="1" style="width:100%; position:fixed; left:0; right:0; bottom: 20px;" class="tbl-blue">
+    <tbody>
+        <tr>
+            <td>
+            <p>PT. PUTRA BAHARI MANDIRI</p>
+
+            <p>Jl.PLTGU Muara Tawar RT/RW. 002/013,</p>
+
+            <p>Desa Pantaimakmur, Kec.Tarumajaya, Bekasi 17212</p>
+
+            <p>Tlp : (021) 96414040. 081210135477 E-mail : putrabaharimandiri@gmail.com</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
 
 <table style="width:100%; " border="0" cellspacing="0" cellpadding="0">
         <tr>
             <td style="width:50%;">
-               <img class="img-responsive" src="<?php echo site_url('assets'); ?>/frontend/img/logo4.png">
+               <img class="img-responsive" src="<?php echo site_url('assets'); ?>/frontend/img/logo4.png" style="width: 180px;">
             </td>
            <td style="width:50%;">
                 <table style="width: 100%" border="0" cellspacing="0" cellpadding="0">
@@ -164,17 +179,19 @@
         </tr>
 </table>
   <table style="width:100%;" border="0" cellspacing="0" cellpadding="0">
-        <tr>
+        <tr style="vertical-align: top;">
             <td style="width:30%;">
-                <h3><?php echo $detail['clnt_nama']; ?></h3><br />
-                <?php echo $detail['clnt_alamat']; ?><br />
+                <div style="padding:10px;border:solid 1px;">
+                    <h3><?php echo $detail['clnt_nama']; ?></h3><br />
+                    <?php echo $detail['clnt_alamat']; ?><br />
+                </div>
             </td>
              <td style="width:20%;">
                 &nbsp;
             </td>
            <td style="width:100%;">
                 <div class="rgt">
-                    <table  border="0" cellspacing="0" cellpadding="0">
+                    <table  border="1" cellspacing="0" cellpadding="0">
                         <?php
                             $originalDate   = $detail['ppmt_tanggal'];
                             $newDate        = date("d F Y", strtotime($originalDate));
@@ -277,34 +294,28 @@
                     </tr>
         		</tbody>
         	</table>
-        </div><br><br><br>
+        </div>
         <table style="width:100%;" border="0" cellspacing="0" cellpadding="0">
-        <tr>
-            <td style="width:50%; font-style: italic;">
-                PT. PUTRA BAHARI MANDIRI<br />
-                        JL. PLTGU Muara Tawar RT/RW 002/013<br />
-                        Desa xyz, Kec. Taruma, Bekasi 17212<br />
-                        Tlp. (021)<br />
-                        Email : putrabaharimandiri@yahoo.co.id<br />
-            </td>
-            <td style="width:30%; font-style: italic;">&nbsp;</td>
-           <td style="width:20%;">
-                <table style="width: 100%" border="0" cellspacing="0" cellpadding="0">
-                    <tr>
-                    <?php
-                    $originalDate = $detail['pjinv_tanggal'];
-                    $newDate      = date("d F Y", strtotime($originalDate));
-                    ?>
-                        <td  style="text-align: center;">
-                        <p>Bekasi, <?php echo $newDate; ?><br/>Hormat Kami</p>
-                        <br/><br/><br/><br/>
-                       <p>Andri Lestari<br/>Direktur</p>
-                        </td>
+            <tr>
+                <td style="width:50%; font-style: italic;">&nbsp;</td>
+                <td style="width:30%; font-style: italic;">&nbsp;</td>
+               <td style="width:20%;">
+                    <table style="width: 100%" border="1" cellspacing="0" cellpadding="0">
+                        <tr>
+                        <?php
+                        $originalDate = $detail['pjinv_tanggal'];
+                        $newDate      = date("d F Y", strtotime($originalDate));
+                        ?>
+                            <td  style="text-align: center;">
+                            <p>Bekasi, <?php echo $newDate; ?><br/>Hormat Kami</p>
+                            <br/><br/><br/><br/>
+                           <p>Andri Lestari<br/>Direktur</p>
+                            </td>
 
-                    </tr>
+                        </tr>
 
-                </table>
-            </td>
-        </tr>
-    </table>
+                    </table>
+                </td>
+            </tr>
+        </table>
     </div>
