@@ -249,6 +249,7 @@
         		<tbody>
                     <?php $sum = 0; ?>
                     <?php foreach($details as $key => $value): ?>
+                    <?php $tmp = $value->brjs_nama; if(empty($tmp)) continue; ?>
         			<tr>
         				<td><?php echo ($key+1); ?></td>
         				<td><?php echo $value->brjs_nama; ?></td>
