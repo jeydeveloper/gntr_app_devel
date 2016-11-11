@@ -150,28 +150,6 @@
         }
     </style>
 
-<table border="0" cellpadding="1" cellspacing="1" style="width:100%; position:fixed; left:0; right:0; bottom: 20px;" class="tbl-blue">
-                <tbody>
-                    <tr>
-                        <td style="width:70%;">&nbsp;</td>
-                        <td style="width:30%;">
-                        <p><strong>Bekasi, <?php echo $newDate; ?></strong></p>
-
-                        <p><strong>PT. Putra Bahari Mandiri</strong></p>
-
-                        <p>&nbsp;</p>
-
-                        <p>&nbsp;</p>
-                        <p>&nbsp;</p>
-
-                        <p>&nbsp;</p>
-
-                        <p><strong>Andri Lestari, S.kom</strong></p>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
 <table style="width:100%;" border="0" cellspacing="0" cellpadding="0">
         <tr>
             <td style="width:50%;">
@@ -376,7 +354,27 @@
 
             <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
 
-            
+            <table border="0" cellpadding="1" cellspacing="1" style="width:100%; position:fixed; left:0; right:0; bottom: 20px;" class="tbl-blue">
+                <tbody>
+                    <tr>
+                        <td style="width:70%;">&nbsp;</td>
+                        <td style="width:30%;">
+                        <p><strong>Bekasi, <?php echo $newDate; ?></strong></p>
+
+                        <p><strong>PT. Putra Bahari Mandiri</strong></p>
+
+                        <p>&nbsp;</p>
+
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+
+                        <p>&nbsp;</p>
+
+                        <p><strong>Andri Lestari, S.kom</strong></p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
 
             <p>&nbsp;</p>
             </td>
