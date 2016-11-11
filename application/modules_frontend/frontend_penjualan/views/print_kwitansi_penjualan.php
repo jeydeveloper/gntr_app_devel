@@ -234,7 +234,7 @@
 <table style="width:100%;" border="0" cellspacing="0" cellpadding="0">
         <tr>
             <td style="width:50%; font-style: italic;">
-                PT. PUTRA BAHARI MANDIRI<br />
+                PT. PUTRA BAHARI MANDIRIx<br />
                         JL. PLTGU Muara Tawar RT/RW 002/013<br />
                         Desa xyz, Kec. Taruma, Bekasi 17212<br />
                         Tlp. (021)<br />
