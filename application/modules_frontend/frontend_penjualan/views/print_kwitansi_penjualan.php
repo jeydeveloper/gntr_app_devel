@@ -146,6 +146,22 @@
         .print-out ol {padding: 10px;}
     </style>
 
+<table border="0" cellpadding="1" cellspacing="1" style="width:100%; position:fixed; left:0; right:0; bottom: 0;" class="tbl-blue">
+    <tbody>
+        <tr>
+            <td>
+            <p><strong>PT. PUTRA BAHARI MANDIRI</strong></p>
+
+            <p>Jl. PLTGU Muara Tawar RT/RW 002/013</p>
+
+            <p>Desa Pantaimakmur, Kecamatan Tarumajaya, Kabupaten Bekasi 17212</p>
+
+            <p>Tlp : (021) 96414040. 081210135477 E-mail : putrabaharimandiri@gmail.com</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
 <table style="width:100%;" border="0" cellspacing="0" cellpadding="0">
         <tr>
             <td style="width:50%;">
@@ -182,12 +198,12 @@
                                         <td>
                                             <table class="blck no-border">
                                                 <tr>
-                                                    <td width="15%"><span style="border-bottom:1px solid;">Sudah Terima Dari</span><br/><span>Received From</span></td>
+                                                    <td width="25%"><span style="border-bottom:1px solid;">Sudah Terima Dari</span><br/><span>Received From</span></td>
                                                     <td width="5%" class="delimiter">:</td>
                                                     <td><div class="blck" style="border-bottom:thin dotted black;"><?php echo $detail['clnt_nama']; ?></div></td>
                                                 </tr>
                                                 <tr>
-                                                    <td width="15%"><span style="border-bottom:1px solid;">Banyaknya Uang</span><br/><span>Amount Received</span></td>
+                                                    <td width="25%"><span style="border-bottom:1px solid;">Banyaknya Uang</span><br/><span>Amount Received</span></td>
                                                     <td width="5%" class="delimiter">:</td>
                                                     <td><div class="blck" style="border-bottom:thin dotted black;">Rp <?php echo number_format($total,2,",","."); ?></div></td>
                                                 </tr>
@@ -198,7 +214,7 @@
                                         <td>
                                             <table class="blck no-border">
                                                 <tr>
-                                                    <td width="15%"><span style="border-bottom:1px solid;">Untuk Pembayaran</span><br/><span>In Payment Of</span></td>
+                                                    <td width="25%"><span style="border-bottom:1px solid;">Untuk Pembayaran</span><br/><span>In Payment Of</span></td>
                                                     <td width="5%" class="delimiter">:</td>
                                                     <td><div class="blck" style="border-bottom:thin dotted black;"><?php echo $detail['ppnw_keterangan']; ?></div></td>
                                                 </tr>
@@ -217,7 +233,7 @@
                                         <td>
                                             <table class="blck no-border print-out">
                                                 <tr>
-                                                    <td width="15%"><span style="border-bottom:1px solid;">Catatan</span><br/><span>Notes :</span></td>
+                                                    <td width="25%"><span style="border-bottom:1px solid;">Catatan</span><br/><span>Notes :</span></td>
                                                     <td width="5%" class="delimiter">:</td>
                                                     <td><div class="blck" style="border-bottom:thin dotted black;">
                                                         <?php echo $detail['pjkw_keterangan_print_out']; ?>
@@ -233,13 +249,7 @@
 
 <table style="width:100%;" border="0" cellspacing="0" cellpadding="0">
         <tr>
-            <td style="width:50%; font-style: italic;">
-                PT. PUTRA BAHARI MANDIRIx<br />
-                        JL. PLTGU Muara Tawar RT/RW 002/013<br />
-                        Desa xyz, Kec. Taruma, Bekasi 17212<br />
-                        Tlp. (021)<br />
-                        Email : putrabaharimandiri@yahoo.co.id<br />
-            </td>
+            <td style="width:50%; font-style: italic;">&nbsp;</td>
             <td style="width:25%; font-style: italic;">&nbsp;</td>
            <td style="width:25%;">
                 <table style="width: 100%" border="0" cellspacing="0" cellpadding="0">
