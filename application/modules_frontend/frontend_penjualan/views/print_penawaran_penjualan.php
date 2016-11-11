@@ -326,6 +326,7 @@
                     </tr>
                     <?php $sum = 0; ?>
                     <?php foreach($details as $key => $value): ?>
+                    <?php if(empty($value)) continue; ?>
                     <tr>
                         <td style="text-align: center;"><strong><?php echo ($key+1); ?></strong></td>
                         <td><strong><?php echo $value->ppnwd_jenisbarang; ?></strong></td>
