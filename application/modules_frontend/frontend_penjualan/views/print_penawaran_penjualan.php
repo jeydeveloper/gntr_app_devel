@@ -325,7 +325,7 @@
                         <td style="text-align: center; background-color: blue; color: white;"><strong>Jumlah Hrg (Rp)</strong></td>
                     </tr>
                     <?php $sum = 0; ?>
-                    <?php foreach($details as $key => $value): ?>
+                    <?php $norut = 0; foreach($details as $key => $value): ?>
                     <?php $tmp = $value->ppnwd_jenisbarang; if(empty($tmp)) continue; ?>
                     <tr>
                         <td style="text-align: center;"><strong><?php echo ($key+1); ?></strong></td>
@@ -339,23 +339,15 @@
 
                         <td style="text-align:right;">Rp <?php echo number_format($jumlahharga,2,",","."); ?></td>
                     </tr>
-                    <?php $sum+= $jumlahharga; ?>
+                    <?php $sum+= $jumlahharga; $norut = $key; ?>
                     <?php endforeach; ?>
                     <tr>
-                        <td>Biaya Kirim</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td style="text-align:right;"><strong>Rp <?php echo number_format($detail->ppnw_biaya_kirim,2,",","."); ?></strong></td>
+                        <td colspan="5" style="text-align:right;"><strong>Biaya Kirim</strong></td>
+                        <td style="text-align:right;">Rp <?php echo number_format($detail->ppnw_biaya_kirim,2,",","."); ?></td>
                     </tr>
                     <?php $sum+= $detail->ppnw_biaya_kirim; ?>
                     <tr>
-                        <td>&nbsp;</td>
-                        <td><strong>TOTAL</strong></td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
+                        <td colspan="5" style="text-align:right;"><strong>TOTAL</strong></td>
                         <td style="text-align:right;"><strong>Rp <?php echo number_format($sum,2,",","."); ?></strong></td>
                     </tr>
                 </tbody>
