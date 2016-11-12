@@ -210,7 +210,7 @@
             <td style="width:30%;">
                <img class="img-responsive" src="<?php echo site_url('assets'); ?>/frontend/img/logo4.png">
             </td>
-            <td style="width:20%;">
+            <td style="width:40%;">
                <h2>TANDA TERIMA</h2>
             </td>
            <td style="width:30%;">
