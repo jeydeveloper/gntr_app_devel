@@ -29,7 +29,7 @@
                     <th> Diskon </th>
                     <th> Pajak </th>
                     <th> Biaya Kirim </th>
-                    <th> Nilai Faktur </th>
+                    <th> Nilai Pekerjaan </th>
                     <th> Perihal</th>
                     <th> PRINT</th>
                     <th class="td-actions">Actions</th>
