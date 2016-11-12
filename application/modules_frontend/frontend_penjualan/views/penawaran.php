@@ -43,7 +43,7 @@
                       <td><?php echo $value['ppnw_no_penawaran']; ?></td>
                       <td><?php echo $value['clnt_id']; ?></td>
                       <td><?php echo $value['clnt_nama']; ?></td>
-                      <td><?php echo $value['ppnw_status']; ?></td>
+                      <td><?php echo $static_data_source['status_penjualan'][$value['ppnw_status']]['name']; ?></td>
                       <td><?php echo $value['ppnw_diskon']; ?></td>
                       <td><?php echo $value['ppnw_pajak']; ?></td>
                       <td><?php echo add_numberformat($value['ppnw_biaya_kirim']); ?></td>
