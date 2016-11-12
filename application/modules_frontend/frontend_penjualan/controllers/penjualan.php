@@ -1533,14 +1533,15 @@ class Penjualan extends MY_Frontend {
         }
         
         $total = array();
+        $biaya_kirim = array();
         foreach ($details as $key => $value) {
-        	if(empty($value['brjs_harga_satuan'])) continue;
-        	
             if(empty($total[$value['ppnw_id']])) $total[$value['ppnw_id']] = 0;
             $total[$value['ppnw_id']] += $value['ppnwd_volume'] * $value['brjs_harga_satuan'];
+            $biaya_kirim[$value['ppnw_id']] = $value['ppnw_biaya_kirim'];
         }
 
         foreach ($total as $key => $value) {
+        	$value += $biaya_kirim[$key];
             $total[$key] += ($value * 0.02) + ($value * 0.1);
         }
 
