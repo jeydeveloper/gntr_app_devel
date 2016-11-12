@@ -210,10 +210,10 @@
             <td style="width:30%;">
                <img class="img-responsive" src="<?php echo site_url('assets'); ?>/frontend/img/logo4.png">
             </td>
-            <td style="width:30%;">
+            <td style="width:20%;">
                <h2>TANDA TERIMA</h2>
             </td>
-           <td style="width:20%;">
+           <td style="width:30%;">
                 <table style="width: 100%" border="0" cellspacing="0" cellpadding="0">
                     <?php
                             $originalDate   = $detail['pbttr_tglterima'];
@@ -247,6 +247,7 @@
                                             </tr>
                                         </table>
                                     </td>
+                                    <td class="vrt-top">:</td>
                                     <td>
                                         <table class="no-border">
                                             <tr>
@@ -263,6 +264,7 @@
                                             </tr>
                                         </table>
                                     </td>
+                                    <td class="vrt-top">:</td>
                                     <td>
                                         <table class="no-border">
                                             <tr>
@@ -279,6 +281,7 @@
                                             </tr>
                                         </table>
                                     </td>
+                                    <td class="vrt-top">:</td>
                                     <td>
                                         <table class="no-border">
                                             <tr>
@@ -295,6 +298,7 @@
                                             </tr>
                                         </table>
                                     </td>
+                                    <td class="vrt-top">:</td>
                                     <td>
                                         <table class="no-border">
                                             <tr>
