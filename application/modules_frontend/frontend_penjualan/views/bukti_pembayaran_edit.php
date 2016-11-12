@@ -134,6 +134,12 @@
     
     $('#pbktp_pttr_id').change(function(){
       var me = $(this);
+      if(me.val() == '') {
+        $('#pbktp_noinvoice').text('-');
+        $('#pbktp_totaltagihan').text('-');
+        $('#pbktp_terbilang').text('-');
+        return;
+      }
       get_info(me.val());
     });
 

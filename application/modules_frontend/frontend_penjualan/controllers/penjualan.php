@@ -1489,7 +1489,7 @@ class Penjualan extends MY_Frontend {
     }
 
     function referensi_tandaterima($id) {
-        $result = $this->db->from('penjualan_tandaterima')->join('penjualan_invoice', 'pttr_pjinv_id = pjinv_id')->where('pttr_id = "'.$id.'"')->get()->row_array();
+        $result = $this->db->from('penjualan_tandaterima')->join('penjualan_invoice', 'pttr_pjinv_id = pjinv_id', 'left')->where('pttr_id = "'.$id.'"')->get()->row_array();
         $tmp = $this->total_penawaran($result['pttr_ppnw_id']);
         $result['pbktp_totaltagihan'] = (!empty($tmp[$result['pttr_ppnw_id']]) ? add_numberformat($tmp[$result['pttr_ppnw_id']]) : 0);
 
