@@ -1541,8 +1541,8 @@ class Penjualan extends MY_Frontend {
         }
 
         foreach ($total as $key => $value) {
-        	$value += $biaya_kirim[$key];
-            $total[$key] += ($value * 0.02) + ($value * 0.1);
+        	$value = $value + $biaya_kirim[$key];
+            $total[$key] = $value + ($value * 0.02) + ($value * 0.1);
         }
 
         return $total;
