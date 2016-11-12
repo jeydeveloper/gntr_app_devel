@@ -306,6 +306,7 @@ $route['penjualan/bukti-pembayaran'] = "frontend_penjualan/penjualan/bukti_pemba
 $route['penjualan/bukti-pembayaran/add'] = "frontend_penjualan/penjualan/add_bukti_pembayaran";
 $route['penjualan/bukti-pembayaran/edit/(:any)'] = "frontend_penjualan/penjualan/edit_bukti_pembayaran/$1";
 $route['penjualan/bukti-pembayaran/delete/(:any)'] = "frontend_penjualan/penjualan/delete_bukti_pembayaran/$1";
+$route['penjualan/bukti-pembayaran/pdf/(:any)'] = "frontend_penjualan/penjualan/pdf_bukti_pembayaran/$1";
 
 //login and logout
 $route['login'] 				= "frontend_login/login";

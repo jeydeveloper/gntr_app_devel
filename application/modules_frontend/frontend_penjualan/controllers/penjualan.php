@@ -1453,6 +1453,17 @@ class Penjualan extends MY_Frontend {
 		redirect($this->_data['module_base_url_bukti_pembayaran']);
 	}
 
+	function pdf_bukti_pembayaran($id){
+        $this->_data['detail']  = $this->db->where('pbktp_id = "'.$id.'"')->join('penjualan_penawaran', 'ppnw_id = pbktp_ppnw_id')->join('client', 'clnt_id = ppnw_clnt_id')->get('penjualan_bukti_pembayaran')->row_array();
+
+        //print_r($this->_data['detail']);
+
+        $tmp = $this->total_penawaran($this->_data['detail']['ppnw_id']);
+        $this->_data['total'] = !empty($tmp[$this->_data['detail']['ppnw_id']]) ? $tmp[$this->_data['detail']['ppnw_id']] : 0;
+
+        $this->load->view('print_bukti_pembayaran_penjualan',  $this->_data);
+    }
+
 	function referensi_penawaran($id) {
         $result = $this->db->from('penjualan_penawaran')->where('ppnw_id = "'.$id.'"')->get()->row_array();
         $result['ppmt_diskon'] = $result['ppnw_diskon'];
@@ -1489,7 +1500,7 @@ class Penjualan extends MY_Frontend {
     }
 
     function referensi_tandaterima($id) {
-        $result = $this->db->from('penjualan_tandaterima')->join('penjualan_invoice', 'pttr_pjinv_id = pjinv_id', 'left')->where('pttr_id = "'.$id.'"')->get()->row_array();
+        $result = $this->db->from('penjualan_tandaterima')->join('penjualan_invoice', 'pttr_pjinv_id = pjinv_id')->where('pttr_id = "'.$id.'"')->get()->row_array();
         $tmp = $this->total_penawaran($result['pttr_ppnw_id']);
         $result['pbktp_totaltagihan'] = (!empty($tmp[$result['pttr_ppnw_id']]) ? add_numberformat($tmp[$result['pttr_ppnw_id']]) : 0);
 
