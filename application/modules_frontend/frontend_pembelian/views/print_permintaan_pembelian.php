@@ -6,7 +6,7 @@
 			-webkit-box-sizing: border-box;
 		}
         @page {
-            size: A4 landscape; /* can use also 'landscape' for orientation */
+            size: A4 portrait; /* can use also 'portrait' for orientation */
             margin: 0.2in;
             border: thin solid black;
             padding: 0.2inem;
@@ -144,6 +144,22 @@
         }
     </style>
 
+<table border="0" cellpadding="1" cellspacing="1" style="width:100%; position:fixed; left:0; right:0; bottom: 0;" class="tbl-blue">
+    <tbody>
+        <tr>
+            <td>
+            <p><strong>PT. PUTRA BAHARI MANDIRI</strong></p>
+
+            <p>Jl. PLTGU Muara Tawar RT/RW 002/013</p>
+
+            <p>Desa Pantaimakmur, Kecamatan Tarumajaya, Kabupaten Bekasi 17212</p>
+
+            <p>Tlp : (021) 96414040. 081210135477 E-mail : putrabaharimandiri@gmail.com</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
 <table style="width:100%; " border="0" cellspacing="0" cellpadding="0">
         <tr>
             <td style="width:50%;">
@@ -173,7 +189,7 @@
                 &nbsp;
             </td>
            <td style="width:50%;">
-                <div class="rgt" style="position: relative; left: 220px;">
+                <div class="rgt">
                     <table  border="0" cellspacing="0" cellpadding="0">
                         <?php
                             $originalDate   = $detail['pbptn_tanggal'];
@@ -196,12 +212,6 @@
     </table><br /><br />
 
     <div id="page-content">
-
-        <div class="row ovrlw">
-
-            </div>
-
-        </div>
         <div class="row">
         	<table border="1" class="blck">
         		<thead>
@@ -265,15 +275,10 @@
         		</tbody>
         	</table>
         </div><br><br><br>
+
         <table style="width:100%; margin-top: 25px;" border="0" cellspacing="0" cellpadding="0">
         <tr>
-            <td style="width:50%; font-style: italic;">
-                PT. PUTRA BAHARI MANDIRI<br />
-                        JL. PLTGU Muara Tawar RT/RW 002/013<br />
-                        Desa xyz, Kec. Taruma, Bekasi 17212<br />
-                        Tlp. (021)<br />
-                        Email : putrabaharimandiri@yahoo.co.id<br />
-            </td>
+            <td style="width:50%; font-style: italic;">&nbsp;</td>
             <td style="width:30%; font-style: italic;">&nbsp;</td>
            <td style="width:20%;">
                 <table style="width: 100%" border="0" cellspacing="0" cellpadding="0">
