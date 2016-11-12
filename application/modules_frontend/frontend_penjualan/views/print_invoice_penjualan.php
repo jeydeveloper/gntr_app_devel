@@ -264,6 +264,11 @@
         			</tr>
                     <?php $sum+= $jumlahharga; ?>
                     <?php endforeach; ?>
+                    <tr>
+                        <td colspan="5" class="remove-bottom-border numeric">Biaya Kirim</td>
+                        <td class="numeric">Rp <?php echo number_format($detail['ppnw_biaya_kirim'],2,",","."); ?></td>
+                    </tr>
+                    <?php $sum+= $detail['ppnw_biaya_kirim']; ?>
         			<tr>
         				<td colspan="5" class="remove-bottom-border numeric">Total</td>
         				<td class="numeric">Rp <?php echo number_format($sum,2,",","."); ?></td>
