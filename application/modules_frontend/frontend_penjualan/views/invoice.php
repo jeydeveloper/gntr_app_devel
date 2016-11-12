@@ -21,7 +21,7 @@
                     <th> No. PO</th>
                     <th> No. Penawaran </th>
                     <th> Ditujukan Ke </th>
-                    <th> Total Tagihan</th>
+                    <!--<th> Total Tagihan</th>-->
                     <th> PRINT </th>
                     <th class="td-actions"> Actions </th>
                   </tr>
@@ -35,7 +35,7 @@
                       <td><?php echo $value['ppmt_noso']; ?></td>
                       <td><?php echo $value['ppnw_no_penawaran']; ?></td>
                       <td><?php echo $value['clnt_nama']; ?></td>
-                      <td><?php echo add_numberformat($value['ppnw_nilai_faktur']); ?></td>
+                      <!--<td><?php echo add_numberformat($value['ppnw_nilai_faktur']); ?></td>-->
                       <td><a href="<?php echo ($module_base_url_invoice.'/pdf/'.$value['pjinv_id']); ?>" target="_blank">View</a></td>
 
                       <td class="td-actions"><a href="<?php echo ($module_base_url_invoice.'/edit/'.$value['pjinv_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a> <a href="<?php echo ($module_base_url_invoice.'/delete/'.$value['pjinv_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>

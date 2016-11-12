@@ -65,12 +65,12 @@
                         <p class="alert" id="clnt_alamat">-</p>
                       </div> <!-- /field -->
 
-                      <div class="field">
+                      <div class="field" style="display:none;">
                         <label for="ppnw_nilai_faktur">Total Tagihan:</label>
                         <p class="alert" id="ppnw_nilai_faktur">-</p>
                       </div> <!-- /field -->
 
-                      <div class="field">
+                      <div class="field" style="display:none;">
                         <label for="terbilang">Terbilang:</label>
                         <p class="alert" id="terbilang">-</p>
                       </div> <!-- /field -->
