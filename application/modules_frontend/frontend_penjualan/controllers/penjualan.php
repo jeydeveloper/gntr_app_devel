@@ -667,6 +667,10 @@ class Penjualan extends MY_Frontend {
 	function kwitansi() {
 		$this->_data['result'] = $this->crud_kwitansi->order_by('pjkw_id', 'asc')->get_all();
 
+		foreach ($this->_data['result'] as $key => $value) {
+			$this->_data['result'][$key]['nilai_pekerjaan'] = $this->total_penawaran($value['pjkw_ppnw_id']);
+		}
+
 		$this->template->set('title', 'Kwitansi Penjualan | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
 		$this->template->load('template_frontend/main', 'kwitansi', $this->_data);
