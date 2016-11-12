@@ -279,8 +279,8 @@
         <table style="width:100%; margin-top: 25px;" border="0" cellspacing="0" cellpadding="0">
         <tr>
             <td style="width:50%; font-style: italic;">&nbsp;</td>
-            <td style="width:30%; font-style: italic;">&nbsp;</td>
-           <td style="width:20%;">
+            <td style="width:20%; font-style: italic;">&nbsp;</td>
+           <td style="width:30%;">
                 <table style="width: 100%" border="0" cellspacing="0" cellpadding="0">
                     <tr>
                     <?php
