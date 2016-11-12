@@ -1494,13 +1494,15 @@ class Penjualan extends MY_Frontend {
 
     function referensi_invoice($id) {
         $result = $this->db->from('penjualan_invoice')->join('penjualan_permintaan', 'pjinv_ppmt_id=ppmt_id')->join('penjualan_penawaran', 'pjinv_ppnw_id=ppnw_id')->join('client', 'ppmt_clnt_id=clnt_id')->where('pjinv_id = "'.$id.'"')->get()->row_array();
-        $result['ppnw_nilai_faktur'] = add_numberformat($result['ppnw_nilai_faktur']);
+        $tmp = $this->total_penawaran($result['pjinv_ppnw_id']);
+        $result['ppnw_nilai_faktur'] = (!empty($tmp[$result['pjinv_ppnw_id']]) ? add_numberformat($tmp[$result['pjinv_ppnw_id']]) : 0);
         echo json_encode($result);
     }
 
     function referensi_kwitansi($id) {
         $result = $this->db->from('penjualan_kwitansi')->join('penjualan_penawaran', 'pjkw_ppnw_id=ppnw_id')->where('pjkw_id = "'.$id.'"')->get()->row_array();
-        $result['ppnw_nilai_faktur'] = add_numberformat($result['ppnw_nilai_faktur']);
+        $tmp = $this->total_penawaran($result['pjkw_ppnw_id']);
+        $result['ppnw_nilai_faktur'] = (!empty($tmp[$result['pjkw_ppnw_id']]) ? add_numberformat($tmp[$result['pjkw_ppnw_id']]) : 0);
         echo json_encode($result);
     }
 
