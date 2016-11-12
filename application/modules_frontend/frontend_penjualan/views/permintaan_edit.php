@@ -59,12 +59,12 @@
                     </select>
                   </div> <!-- /field -->
 
-                  <div class="field">
+                  <div class="field" style="display:none;">
                     <label for="email">Diskon:</label>
                     <p class="alert" id="ppmt_diskon">-</p>
                   </div> <!-- /field -->
 
-                  <div class="field">
+                  <div class="field" style="display:none;">
                     <label for="email">Pajak:</label>
                     <p class="alert" id="ppmt_pajak">-</p>
                   </div> <!-- /field -->

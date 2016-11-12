@@ -46,12 +46,12 @@
                     </select>
                   </div> <!-- /field -->
 
-                  <div class="field">
+                  <div class="field" style="display:none;">
                     <label for="ppnw_diskon">Diskon</label>
                     <input id="ppnw_diskon" name="ppnw_diskon" placeholder="Diskon" value="<?php echo $detail['ppnw_diskon']; ?>" />
                   </div> <!-- /field -->
 
-                  <div class="field">
+                  <div class="field" style="display:none;">
                     <label for="ppnw_pajak">Pajak</label>
                     <input id="ppnw_pajak" name="ppnw_pajak" placeholder="Pajak" value="<?php echo $detail['ppnw_pajak']; ?>" />
                   </div> <!-- /field -->
