@@ -161,14 +161,16 @@
         var txtHtml = '';
         var cnt = 1;
         $.each(data, function(idx, val){
-          console.log(val);
-          txtHtml += '<tr>';
-          txtHtml += '<td>'+ cnt++ +'</td>';
-          txtHtml += '<td>'+val.ppnwd_jenisbarang+'</td>';
-          txtHtml += '<td>'+val.ppnwd_volume+'</td>';
-          txtHtml += '<td>'+val.ppnwd_satuan+'</td>';
-          txtHtml += '<td>'+val.ppnwd_hargasatuan+'</td>';
-          txtHtml += '<tr>';
+          //console.log(val);
+          if(val.ppnwd_jenisbarang != '') { 
+            txtHtml += '<tr>';
+            txtHtml += '<td>'+ cnt++ +'</td>';
+            txtHtml += '<td>'+val.ppnwd_jenisbarang+'</td>';
+            txtHtml += '<td>'+val.ppnwd_volume+'</td>';
+            txtHtml += '<td>'+val.ppnwd_satuan+'</td>';
+            txtHtml += '<td>'+val.ppnwd_hargasatuan+'</td>';
+            txtHtml += '<tr>';
+          }
         });
         $('#tblInfoBarang tbody').empty().append(txtHtml);
       });
