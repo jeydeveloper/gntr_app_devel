@@ -10,7 +10,7 @@
             -webkit-box-sizing: border-box;
         }
         @page {
-            size: A4 landscape; /* can use also 'landscape' for orientation */
+            size: A4 portrait; /* can use also 'portrait' for orientation */
             margin: 0.2in;
             border: thin solid black;
             padding: 0.2inem;
@@ -151,6 +151,22 @@
   </head>
   <body>
 
+<table border="0" cellpadding="1" cellspacing="1" style="width:100%; position:fixed; left:0; right:0; bottom: 40px;" class="tbl-blue">
+    <tbody>
+        <tr>
+            <td>
+            <p><strong>PT. PUTRA BAHARI MANDIRI</strong></p>
+
+            <p>Jl. PLTGU Muara Tawar RT/RW 002/013</p>
+
+            <p>Desa Pantaimakmur, Kecamatan Tarumajaya, Kabupaten Bekasi 17212</p>
+
+            <p>Tlp : (021) 96414040. 081210135477 E-mail : putrabaharimandiri@gmail.com</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
     <main>
  <!-- Invoice -->
 <div>
@@ -182,47 +198,47 @@
                     <tr style="line-height:12px;"><td colspan="5" style="border-bottom:1px solid black;">&nbsp;</td></tr>
                     <tr style="line-height:16px;"><td colspan="5">&nbsp;</td></tr>
                     <tr>
-                            <td style="text-align: left; width: 20%;" >TANGGAL TRANSAKSI</td>
+                            <td style="text-align: left; width: 30%;" >TANGGAL TRANSAKSI</td>
                             <td style="text-align: left; width: 5%;" >:</td>
                             <td style="text-align: left;"><?php echo $detail['bp_tgltransaksi']; ?></td>
                     </tr>
                     <tr>
-                            <td style="text-align: left;  width: 20%;">NOMOR TRANSAKSI</td>
+                            <td style="text-align: left;  width: 30%;">NOMOR TRANSAKSI</td>
                              <td style="text-align: left; width: 5%;" >:</td>
                             <td style="text-align: left;"><?php echo $detail['bp_no']; ?></td>
                     </tr>
                     <tr>
-                            <td style="text-align: left;  width: 20%;">NOMOR REKENING</td>
+                            <td style="text-align: left;  width: 30%;">NOMOR REKENING</td>
                              <td style="text-align: left; width: 5%;" >:</td>
                             <td style="text-align: left;"><?php echo $detail['pbkw_norek']; ?></td>
                     </tr>
                     <tr>
-                            <td style="text-align: left;  width: 20%;">NAMA REKENING</td>
+                            <td style="text-align: left;  width: 30%;">NAMA REKENING</td>
                              <td style="text-align: left; width: 5%;" >:</td>
                             <td style="text-align: left; text-transform: uppercase;"><?php echo $detail['pbkw_an']; ?></td>
                     </tr>
                     <tr>
-                            <td style="text-align: left;  width: 20%;">NOMOR INVOICE</td>
+                            <td style="text-align: left;  width: 30%;">NOMOR INVOICE</td>
                              <td style="text-align: left; width: 5%;" >:</td>
                             <td style="text-align: left;"><?php echo $detail['pbinv_noinvoice']; ?></td>
                     </tr>
                     <tr>
-                            <td style="text-align: left;  width: 20%;">TOTAL TAGIHAN</td>
+                            <td style="text-align: left;  width: 30%;">TOTAL TAGIHAN</td>
                              <td style="text-align: left; width: 5%;" >:</td>
                             <td style="text-align: left;"><?php echo $totaltagihan; ?></td>
                     </tr>
                     <tr>
-                            <td style="text-align: left;  width: 20%;">TERBILANG</td>
+                            <td style="text-align: left;  width: 30%;">TERBILANG</td>
                              <td style="text-align: left; width: 5%;" >:</td>
                             <td style="text-align: left; text-transform: uppercase;"><?php echo $terbilang; ?></td>
                     </tr>
                     <tr>
-                            <td style="text-align: left;  width: 20%;">JAM TRANSAKSI</td>
+                            <td style="text-align: left;  width: 30%;">JAM TRANSAKSI</td>
                              <td style="text-align: left; width: 5%;" >:</td>
                             <td style="text-align: left;"><?php echo $detail['bp_jamtransaksi']; ?></td>
                     </tr>
                      <tr>
-                            <td style="text-align: left;  width: 20%;">JENIS TRANSAKSI</td>
+                            <td style="text-align: left;  width: 30%;">JENIS TRANSAKSI</td>
                              <td style="text-align: left; width: 5%;" >:</td>
                             <td style="text-align: left;"><?php echo $detail['bp_jenistransaksi']; ?></td>
                     </tr>
@@ -233,21 +249,15 @@
     </table>
     <table style="width:100%; margin-top: 25px;">
         <tr>
-            <td style="width:50%; font-style: italic;">
-                PT. PUTRA BAHARI MANDIRI<br />
-                        JL. PLTGU Muara Tawar RT/RW 002/013<br />
-                        Desa xyz, Kec. Taruma, Bekasi 17212<br />
-                        Tlp. (021)<br />
-                        Email : putrabaharimandiri@yahoo.co.id<br />
-            </td>
-           <td style="width:50%;">
+            <td style="width:70%; font-style: italic;">&nbsp;</td>
+           <td style="width:30%;">
                 <table style="width: 100%">
                     <tr>
                     <?php
                     $originalDate = $detail['bp_entrydate'];
                     $newDate      = date("d F Y");
                     ?>
-                        <td  style="text-align: right;">
+                        <td  style="text-align: center;">
                         Jakarta, <?php echo $newDate; ?><br /><br /><br /><br />
                         Andri Lestari<br>
                         Direktur Utama
