@@ -332,22 +332,31 @@
                         <td><strong><?php echo $value->ppnwd_jenisbarang; ?></strong></td>
                         <td><?php echo $value->ppnwd_volume; ?></td>
                         <td><?php echo $value->ppnwd_satuan; ?></td>
-                        <td>Rp <?php echo number_format($value->ppnwd_hargasatuan,2,",","."); ?></td>
+                        <td style="text-align:right;">Rp <?php echo number_format($value->ppnwd_hargasatuan,2,",","."); ?></td>
                         <?php
                             $jumlahharga = $value->ppnwd_volume * $value->ppnwd_hargasatuan;
                         ?>
 
-                        <td>Rp <?php echo number_format($jumlahharga,2,",","."); ?></td>
+                        <td style="text-align:right;">Rp <?php echo number_format($jumlahharga,2,",","."); ?></td>
                     </tr>
                     <?php $sum+= $jumlahharga; ?>
                     <?php endforeach; ?>
+                    <tr>
+                        <td>Biaya Kirim</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td style="text-align:right;"><strong>Rp <?php echo number_format($detail->ppnw_biaya_kirim,2,",","."); ?></strong></td>
+                    </tr>
+                    <?php $sum+= $detail->ppnw_biaya_kirim; ?>
                     <tr>
                         <td>&nbsp;</td>
                         <td><strong>TOTAL</strong></td>
                         <td>&nbsp;</td>
                         <td>&nbsp;</td>
                         <td>&nbsp;</td>
-                        <td><strong>Rp <?php echo number_format($sum,2,",","."); ?></strong></td>
+                        <td style="text-align:right;"><strong>Rp <?php echo number_format($sum,2,",","."); ?></strong></td>
                     </tr>
                 </tbody>
             </table>
