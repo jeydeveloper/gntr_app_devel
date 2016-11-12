@@ -153,11 +153,15 @@ class Penjualan extends MY_Frontend {
 	}
 
 	function delete_penawaran($id) {
+		/*
 		$db_data = array(
 			'ppnw_void' => 1,
 			'ppnw_changedate' => $this->_data['datetime'],
 		);
 		$this->crud->where('ppnw_id = "'.$id.'"')->puts_penawaran($db_data);
+		*/
+
+		$this->db->where('ppnw_id = "'.$id.'"')->delete('penjualan_penawaran');
 
 		redirect($this->_data['module_base_url_penawaran']);
 	}
@@ -471,11 +475,15 @@ class Penjualan extends MY_Frontend {
 	}
 
 	function delete_permintaan($id) {
+		/*
 		$db_data = array(
 			'ppmt_void' => 1,
 			'ppmt_changedate' => $this->_data['datetime'],
 		);
 		$this->crud->where('ppmt_id = "'.$id.'"')->puts_permintaan($db_data);
+		*/
+
+		$this->db->where('ppmt_id = "'.$id.'"')->delete('penjualan_permintaan');
 
 		redirect($this->_data['module_base_url_permintaan']);
 	}
