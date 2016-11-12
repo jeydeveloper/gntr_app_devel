@@ -8,7 +8,7 @@
             -webkit-box-sizing: border-box;
         }
         @page {
-            size: A4 landscape; /* can use also 'landscape' for orientation */
+            size: A4 portrait; /* can use also 'portrait' for orientation */
             margin: 0.2in;
             border: thin solid black;
             padding: 0.2inem;
@@ -188,6 +188,23 @@
 </head>
 
 <body>
+
+<table border="0" cellpadding="1" cellspacing="1" style="width:100%; position:fixed; left:0; right:0; bottom: 0;" class="tbl-blue">
+    <tbody>
+        <tr>
+            <td>
+            <p><strong>PT. PUTRA BAHARI MANDIRI</strong></p>
+
+            <p>Jl. PLTGU Muara Tawar RT/RW 002/013</p>
+
+            <p>Desa Pantaimakmur, Kecamatan Tarumajaya, Kabupaten Bekasi 17212</p>
+
+            <p>Tlp : (021) 96414040. 081210135477 E-mail : putrabaharimandiri@gmail.com</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
 <table style="width:100%;" border="0" cellspacing="0" cellpadding="0">
         <tr>
             <td style="width:30%;">
@@ -207,11 +224,6 @@
                            Bekasi, <?php echo $newDate; ?>
                         </td>
                     </tr>
-                    <tr>
-                        <td  style="text-align: left;">
-                           &nbsp;
-                        </td>
-                    </tr>
                       <tr>
                         <td style="text-align: left;">No : <?php echo $detail['pbttr_no']; ?></td>
                     </tr>
@@ -229,7 +241,7 @@
                             <tbody>
                                 <tr>
                                     <td class="vrt-top">
-                                        <table class="no-border">
+                                        <table class="no-border" style="width:200px;">
                                             <tr>
                                                 <td>1. Tagihan dari</td>
                                             </tr>
@@ -298,28 +310,19 @@
             </tr>
             <tr class="pd-topbot-2">
                 <td class="hlf-blck">
-                    <table class="no-border">
+                    <table class="no-border" style="width: 100%;">
                         <tr>
                             <td class="hlf-blck">
-                                <table class="no-border">
+                                <table class="no-border" style="width: 100%;">
                                     <tr>
-                                        <td>5. Penyerah</td>
+                                        <td style="width: 60%;">5. Penyerah</td>
                                         <td class="delimiter">:</td>
                                         <td>.............</td>
-                                    </tr>
-                                    <?php
-                                        $originalDateterima   = $detail['pbttr_tglterima'];
-                                        $newDateterima        = date("d F Y", strtotime($originalDateterima));
-                                    ?>
-                                    <tr>
-                                        <td>Tanggal</td>
-                                        <td class="delimiter">:</td>
-                                        <td><?php echo $newDateterima; ?></td>
                                     </tr>
                                 </table>
                             </td>
                             <td class="hlf-blck vrt-top">
-                                <table class="no-border">
+                                <table class="no-border" style="width: 100%;">
                                     <tr>
                                         <td>Paraf</td>
                                         <td class="delimiter">:</td>
@@ -328,18 +331,9 @@
                                 </table>
                             </td>
                         </tr>
-                    </table>
-                </td>
-                <td class="hlf-blck">
-                    <table class="no-border">
                         <tr>
-                            <td class="hlf-blck">
-                                <table class="no-border">
-                                    <tr>
-                                        <td>6. Penerima</td>
-                                        <td class="delimiter">:</td>
-                                        <td><?php echo $detail['pbttr_menerima']; ?></td>
-                                    </tr>
+                            <td colspan="2">
+                                <table class="no-border" style="width: 100%;">
                                     <?php
                                         $originalDateterima   = $detail['pbttr_tglterima'];
                                         $newDateterima        = date("d F Y", strtotime($originalDateterima));
@@ -351,12 +345,42 @@
                                     </tr>
                                 </table>
                             </td>
+                        </tr>
+                    </table>
+                </td>
+                <td class="hlf-blck">
+                    <table class="no-border" style="width: 100%;">
+                        <tr>
+                            <td class="hlf-blck">
+                                <table class="no-border" style="width: 100%;">
+                                    <tr>
+                                        <td style="width: 60%;">6. Penerima</td>
+                                        <td class="delimiter">:</td>
+                                        <td><?php echo $detail['pbttr_menerima']; ?></td>
+                                    </tr>
+                                </table>
+                            </td>
                             <td class="hlf-blck vrt-top">
-                                <table class="no-border">
+                                <table class="no-border" style="width: 100%;">
                                     <tr>
                                         <td>Paraf</td>
                                         <td class="delimiter">:</td>
                                         <td>.............</td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <table class="no-border" style="width: 100%;">
+                                    <?php
+                                        $originalDateterima   = $detail['pbttr_tglterima'];
+                                        $newDateterima        = date("d F Y", strtotime($originalDateterima));
+                                    ?>
+                                    <tr>
+                                        <td>Tanggal</td>
+                                        <td class="delimiter">:</td>
+                                        <td><?php echo $newDateterima; ?></td>
                                     </tr>
                                 </table>
                             </td>
@@ -366,13 +390,6 @@
             </tr>
         </table>
         <!--<p style="page-break-after:always;"/>-->
-    </div>
-    <br><br><br><Br>
-    <div>
-        <div class="lft ovrlw">
-            <p>PT. PUTRA BAHARI MANDIRI</p>
-            <p>JL. PLTGU Muara Tawar RT/RW 002/013<br/>Desa xyz, Kec. Taruma, Bekasi 17212<br/>Tlp. (021)<br/>Email : putrabaharimandiri@yahoo.co.id</p>
-        </div>
     </div>
 </body>
 </html>
