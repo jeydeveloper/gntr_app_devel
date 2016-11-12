@@ -18,7 +18,7 @@
                   <tr>
                     <th> No. </th>
                     <th> Diterima Dari</th>
-                    <th> Jumlah </th>
+                    <th> Jumlahx </th>
                     <th> Rekening Tujuan Pembayaran </th>
                     <th> PRINT </th>
                     <th class="td-actions">Actions</th>
