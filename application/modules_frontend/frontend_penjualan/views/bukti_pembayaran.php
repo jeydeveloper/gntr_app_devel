@@ -24,7 +24,7 @@
                     <th> Total Tagihan </th>
                     <th> Jenis Transaksi </th>
                     <th> File </th>
-                    <th> PRINT </th>
+                    <!--<th> PRINT </th>-->
                     <th class="td-actions"> Actions</th>
                   </tr>
                 </thead>
@@ -44,7 +44,7 @@
                           <img src="<?php echo site_url('/'); ?>assets/images/<?php echo $value['pbktp_uploadfile']; ?>" width="50px">
                         </a>
                       </td>
-                      <td><a href="<?php echo ($module_base_url_bukti_pembayaran.'/pdf/'.$value['pbktp_id']); ?>" target="_blank">View</a></td>
+                      <!--<td><a href="<?php echo ($module_base_url_bukti_pembayaran.'/pdf/'.$value['pbktp_id']); ?>" target="_blank">View</a></td>-->
                       <td class="td-actions"><a href="<?php echo ($module_base_url_bukti_pembayaran.'/edit/'.$value['pbktp_id']); ?>" class="btn btn-small btn-success" title="edit"><i class="btn-icon-only icon-pencil"> </i></a> <a href="<?php echo ($module_base_url_bukti_pembayaran.'/delete/'.$value['pbktp_id']); ?>" class="btn btn-danger btn-small" title="delete"><i class="btn-icon-only icon-remove"> </i></a></td>
                     </tr>
                     <?php endforeach; ?>
