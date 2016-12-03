@@ -319,8 +319,8 @@
                     <tr class="tbl-blue-hdr">
                         <td style="text-align: center; background-color: blue; color: white;"><strong>No</strong></td>
                         <td style="text-align: center; background-color: blue; color: white;" ><strong>RINCIAN PEKERJAAN</strong></td>
-                        <td style="text-align: center; background-color: blue; color: white;"><strong>VOLUME</strong></td>
-                        <td style="text-align: center; background-color: blue; color: white;"><strong>Sat.</strong></td>
+                        <td width="60px;" style="text-align: center; background-color: blue; color: white;"><strong>VOLUME</strong></td>
+                        <td width="60px;" style="text-align: center; background-color: blue; color: white;"><strong>Sat.</strong></td>
                         <td width="150px;" style="text-align: center; background-color: blue; color: white;"><strong>Hrg Sat. (Rp)</strong></td>
                         <td width="150px;" style="text-align: center; background-color: blue; color: white;"><strong>Jumlah Hrg (Rp)</strong></td>
                     </tr>
