@@ -321,8 +321,8 @@
                         <td style="text-align: center; background-color: blue; color: white;" ><strong>RINCIAN PEKERJAAN</strong></td>
                         <td style="text-align: center; background-color: blue; color: white;"><strong>VOLUME</strong></td>
                         <td style="text-align: center; background-color: blue; color: white;"><strong>Sat.</strong></td>
-                        <td style="text-align: center; background-color: blue; color: white;"><strong>Hrg Sat. (Rp)</strong></td>
-                        <td style="text-align: center; background-color: blue; color: white;"><strong>Jumlah Hrg (Rp)</strong></td>
+                        <td width="200px;" style="text-align: center; background-color: blue; color: white;"><strong>Hrg Sat. (Rp)</strong></td>
+                        <td width="200px;" style="text-align: center; background-color: blue; color: white;"><strong>Jumlah Hrg (Rp)</strong></td>
                     </tr>
                     <?php $sum = 0; ?>
                     <?php $norut = 0; foreach($details as $key => $value): ?>
