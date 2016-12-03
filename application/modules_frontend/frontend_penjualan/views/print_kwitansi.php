@@ -284,8 +284,8 @@
                             <td>
                                 <div class="row blck ovrlw rltv">
                                     <div class="lft ovrlw">
-                                            <p>PT. PUTRA BAHARI MANDIRI</p>
-                                            <p>JL. PLTGU Muara Tawar RT/RW 002/013<br/>Desa xyz, Kec. Taruma, Bekasi 17212<br/>Tlp. (021)<br/>Email : putrabaharimandiri@yahoo.co.id</p>
+                                            <p><strong>PT. PUTRA BAHARI MANDIRI</strong></p>
+                                            <p>Jl. PLTGU Muara Tawar RT/RW. 002/03<br/>Desa Segarajaya, Kec. Tarumajaya, Bekasi 17218<br/>Tlp. (021) 2214 8067, 081210135477 E-Mail : putrabaharimandiri@gmail.com</p>
                                         </div>
                                     <div class="rgt cntr" style="margin-right:10px;">
                                         <p>Jakarta, 1 Februari 2016</p>
