@@ -100,7 +100,7 @@ EOF;
 
 		$this->template->set('title', 'Insentif Hari Raya | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
-		$this->template->load('template_frontend/main', 'beritaacara/list_insentif_hari_raya', $this->_data);
+		$this->template->load('template_frontend/main', 'beritaacara/list_insentif_hari_raya_2', $this->_data);
 	}
 
 	function tagihan_ot($pbcr_id) {
@@ -108,7 +108,7 @@ EOF;
 
 		$this->template->set('title', 'Tagihan OT | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
-		$this->template->load('template_frontend/main', 'beritaacara/list_tagihan_ot', $this->_data);
+		$this->template->load('template_frontend/main', 'beritaacara/list_absen_tagihan_ot', $this->_data);
 	}
 
 	function absen_gajian($pbcr_id) {
@@ -116,7 +116,7 @@ EOF;
 
 		$this->template->set('title', 'Absen Gajian | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
-		$this->template->load('template_frontend/main', 'beritaacara/list_absen_gajian', $this->_data);
+		$this->template->load('template_frontend/main', 'beritaacara/list_absen_gajian_2', $this->_data);
 	}
 
 	function absen_tagihan($pbcr_id) {
@@ -124,7 +124,7 @@ EOF;
 
 		$this->template->set('title', 'Absen Tagihan | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
-		$this->template->load('template_frontend/main', 'beritaacara/list_absen_tagihan', $this->_data);
+		$this->template->load('template_frontend/main', 'beritaacara/list_absen_tagihan_2', $this->_data);
 	}
 
 	function slip_gaji($pbcr_id) {
@@ -132,7 +132,7 @@ EOF;
 
 		$this->template->set('title', 'Slip Gaji | Aplikasi Keuangan - PT. Putra Bahari Mandiri');
 		$this->template->set('assets', $this->_data['assets']);
-		$this->template->load('template_frontend/main', 'beritaacara/list_slip_gaji', $this->_data);
+		$this->template->load('template_frontend/main', 'beritaacara/list_slip_gaji_2', $this->_data);
 	}
 
 	function rekap($pbcr_id) {
