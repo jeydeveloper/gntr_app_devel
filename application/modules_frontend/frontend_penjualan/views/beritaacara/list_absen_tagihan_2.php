@@ -15,7 +15,8 @@ ol, ul {
           <?php include('_sidebar_beritaacara.php'); ?>
         </div>
         <!-- /span4 -->
-        <div class="span10">
+        <input type='button' id='btn' value='Print' onclick='printDiv();' style="margin-left: 30px;"> 
+        <div class="span10" id="DivIdToPrint">
           <div class="widget widget-table action-table">
             <div id="sticky-anchor"></div>
             <div id="sticky" class="widget-header"> <i class="icon-th-list"></i>
@@ -875,4 +876,21 @@ ol, ul {
   $(document).ready(function() {
     $("#fixTable").tableHeadFixer({"head" : true, "left" : 0}); 
   });
+
+  function printDiv() 
+  {
+
+    var divToPrint=document.getElementById('DivIdToPrint');
+
+    var newWin=window.open('','Print-Window');
+
+    newWin.document.open();
+
+    newWin.document.write('<html><body onload="window.print()">'+divToPrint.innerHTML+'</body></html>');
+
+    newWin.document.close();
+
+    setTimeout(function(){newWin.close();},10);
+
+  }
 </script>
