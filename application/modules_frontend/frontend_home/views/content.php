@@ -1,6 +1,15 @@
 <style type="text/css">
     select{padding: 3px;margin: 0;}
     #wrap_form select, #wrap_form button{display: inline-block;width: initial;vertical-align: middle;}
+    .bar-legend, .line-legend, .doughnut-legend {
+        list-style: none;
+    }
+    .bar-legend span, .line-legend span, .doughnut-legend span {
+        width: 30px;
+        height: 10px;
+        display: inline-block;
+        margin-right: 5px;
+    }
 </style>
 <div class="main">
     <div class="main-inner">
@@ -29,6 +38,7 @@
                             <canvas id="bar-chart" class="chart-holder" width="538" height="250">
                             </canvas>
                             <!-- /bar-chart -->
+                            <div id="legendDiv"></div>
                         </div>
                         <!-- /widget-content -->
                     </div>
@@ -43,6 +53,34 @@
                             <canvas id="area-chart" class="chart-holder" width="538" height="250">
                             </canvas>
                             <!-- /line-chart -->
+                            <div id="legendDivLine"></div>
+                        </div>
+                        <!-- /widget-content -->
+                    </div>
+                    <!-- /widget -->
+                </div>
+                <!-- /span6 -->
+                <div class="span6">
+                    <div class="widget">
+                        <div class="widget-header">
+                            <i class="icon-bar-chart"></i>
+                            <h3>Grafik Vendor / Client</h3>
+                            <div id="wrap_form" style="float:right; margin-right:5px;">
+                                <form action="<?php echo site_url('home'); ?>">
+                                    <select name="vendor_client">
+                                        <option value="vendor" <?php echo ('vendor' == $select_vendor_client ? 'selected' : ''); ?>>Vendor</option>
+                                        <option value="client" <?php echo ('client' == $select_vendor_client ? 'selected' : ''); ?>>Client</option>
+                                    </select>
+                                    <button type="submit">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- /widget-header -->
+                        <div class="widget-content">
+                            <canvas id="donut-chart" class="chart-holder" width="538" height="250">
+                            </canvas>
+                            <!-- /bar-chart -->
+                            <div id="legendDivDoughnut"></div>
                         </div>
                         <!-- /widget-content -->
                     </div>
@@ -63,37 +101,6 @@
                     <!-- /widget -->
                 </div>
                 <!-- /span6 -->
-                <div class="span6">
-                    <div class="widget">
-                        <div class="widget-header">
-                            <i class="icon-bar-chart"></i>
-                            <h3>Donut Chart</h3>
-                        </div>
-                        <!-- /widget-header -->
-                        <div class="widget-content">
-                            <canvas id="donut-chart" class="chart-holder" width="538" height="250">
-                            </canvas>
-                            <!-- /bar-chart -->
-                        </div>
-                        <!-- /widget-content -->
-                    </div>
-                    <!-- /widget -->
-                    <div class="widget">
-                        <div class="widget-header">
-                            <i class="icon-bar-chart"></i>
-                            <h3>A Chart</h3>
-                        </div>
-                        <!-- /widget-header -->
-                        <div class="widget-content">
-                            <canvas id="line-chart" class="chart-holder" width="538" height="250">
-                            </canvas>
-                            <!-- /-chart -->
-                        </div>
-                        <!-- /widget-content -->
-                    </div>
-                    <!-- /widget -->
-                </div>
-                <!-- /span6 -->
             </div>
             <!-- /row -->
         </div>
@@ -107,35 +114,23 @@
 <script type="text/javascript" src="<?php echo $assets; ?>/js/chart.min.js"></script>
 <script type="text/javascript">
     var doughnutData = [
+        <?php foreach ($data_vendor_client as $value): ?>
         {
-            value: 30,
-            color: "#F7464A"
+            label: '<?php echo $value['label']; ?>',
+            value: <?php echo $value['value']; ?>,
+            color: "<?php echo $value['color']; ?>"
         },
-        {
-            value: 50,
-            color: "#46BFBD"
-        },
-        {
-            value: 100,
-            color: "#FDB45C"
-        },
-        {
-            value: 40,
-            color: "#949FB1"
-        },
-        {
-            value: 120,
-            color: "#4D5360"
-        }
-
+        <?php endforeach; ?>
     ];
 
     var myDoughnut = new Chart(document.getElementById("donut-chart").getContext("2d")).Doughnut(doughnutData);
+    document.getElementById("legendDivDoughnut").innerHTML = myDoughnut.generateLegend();
 
     var lineChartData = {
         labels: [<?php echo $data_bulan; ?>],
         datasets: [
             {
+                label: 'Pembelian',
                 fillColor: "rgba(220,220,220,0.5)",
                 strokeColor: "rgba(220,220,220,1)",
                 pointColor: "rgba(220,220,220,1)",
@@ -143,6 +138,7 @@
                 data: [<?php echo $data_pembelian; ?>]
             },
             {
+                label: 'Penjualan',
                 fillColor: "rgba(151,187,205,0.5)",
                 strokeColor: "rgba(151,187,205,1)",
                 pointColor: "rgba(151,187,205,1)",
@@ -154,18 +150,29 @@
     }
 
     var myLine = new Chart(document.getElementById("area-chart").getContext("2d")).Line(lineChartData);
+    document.getElementById("legendDivLine").innerHTML = myLine.generateLegend();
 
     var barChartData = {
         labels: [<?php echo $data_bulan; ?>],
         datasets: [
             {
+                label: 'Pembelian',
                 fillColor: "rgba(220,220,220,0.5)",
                 strokeColor: "rgba(220,220,220,1)",
+                pointColor: "rgba(220,220,220,1)",
+                pointStrokeColor: "#fff",
+                pointHighlightFill: "#fff",
+                pointHighlightStroke: "rgba(220,220,220,1)",
                 data: [<?php echo $data_pembelian; ?>]
             },
             {
+                label: 'Penjualan',
                 fillColor: "rgba(151,187,205,0.5)",
                 strokeColor: "rgba(151,187,205,1)",
+                pointColor: "rgba(151,187,205,1)",
+                pointStrokeColor: "#fff",
+                pointHighlightFill: "#fff",
+                pointHighlightStroke: "rgba(151,187,205,1)",
                 data: [<?php echo $data_penjualan; ?>]
             }
         ]
@@ -173,6 +180,7 @@
     }
 
     var myLine = new Chart(document.getElementById("bar-chart").getContext("2d")).Bar(barChartData);
+    document.getElementById("legendDiv").innerHTML = myLine.generateLegend();
 
     var pieData = [
         {
@@ -191,33 +199,4 @@
     ];
 
     var myPie = new Chart(document.getElementById("pie-chart").getContext("2d")).Pie(pieData);
-
-    var chartData = [
-        {
-            value: Math.random(),
-            color: "#D97041"
-        },
-        {
-            value: Math.random(),
-            color: "#C7604C"
-        },
-        {
-            value: Math.random(),
-            color: "#21323D"
-        },
-        {
-            value: Math.random(),
-            color: "#9D9B7F"
-        },
-        {
-            value: Math.random(),
-            color: "#7D4F6D"
-        },
-        {
-            value: Math.random(),
-            color: "#584A5E"
-        }
-    ];
-
-    var myPolarArea = new Chart(document.getElementById("line-chart").getContext("2d")).PolarArea(chartData);
 </script>
