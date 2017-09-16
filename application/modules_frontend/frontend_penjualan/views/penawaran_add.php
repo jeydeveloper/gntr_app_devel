@@ -21,10 +21,22 @@
                     <label for="ppnw_no_penawaran">No Penawaran</label>
                     <input id="ppnw_no_penawaran" name="ppnw_no_penawaran" placeholder="No Penawaran" required />
                   </div> <!-- /field -->
+
                   <div class="field">
                         <label for="ppnw_tanggal">Tanggal Penawaran:</label>
                         <input id="ppnw_tanggal" class="date-picker" name="ppnw_tanggal" value="" placeholder="Tanggal"/>
                 </div> <!-- /field -->
+
+                <div class="field">
+                  <label for="akun_nama">No. Daftar Akun:</label>
+                  <select name="akun_nomor" id="akun_nomor" />
+                    <option value="">-- Pilih --</option>
+                    <?php foreach($option_daftarakun as $value): ?>
+                      <option value="<?php echo $value['value']; ?>"><?php echo $value['name']; ?></option>
+                    <?php endforeach; ?>
+                  </select>
+                </div> <!-- /field -->
+
                   <div class="field">
                     <label for="ppnw_proj_id">Client</label>
                     <select name="ppnw_clnt_id" id="ppnw_clnt_id" />

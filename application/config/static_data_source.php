@@ -49,6 +49,14 @@ $config["static_data_source"]['akun_tipe'] = array(
 		'value' => 3,
 		'name' => 'Barang',
 	),
+	4 => array(
+		'value' => 4,
+		'name' => 'Pasiva',
+	),
+	5 => array(
+		'value' => 5,
+		'name' => 'Beban',
+	),
 );
 
 //data source bank

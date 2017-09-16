@@ -23,7 +23,7 @@
                   <tr>
                     <th> Tanggal </th>
                     <th> No. Penawaran </th>
-                    <th> No. Pemesan </th>
+                    <th> No. Daftar Akun </th>
                     <th> Dipesan Oleh </th>
                     <th> Status </th>
                     <th> Diskon </th>
@@ -41,7 +41,7 @@
                     <tr>
                       <td><?php echo ($key+1); ?></td>
                       <td><?php echo $value['ppnw_no_penawaran']; ?></td>
-                      <td><?php echo $value['clnt_id']; ?></td>
+                      <td><?php echo $value['ppnw_dftrakun']; ?></td>
                       <td><?php echo $value['clnt_nama']; ?></td>
                       <td><?php echo $static_data_source['status_penjualan'][$value['ppnw_status']]['name']; ?></td>
                       <td><?php echo $value['ppnw_diskon']; ?></td>

@@ -14,6 +14,7 @@ class Penjualan extends MY_Frontend {
         $this->load->model('frontend_penjualan/crud_permintaan', 'crud_permintaan');
         $this->load->model('frontend_penjualan/crud_invoice', 'crud_invoice');
         $this->load->model('frontend_penjualan/crud_invoice_detail', 'crud_invoice_detail');
+        $this->load->model('frontend_daftarakun/crud_daftarakun', 'crud_daftarakun');
         $this->load->model('frontend_penjualan/crud_kwitansi', 'crud_kwitansi');
         $this->load->model('frontend_barangjasa/crud_barangjasa', 'crud_barangjasa');
         $this->load->model('frontend_penjualan/crud_berita_acara', 'crud_berita_acara');
@@ -56,6 +57,7 @@ class Penjualan extends MY_Frontend {
 			}
 		}
 
+		$this->_data['option_daftarakun'] = $this->crud_daftarakun->get_nomorakun();
 		$this->_data['option_client'] = $this->crud_client->get_option();
         $this->_data['option_barang'] = $this->crud_barangjasa->get_option();
 		$this->template->set('title', 'Tambah Penawaran Penjualan | Aplikasi Keuangan - PT. Putra Bahari Mandiri');

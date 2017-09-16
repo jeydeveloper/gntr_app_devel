@@ -76,6 +76,18 @@ class Crud_daftarakun extends CI_Model {
 		return $data;
 	}
 
+	function get_nomorakun() {
+		$res = $this->where('akun_parent = 0 and akun_void = 0')->get_all();
+		$data = array();
+		foreach ($res as $key => $value) {
+			$data[] = array(
+				'name' 	=> $value['akun_nomor'],
+				'value' => $value['akun_id'],
+			); 
+		}
+		return $data;
+	}
+
 	function get_option_info() {
 		$res = $this->get_all();
 		$data = array();
