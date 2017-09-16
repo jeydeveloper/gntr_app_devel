@@ -1,3 +1,7 @@
+<style type="text/css">
+    select{padding: 3px;margin: 0;}
+    #wrap_form select, #wrap_form button{display: inline-block;width: initial;vertical-align: middle;}
+</style>
 <div class="main">
     <div class="main-inner">
         <div class="container">
@@ -6,7 +10,19 @@
                     <div class="widget">
                         <div class="widget-header">
                             <i class="icon-bar-chart"></i>
-                            <h3>Grafik Pembelian</h3>
+                            <h3>Grafik Pembelian & Penjualan</h3>
+                            <div id="wrap_form" style="float:right; margin-right:5px;">
+                                <form action="<?php echo site_url('home'); ?>">
+                                    <select name="year">
+                                        <option value="2016" <?php echo (2016 == $select_year ? 'selected' : ''); ?>>2016</option>
+                                        <option value="2017" <?php echo (2017 == $select_year ? 'selected' : ''); ?>>2017</option>
+                                        <option value="2018" <?php echo (2018 == $select_year ? 'selected' : ''); ?>>2018</option>
+                                        <option value="2019" <?php echo (2019 == $select_year ? 'selected' : ''); ?>>2019</option>
+                                        <option value="2020" <?php echo (2020 == $select_year ? 'selected' : ''); ?>>2020</option>
+                                    </select>
+                                    <button type="submit">Submit</button>
+                                </form>
+                            </div>
                         </div>
                         <!-- /widget-header -->
                         <div class="widget-content">
@@ -117,21 +133,21 @@
     var myDoughnut = new Chart(document.getElementById("donut-chart").getContext("2d")).Doughnut(doughnutData);
 
     var lineChartData = {
-        labels: ["January", "February", "March", "April", "May", "June", "July"],
+        labels: [<?php echo $data_bulan; ?>],
         datasets: [
             {
                 fillColor: "rgba(220,220,220,0.5)",
                 strokeColor: "rgba(220,220,220,1)",
                 pointColor: "rgba(220,220,220,1)",
                 pointStrokeColor: "#fff",
-                data: [65, 59, 90, 81, 56, 55, 40]
+                data: [<?php echo $data_pembelian; ?>]
             },
             {
                 fillColor: "rgba(151,187,205,0.5)",
                 strokeColor: "rgba(151,187,205,1)",
                 pointColor: "rgba(151,187,205,1)",
                 pointStrokeColor: "#fff",
-                data: [28, 48, 40, 19, 96, 27, 100]
+                data: [<?php echo $data_penjualan; ?>]
             }
         ]
 
@@ -140,17 +156,17 @@
     var myLine = new Chart(document.getElementById("area-chart").getContext("2d")).Line(lineChartData);
 
     var barChartData = {
-        labels: ["January", "February", "March", "April", "May", "June", "July"],
+        labels: [<?php echo $data_bulan; ?>],
         datasets: [
             {
                 fillColor: "rgba(220,220,220,0.5)",
                 strokeColor: "rgba(220,220,220,1)",
-                data: [65, 59, 90, 81, 56, 55, 40]
+                data: [<?php echo $data_pembelian; ?>]
             },
             {
                 fillColor: "rgba(151,187,205,0.5)",
                 strokeColor: "rgba(151,187,205,1)",
-                data: [28, 48, 40, 19, 96, 27, 100]
+                data: [<?php echo $data_penjualan; ?>]
             }
         ]
 

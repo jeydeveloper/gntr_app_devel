@@ -40,6 +40,7 @@
 
 /* Routing untuk Backstage */
 $route['default_controller'] = "frontend_home/home";
+$route['home'] = "frontend_home/home";
 
 //route pengguna
 $route['pengguna'] = "frontend_user/user";
