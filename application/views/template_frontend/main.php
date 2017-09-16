@@ -77,7 +77,7 @@
                 <?php if(($this->session->userdata('userid') == 1) OR (!empty($role_access['lain-lain']['read']))): ?><li><a href="<?php echo site_url('lain-lain'); ?>"><i class="icon-sitemap"></i><span>Lain - lain</span></a></li><?php endif; ?>
                 <?php if(($this->session->userdata('userid') == 1) OR (!empty($role_access['bpu']['read']))): ?><li><a href="<?php echo site_url('bpu'); ?>"><i class="icon-paste"></i><span>BPU</span></a></li><?php endif; ?>
                 <?php if(($this->session->userdata('userid') == 1) OR (!empty($role_access['laporan']['read']))): ?><li><a href="<?php echo site_url('laporan'); ?>"><i class="icon-paste"></i><span>Laporan</span></a></li><?php endif; ?>
-                <?php if(($this->session->userdata('userid') == 1) OR (!empty($role_access['karyawan']['read']))): ?><li><a href="<?php echo site_url('karyawan'); ?>"><i class="icon-user"></i><span>Karyawan</span></a></li><?php endif; ?>
+                <?php if(($this->session->userdata('userid') == 1) OR (!empty($role_access['karyawan']['read']))): ?><li><a href="<?php echo site_url('karyawan'); ?>"><i class="icon-user"></i><span>Karyawannn</span></a></li><?php endif; ?>
             </ul>
         </div>
         <!-- /container --> 
